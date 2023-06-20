@@ -1,3 +1,15 @@
+@font-face {
+    src: url("../Fonts/ProductSans-Light.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Medium.ttf");
+}
 .button{
-    -fx-background-radius: 20px;
+    -fx-background-radius: 12px;
+    -fx-font-family: "Product Sans Medium";
+    -fx-font-size: 50;
+
+}
+.label{
+    -fx-font-family: "Product Sans Medium";
 }
