@@ -15,11 +15,15 @@ public class App extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(Paths.get("src/main/resources/Fxml/landingPage.fxml").toUri().toURL()));
         primaryStage.setTitle("");
-        primaryStage.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+        // setting global stylesheet
+        scene.getStylesheets().add(Paths.get("src/main/resources/Styles/global.css").toUri().toURL().toExternalForm());
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 
     public static void main(String[] args) {
+
         launch(args);
     }
 }
