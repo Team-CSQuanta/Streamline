@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.loginPageController">
+<AnchorPane prefHeight="390.0" prefWidth="619.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.loginPageController">
    <children>
-      <Label fx:id="isConnected" layoutX="60.0" layoutY="127.0" prefHeight="46.0" prefWidth="192.0" style="-fx-alignment: center; -fx-background-color: black;" text="Status" textFill="#14bdcc">
+      <Label fx:id="isConnected" layoutX="158.0" layoutY="27.0" prefHeight="46.0" prefWidth="307.0" style="-fx-alignment: center;" text="Status" textFill="#14bdcc">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
+      <TextField fx:id="userName" layoutX="190.0" layoutY="97.0" prefHeight="25.0" prefWidth="244.0" promptText="Input user name " />
+      <PasswordField fx:id="userPass" layoutX="190.0" layoutY="188.0" prefHeight="25.0" prefWidth="244.0" promptText="Create you password" />
+      <TextField fx:id="userEmail" layoutX="190.0" layoutY="142.0" prefHeight="25.0" prefWidth="244.0" promptText="Input valid email" />
+      <Button fx:id="loginButton" layoutX="254.0" layoutY="233.0" mnemonicParsing="false" onAction="#Login" prefHeight="25.0" prefWidth="115.0" text="Login" />
    </children>
 </AnchorPane>
