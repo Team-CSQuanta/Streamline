@@ -1,5 +1,6 @@
 package com.csquanta.streamline;
 
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,7 +18,6 @@ public class App extends Application {
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/Styles/global.css")).toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.show();
-
     }
 
     public static void main(String[] args) {
