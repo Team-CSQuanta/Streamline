@@ -12,5 +12,6 @@ module com.csquanta.streamline {
     requires java.sql;
     requires io.github.willena.sqlitejdbc;
 
+
 }
 

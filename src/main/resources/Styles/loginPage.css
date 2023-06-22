@@ -1,9 +1,56 @@
 #container{
 
--fx-background-color: #0e9aa7;
+-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #282b30, #1e2124);
 }
 
 #loginButton{
--fx-background-color: #9999FF;
+-fx-background-color: #424549;
+ -fx-text-fill: #ffffff;
+}
+#loginButton:hover {
+    -fx-background-color: #36393e;
+    -fx-text-fill: #7289da;
+}
+#loginwithGoogle{
+-fx-background-color: #424549;
+}
+#loginwithGoogle:hover {
+    -fx-background-color: #36393e;
+    -fx-text-fill: #7289da;
+}
+#loginwithFacebook{
+-fx-background-color: #424549;
+}
+#loginwithFacebook:hover {
+    -fx-background-color: #36393e;
+    -fx-text-fill: #7289da;
+}
+#loginwithGitHub{
+-fx-background-color: #424549;
+}
+#loginwithGitHub:hover {
+    -fx-background-color: #36393e;
+    -fx-text-fill: #7289da;
+}
 
+#userName {
+    -fx-background-color: #36393e;
+}
+#userEmail {
+    -fx-background-color: #36393e;
+}
+#userPass {
+    -fx-background-color: #36393e;
+}
+#userName:hover {
+    -fx-background-color: #424549;
+    -fx-border-color: #7289da;
+}
+#userEmail:hover {
+    -fx-background-color: #424549;
+    -fx-border-color: #7289da;
+}
+#userPass:hover {
+    -fx-background-color: #424549;
+    -fx-border-color: #7289da;
 }
