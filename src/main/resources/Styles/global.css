@@ -13,3 +13,7 @@
 .label{
     -fx-font-family: "Product Sans Medium";
 }
+.logo{
+    -fx-font-family: "Product Sans Medium";
+    -fx-font-size: 100px;
+}

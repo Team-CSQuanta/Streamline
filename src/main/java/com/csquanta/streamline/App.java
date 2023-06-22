@@ -7,11 +7,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import java.util.Objects;
 import javafx.stage.Stage;
-
 public class App extends Application {
+
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/loginPage.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/StartingAnimation.fxml")));
         primaryStage.setTitle("Login");
         Scene scene = new Scene(root);
         // setting global stylesheet
