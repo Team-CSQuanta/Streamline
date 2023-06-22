@@ -5,9 +5,9 @@
     src: url("../Fonts/ProductSans-Medium.ttf");
 }
 .button{
-    -fx-background-radius: 12px;
+    -fx-background-radius: 5px;
     -fx-font-family: "Product Sans Medium";
-    -fx-font-size: 50;
+    -fx-font-size: 10;
 
 }
 .label{
