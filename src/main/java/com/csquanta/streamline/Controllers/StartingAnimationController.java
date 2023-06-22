@@ -43,7 +43,7 @@ public class StartingAnimationController implements Initializable {
     public void nextScene(Stage App) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/loginPage.fxml")));
         Scene login = new Scene(root);
-        App.setScene(new Scene(root));
+        App.setScene(login);
 
     }
 }

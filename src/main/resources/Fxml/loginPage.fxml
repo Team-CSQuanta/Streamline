@@ -32,7 +32,7 @@
       <Hyperlink layoutX="331.0" layoutY="213.0" text="Forgot password?" textFill="#7289da" />
       <Button fx:id="loginwithGoogle" layoutX="331.0" layoutY="472.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="143.0" stylesheets="@../Styles/global.css" text="Log in with Google" textFill="#f7f8f8" />
       <Button fx:id="loginwithFacebook" layoutX="496.0" layoutY="472.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="142.0" stylesheets="@../Styles/global.css" text="Log in with Facebook" textFill="#ecf1f2" />
-      <Button fx:id="loginwithGitHub" layoutX="655.0" layoutY="472.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" stylesheets="@../Styles/global.css" text="Log in with GitHub" textFill="#e9eced" /
+      <Button fx:id="loginwithGitHub" layoutX="655.0" layoutY="472.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" stylesheets="@../Styles/global.css" text="Log in with GitHub" textFill="#e9eced" />
     
    </children>
 </AnchorPane>
