@@ -16,6 +16,7 @@
       <TextField fx:id="userName" layoutX="139.0" layoutY="161.0" prefHeight="25.0" prefWidth="320.0" promptText="User name" />
       <TextField fx:id="email" layoutX="140.0" layoutY="198.0" prefHeight="25.0" prefWidth="320.0" promptText="Valid Email" />
       <PasswordField fx:id="pass" layoutX="140.0" layoutY="236.0" prefHeight="25.0" prefWidth="157.0" promptText="Password" />
+      <PasswordField fx:id="cPass" layoutX="303.0" layoutY="236.0" prefHeight="25.0" prefWidth="157.0" promptText="Confirm password" />
       <DatePicker fx:id="DateOfBirth" layoutX="141.0" layoutY="279.0" prefHeight="25.0" prefWidth="320.0" promptText="Choose your birth date " />
       <Button fx:id="registerButton" layoutX="237.0" layoutY="326.0" mnemonicParsing="false" onAction="#getRegistered" prefHeight="25.0" prefWidth="124.0" text="Sign up" />
       <Label layoutX="145.0" layoutY="30.0" prefHeight="35.0" prefWidth="140.0" text="Register">
@@ -24,7 +25,6 @@
          </font>
       </Label>
       <Label layoutX="143.0" layoutY="77.0" prefHeight="17.0" prefWidth="245.0" text="Sign up now and get full access to our app" />
-      <PasswordField fx:id="cPass" layoutX="303.0" layoutY="236.0" prefHeight="25.0" prefWidth="157.0" promptText="Password" />
       <Label layoutX="246.0" layoutY="363.0" text="Already registered?" />
       <Hyperlink layoutX="260.0" layoutY="380.0" onAction="#goToLoginPage" text="Sign in now" />
    </children>
