@@ -4,7 +4,6 @@ module com.csquanta.streamline {
     requires google.api.client;
     requires com.google.api.client;
     requires AnimateFX;
-    requires javafx.swt;
     requires com.google.api.client.json.jackson2;
     opens com.csquanta.streamline to javafx.fxml;
     exports com.csquanta.streamline;
