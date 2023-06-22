@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
@@ -24,6 +25,7 @@ public class StartingAnimationController implements Initializable {
 
     @FXML
     private AnchorPane rootLayout;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         BounceIn bounceIn = new BounceIn();
@@ -31,15 +33,16 @@ public class StartingAnimationController implements Initializable {
         bounceIn.setDelay(Duration.seconds(.2));
         bounceIn.play();
         bounceIn.setOnFinished(event -> {
-            try{
-                Stage App = (Stage)(logo.getScene()).getWindow();
+            try {
+                Stage App = (Stage) (logo.getScene()).getWindow();
                 nextScene(App);
-            }catch (IOException i){
+            } catch (IOException i) {
                 System.out.println("Exception Occurred");
             }
 
         });
     }
+
     public void nextScene(Stage App) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/loginPage.fxml")));
         Scene login = new Scene(root);
