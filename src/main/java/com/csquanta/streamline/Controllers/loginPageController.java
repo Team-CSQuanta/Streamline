@@ -11,12 +11,20 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 
 public class loginPageController implements Initializable {
     public loginPageModel loginModel = new loginPageModel();
+    @FXML
+    public AnchorPane container;
+   @FXML
+    public Button loginwithFacebook;
+   @FXML
+    public Button loginwithGitHub;
     @FXML
     private Label isConnected;
     @FXML
