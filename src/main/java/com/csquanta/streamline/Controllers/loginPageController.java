@@ -1,6 +1,7 @@
 package com.csquanta.streamline.Controllers;
 
 import java.net.URL;
+
 import com.csquanta.streamline.Models.loginPageModel;
 
 import javafx.event.ActionEvent;
@@ -40,8 +41,10 @@ public class loginPageController implements Initializable {
 
             isConnected.setText("Not Connected");
         }
+
     }
-public void Login(ActionEvent event) throws SQLException {
+
+    public void Login(ActionEvent event) throws SQLException {
         try {
             if (loginModel.isLogin(userName.getText(), userPass.getText(),userEmail.getText())){
            isConnected.setText("User name,password and email is correct");
@@ -53,4 +56,6 @@ public void Login(ActionEvent event) throws SQLException {
             e.printStackTrace();
         }
 }
+
+
 }
