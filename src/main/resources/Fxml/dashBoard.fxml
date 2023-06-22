@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.dashBoardController">
    <children>
-      <Label fx:id="Userlabel" layoutX="240.0" layoutY="127.0" prefHeight="61.0" prefWidth="249.0" text="user">
+      <Label fx:id="Userlabel" layoutX="240.0" layoutY="127.0" prefHeight="61.0" prefWidth="255.0" text="user">
          <font>
             <Font size="26.0" />
          </font>
