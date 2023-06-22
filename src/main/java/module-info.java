@@ -10,5 +10,6 @@ module com.csquanta.streamline {
     exports com.csquanta.streamline.Controllers;
     requires java.sql;
     requires io.github.willena.sqlitejdbc;
+
 }
 

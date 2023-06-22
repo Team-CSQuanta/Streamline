@@ -2,6 +2,7 @@ package com.csquanta.streamline.Controllers;
 
 import java.net.URL;
 import com.csquanta.streamline.Models.loginPageModel;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,7 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
@@ -20,6 +20,8 @@ public class loginPageController implements Initializable {
     private Label isConnected;
     @FXML
     private Button loginButton;
+    @FXML
+    private Button loginwithGoogle;
 
     @FXML
     private TextField userEmail;
@@ -51,5 +53,4 @@ public void Login(ActionEvent event) throws SQLException {
             e.printStackTrace();
         }
 }
-
 }
