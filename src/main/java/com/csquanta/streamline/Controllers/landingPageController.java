@@ -4,6 +4,7 @@ import com.csquanta.streamline.Models.registerPageModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -80,15 +81,15 @@ public class landingPageController {
     }
     @FXML
     public void goToLoginPage(ActionEvent event)throws Exception  {
-        Stage primaryStage = new Stage();
-        FXMLLoader loader = new FXMLLoader();
-        Parent root = loader.load(Objects.requireNonNull(Objects.requireNonNull(getClass().getResource("/Fxml/loginPage.fxml")).openStream()));
-        primaryStage.setTitle("Login");
-        Scene scene = new Scene(root);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/loginPage.fxml")));
+
+        Stage window = (Stage) ((Node) (event.getSource())).getScene().getWindow();
+        Scene scene=(new Scene(root));
+        window.setScene(scene);
         // setting global stylesheet
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/Styles/global.css")).toExternalForm());
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        window.setScene(scene);
+        window.show();
 
     }
 
