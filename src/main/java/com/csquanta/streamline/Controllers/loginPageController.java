@@ -63,7 +63,7 @@ public class loginPageController implements Initializable {
                 Stage primaryStage = new Stage();
                 FXMLLoader loader = new FXMLLoader();
                 Pane root = loader.load(Objects.requireNonNull(Objects.requireNonNull(getClass().getResource("/Fxml/dashBoard.fxml")).openStream()));
-                dashBoardController controller = (dashBoardController) loader.getController();
+                dashBoardController controller = loader.getController();
                 controller.getUser(userName.getText());
                 primaryStage.setTitle("User DashBoard");
                 Scene scene = new Scene(root);
