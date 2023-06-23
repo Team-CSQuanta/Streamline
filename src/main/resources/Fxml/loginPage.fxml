@@ -9,28 +9,38 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="container" prefHeight="428.0" prefWidth="607.0" stylesheets="@../Styles/loginPage.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.loginPageController">
-   <children>
-      <Label fx:id="isConnected" layoutX="18.0" layoutY="27.0" prefHeight="46.0" prefWidth="571.0" style="-fx-alignment: center;" text="Status" textFill="#7289da">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="userName" layoutX="190.0" layoutY="97.0" prefHeight="25.0" prefWidth="244.0" promptText="Input user name " stylesheets="@../Styles/loginPage.css" />
-      <PasswordField fx:id="userPass" layoutX="190.0" layoutY="188.0" prefHeight="25.0" prefWidth="244.0" promptText="Input you password" />
-      <TextField fx:id="userEmail" layoutX="190.0" layoutY="142.0" prefHeight="25.0" prefWidth="244.0" promptText="Input valid email" />
-      <Button fx:id="loginButton" layoutX="243.0" layoutY="246.0" mnemonicParsing="false" onAction="#Login" prefHeight="25.0" prefWidth="137.0" text="Sign in" textFill="WHITE">
-         <stylesheets>
-            <URL value="@../Styles/global.css" />
-            <URL value="@../Styles/loginPage.css" />
-         </stylesheets>
-      </Button>
-      <Label layoutX="231.0" layoutY="300.0" text="Log in with social accounts " textFill="#7289da" />
-      <Hyperlink layoutX="331.0" layoutY="213.0" text="Forgot password?" textFill="#7289da" />
-     
-      <Button fx:id="loginwithGoogle" layoutX="331.0" layoutY="472.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="143.0" stylesheets="@../Styles/global.css" text="Log in with Google" textFill="#f7f8f8" />
-      <Button fx:id="loginwithFacebook" layoutX="496.0" layoutY="472.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="142.0" stylesheets="@../Styles/global.css" text="Log in with Facebook" textFill="#ecf1f2" />
-      <Button fx:id="loginwithGitHub" layoutX="655.0" layoutY="472.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" stylesheets="@../Styles/global.css" text="Log in with GitHub" textFill="#e9eced" />
-    
-   </children>
+<AnchorPane fx:id="container" prefHeight="428.0" prefWidth="628.0" stylesheets="@../Styles/loginPage.css"
+            xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.csquanta.streamline.Controllers.loginPageController">
+    <children>
+        <Label fx:id="isConnected" layoutX="18.0" layoutY="27.0" prefHeight="46.0" prefWidth="571.0"
+               style="-fx-alignment: center;" text="Status" textFill="#7289da">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
+        <TextField fx:id="userName" layoutX="190.0" layoutY="97.0" prefHeight="25.0" prefWidth="244.0"
+                   promptText="Input user name " stylesheets="@../Styles/loginPage.css"/>
+        <PasswordField fx:id="userPass" layoutX="190.0" layoutY="188.0" prefHeight="25.0" prefWidth="244.0"
+                       promptText="Input you password"/>
+        <TextField fx:id="userEmail" layoutX="190.0" layoutY="142.0" prefHeight="25.0" prefWidth="244.0"
+                   promptText="Input valid email"/>
+        <Button fx:id="loginButton" layoutX="243.0" layoutY="246.0" mnemonicParsing="false" onAction="#Login"
+                prefHeight="25.0" prefWidth="137.0" text="Sign in" textFill="WHITE">
+            <stylesheets>
+                <URL value="@../Styles/global.css"/>
+                <URL value="@../Styles/loginPage.css"/>
+            </stylesheets>
+        </Button>
+        <Label layoutX="231.0" layoutY="300.0" text="Log in with social accounts " textFill="#7289da"/>
+        <Hyperlink layoutX="331.0" layoutY="213.0" text="Forgot password?" textFill="#7289da"/>
+
+        <Button fx:id="loginwithGoogle" layoutX="53.0" layoutY="362.0" mnemonicParsing="false" prefHeight="25.0"
+                prefWidth="143.0" stylesheets="@../Styles/global.css" text="Log in with Google" textFill="#f7f8f8"/>
+        <Button fx:id="loginwithFacebook" layoutX="250.0" layoutY="362.0" mnemonicParsing="false" prefHeight="25.0"
+                prefWidth="142.0" stylesheets="@../Styles/global.css" text="Log in with Facebook" textFill="#ecf1f2"/>
+        <Button fx:id="loginwithGitHub" layoutX="449.0" layoutY="362.0" mnemonicParsing="false" prefHeight="25.0"
+                prefWidth="140.0" stylesheets="@../Styles/global.css" text="Log in with GitHub" textFill="#e9eced"/>
+
+    </children>
 </AnchorPane>

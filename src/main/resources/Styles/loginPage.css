@@ -34,12 +34,15 @@
 
 #userName {
     -fx-background-color: #36393e;
+    -fx-text-fill: white;
 }
 #userEmail {
     -fx-background-color: #36393e;
+    -fx-text-fill: white;
 }
 #userPass {
     -fx-background-color: #36393e;
+    -fx-text-fill: white;
 }
 #userName:hover {
     -fx-background-color: #424549;
