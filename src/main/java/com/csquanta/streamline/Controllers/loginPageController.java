@@ -66,10 +66,11 @@ public class loginPageController implements Initializable {
                 dashBoardController controller = loader.getController();
                 controller.getUser(userName.getText());
                 primaryStage.setTitle("User DashBoard");
-                Scene scene = new Scene(root);
+                Scene scene = new Scene(root,1500,1000);
                 // setting global stylesheet
                 scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/Styles/global.css")).toExternalForm());
                 primaryStage.setScene(scene);
+                primaryStage.setFullScreen(true);
                 primaryStage.show();
 
 
@@ -81,6 +82,24 @@ public class loginPageController implements Initializable {
             e.printStackTrace();
         }
     }
+
+
+    public void updatePassword(ActionEvent event) throws IOException{
+
+        Stage primaryStage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        Pane root = loader.load(Objects.requireNonNull(Objects.requireNonNull(getClass().getResource("/Fxml/passwordUpdatingPage.fxml")).openStream()));
+        primaryStage.setTitle("Update password");
+        Scene scene = new Scene(root,1500,1000);
+        // setting global stylesheet
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/Styles/global.css")).toExternalForm());
+        primaryStage.setScene(scene);
+        primaryStage.setFullScreen(true);
+        primaryStage.show();
+
+
+    }
+
 
 
 }

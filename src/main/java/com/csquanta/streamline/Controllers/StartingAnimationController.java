@@ -5,7 +5,6 @@ import animatefx.animation.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -44,8 +43,8 @@ public class StartingAnimationController implements Initializable {
     }
 
     public void nextScene(Stage App) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/landingPage.fxml")));
-        Scene login = new Scene(root);
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/registerPage.fxml")));
+        Scene login = new Scene(root,1500,1000);
         App.setScene(login);
 
     }

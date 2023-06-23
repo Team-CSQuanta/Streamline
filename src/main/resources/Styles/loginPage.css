@@ -47,6 +47,7 @@
 #userName:hover {
     -fx-background-color: #424549;
     -fx-border-color: #7289da;
+    -fx-transition-duration: 0.3s;
 }
 #userEmail:hover {
     -fx-background-color: #424549;
