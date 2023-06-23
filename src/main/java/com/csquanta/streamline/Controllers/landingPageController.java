@@ -52,7 +52,7 @@ public class landingPageController {
         LocalDate selectedDate = DateOfBirth.getValue();
 
         if (password.compareTo(confirmPassword) != 0) {
-            showErrorAlert("Passwords do not match!");
+            showErrorAlert("Passwords do not matches!");
         } else {
             int age = calculateAge(selectedDate);
             if (age <= 0) {
@@ -63,8 +63,6 @@ public class landingPageController {
         }
 
     }
-
-
 
     private int calculateAge(LocalDate birthDate) {
         LocalDate currentDate = LocalDate.now();
