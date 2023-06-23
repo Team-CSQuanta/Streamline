@@ -1,5 +1,7 @@
 package com.csquanta.streamline.Models;
 
+import javafx.scene.control.Alert;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -16,11 +18,17 @@ public class registerPageModel {
                     "VALUES ('" + firstName + "', '" + lastName + "', '" + userName + "', '" + email + "', '" + password + "', " + age + ")";
             stmt.executeUpdate(sql);
 
-            System.out.println("User data inserted successfully!");
+            showAlert(Alert.AlertType.INFORMATION, "Success", "User inserted successfully!");
 
         } catch (SQLException e) {
-            System.out.println("Error: " + e.getMessage());
+            showAlert(Alert.AlertType.ERROR, "Error", "Inserting new user is unsuccessful: " + e.getMessage());
         }
     }
-
+    private static void showAlert(Alert.AlertType alertType, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 }

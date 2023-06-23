@@ -8,15 +8,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Objects;
 
-public class landingPageController {
+public class registerPageController {
 
     @FXML
     private DatePicker DateOfBirth;
@@ -52,11 +50,11 @@ public class landingPageController {
         LocalDate selectedDate = DateOfBirth.getValue();
 
         if (password.compareTo(confirmPassword) != 0) {
-            showErrorAlert("Passwords do not matches!");
+            showAlert(Alert.AlertType.ERROR, "Password mismatches!", "Password and confirm password do not match!");
         } else {
             int age = calculateAge(selectedDate);
             if (age <= 0) {
-                showErrorAlert("You are too young!");
+                showAlert(Alert.AlertType.INFORMATION, "Under age!", "You are not born yet!");
             } else {
                 registerPageModel.insertUserData(firstname, lastname, username, Email, password, age);
             }
@@ -70,9 +68,9 @@ public class landingPageController {
         return period.getYears();
 
     }
-    private void showErrorAlert(String message) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
+    private void showAlert(Alert.AlertType alertType, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
@@ -82,11 +80,12 @@ public class landingPageController {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/loginPage.fxml")));
 
         Stage window = (Stage) ((Node) (event.getSource())).getScene().getWindow();
-        Scene scene=(new Scene(root));
+        Scene scene=(new Scene(root ,1500,1000));
         window.setScene(scene);
         // setting global stylesheet
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/Styles/global.css")).toExternalForm());
         window.setScene(scene);
+        window.setFullScreen(true);
         window.show();
 
     }
