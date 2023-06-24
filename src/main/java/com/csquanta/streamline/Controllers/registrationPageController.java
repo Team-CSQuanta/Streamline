@@ -1,20 +1,20 @@
 package com.csquanta.streamline.Controllers;
-
-import com.csquanta.streamline.Models.registerPageModel;
+import com.csquanta.streamline.Controllers.loginPageController;
+import com.csquanta.streamline.Models.registrationPageModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Objects;
 
-public class registerPageController {
+public class registrationPageController {
 
     @FXML
     private DatePicker DateOfBirth;
@@ -50,13 +50,13 @@ public class registerPageController {
         LocalDate selectedDate = DateOfBirth.getValue();
 
         if (password.compareTo(confirmPassword) != 0) {
-            showAlert(Alert.AlertType.ERROR, "Password mismatches!", "Password and confirm password do not match!");
+           loginPageController.showAlert(Alert.AlertType.ERROR, "Password mismatches!", "Password and confirm password do not match!");
         } else {
             int age = calculateAge(selectedDate);
             if (age <= 0) {
-                showAlert(Alert.AlertType.INFORMATION, "Under age!", "You are not born yet!");
+                loginPageController.showAlert(Alert.AlertType.INFORMATION, "Under age!", "You are not born yet!");
             } else {
-                registerPageModel.insertUserData(firstname, lastname, username, Email, password, age);
+                registrationPageModel.insertUserData(firstname, lastname, username, Email, password, age);
             }
         }
 
@@ -68,24 +68,19 @@ public class registerPageController {
         return period.getYears();
 
     }
-    private void showAlert(Alert.AlertType alertType, String title, String message) {
-        Alert alert = new Alert(alertType);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
-    @FXML
-    public void goToLoginPage(ActionEvent event)throws Exception  {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/loginPage.fxml")));
 
+
+
+    @FXML
+    public void goToLoginPage(ActionEvent event) throws Exception {
+        Pane root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/loginPage.fxml")));
         Stage window = (Stage) ((Node) (event.getSource())).getScene().getWindow();
-        Scene scene=(new Scene(root ,1500,1000));
+        Scene scene = (new Scene(root, 1500, 1000));
         window.setScene(scene);
         // setting global stylesheet
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/Styles/global.css")).toExternalForm());
         window.setScene(scene);
-        window.setFullScreen(true);
+        // window.setFullScreen(true);
         window.show();
 
     }

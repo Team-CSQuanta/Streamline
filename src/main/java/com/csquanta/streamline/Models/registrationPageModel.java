@@ -1,5 +1,5 @@
 package com.csquanta.streamline.Models;
-
+import com.csquanta.streamline.Controllers.loginPageController;
 import javafx.scene.control.Alert;
 
 import java.sql.Connection;
@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class registerPageModel {
+public class registrationPageModel {
     private static final String DB_URL = "jdbc:sqlite:userLoginInfo.db";
 
     public static void insertUserData(String firstName, String lastName, String userName, String email, String password, int age) {
@@ -18,17 +18,12 @@ public class registerPageModel {
                     "VALUES ('" + firstName + "', '" + lastName + "', '" + userName + "', '" + email + "', '" + password + "', " + age + ")";
             stmt.executeUpdate(sql);
 
-            showAlert(Alert.AlertType.INFORMATION, "Success", "User inserted successfully!");
+           loginPageController.showAlert(Alert.AlertType.INFORMATION, "Success", "User inserted successfully!");
 
         } catch (SQLException e) {
-            showAlert(Alert.AlertType.ERROR, "Error", "Inserting new user is unsuccessful: " + e.getMessage());
+            loginPageController.showAlert(Alert.AlertType.ERROR, "Error", "Inserting new user is unsuccessful: " + e.getMessage());
         }
     }
-    private static void showAlert(Alert.AlertType alertType, String title, String message) {
-        Alert alert = new Alert(alertType);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
+
+
 }
