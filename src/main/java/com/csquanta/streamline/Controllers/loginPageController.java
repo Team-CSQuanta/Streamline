@@ -2,19 +2,19 @@ package com.csquanta.streamline.Controllers;
 
 import java.io.IOException;
 import java.net.URL;
+
 import com.csquanta.streamline.Models.loginPageModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
 import java.sql.SQLException;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -48,10 +48,10 @@ public class loginPageController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         if (loginModel.isDbConnected()) {
-            isConnected.setText("Connected");
+            isConnected.setText("Connection is successful!");
         } else {
 
-            isConnected.setText("Not Connected");
+            showAlert(Alert.AlertType.ERROR, "Database connection", "Database connection is not successful!");
         }
 
     }
@@ -60,26 +60,52 @@ public class loginPageController implements Initializable {
         try {
             if (loginModel.isLogin(userName.getText(), userPass.getText(), userEmail.getText())) {
                 isConnected.setText("User name,password and email is correct");
-                Stage primaryStage = new Stage();
                 FXMLLoader loader = new FXMLLoader();
                 Pane root = loader.load(Objects.requireNonNull(Objects.requireNonNull(getClass().getResource("/Fxml/dashBoard.fxml")).openStream()));
+                Stage primaryStage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
                 dashBoardController controller = loader.getController();
                 controller.getUser(userName.getText());
                 primaryStage.setTitle("User DashBoard");
-                Scene scene = new Scene(root);
+                Scene scene = new Scene(root, 1500, 1000);
                 // setting global stylesheet
                 scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/Styles/global.css")).toExternalForm());
                 primaryStage.setScene(scene);
+                primaryStage.setFullScreen(true);
                 primaryStage.show();
 
 
             } else {
-                isConnected.setText("User name or password or email is not correct");
+                showAlert(Alert.AlertType.ERROR, "Wrong entry", "Provided information is not in the database!");
             }
         } catch (SQLException e) {
-            isConnected.setText("User name or password or email is not correct");
+            showAlert(Alert.AlertType.ERROR, "Wrong entry", "Provided information is not in the database!");
             e.printStackTrace();
         }
+    }
+
+
+    public void updatePassword(ActionEvent event) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader();
+        Pane root = FXMLLoader.load(Objects.requireNonNull(Objects.requireNonNull(getClass().getResource("/Fxml/passwordUpdatingPage.fxml"))));
+        Stage primaryStage = (Stage) ((Node) (event.getSource())).getScene().getWindow();
+        primaryStage.setTitle("Update password");
+        Scene scene = new Scene(root, 1500, 1000);
+        // setting global stylesheet
+        scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/Styles/global.css")).toExternalForm());
+        primaryStage.setScene(scene);
+        // primaryStage.setFullScreen(true);
+        primaryStage.show();
+
+
+    }
+
+    public static void showAlert(Alert.AlertType alertType, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
 
