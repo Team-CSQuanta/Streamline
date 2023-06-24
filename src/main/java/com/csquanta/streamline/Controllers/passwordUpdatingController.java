@@ -37,6 +37,7 @@ public class passwordUpdatingController {
 
         if (newPassword.compareTo(confirmNewPassword) != 0) {
             loginPageController.showAlert(Alert.AlertType.ERROR, "Password Mismatch", "New password and confirmed password do not match!");
+            return;
         }
 
         try {
