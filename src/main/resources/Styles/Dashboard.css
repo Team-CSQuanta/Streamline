@@ -26,4 +26,13 @@
 .notification{
     -fx-font-family: "Product Sans Medium";
 }
+.todaysTopActivity{
+
+}
+.toyasTopAcitivityHead{
+    -fx-font-family: "Product Sans Black";
+    -fx-font-size: 25px;
+    -fx-border-color: transparent transparent linear-gradient(to bottom right, #18ABD1, #8968A3, #DD3982, #DE755C, #DEA63D) transparent;
+    -fx-border-width: 3px;
+}
 
