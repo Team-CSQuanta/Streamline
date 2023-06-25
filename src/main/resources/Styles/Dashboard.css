@@ -1,0 +1,29 @@
+@font-face {
+    src: url("../Fonts/ProductSans-Light.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Medium.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Regular.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Black.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Bold.ttf");
+}
+.DashboardleftText{
+    -fx-font-family: "Product Sans Medium";
+    -fx-font-size: 14px;
+}
+.DashboardleftHBox:hover{
+    /*-fx-border-color: transparent transparent transparent #758FF0;*/
+    /*-fx-border-width: 4;*/
+    -fx-background-color: linear-gradient(to bottom right, #18ABD1, #8968A3, #DD3982, #DE755C, #DEA63D);
+    -fx-background-radius: 2px;
+}
+.notification{
+    -fx-font-family: "Product Sans Medium";
+}
+

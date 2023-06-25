@@ -14,7 +14,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/StartingAnimation.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/Dashboard.fxml")));
         primaryStage.setTitle("Login");
         Scene scene = new Scene(root);
         // setting global stylesheet
