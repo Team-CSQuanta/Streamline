@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1700.0" stylesheets="@../Styles/Dashboard.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1700.0" stylesheets="@../Styles/Dashboard.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.DashBoardController">
    <children>
       <VBox style="-fx-background-color: rgba(19,19,19, .9);">
          <children>
@@ -181,7 +185,7 @@
          <children>
             <HBox prefHeight="500.0" prefWidth="1500.0">
                <children>
-                  <VBox prefHeight="381.0" prefWidth="556.0" style="-fx-background-color: #0d1117; -fx-background-radius: 15px;">
+                  <VBox alignment="CENTER" maxWidth="-Infinity" prefHeight="381.0" prefWidth="556.0" style="-fx-background-color: #0d1117; -fx-background-radius: 15px;" styleClass="boxContainerDash" stylesheets="@../Styles/Dashboard.css">
                      <HBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </HBox.margin>
@@ -197,12 +201,25 @@
                               <Insets bottom="2.0" left="10.0" right="2.0" top="2.0" />
                            </padding>
                         </HBox>
+                        <BarChart fx:id="todaysTopActivityChart" barGap="2.0" categoryGap="5.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="412.0" prefWidth="544.0" stylesheets="@../Styles/Dashboard.css">
+                          <xAxis>
+                             <NumberAxis autoRanging="false" tickLabelGap="5.0" tickUnit="2.0" upperBound="24.0" />
+                          </xAxis>
+                          <yAxis>
+                             <CategoryAxis />
+                          </yAxis>
+                           <styleClass>
+                              <String fx:value="chat-content" />
+                              <String fx:value="chart-legend" />
+                              <String fx:value="chart" />
+                           </styleClass>
+                        </BarChart>
                      </children>
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                   </VBox>
-                  <VBox prefHeight="381.0" prefWidth="556.0" style="-fx-background-color: #121212; -fx-background-radius: 15px;">
+                  <VBox maxWidth="-Infinity" prefHeight="381.0" prefWidth="556.0" style="-fx-background-color: #121212; -fx-background-radius: 15px;" styleClass="boxContainerDash" stylesheets="@../Styles/Dashboard.css">
                      <HBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </HBox.margin>
@@ -214,12 +231,12 @@
             </HBox>
             <HBox prefHeight="500.0" prefWidth="1500.0">
                <children>
-                  <VBox prefHeight="381.0" prefWidth="556.0" style="-fx-background-color: #121212; -fx-background-radius: 15px;">
+                  <VBox maxWidth="-Infinity" prefHeight="381.0" prefWidth="556.0" style="-fx-background-color: #121212; -fx-background-radius: 15px;" styleClass="boxContainerDash" stylesheets="@../Styles/Dashboard.css">
                      <HBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </HBox.margin>
                   </VBox>
-                  <VBox prefHeight="381.0" prefWidth="556.0" style="-fx-background-color: #121212; -fx-background-radius: 15px;">
+                  <VBox maxWidth="-Infinity" prefHeight="381.0" prefWidth="556.0" style="-fx-background-color: #121212; -fx-background-radius: 15px;" styleClass="boxContainerDash" stylesheets="@../Styles/Dashboard.css">
                      <HBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </HBox.margin>

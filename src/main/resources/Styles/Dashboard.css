@@ -32,7 +32,66 @@
 .toyasTopAcitivityHead{
     -fx-font-family: "Product Sans Black";
     -fx-font-size: 25px;
-    -fx-border-color: transparent transparent linear-gradient(to bottom right, #18ABD1, #8968A3, #DD3982, #DE755C, #DEA63D) transparent;
-    -fx-border-width: 3px;
+    /*-fx-border-color: transparent transparent linear-gradient(to bottom right, #18ABD1, #8968A3, #DD3982, #DE755C, #DEA63D) transparent;*/
+    /*-fx-border-width: 3px;*/
 }
+.boxContainerDash{
+
+}
+.boxContainerDash:hover{
+    -fx-border-radius: 15px;
+    -fx-border-width: 1px;
+    -fx-border-color: linear-gradient(to bottom right, #18ABD1, #8968A3, #DD3982, #DE755C, #DEA63D);
+}
+
+.chart{
+    /*-fx-padding: 10px;*/
+}
+.chat-content{
+    -fx-padding: 10px;
+}
+.chart-legend{
+    -fx-background-color: transparent;
+    -fx-font-family: "Product Sans Light";
+
+}
+.chart-legend-item{
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 10px;
+}
+.chart-legend-item-symbol{
+    -fx-background-radius: 100%;
+}
+/*.axis-label{*/
+/*    -fx-font-family: "Product Sans Light";*/
+/*    -fx-font-size: 5px;*/
+/*    -fx-text-fill: #FFFFFF;;*/
+/*}*/
+.axis{
+    -fx-font-family: "Product Sans Light";
+    -fx-font-size: 5px;
+
+}
+.chart-plot-background{
+    -fx-background-color: transparent;
+}
+
+.chart-vertical-grid-lines{
+    -fx-stroke: transparent;
+}
+.chart-horizontal-grid-lines{
+    -fx-stroke: transparent;
+}
+.chart-bar{
+    -fx-background-radius: 0px 20px 20px 0px;
+}
+.default-color0.chart-bar {-fx-bar-fill: #F6CF68}
+.default-color1.chart-bar{-fx-bar-fill: #758FF0}
+.default-color2.chart-bar{-fx-bar-fill: #A2FF86}
+.default-color2.chart-bar{-fx-bar-fill: #AEBDCA}
+.default-color4.chart-bar{-fx-bar-fill: #525FE1}
+.default-color5.chart-bar{-fx-bar-fill: #9BCDD2}
+.default-color6.chart-bar{-fx-bar-fill: #0079FF}
+.default-color7.chart-bar{-fx-bar-fill: #D4ADFC}
+.default-color8.chart-bar{-fx-bar-fill: #FFD3B0}
 
