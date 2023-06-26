@@ -14,7 +14,7 @@ import java.util.ResourceBundle;
 
 public class DashBoardController implements Initializable {
     @FXML
-    private BarChart<Number, String> todaysTopActivityChart;
+    private BarChart<String, Number> todaysTopActivityChart;
 
     @FXML
     private Circle image;
@@ -26,18 +26,18 @@ public class DashBoardController implements Initializable {
 
         /**********************************************/
 
-        XYChart.Data<Number, String> playingData  = new XYChart.Data<>(4, "Playing");
-        XYChart.Series<Number, String> playing= new XYChart.Series<>();
+        XYChart.Data<String, Number> playingData  = new XYChart.Data<>("Playing", 4);
+        XYChart.Series<String, Number> playing= new XYChart.Series<>();
         playing.setName("Playing");
         playing.getData().add(playingData);
 
-        XYChart.Data<Number, String> readingData = new XYChart.Data<>(13, "Reading");
-        XYChart.Series<Number, String> reading = new XYChart.Series<>();
+        XYChart.Data<String, Number> readingData = new XYChart.Data<>("Reading", 13);
+        XYChart.Series<String, Number> reading = new XYChart.Series<>();
         reading.setName("Reading");
         reading.getData().add(readingData);
 
-        XYChart.Data<Number, String> entertainmentData = new XYChart.Data<>(3, "Entertainment");
-        XYChart.Series<Number, String> entertainment = new XYChart.Series<>();
+        XYChart.Data<String, Number> entertainmentData = new XYChart.Data<>("Entertainment", 6);
+        XYChart.Series<String, Number> entertainment = new XYChart.Series<>();
         reading.setName("Entertainment");
         reading.getData().add(entertainmentData);
 

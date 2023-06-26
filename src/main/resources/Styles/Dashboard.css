@@ -59,9 +59,7 @@
     -fx-text-fill: #FFFFFF;
     -fx-font-size: 10px;
 }
-.chart-legend-item-symbol{
-    -fx-background-radius: 100%;
-}
+
 /*.axis-label{*/
 /*    -fx-font-family: "Product Sans Light";*/
 /*    -fx-font-size: 5px;*/
@@ -83,7 +81,10 @@
     -fx-stroke: transparent;
 }
 .chart-bar{
-    -fx-background-radius: 0px 20px 20px 0px;
+    -fx-background-radius: 10px 10px 0px 0px;
+}
+.chart-legend-item-symbol{
+    -fx-background-radius: 100%;
 }
 .default-color0.chart-bar {-fx-bar-fill: #F6CF68}
 .default-color1.chart-bar{-fx-bar-fill: #758FF0}
