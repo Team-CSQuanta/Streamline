@@ -16,10 +16,11 @@ public class App extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/Dashboard.fxml")));
         primaryStage.setTitle("Login");
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root, 1700, 1000);
         // setting global stylesheet
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/Styles/global.css")).toExternalForm());
         primaryStage.setScene(scene);
+
         primaryStage.show();
     }
 
