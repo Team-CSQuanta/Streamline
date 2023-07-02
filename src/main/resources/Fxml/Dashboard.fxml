@@ -34,7 +34,7 @@
                               <Image url="@../Images/icons8-dashboard-layout-24.png" />
                            </image>
                         </ImageView>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DashboardleftText" text="Overveiw">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DashboardleftText" text="Overview">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -47,7 +47,7 @@
                         <Insets />
                      </VBox.margin>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" minHeight="40.0" minWidth="-Infinity" prefHeight="60.0" prefWidth="183.0" spacing="8.0" styleClass="DashboardleftHBox" stylesheets="@../Styles/Dashboard.css">
+                  <HBox alignment="CENTER_LEFT" minHeight="40.0" minWidth="-Infinity" onMouseClicked="#tasksBtnClicked" prefHeight="60.0" prefWidth="183.0" spacing="8.0" styleClass="DashboardleftHBox" stylesheets="@../Styles/Dashboard.css">
                      <children>
                         <VBox prefHeight="60.0" prefWidth="10.0" />
                         <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
