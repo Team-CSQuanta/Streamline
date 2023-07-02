@@ -58,6 +58,14 @@ public class DashBoardController implements Initializable {
         Stage primaryStage = App.mainStage;
         primaryStage.setScene(toDoList);
     }
+    @FXML
+    void onHabitTrackerBtnClicked(MouseEvent event) throws IOException{
+        FXMLScene scene = FXMLScene.load("/Fxml/HabitTracker.fxml");
+        Parent root =  scene.root;
+        Scene habitTracker = new Scene(root);
+        Stage primaryStage = App.mainStage;
+        primaryStage.setScene(habitTracker);
+    }
 
     @FXML
     private Label Userlabel;
