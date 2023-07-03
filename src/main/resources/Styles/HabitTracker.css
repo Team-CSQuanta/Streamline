@@ -15,5 +15,21 @@
 }
 .topHeading{
     -fx-font-family: "Product Sans Black";
-    -fx-font-size: 40;
+    -fx-font-size: 30;
+}
+.month{
+    -fx-font-family: "Product Sans Light";
+    -fx-font-size: 15px;
+}
+.date{
+    -fx-font-family: "Product Sans Bold";
+    -fx-font-size: 25px;
+}
+.day{
+    -fx-font-family: "Product Sans Light";
+    -fx-font-size: 15px;
+}
+.dateInfoBox{
+    -fx-background-color: #758FF0;
+    -fx-background-radius: 2px;
 }
