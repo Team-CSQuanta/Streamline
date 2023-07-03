@@ -1,6 +1,5 @@
 package com.csquanta.streamline.Controllers;
-import com.csquanta.streamline.Controllers.loginPageController;
-import com.csquanta.streamline.Models.passwordUpdatingModel;
+import com.csquanta.streamline.Models.PasswordUpdatingModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -10,7 +9,7 @@ import javafx.scene.control.TextField;
 
 import java.sql.SQLException;
 
-public class passwordUpdatingController {
+public class PasswordUpdatingController {
 
     @FXML
     private PasswordField Cpass;
@@ -26,7 +25,7 @@ public class passwordUpdatingController {
 
     @FXML
     private TextField userName;
-    public passwordUpdatingModel model = new passwordUpdatingModel();
+    public PasswordUpdatingModel model = new PasswordUpdatingModel();
 
     @FXML
     void confirmChange(ActionEvent event) {
@@ -36,7 +35,7 @@ public class passwordUpdatingController {
         String Email = email.getText();
 
         if (newPassword.compareTo(confirmNewPassword) != 0) {
-            loginPageController.showAlert(Alert.AlertType.ERROR, "Password Mismatch", "New password and confirmed password do not match!");
+            LoginPageController.showAlert(Alert.AlertType.ERROR, "Password Mismatch", "New password and confirmed password do not match!");
             return;
         }
 
@@ -44,12 +43,12 @@ public class passwordUpdatingController {
             boolean success = model.updatePassword(username, Email, newPassword);
 
             if (success) {
-                loginPageController.showAlert(Alert.AlertType.INFORMATION, "Password Updated", "Password updated successfully!");
+                LoginPageController.showAlert(Alert.AlertType.INFORMATION, "Password Updated", "Password updated successfully!");
             } else {
-                loginPageController.showAlert(Alert.AlertType.ERROR, "Error", "Failed to update password!");
+                LoginPageController.showAlert(Alert.AlertType.ERROR, "Error", "Failed to update password!");
             }
         } catch (SQLException e) {
-            loginPageController.showAlert(Alert.AlertType.ERROR, "Error", "Error updating password: " + e.getMessage());
+            LoginPageController.showAlert(Alert.AlertType.ERROR, "Error", "Error updating password: " + e.getMessage());
         }
     }
 

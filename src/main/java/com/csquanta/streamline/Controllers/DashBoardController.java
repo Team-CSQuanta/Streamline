@@ -19,7 +19,12 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+
+
 public class DashBoardController implements Initializable {
+
+    @FXML
+    private Label Userlabel;
     @FXML
     private BarChart<String, Number> todaysTopActivityChart;
     @FXML
@@ -67,8 +72,7 @@ public class DashBoardController implements Initializable {
         primaryStage.setScene(habitTracker);
     }
 
-    @FXML
-    private Label Userlabel;
+
 
     @FXML
     public void getUser(String user) {
