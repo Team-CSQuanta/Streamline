@@ -18,6 +18,7 @@ public class App extends Application {
         primaryStage.setScene(startingAnimation);
         primaryStage.setResizable(false);
         primaryStage.show();
+
     }
 
     public static void main(String[] args) {
