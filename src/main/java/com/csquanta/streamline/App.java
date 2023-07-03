@@ -1,9 +1,13 @@
 package com.csquanta.streamline;
+import atlantafx.base.theme.PrimerDark;
+import atlantafx.base.theme.PrimerLight;
 import com.csquanta.streamline.Controllers.FXMLScene;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.util.Objects;
 
 
 public class App extends Application {
@@ -17,6 +21,7 @@ public class App extends Application {
         primaryStage.setScene(startingAnimation);
         primaryStage.setScene(startingAnimation);
         primaryStage.setResizable(false);
+        Application.setUserAgentStylesheet(Objects.requireNonNull(getClass().getResource("/Styles/primer-dark.css")).toExternalForm());
         primaryStage.show();
 
     }
