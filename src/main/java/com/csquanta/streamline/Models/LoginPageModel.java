@@ -1,18 +1,18 @@
 package com.csquanta.streamline.Models;
-import com.csquanta.streamline.Controllers.loginPageController;
+import com.csquanta.streamline.Controllers.LoginPageController;
 import com.csquanta.streamline.dbConnection;
 import javafx.scene.control.Alert;
 
 import java.sql.*;
 
-public class loginPageModel {
+public class LoginPageModel {
     Connection connection;
 
-    public loginPageModel() {
+    public LoginPageModel() {
         connection = dbConnection.connector();
         if (connection == null) {
 
-            loginPageController.showAlert(Alert.AlertType.ERROR, "Database connection", "Database connection is not successful!");
+            LoginPageController.showAlert(Alert.AlertType.ERROR, "Database connection", "Database connection is not successful!");
             System.exit(1);
         }
     }
