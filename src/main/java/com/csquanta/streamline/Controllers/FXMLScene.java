@@ -11,8 +11,8 @@ import javafx.scene.Parent;
 import java.io.IOException;
 
 public class FXMLScene {
-    Parent root = null;
-    Object controller = null;
+    public Parent root = null;
+    public Object controller = null;
 
     public static FXMLScene load(String fxmlpath) throws IOException {
 

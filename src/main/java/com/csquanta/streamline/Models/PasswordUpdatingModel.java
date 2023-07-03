@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class passwordUpdatingModel {
+public class PasswordUpdatingModel {
 
     // Database connection details
     private static final String DB_URL = "jdbc:sqlite:userLoginInfo.db";

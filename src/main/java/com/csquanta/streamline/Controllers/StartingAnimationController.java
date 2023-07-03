@@ -1,9 +1,8 @@
 package com.csquanta.streamline.Controllers;
 
 import animatefx.animation.*;
-
+import com.csquanta.streamline.App;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,10 +10,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
 import java.io.IOException;
 import java.net.URL;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 
@@ -42,10 +39,13 @@ public class StartingAnimationController implements Initializable {
         });
     }
 
-    public void nextScene(Stage App) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/registrationPage.fxml")));
-        Scene login = new Scene(root, 1500, 1000);
-        App.setScene(login);
+    public void nextScene(Stage stage) throws IOException {
+        FXMLScene scene = FXMLScene.load("/Fxml/RegistrationPage.fxml");
+        Parent root =  scene.root;
+        Scene registration = new Scene(root);
+         stage = App.mainStage;
+        stage.setScene(registration);
 
     }
 }
+

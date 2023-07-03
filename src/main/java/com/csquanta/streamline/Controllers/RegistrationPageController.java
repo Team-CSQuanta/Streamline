@@ -1,6 +1,5 @@
 package com.csquanta.streamline.Controllers;
-import com.csquanta.streamline.Controllers.loginPageController;
-import com.csquanta.streamline.Models.registrationPageModel;
+import com.csquanta.streamline.Models.RegistrationPageModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +13,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.Objects;
 
-public class registrationPageController {
+public class RegistrationPageController {
 
     @FXML
     private DatePicker DateOfBirth;
@@ -50,13 +49,13 @@ public class registrationPageController {
         LocalDate selectedDate = DateOfBirth.getValue();
 
         if (password.compareTo(confirmPassword) != 0) {
-           loginPageController.showAlert(Alert.AlertType.ERROR, "Password mismatches!", "Password and confirm password do not match!");
+           LoginPageController.showAlert(Alert.AlertType.ERROR, "Password mismatches!", "Password and confirm password do not match!");
         } else {
             int age = calculateAge(selectedDate);
             if (age <= 0) {
-                loginPageController.showAlert(Alert.AlertType.INFORMATION, "Under age!", "You are not born yet!");
+                LoginPageController.showAlert(Alert.AlertType.INFORMATION, "Under age!", "You are not born yet!");
             } else {
-                registrationPageModel.insertUserData(firstname, lastname, username, Email, password, age);
+                RegistrationPageModel.insertUserData(firstname, lastname, username, Email, password, age);
             }
         }
 
@@ -73,14 +72,14 @@ public class registrationPageController {
 
     @FXML
     public void goToLoginPage(ActionEvent event) throws Exception {
-        Pane root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/loginPage.fxml")));
+        Pane root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/LoginPage.fxml")));
         Stage window = (Stage) ((Node) (event.getSource())).getScene().getWindow();
         Scene scene = (new Scene(root, 1500, 1000));
         window.setScene(scene);
         // setting global stylesheet
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/Styles/global.css")).toExternalForm());
         window.setScene(scene);
-        // window.setFullScreen(true);
+        window.setFullScreen(false);
         window.show();
 
     }
