@@ -2,18 +2,22 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.HabitTrackerController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1900.0" stylesheets="@../Styles/primer-dark.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.HabitTrackerController">
    <children>
-      <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1000.0" prefWidth="200.0" style="-fx-background-color: rgba(19,19,19, .9);">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1000.0" prefWidth="200.0" style="-fx-border-color: #FFFFFF; -fx-border-radius: 0px 30px 30px 0px; -fx-border-width: 0.4;">
          <children>
-            <VBox alignment="TOP_CENTER" prefHeight="1000.0" prefWidth="190.0" style="-fx-background-color: #121212; -fx-background-radius: 0px 30px 30px 0px;">
+            <VBox alignment="TOP_CENTER" prefHeight="1000.0" prefWidth="190.0" style="-fx-background-radius: 0px 30px 30px 0px;">
                <children>
                   <HBox minHeight="-Infinity" prefHeight="30.0" prefWidth="176.0" />
                   <HBox alignment="CENTER_LEFT" minHeight="40.0" minWidth="-Infinity" prefHeight="60.0" prefWidth="176.0" spacing="8.0" styleClass="DashboardleftHBox" stylesheets="@../Styles/Dashboard.css">
@@ -189,6 +193,780 @@
             </VBox>
          </children>
       </VBox>
-      <VBox prefHeight="1000.0" prefWidth="1700.0" style="-fx-background-color: rgba(19,19,19, .9);" />
+      <VBox prefHeight="1000.0" prefWidth="1700.0" spacing="20.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="1630.0" style="-fx-border-color: #FFFFFF; -fx-border-width: 0.4; -fx-border-radius: 5;">
+               <padding>
+                  <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="20.0" top="20.0" />
+               </VBox.margin>
+               <children>
+                  <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="300.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-1" text="Habits" />
+                     </children>
+                  </VBox>
+                  <Separator orientation="VERTICAL" prefHeight="200.0" />
+                  <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/icons8-arrow-48.png" />
+                     </image>
+                  </ImageView>
+                  <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="100.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-5" text="JUN" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-1" text="08" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-5" text="Tue" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="100.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-5" text="JUN" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-1" text="09" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-5" text="Wed" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="100.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-5" text="JUN" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-1" text="10" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-5" text="Thu" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="100.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-5" text="JUN" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-1" text="11" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-5" text="Fri" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="100.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-5" text="JUN" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-1" text="12" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-5" text="Sat" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="100.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-5" text="JUN" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-1" text="13" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-5" text="Sun" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="100.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-5" text="JUN" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-1" text="14" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-5" text="Mon" />
+                     </children>
+                  </VBox>
+                  <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/icons8-arrow-48-right-side-point.png" />
+                     </image>
+                  </ImageView>
+                  <Separator orientation="VERTICAL" prefHeight="200.0" />
+                  <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="455.0">
+                     <children>
+                        <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/icons8-add-48.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </children></HBox>
+            <VBox prefHeight="803.0" prefWidth="1640.0">
+               <children>
+                  <ScrollPane hbarPolicy="NEVER" pannable="true" prefHeight="800.0" prefWidth="1640.0" vbarPolicy="ALWAYS">
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                     <content>
+                        <VBox prefHeight="800.0" prefWidth="1640.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="1630.0" stylesheets="@../Styles/primer-dark.css">
+                                 <padding>
+                                    <Insets left="20.0" right="20.0" />
+                                 </padding>
+                                 <children>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" spacing="5.0">
+                                       <children>
+                                          <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0">
+                                             <children>
+                                                <Text smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-4" text="Wake up in the morning" textAlignment="CENTER" wrappingWidth="300.0" HBox.hgrow="NEVER" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                    <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                    <ImageView fitHeight="40.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <ImageView fitHeight="40.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                    <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="455.0">
+                                       <children>
+                                          <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Images/icons8-edit-24.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="1630.0" stylesheets="@../Styles/primer-dark.css">
+                                 <padding>
+                                    <Insets left="20.0" right="20.0" />
+                                 </padding>
+                                 <children>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" spacing="5.0">
+                                       <children>
+                                          <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0">
+                                             <children>
+                                                <Text smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-4" text="Programming" textAlignment="CENTER" wrappingWidth="300.0" HBox.hgrow="NEVER" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                    <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                    <ImageView fitHeight="40.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #FFB2B2#FFB2B2;" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: transparent;" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #FFB2B2;" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #FFB2B2;" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #FFB2B2;" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #FFB2B2;" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #FFB2B2;" />
+                                       </children>
+                                    </VBox>
+                                    <ImageView fitHeight="40.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                    <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="455.0">
+                                       <children>
+                                          <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Images/icons8-edit-24.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="1630.0" stylesheets="@../Styles/primer-dark.css">
+                                 <padding>
+                                    <Insets left="20.0" right="20.0" />
+                                 </padding>
+                                 <children>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" spacing="5.0">
+                                       <children>
+                                          <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0">
+                                             <children>
+                                                <Text smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-4" text="Waking up" textAlignment="CENTER" wrappingWidth="300.0" HBox.hgrow="NEVER" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                    <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                    <ImageView fitHeight="40.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #FFF69B;" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #FFF69B;" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #FFF69B;" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #FFF69B;" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #FFF69B;" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #FFF69B;" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #FFF69B;" />
+                                       </children>
+                                    </VBox>
+                                    <ImageView fitHeight="40.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                    <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="455.0">
+                                       <children>
+                                          <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Images/icons8-edit-24.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="1630.0" stylesheets="@../Styles/primer-dark.css">
+                                 <padding>
+                                    <Insets left="20.0" right="20.0" />
+                                 </padding>
+                                 <children>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" spacing="5.0">
+                                       <children>
+                                          <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0">
+                                             <children>
+                                                <Text smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-4" text="Nothing" textAlignment="CENTER" wrappingWidth="300.0" HBox.hgrow="NEVER" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                    <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                    <ImageView fitHeight="40.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #DDDDDD;" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #DDDDDD;" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #DDDDDD;" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #DDDDDD;" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #DDDDDD;" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #DDDDDD;" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #DDDDDD;" />
+                                       </children>
+                                    </VBox>
+                                    <ImageView fitHeight="40.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                    <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="455.0">
+                                       <children>
+                                          <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Images/icons8-edit-24.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="1630.0" stylesheets="@../Styles/primer-dark.css">
+                                 <padding>
+                                    <Insets left="20.0" right="20.0" />
+                                 </padding>
+                                 <children>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" spacing="5.0">
+                                       <children>
+                                          <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0">
+                                             <children>
+                                                <Text smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-4" text="ldj" textAlignment="CENTER" wrappingWidth="300.0" HBox.hgrow="NEVER" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                    <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                    <ImageView fitHeight="40.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <ImageView fitHeight="40.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                    <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="455.0">
+                                       <children>
+                                          <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Images/icons8-edit-24.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="1630.0" stylesheets="@../Styles/primer-dark.css">
+                                 <padding>
+                                    <Insets left="20.0" right="20.0" />
+                                 </padding>
+                                 <children>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" spacing="5.0">
+                                       <children>
+                                          <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0">
+                                             <children>
+                                                <Text smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-4" text="dfdf" textAlignment="CENTER" wrappingWidth="300.0" HBox.hgrow="NEVER" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                    <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                    <ImageView fitHeight="40.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <ImageView fitHeight="40.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                    <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="455.0">
+                                       <children>
+                                          <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Images/icons8-edit-24.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="1630.0" stylesheets="@../Styles/primer-dark.css">
+                                 <padding>
+                                    <Insets left="20.0" right="20.0" />
+                                 </padding>
+                                 <children>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" spacing="5.0">
+                                       <children>
+                                          <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0">
+                                             <children>
+                                                <Text smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-4" text="ddfdf" textAlignment="CENTER" wrappingWidth="300.0" HBox.hgrow="NEVER" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                    <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                    <ImageView fitHeight="40.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <ImageView fitHeight="40.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                    <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="455.0">
+                                       <children>
+                                          <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Images/icons8-edit-24.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="1630.0" stylesheets="@../Styles/primer-dark.css">
+                                 <padding>
+                                    <Insets left="20.0" right="20.0" />
+                                 </padding>
+                                 <children>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" spacing="5.0">
+                                       <children>
+                                          <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0">
+                                             <children>
+                                                <Text smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-4" text="s" textAlignment="CENTER" wrappingWidth="300.0" HBox.hgrow="NEVER" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                    <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                    <ImageView fitHeight="40.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <ImageView fitHeight="40.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                    <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="455.0">
+                                       <children>
+                                          <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Images/icons8-edit-24.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="1630.0" stylesheets="@../Styles/primer-dark.css">
+                                 <padding>
+                                    <Insets left="20.0" right="20.0" />
+                                 </padding>
+                                 <children>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" spacing="5.0">
+                                       <children>
+                                          <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0">
+                                             <children>
+                                                <Text smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-4" text="s" textAlignment="CENTER" wrappingWidth="300.0" HBox.hgrow="NEVER" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                    <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                    <ImageView fitHeight="40.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Circle fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: rgb(176, 253, 155);" />
+                                       </children>
+                                    </VBox>
+                                    <ImageView fitHeight="40.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                    <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="455.0">
+                                       <children>
+                                          <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Images/icons8-edit-24.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="1630.0" stylesheets="@../Styles/primer-dark.css">
+                                 <padding>
+                                    <Insets left="20.0" right="20.0" />
+                                 </padding>
+                                 <children>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" spacing="5.0">
+                                       <children>
+                                          <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0">
+                                             <children>
+                                                <Text smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-4" text="Namaz" textAlignment="CENTER" wrappingWidth="300.0" HBox.hgrow="NEVER" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                    <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                    <ImageView fitHeight="40.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #FFB2B2#FFB2B2;" width="100.0" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #000000;" width="100.0" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #FFB2B2#FFB2B2;" width="100.0" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #FFB2B2;" width="100.0" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #FFB2B2;" width="100.0" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #FFB2B2;" width="100.0" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="100.0">
+                                       <children>
+                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #FFB2B2;" width="100.0" />
+                                       </children>
+                                    </VBox>
+                                    <ImageView fitHeight="40.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                    <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="455.0">
+                                       <children>
+                                          <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Images/icons8-edit-24.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding></VBox>
    </children>
 </HBox>

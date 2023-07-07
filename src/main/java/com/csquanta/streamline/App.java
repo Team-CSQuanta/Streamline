@@ -15,7 +15,7 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         mainStage = primaryStage;
-        FXMLScene scene = FXMLScene.load("/Fxml/StartingAnimation.fxml");
+        FXMLScene scene = FXMLScene.load("/Fxml/Dashboard.fxml");
         Parent root =  scene.root;
         Scene startingAnimation = new Scene(root);
         primaryStage.setScene(startingAnimation);
