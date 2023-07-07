@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="1630.0" spacing="15.0" style="-fx-border-color: #FFFFFF; -fx-border-width: 0.4; -fx-border-radius: 5;" stylesheets="@../Styles/primer-dark.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.HabitsController">
+         <padding>
+            <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+         </padding>
+         <children>
+            <VBox maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="300.0">
+         <children>
+            <HBox alignment="CENTER" minWidth="-Infinity" prefHeight="20.0" prefWidth="300.0">
+               <children>
+                  <Text smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-" text="Habits(No more than 100 words)" wrappingWidth="300.0" HBox.hgrow="NEVER" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets left="10.0" top="10.0" />
+         </padding>
+            </VBox>
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+            <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="100.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-5" text="JUN" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-1" text="08" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-5" text="Tue" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="100.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-5" text="JUN" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-1" text="09" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-5" text="Wed" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="100.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-5" text="JUN" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-1" text="10" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-5" text="Thu" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="100.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-5" text="JUN" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-1" text="11" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-5" text="Fri" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="100.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-5" text="JUN" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-1" text="12" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-5" text="Sat" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="100.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-5" text="JUN" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-1" text="13" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-5" text="Sun" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="100.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-5" text="JUN" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-1" text="14" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-5" text="Mon" />
+               </children>
+            </VBox>
+            <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="300.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title-1" text="Habits" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
