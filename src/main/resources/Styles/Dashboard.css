@@ -20,8 +20,8 @@
 .DashboardleftHBox:hover{
     /*-fx-border-color: transparent transparent transparent #758FF0;*/
     /*-fx-border-width: 4;*/
-    -fx-background-color: linear-gradient(to bottom right, #18ABD1, #8968A3, #DD3982, #DE755C, #DEA63D);
-    -fx-background-radius: 2px;
+    /*-fx-border-color: #FFFFFF;*/
+    /*-fx-border-radius: 0.2px;*/
 }
 .notification{
     -fx-font-family: "Product Sans Medium";
@@ -37,13 +37,13 @@
 }
 .boxContainerDash{
     -fx-border-radius: 15px;
-    -fx-border-width: 1px;
-    -fx-border-color: linear-gradient(to bottom right, #18ABD1, #8968A3, #DD3982, #DE755C, #DEA63D);
+    -fx-border-width: .2px;
+    -fx-border-color: #47CF73;
 }
 .boxContainerDash:hover{
     -fx-border-radius: 15px;
-    -fx-border-width: 2px;
-    -fx-border-color: linear-gradient(to bottom right, #18ABD1, #8968A3, #DD3982, #DE755C, #DEA63D);
+    -fx-border-width: .2px;
+    -fx-border-color:  #47CF73;
 }
 
 .chart{
