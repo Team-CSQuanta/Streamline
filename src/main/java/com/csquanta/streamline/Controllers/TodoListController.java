@@ -1,6 +1,7 @@
 package com.csquanta.streamline.Controllers;
 
 import animatefx.animation.FadeIn;
+import animatefx.animation.partial.Expand;
 import com.csquanta.streamline.App;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,6 +27,7 @@ public class TodoListController {
     void onHabitTrackerBtnClicked(MouseEvent event) throws IOException{
         FXMLScene scene = FXMLScene.load("/Fxml/HabitTracker.fxml");
         Parent root =  scene.root;
+
         Scene habitTracker = new Scene(root);
         Stage primaryStage = App.mainStage;
         primaryStage.setScene(habitTracker);

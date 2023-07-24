@@ -12,6 +12,7 @@ import java.util.Objects;
 
 public class App extends Application {
     public static Stage mainStage;
+    public static PrimerDark primerDark = new PrimerDark();
     @Override
     public void start(Stage primaryStage) throws Exception {
         mainStage = primaryStage;

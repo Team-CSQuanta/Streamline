@@ -1,5 +1,10 @@
 package com.csquanta.streamline.Controllers;
 
+import animatefx.animation.BounceIn;
+import animatefx.animation.FadeIn;
+import animatefx.animation.FadeInUp;
+import animatefx.animation.ZoomIn;
+import atlantafx.base.controls.ModalPane;
 import com.csquanta.streamline.App;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,13 +13,26 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Button;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -29,6 +47,8 @@ public class DashBoardController implements Initializable {
     private BarChart<String, Number> todaysTopActivityChart;
     @FXML
     private Circle image;
+    @FXML
+    private ImageView userProfile;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 //        Image imageSrc = new Image("/Images/Avatar5.png");
@@ -65,15 +85,29 @@ public class DashBoardController implements Initializable {
     }
     @FXML
     void onHabitTrackerBtnClicked(MouseEvent event) throws IOException{
+        FadeInUp fadeIn = new FadeInUp();
         FXMLScene scene = FXMLScene.load("/Fxml/HabitTracker.fxml");
         Parent root =  scene.root;
+        fadeIn.setNode(root);
+
+        fadeIn.setSpeed(.9);
+        fadeIn.play();
         Scene habitTracker = new Scene(root);
         Stage primaryStage = App.mainStage;
         primaryStage.setScene(habitTracker);
     }
 
 
-
+    @FXML
+    void MouseEnteredInProfile(MouseEvent event) throws FileNotFoundException {
+        InputStream stream = new FileInputStream("src/main/resources/Images/icons8-male-user-24-green.png");
+        userProfile.setImage(new Image(stream));
+    }
+    @FXML
+    void MouseExitedFromProfile(MouseEvent event) throws FileNotFoundException{
+        InputStream stream = new FileInputStream("src/main/resources/Images/icons8-male-user-24.png");
+        userProfile.setImage(new Image(stream));
+    }
     @FXML
     public void getUser(String user) {
         Userlabel.setText(user);

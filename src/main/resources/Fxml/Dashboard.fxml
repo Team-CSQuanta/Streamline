@@ -14,17 +14,17 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1900.0" stylesheets="@../Styles/Dashboard.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.DashBoardController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1900.0" style="-fx-background-color: #010409;" stylesheets="@../Styles/Dashboard.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.DashBoardController">
    <children>
-      <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1000.0" prefWidth="200.0">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1000.0" prefWidth="200.0" style="-fx-background-color: #0D1117;">
          <children>
-            <VBox alignment="TOP_CENTER" prefHeight="1000.0" prefWidth="190.0" style="-fx-background-radius: 0px 30px 30px 0px; -fx-border-color: linear-gradient(to bottom right, #18ABD1, #8968A3, #DD3982, #DE755C, #DEA63D); -fx-border-radius: 0px 30px 30px 0px;">
+            <VBox alignment="TOP_CENTER" prefHeight="1000.0" prefWidth="190.0" style="-fx-background-radius: 0px 30px 30px 0px; -fx-border-color: #FFFFFF; -fx-border-width: .1; -fx-border-radius: 0 20 20 0; -fx-background-color: #0D1117;">
                <children>
                   <HBox minHeight="-Infinity" prefHeight="30.0" prefWidth="176.0" />
-                  <HBox alignment="CENTER_LEFT" minHeight="40.0" minWidth="-Infinity" prefHeight="60.0" prefWidth="176.0" spacing="8.0" styleClass="DashboardleftHBox" stylesheets="@../Styles/Dashboard.css">
+                  <HBox alignment="CENTER_LEFT" minHeight="40.0" minWidth="-Infinity" onMouseEntered="#MouseEnteredInProfile" onMouseExited="#MouseExitedFromProfile" prefHeight="60.0" prefWidth="176.0" spacing="8.0" styleClass="DashboardleftHBox" stylesheets="@../Styles/Dashboard.css">
                      <children>
                         <VBox prefHeight="60.0" prefWidth="12.0" />
-                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="userProfile" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Images/icons8-male-user-24.png" />
                            </image>
