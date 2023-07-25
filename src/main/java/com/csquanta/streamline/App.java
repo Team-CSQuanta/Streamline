@@ -1,10 +1,7 @@
 package com.csquanta.streamline;
-
 import atlantafx.base.controls.ModalPane;
 import atlantafx.base.theme.Dracula;
 import javafx.application.Application;
-import javafx.application.Platform;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.geometry.Side;
@@ -17,7 +14,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
 import java.io.IOException;
 import java.util.Objects;
 
@@ -28,7 +24,6 @@ public class App extends Application {
     Parent exitOption = fxmlLoader1.load();
     public static Dracula dracula = new Dracula();
     private double x, y;
-
     public App() throws IOException {
     }
 
@@ -36,7 +31,6 @@ public class App extends Application {
     public void start(Stage primaryStage) throws Exception {
         mainStage = primaryStage;
         FXMLLoader fxmlLoader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/Fxml/Dashboard.fxml")));
-//        FXMLScene scene = FXMLScene.load("");
         StackPane root =  fxmlLoader.load();
         Scene startingAnimation = new Scene(root);
         startingAnimation.setFill(Color.TRANSPARENT);
@@ -58,12 +52,8 @@ public class App extends Application {
                 modalPaneForExit.setAlignment(Pos.BOTTOM_CENTER);
                 modalPaneForExit.usePredefinedTransitionFactories(Side.BOTTOM);
                 modalPaneForExit.show(exitOption);
-//                Platform.exit();
             }
         });
-        //                modalPaneForExit.setAlignment(Pos.BOTTOM_CENTER);
-//                modalPaneForExit.usePredefinedTransitionFactories(Side.BOTTOM);
-//                modalPaneForExit.show(exitOption);
         primaryStage.setScene(startingAnimation);
         primaryStage.setScene(startingAnimation);
         primaryStage.setResizable(false);

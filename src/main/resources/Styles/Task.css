@@ -1,0 +1,28 @@
+@font-face {
+    src: url("../Fonts/ProductSans-Light.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Medium.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Regular.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Black.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Bold.ttf");
+}
+.date-box{
+    -fx-font-family: "Product Sans Light";
+    -fx-font-size: 14px;
+}
+.time-box{
+    -fx-font-family: "Product Sans Light";
+    -fx-font-size: 11px;
+}
+.task-title{
+    -fx-font-family: "Product Sans Light";
+    -fx-font-size: 20px;
+    -fx-border-width: 0px;
+}
