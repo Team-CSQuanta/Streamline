@@ -1,6 +1,159 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" style="-fx-background-color: #282A36FF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.ProfileViewEditController" />
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" style="-fx-background-color: #282A36FF;" stylesheets="@../Styles/ProfileView.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.ProfileViewEditController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="225.0" prefWidth="800.0" spacing="20.0">
+         <children>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="147.0" prefWidth="141.0" style="-fx-background-color: #B0EDFF;">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
+               <children>
+                  <ImageView fx:id="image_bg" fitHeight="147.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/backgrounds/background_alpine_slopes.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="avatarHead" fitHeight="90.0" fitWidth="90.0" layoutX="26.0" layoutY="33.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/customize/skin/skin_aurora.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="avatarHair" fitHeight="90.0" fitWidth="90.0" layoutX="26.0" layoutY="29.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/customize/hair/hair_bangs_1_black.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="headGear" fitHeight="90.0" fitWidth="90.0" layoutX="26.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/gear/head/head_wizard_5.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="avatarBody" fitHeight="90.0" fitWidth="90.0" layoutX="26.0" layoutY="33.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/customize/shirts/broad_shirt_convict.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="avatarArmor" fitHeight="90.0" fitWidth="90.0" layoutX="26.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/gear/armor/slim_armor_wizard_5.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="avatarPet" fitHeight="99.0" fitWidth="81.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/stable/pets/Pet-TigerCub-Red.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <VBox alignment="CENTER" prefHeight="215.0" prefWidth="629.0" spacing="4.0">
+               <children>
+                  <HBox alignment="CENTER" prefWidth="539.0">
+                     <children>
+                        <Label fx:id="userName" prefWidth="539.0" styleClass="userName" text="Foyez Ahammed Naeem" wrapText="true">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefWidth="539.0" spacing="5.0">
+                     <children>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/Class/Warrior_Icon.png" />
+                           </image>
+                        </ImageView>
+                        <Label minHeight="-Infinity" prefWidth="185.0" styleClass="classSystemText" text="100 level warrior" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="4.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </padding>
+                  </HBox>
+                  <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="539.0">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="200.0" spacing="40.0">
+                           <children>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/icons8-love-48.png" />
+                                 </image>
+                              </ImageView>
+                              <ProgressBar prefHeight="15.0" prefWidth="325.0" progress="0.72" />
+                           </children>
+                           <VBox.margin>
+                              <Insets left="4.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="200.0" spacing="40.0">
+                           <children>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/Points/Experience.png" />
+                                 </image>
+                              </ImageView>
+                              <ProgressBar prefHeight="15.0" prefWidth="325.0" progress="0.27" />
+                           </children>
+                           <VBox.margin>
+                              <Insets left="4.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="200.0" spacing="40.0">
+                           <children>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/Points/Gold.png" />
+                                 </image>
+                              </ImageView>
+                              <ProgressBar prefHeight="15.0" prefWidth="325.0" progress="0.27" />
+                           </children>
+                           <VBox.margin>
+                              <Insets left="4.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+               </padding>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="30.0" right="30.0" top="20.0" />
+         </padding>
+      </HBox>
+      <Separator opacity="0.5" prefWidth="200.0" />
+   </children>
+</VBox>
