@@ -1,18 +1,13 @@
 package com.csquanta.streamline;
-import atlantafx.base.theme.PrimerDark;
-import atlantafx.base.theme.PrimerLight;
+import atlantafx.base.theme.Dracula;
 import com.csquanta.streamline.Controllers.FXMLScene;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.util.Objects;
-
-
 public class App extends Application {
     public static Stage mainStage;
-    public static PrimerDark primerDark = new PrimerDark();
+    public static Dracula dracula = new Dracula();
     @Override
     public void start(Stage primaryStage) throws Exception {
         mainStage = primaryStage;
@@ -22,7 +17,7 @@ public class App extends Application {
         primaryStage.setScene(startingAnimation);
         primaryStage.setScene(startingAnimation);
         primaryStage.setResizable(false);
-
+        Application.setUserAgentStylesheet(dracula.getUserAgentStylesheet());
         primaryStage.show();
 
     }

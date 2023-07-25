@@ -23,6 +23,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
@@ -40,7 +41,9 @@ import java.util.ResourceBundle;
 
 
 public class DashBoardController implements Initializable {
-
+    @FXML
+    private StackPane DashStackPane;
+    private ModalPane modalPane = new ModalPane();
     @FXML
     private Label Userlabel;
     @FXML
@@ -51,12 +54,7 @@ public class DashBoardController implements Initializable {
     private ImageView userProfile;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        Image imageSrc = new Image("/Images/Avatar5.png");
-//        ImagePattern imagePattern = new ImagePattern(imageSrc);
-//        image.setFill(imagePattern);
-
-        /**********************************************/
-
+        DashStackPane.getChildren().add(modalPane);
         XYChart.Data<String, Number> playingData  = new XYChart.Data<>("Playing", 4);
         XYChart.Series<String, Number> playing= new XYChart.Series<>();
         playing.setName("Playing");
@@ -90,7 +88,7 @@ public class DashBoardController implements Initializable {
         Parent root =  scene.root;
         fadeIn.setNode(root);
 
-        fadeIn.setSpeed(.9);
+        fadeIn.setSpeed(10);
         fadeIn.play();
         Scene habitTracker = new Scene(root);
         Stage primaryStage = App.mainStage;
@@ -107,6 +105,11 @@ public class DashBoardController implements Initializable {
     void MouseExitedFromProfile(MouseEvent event) throws FileNotFoundException{
         InputStream stream = new FileInputStream("src/main/resources/Images/icons8-male-user-24.png");
         userProfile.setImage(new Image(stream));
+    }
+    @FXML
+    void profileButtonClicked(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/Fxml/Profile-view-edit.fxml")));
+        modalPane.show(loader.load());
     }
     @FXML
     public void getUser(String user) {
