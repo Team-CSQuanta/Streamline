@@ -1,0 +1,23 @@
+@font-face {
+    src: url("../Fonts/ProductSans-Light.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Medium.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Regular.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Black.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Bold.ttf");
+}
+.userName{
+    -fx-font-family: "Product Sans Light";
+    -fx-font-size: 35px;
+}
+.classSystemText{
+    -fx-font-family: "Product Sans Light";
+    -fx-font-size: 14px;
+}
