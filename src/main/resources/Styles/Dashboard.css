@@ -38,12 +38,12 @@
 .boxContainerDash{
     -fx-border-radius: 15px;
     -fx-border-width: .2px;
-    -fx-border-color: #47CF73;
+    -fx-border-color: #9580ff;
 }
 .boxContainerDash:hover{
     -fx-border-radius: 15px;
     -fx-border-width: .2px;
-    -fx-border-color:  #47CF73;
+    -fx-border-color:  #9580ff;
 }
 
 .chart{

@@ -10,274 +10,279 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1900.0" style="-fx-background-color: #010409;" stylesheets="@../Styles/Dashboard.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.DashBoardController">
+<StackPane fx:id="DashStackPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.DashBoardController">
    <children>
-      <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1000.0" prefWidth="200.0" style="-fx-background-color: #0D1117;">
+      <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1900.0" stylesheets="@../Styles/Dashboard.css">
          <children>
-            <VBox alignment="TOP_CENTER" prefHeight="1000.0" prefWidth="190.0" style="-fx-background-radius: 0px 30px 30px 0px; -fx-border-color: #FFFFFF; -fx-border-width: .1; -fx-border-radius: 0 20 20 0; -fx-background-color: #0D1117;">
+            <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1000.0" prefWidth="200.0">
                <children>
-                  <HBox minHeight="-Infinity" prefHeight="30.0" prefWidth="176.0" />
-                  <HBox alignment="CENTER_LEFT" minHeight="40.0" minWidth="-Infinity" onMouseEntered="#MouseEnteredInProfile" onMouseExited="#MouseExitedFromProfile" prefHeight="60.0" prefWidth="176.0" spacing="8.0" styleClass="DashboardleftHBox" stylesheets="@../Styles/Dashboard.css">
+                  <VBox alignment="TOP_CENTER" prefHeight="1000.0" prefWidth="190.0" style="-fx-background-radius: 0px 30px 30px 0px; -fx-border-color: #FFFFFF; -fx-border-width: .1; -fx-border-radius: 0 20 20 0;">
                      <children>
-                        <VBox prefHeight="60.0" prefWidth="12.0" />
-                        <ImageView fx:id="userProfile" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Images/icons8-male-user-24.png" />
-                           </image>
-                        </ImageView>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DashboardleftText" text="Profile">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Text>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" minHeight="40.0" minWidth="-Infinity" prefHeight="60.0" prefWidth="176.0" spacing="8.0" styleClass="DashboardleftHBox" stylesheets="@../Styles/Dashboard.css">
-                     <children>
-                        <VBox prefHeight="60.0" prefWidth="12.0" />
-                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Images/icons8-dashboard-layout-24.png" />
-                           </image>
-                        </ImageView>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DashboardleftText" text="Overview">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Text>
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" minHeight="40.0" minWidth="-Infinity" onMouseClicked="#tasksBtnClicked" prefHeight="60.0" prefWidth="183.0" spacing="8.0" styleClass="DashboardleftHBox" stylesheets="@../Styles/Dashboard.css">
-                     <children>
-                        <VBox prefHeight="60.0" prefWidth="10.0" />
-                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Images/icons8-microsoft-to-do-app-24.png" />
-                           </image>
-                        </ImageView>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DashboardleftText" text="Tasks">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Text>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" minHeight="40.0" minWidth="-Infinity" prefHeight="60.0" prefWidth="183.0" spacing="8.0" styleClass="DashboardleftHBox" stylesheets="@../Styles/Dashboard.css">
-                     <children>
-                        <VBox prefHeight="60.0" prefWidth="10.0" />
-                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Images/icons8-calendar-24.png" />
-                           </image>
-                        </ImageView>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DashboardleftText" text="Calendar">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Text>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" minHeight="40.0" minWidth="-Infinity" onMouseClicked="#onHabitTrackerBtnClicked" prefHeight="60.0" prefWidth="183.0" spacing="8.0" styleClass="DashboardleftHBox" stylesheets="@../Styles/Dashboard.css">
-                     <children>
-                        <VBox prefHeight="60.0" prefWidth="10.0" />
-                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Images/icons8-combo-chart-24.png" />
-                           </image>
-                        </ImageView>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DashboardleftText" text="Habit Tracker">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Text>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" minHeight="40.0" minWidth="-Infinity" prefHeight="60.0" prefWidth="183.0" spacing="8.0" styleClass="DashboardleftHBox" stylesheets="@../Styles/Dashboard.css">
-                     <children>
-                        <VBox prefHeight="60.0" prefWidth="10.0" />
-                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Images/icons8-leaderboard-24.png" />
-                           </image>
-                        </ImageView>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DashboardleftText" text="Leaderboard">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Text>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" minHeight="40.0" minWidth="-Infinity" prefHeight="60.0" prefWidth="183.0" spacing="8.0" styleClass="DashboardleftHBox" stylesheets="@../Styles/Dashboard.css">
-                     <children>
-                        <VBox prefHeight="60.0" prefWidth="10.0" />
-                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Images/icons8-shop-24.png" />
-                           </image>
-                        </ImageView>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DashboardleftText" text="Shop">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Text>
-                     </children>
-                  </HBox>
-                  <VBox prefHeight="266.0" prefWidth="183.0" />
-                  <HBox alignment="CENTER_LEFT" minHeight="40.0" minWidth="-Infinity" prefHeight="60.0" prefWidth="183.0" spacing="8.0" styleClass="DashboardleftHBox" stylesheets="@../Styles/Dashboard.css">
-                     <children>
-                        <VBox prefHeight="60.0" prefWidth="10.0" />
-                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Images/icons8-settings-24.png" />
-                           </image>
-                        </ImageView>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DashboardleftText" text="Settings">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Text>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" minHeight="40.0" minWidth="-Infinity" prefHeight="60.0" prefWidth="183.0" spacing="8.0" styleClass="DashboardleftHBox" stylesheets="@../Styles/Dashboard.css">
-                     <children>
-                        <VBox prefHeight="60.0" prefWidth="10.0" />
-                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Images/icons8-sign-out-24.png" />
-                           </image>
-                        </ImageView>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DashboardleftText" text="Sign out">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Text>
-                     </children>
-                  </HBox>
-               </children>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-            </VBox>
-         </children>
-      </VBox>
-      <VBox prefHeight="1000.0" prefWidth="1700.0">
-         <children>
-            <HBox maxWidth="-Infinity" prefHeight="500.0" prefWidth="1700.0" spacing="5.0">
-               <children>
-                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-background-radius: 15px;" styleClass="boxContainerDash" stylesheets="@../Styles/Dashboard.css">
-                     <HBox.margin>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                     </HBox.margin>
-                     <children>
-                        <VBox alignment="CENTER" maxWidth="-Infinity" prefHeight="381.0" prefWidth="400.0" stylesheets="@../Styles/Dashboard.css">
+                        <HBox minHeight="-Infinity" prefHeight="30.0" prefWidth="176.0" />
+                        <HBox alignment="CENTER_LEFT" minHeight="40.0" minWidth="-Infinity" onMouseClicked="#profileButtonClicked" onMouseEntered="#MouseEnteredInProfile" onMouseExited="#MouseExitedFromProfile" prefHeight="60.0" prefWidth="176.0" spacing="8.0" styleClass="DashboardleftHBox" stylesheets="@../Styles/Dashboard.css">
                            <children>
-                              <HBox prefHeight="48.0" prefWidth="536.0">
-                                 <children>
-                                    <Label prefHeight="44.0" prefWidth="556.0" styleClass="toyasTopAcitivityHead" stylesheets="@../Styles/Dashboard.css" text="Today's Top Activities" textFill="WHITE" />
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                                 <padding>
-                                    <Insets bottom="2.0" left="10.0" right="2.0" top="2.0" />
-                                 </padding>
-                              </HBox>
-                              <BarChart fx:id="todaysTopActivityChart" barGap="2.0" categoryGap="5.0" legendSide="TOP" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="378.0" prefWidth="513.0" stylesheets="@../Styles/Dashboard.css">
-                                <xAxis>
-                                   <CategoryAxis startMargin="20.0" tickLabelGap="2.0" tickLabelsVisible="false" tickMarkVisible="false" />
-                                </xAxis>
-                                <yAxis>
-      
-                                               <NumberAxis autoRanging="false" minorTickVisible="false" tickLabelGap="5.0" tickUnit="4.0" upperBound="24.0" />
-                                </yAxis>
-                                 <styleClass>
-                                    <String fx:value="chat-content" />
-                                    <String fx:value="chart-legend" />
-                                    <String fx:value="chart" />
-                                 </styleClass>
-                              </BarChart>
+                              <VBox prefHeight="60.0" prefWidth="12.0" />
+                              <ImageView fx:id="userProfile" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/icons8-male-user-24.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DashboardleftText" text="Profile">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Text>
                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" minHeight="40.0" minWidth="-Infinity" prefHeight="60.0" prefWidth="176.0" spacing="8.0" styleClass="DashboardleftHBox" stylesheets="@../Styles/Dashboard.css">
+                           <children>
+                              <VBox prefHeight="60.0" prefWidth="12.0" />
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/icons8-dashboard-layout-24.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DashboardleftText" text="Overview">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Text>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" minHeight="40.0" minWidth="-Infinity" onMouseClicked="#tasksBtnClicked" prefHeight="60.0" prefWidth="183.0" spacing="8.0" styleClass="DashboardleftHBox" stylesheets="@../Styles/Dashboard.css">
+                           <children>
+                              <VBox prefHeight="60.0" prefWidth="10.0" />
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/icons8-microsoft-to-do-app-24.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DashboardleftText" text="Tasks">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" minHeight="40.0" minWidth="-Infinity" prefHeight="60.0" prefWidth="183.0" spacing="8.0" styleClass="DashboardleftHBox" stylesheets="@../Styles/Dashboard.css">
+                           <children>
+                              <VBox prefHeight="60.0" prefWidth="10.0" />
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/icons8-calendar-24.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DashboardleftText" text="Calendar">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" minHeight="40.0" minWidth="-Infinity" onMouseClicked="#onHabitTrackerBtnClicked" prefHeight="60.0" prefWidth="183.0" spacing="8.0" styleClass="DashboardleftHBox" stylesheets="@../Styles/Dashboard.css">
+                           <children>
+                              <VBox prefHeight="60.0" prefWidth="10.0" />
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/icons8-combo-chart-24.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DashboardleftText" text="Habit Tracker">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" minHeight="40.0" minWidth="-Infinity" prefHeight="60.0" prefWidth="183.0" spacing="8.0" styleClass="DashboardleftHBox" stylesheets="@../Styles/Dashboard.css">
+                           <children>
+                              <VBox prefHeight="60.0" prefWidth="10.0" />
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/icons8-leaderboard-24.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DashboardleftText" text="Leaderboard">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" minHeight="40.0" minWidth="-Infinity" prefHeight="60.0" prefWidth="183.0" spacing="8.0" styleClass="DashboardleftHBox" stylesheets="@../Styles/Dashboard.css">
+                           <children>
+                              <VBox prefHeight="60.0" prefWidth="10.0" />
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/icons8-shop-24.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DashboardleftText" text="Shop">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <VBox prefHeight="266.0" prefWidth="183.0" />
+                        <HBox alignment="CENTER_LEFT" minHeight="40.0" minWidth="-Infinity" prefHeight="60.0" prefWidth="183.0" spacing="8.0" styleClass="DashboardleftHBox" stylesheets="@../Styles/Dashboard.css">
+                           <children>
+                              <VBox prefHeight="60.0" prefWidth="10.0" />
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/icons8-settings-24.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DashboardleftText" text="Settings">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Text>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" minHeight="40.0" minWidth="-Infinity" prefHeight="60.0" prefWidth="183.0" spacing="8.0" styleClass="DashboardleftHBox" stylesheets="@../Styles/Dashboard.css">
+                           <children>
+                              <VBox prefHeight="60.0" prefWidth="10.0" />
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/icons8-sign-out-24.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DashboardleftText" text="Sign out">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Text>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="1000.0" prefWidth="1700.0">
+               <children>
+                  <HBox maxWidth="-Infinity" prefHeight="500.0" prefWidth="1700.0" spacing="5.0">
+                     <children>
+                        <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-background-radius: 15px;" styleClass="boxContainerDash" stylesheets="@../Styles/Dashboard.css">
+                           <HBox.margin>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </HBox.margin>
+                           <children>
+                              <VBox alignment="CENTER" maxWidth="-Infinity" prefHeight="381.0" prefWidth="400.0" stylesheets="@../Styles/Dashboard.css">
+                                 <children>
+                                    <HBox prefHeight="48.0" prefWidth="536.0">
+                                       <children>
+                                          <Label prefHeight="44.0" prefWidth="556.0" styleClass="toyasTopAcitivityHead" stylesheets="@../Styles/Dashboard.css" text="Today's Top Activities" textFill="WHITE" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                       <padding>
+                                          <Insets bottom="2.0" left="10.0" right="2.0" top="2.0" />
+                                       </padding>
+                                    </HBox>
+                                    <BarChart fx:id="todaysTopActivityChart" barGap="2.0" categoryGap="5.0" legendSide="TOP" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="378.0" prefWidth="513.0" stylesheets="@../Styles/Dashboard.css">
+                                      <xAxis>
+                                         <CategoryAxis startMargin="20.0" tickLabelGap="2.0" tickLabelsVisible="false" tickMarkVisible="false" />
+                                      </xAxis>
+                                      <yAxis>
+            
+                                                     <NumberAxis autoRanging="false" minorTickVisible="false" tickLabelGap="5.0" tickUnit="4.0" upperBound="24.0" />
+                                      </yAxis>
+                                       <styleClass>
+                                          <String fx:value="chat-content" />
+                                          <String fx:value="chart-legend" />
+                                          <String fx:value="chart" />
+                                       </styleClass>
+                                    </BarChart>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                              <HBox maxWidth="-Infinity" prefHeight="440.0" prefWidth="300.0" style="-fx-background-radius: 15px;" />
+                           </children>
+                        </HBox>
+                        <VBox maxWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-background-radius: 15px;" styleClass="boxContainerDash" stylesheets="@../Styles/Dashboard.css">
+                           <HBox.margin>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </HBox.margin>
                            <padding>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </padding>
                         </VBox>
-                        <HBox maxWidth="-Infinity" prefHeight="440.0" prefWidth="300.0" style="-fx-background-color: #758FF0; -fx-background-radius: 15px;" />
                      </children>
+                     <padding>
+                        <Insets left="20.0" right="20.0" top="20.0" />
+                     </padding>
                   </HBox>
-                  <VBox maxWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-background-radius: 15px;" styleClass="boxContainerDash" stylesheets="@../Styles/Dashboard.css">
-                     <HBox.margin>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                     </HBox.margin>
+                  <HBox maxWidth="-Infinity" prefHeight="500.0" prefWidth="1700.0" spacing="5.0">
+                     <children>
+                        <VBox maxWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-background-radius: 15px;" styleClass="boxContainerDash" stylesheets="@../Styles/Dashboard.css">
+                           <HBox.margin>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                        <VBox maxWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-background-radius: 15px;" styleClass="boxContainerDash" stylesheets="@../Styles/Dashboard.css">
+                           <HBox.margin>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
                      <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        <Insets bottom="20.0" left="20.0" right="20.0" />
                      </padding>
-                  </VBox>
+                  </HBox>
                </children>
-               <padding>
-                  <Insets left="20.0" right="20.0" top="20.0" />
-               </padding>
-            </HBox>
-            <HBox maxWidth="-Infinity" prefHeight="500.0" prefWidth="1700.0" spacing="5.0">
-               <children>
-                  <VBox maxWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-background-radius: 15px;" styleClass="boxContainerDash" stylesheets="@../Styles/Dashboard.css">
-                     <HBox.margin>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                     </HBox.margin>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                  </VBox>
-                  <VBox maxWidth="-Infinity" prefHeight="500.0" prefWidth="850.0" style="-fx-background-radius: 15px;" styleClass="boxContainerDash" stylesheets="@../Styles/Dashboard.css">
-                     <HBox.margin>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                     </HBox.margin>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                  </VBox>
-               </children>
-               <padding>
-                  <Insets bottom="20.0" left="20.0" right="20.0" />
-               </padding>
-            </HBox>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </VBox>
          </children>
-         <HBox.margin>
-            <Insets />
-         </HBox.margin>
-      </VBox>
+      </HBox>
    </children>
-</HBox>
+</StackPane>

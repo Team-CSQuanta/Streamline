@@ -1,5 +1,4 @@
 package com.csquanta.streamline.Controllers;
 
-public class HabitsController {
-
+public class ProfileViewEditController {
 }
