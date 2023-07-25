@@ -1,23 +1,43 @@
 package com.csquanta.streamline;
+
+import atlantafx.base.controls.ModalPane;
 import atlantafx.base.theme.Dracula;
-import com.csquanta.streamline.Controllers.FXMLScene;
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
+import javafx.geometry.Side;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.io.IOException;
+import java.util.Objects;
+
 public class App extends Application {
     public static Stage mainStage;
+    private final ModalPane modalPaneForExit = new ModalPane();
+    FXMLLoader fxmlLoader1 = new FXMLLoader(getClass().getResource("/Fxml/ExitOption.fxml"));
+    Parent exitOption = fxmlLoader1.load();
     public static Dracula dracula = new Dracula();
     private double x, y;
+
+    public App() throws IOException {
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception {
-
         mainStage = primaryStage;
-        FXMLScene scene = FXMLScene.load("/Fxml/Dashboard.fxml");
-        Parent root =  scene.root;
+        FXMLLoader fxmlLoader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/Fxml/Dashboard.fxml")));
+//        FXMLScene scene = FXMLScene.load("");
+        StackPane root =  fxmlLoader.load();
         Scene startingAnimation = new Scene(root);
         startingAnimation.setFill(Color.TRANSPARENT);
         primaryStage.initStyle(StageStyle.UNDECORATED);
@@ -30,6 +50,20 @@ public class App extends Application {
             primaryStage.setX(event.getScreenX() - x);
             primaryStage.setY(event.getScreenY() - y);
         });
+        HBox exitOption = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/ExitOption.fxml")));
+        root.getChildren().add(modalPaneForExit);
+
+        primaryStage.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
+            if(KeyCode.ESCAPE == event.getCode()){
+                modalPaneForExit.setAlignment(Pos.BOTTOM_CENTER);
+                modalPaneForExit.usePredefinedTransitionFactories(Side.BOTTOM);
+                modalPaneForExit.show(exitOption);
+//                Platform.exit();
+            }
+        });
+        //                modalPaneForExit.setAlignment(Pos.BOTTOM_CENTER);
+//                modalPaneForExit.usePredefinedTransitionFactories(Side.BOTTOM);
+//                modalPaneForExit.show(exitOption);
         primaryStage.setScene(startingAnimation);
         primaryStage.setScene(startingAnimation);
         primaryStage.setResizable(false);
@@ -42,6 +76,7 @@ public class App extends Application {
         launch(args);
 
     }
+
 
 
 }
