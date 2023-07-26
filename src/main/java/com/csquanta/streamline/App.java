@@ -3,8 +3,6 @@ package com.csquanta.streamline;
 import atlantafx.base.controls.ModalPane;
 import atlantafx.base.theme.Dracula;
 import javafx.application.Application;
-import javafx.application.Platform;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.geometry.Side;
