@@ -1,9 +1,5 @@
 package com.csquanta.streamline.Controllers;
-
-import animatefx.animation.BounceIn;
-import animatefx.animation.FadeIn;
 import animatefx.animation.FadeInUp;
-import animatefx.animation.ZoomIn;
 import atlantafx.base.controls.ModalPane;
 import com.csquanta.streamline.App;
 import javafx.fxml.FXML;
@@ -13,23 +9,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.Button;
-import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
-import javafx.util.Duration;
-
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -43,7 +29,7 @@ import java.util.ResourceBundle;
 public class DashBoardController implements Initializable {
     @FXML
     private StackPane DashStackPane;
-    private ModalPane modalPane = new ModalPane();
+    private final ModalPane modalPane = new ModalPane();
     @FXML
     private Label Userlabel;
     @FXML
