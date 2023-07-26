@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+
+<VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-background-color: 8AFF80FF; -fx-border-color: #3C3365;" stylesheets="@../Styles/Task.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="35.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+         <padding>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+         </padding>
+         <children>
+            <Text fx:id="date" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/icons8-circled-up-right-24.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+         <padding>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+         </padding>
+         <children>
+            <Label fx:id="details" prefHeight="75.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+         <padding>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+         </padding>
+         <children>
+            <VBox prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;" />
+            <VBox prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="338.0">
+         <padding>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+         </padding>
+         <children>
+            <Text fx:id="time1" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="time-box" text="09:00AM - 10:00AM" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+   </padding>
+</VBox>
