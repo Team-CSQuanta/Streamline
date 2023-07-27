@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="1900.0" spacing="30.0" style="-fx-background-radius: 25px 25px 0px 0px; -fx-background-radius: 25px 25px 0px 0px; -fx-background-color: #9580FF1A;" stylesheets="@../Styles/Header.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.HeaderController">
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="1900.0" spacing="30.0" style="-fx-background-radius: 25px 25px 0px 0px; -fx-background-radius: 25px 25px 0px 0px; -fx-background-color: #9580FF;" stylesheets="@../Styles/Header.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.HeaderController">
    <children>
       <ImageView fx:id="sideMenuLoader" fitHeight="24.0" fitWidth="24.0" onMouseClicked="#loadSideMenu" pickOnBounds="true" preserveRatio="true">
          <image>
