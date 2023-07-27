@@ -54,7 +54,6 @@ public class App extends Application {
             }
         });
         primaryStage.setScene(startingAnimation);
-        primaryStage.setScene(startingAnimation);
         primaryStage.setResizable(false);
         Application.setUserAgentStylesheet(dracula.getUserAgentStylesheet());
         primaryStage.show();
