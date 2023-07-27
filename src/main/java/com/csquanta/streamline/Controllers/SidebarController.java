@@ -77,13 +77,13 @@ public class SidebarController {
 
     @FXML
     void shopEntered(MouseEvent event) throws FileNotFoundException {
-        InputStream stream = new FileInputStream("src/main/resources/Images/icons8-settings-24v2.png");
+        InputStream stream = new FileInputStream("src/main/resources/Images/icons8-shop-24v2.png");
         shopImg.setImage(new Image(stream));
     }
 
     @FXML
     void shopExited(MouseEvent event) throws FileNotFoundException {
-        InputStream stream = new FileInputStream("src/main/resources/Images/icons8-settings-24.png");
+        InputStream stream = new FileInputStream("src/main/resources/Images/icons8-shop-24.png");
         shopImg.setImage(new Image(stream));
     }
     @FXML
