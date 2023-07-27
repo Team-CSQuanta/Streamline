@@ -1,15 +1,26 @@
 package com.csquanta.streamline.Controllers;
 
+import atlantafx.base.controls.ModalPane;
+import com.csquanta.streamline.App;
+import javafx.application.Application;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
+import javafx.geometry.Side;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
+import java.util.Objects;
+import java.util.ResourceBundle;
 
-public class SidebarController {
+public class SidebarController implements Initializable {
     @FXML
     private ImageView habitImg;
 
@@ -137,6 +148,18 @@ public class SidebarController {
     void tasksBtnClicked(MouseEvent event) {
 
     }
+    @FXML
+    void shopBtnClicked(MouseEvent event) throws IOException {
+        System.out.println("Shop Button Clicked");
+        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/Fxml/Shop.fxml")));
+
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
+
 
 }
 

@@ -4,12 +4,8 @@ import atlantafx.base.controls.ModalPane;
 import atlantafx.base.theme.Dracula;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
-import javafx.geometry.Side;
+import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -18,8 +14,8 @@ import javafx.stage.StageStyle;
 import static java.util.Objects.requireNonNull;
 
 public class App extends Application {
+    public  static StackPane root;
     public static Stage mainStage;
-    private final ModalPane modalPaneForExit = new ModalPane();
     public static Dracula dracula = new Dracula();
     private double x, y;
     public App() {
@@ -29,7 +25,7 @@ public class App extends Application {
     public void start(Stage primaryStage) throws Exception {
         mainStage = primaryStage;
         FXMLLoader fxmlLoader = new FXMLLoader(requireNonNull(getClass().getResource("/Fxml/MainStage.fxml")));
-        StackPane root =  fxmlLoader.load();
+        root =  fxmlLoader.load();
         Scene startingAnimation = new Scene(root);
         startingAnimation.setFill(Color.TRANSPARENT);
         primaryStage.initStyle(StageStyle.UNDECORATED);
@@ -42,17 +38,6 @@ public class App extends Application {
             primaryStage.setX(event.getScreenX() - x);
             primaryStage.setY(event.getScreenY() - y);
         });
-        HBox exitOption = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/ExitOption.fxml")));
-        HBox header = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/Header.fxml")));
-        root.getChildren().addAll(modalPaneForExit, header);
-
-        primaryStage.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
-            if(KeyCode.ESCAPE == event.getCode()){
-                modalPaneForExit.setAlignment(Pos.BOTTOM_CENTER);
-                modalPaneForExit.usePredefinedTransitionFactories(Side.BOTTOM);
-                modalPaneForExit.show(exitOption);
-            }
-        });
         primaryStage.setScene(startingAnimation);
         primaryStage.setResizable(false);
         Application.setUserAgentStylesheet(dracula.getUserAgentStylesheet());
@@ -64,8 +49,17 @@ public class App extends Application {
         launch(args);
 
     }
-
-
-
+    public static void addNodesToMainStack(Node node){
+        root.getChildren().addAll(node);
+    }
+    public static void addModalPaneToMainStack(ModalPane modalPane){
+        root.getChildren().add(modalPane);
+    }
+    public static void removeNode(Node node){
+        root.getChildren().remove(node);
+    }
+    public static void removeModalPane(ModalPane modalPane){
+        root.getChildren().remove(modalPane);
+    }
 }
 

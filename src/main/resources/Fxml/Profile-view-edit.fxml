@@ -12,9 +12,23 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" style="-fx-background-color: #282A36FF;" stylesheets="@../Styles/ProfileView.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.ProfileViewEditController">
    <children>
+      <HBox alignment="CENTER_RIGHT" prefHeight="24.0" prefWidth="800.0">
+         <children>
+            <ImageView fitHeight="24.0" fitWidth="24.0" onMouseClicked="#closeUserProfileView" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/icons8-close-24.png" />
+               </image>
+            </ImageView>
+         </children>
+         <padding>
+            <Insets right="5.0" />
+         </padding>
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+      </HBox>
       <HBox alignment="CENTER" prefHeight="225.0" prefWidth="800.0" spacing="20.0">
          <children>
             <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="147.0" prefWidth="141.0" style="-fx-background-color: #B0EDFF;">
@@ -151,7 +165,7 @@
             </VBox>
          </children>
          <padding>
-            <Insets bottom="5.0" left="30.0" right="30.0" top="20.0" />
+            <Insets bottom="5.0" left="30.0" right="30.0" />
          </padding>
       </HBox>
       <Separator opacity="0.5" prefWidth="200.0" />
