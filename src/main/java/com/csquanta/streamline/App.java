@@ -4,6 +4,7 @@ import atlantafx.base.controls.ModalPane;
 import atlantafx.base.theme.Dracula;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
@@ -49,8 +50,9 @@ public class App extends Application {
         launch(args);
 
     }
-    public static void addNodesToMainStack(Node node){
-        root.getChildren().addAll(node);
+    public static void addNodesToMainStack(Node node, Pos position){
+        StackPane.setAlignment(node, position);
+        root.getChildren().add(node);
     }
     public static void addModalPaneToMainStack(ModalPane modalPane){
         root.getChildren().add(modalPane);
