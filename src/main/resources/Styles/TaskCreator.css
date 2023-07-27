@@ -1,0 +1,55 @@
+@font-face {
+    src: url("../Fonts/ProductSans-Light.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Medium.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Regular.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Black.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Bold.ttf");
+}
+.titletextinput{
+    -fx-font-family: "Product Sans Light";
+    -fx-font-size: 25px;
+    /*-fx-border-width: 0 0 2 0;*/
+    /*-fx-border-color: #282A36 #282A36 #282A36 #282A36;*/
+    /*-fx-border-radius: 0px;*/
+    /*-fx-background-radius: 0px;*/
+    /*-fx-background-color: #94959B1A;*/
+}
+.topBarLabel{
+    -fx-font-family: "Product Sans Medium";
+    -fx-font-size: 15px;
+    -fx-fill: #94959B1A;
+}
+.taskNameLabel{
+    -fx-font-family: "Product Sans Medium";
+    -fx-font-size: 35px;
+    -fx-fill: #94959B1A;
+}
+.datePickerInput{
+    -fx-font-family: "Product Sans Light";
+    -fx-font-size: 15px;
+}
+.tagComboBox{
+    -fx-font-family: "Product Sans Light";
+    -fx-font-size: 15px;
+}
+.taskDescription{
+    -fx-font-family: "Product Sans Light";
+    -fx-font-size: 18px;
+}
+.taskDone{
+    -fx-font-family: "Product Sans Light";
+    -fx-font-size: 15px;
+}
+.taskCancel{
+     -fx-font-family: "Product Sans Light";
+     -fx-font-size: 15px;
+    -fx-fill: #94959B1A;
+ }
