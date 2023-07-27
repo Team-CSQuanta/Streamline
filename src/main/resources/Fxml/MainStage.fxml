@@ -2,5 +2,4 @@
 
 <?import javafx.scene.layout.StackPane?>
 
-
 <StackPane fx:id="mainStageStackPane" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1900.0" style="-fx-background-radius: 25px; -fx-border-radius: 25px;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.MainStageController" />

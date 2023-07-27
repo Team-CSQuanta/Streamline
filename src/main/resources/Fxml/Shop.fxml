@@ -3,4 +3,4 @@
 <?import javafx.scene.layout.VBox?>
 
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="955.0" prefWidth="1900.0" style="-fx-background-radius: 0px 0px 25px 25px; -fx-border-color: transparent; -fx-border-radius: 0px 0px 25px 25px; -fx-background-color: #FFCA80;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.ShopController"/>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="955.0" prefWidth="1900.0" style="-fx-background-radius: 0px 0px 25px 25px; -fx-border-color: transparent; -fx-border-radius: 0px 0px 25px 25px;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.ShopController" />
