@@ -13,16 +13,7 @@
 @font-face {
     src: url("../Fonts/ProductSans-Bold.ttf");
 }
-.DashboardleftText{
-    -fx-font-family: "Product Sans Medium";
-    -fx-font-size: 14px;
-}
-.DashboardleftHBox:hover{
-    /*-fx-border-color: transparent transparent transparent #758FF0;*/
-    /*-fx-border-width: 4;*/
-    /*-fx-border-color: #FFFFFF;*/
-    /*-fx-border-radius: 0.2px;*/
-}
+
 .notification{
     -fx-font-family: "Product Sans Medium";
 }

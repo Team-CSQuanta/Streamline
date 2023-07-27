@@ -1,14 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Fxml.TaskCreatorAndVeiwer"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" spacing="30.0" style="-fx-background-radius: 25px; -fx-border-radius: 25px;" stylesheets="@../Styles/TaskCreator.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <padding>
+      <Insets bottom="40.0" left="25.0" right="25.0" top="15.0" />
+   </padding>
+   <children>
+      <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" prefWidth="735.0">
+         <VBox.margin>
+            <Insets left="15.0" right="15.0" top="15.0" />
+         </VBox.margin>
+         <children>
+            <Label prefHeight="47.0" prefWidth="735.0" styleClass="taskNameLabel" text="Add task" textFill="#94959b" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0">
+         <VBox.margin>
+            <Insets left="15.0" right="15.0" top="10.0" />
+         </VBox.margin>
+         <children>
+            <TextField maxWidth="-Infinity" minHeight="-Infinity" prefHeight="45.0" prefWidth="750.0" promptText="Untitled" styleClass="titletextinput" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" spacing="70.0">
+         <children>
+            <DatePicker editable="false" prefHeight="35.0" prefWidth="200.0" promptText="Enter due date" styleClass="datePickerInput" />
+            <ComboBox editable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="200.0" promptText="Enter tag" styleClass="tagComboBox" />
+            <ComboBox editable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="200.0" promptText="Priority" styleClass="tagComboBox" />
+         </children>
+         <VBox.margin>
+            <Insets left="15.0" right="15.0" top="10.0" />
+         </VBox.margin></HBox>
+      <HBox alignment="CENTER" prefHeight="300.0" prefWidth="725.0">
+         <VBox.margin>
+            <Insets left="15.0" right="15.0" top="10.0" />
+         </VBox.margin>
+         <children>
+            <TextArea maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="725.0" promptText="Description" styleClass="taskDescription" wrapText="true" />
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="725.0">
+         <VBox.margin>
+            <Insets left="15.0" right="15.0" top="10.0" />
+         </VBox.margin>
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="362.5">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="49.0" prefWidth="200.0" styleClass="taskCancel" text="Cancel" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="362.5">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="49.0" prefWidth="200.0" styleClass="taskDone" text="Done" />
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>
