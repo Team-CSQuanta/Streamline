@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class HeaderController {
-    public static final ModalPane modalPane = new ModalPane();
+    public static final ModalPane modalPaneForHeader = new ModalPane();
     @FXML
     private ImageView inbox;
 
@@ -37,9 +37,9 @@ public class HeaderController {
     @FXML
     void loadSideMenu(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/Fxml/Sidebar.fxml")));
-        modalPane.setAlignment(Pos.CENTER_LEFT);
-        modalPane.usePredefinedTransitionFactories(Side.LEFT);
-        modalPane.show(loader.load());
+        modalPaneForHeader.setAlignment(Pos.CENTER_LEFT);
+        modalPaneForHeader.usePredefinedTransitionFactories(Side.LEFT);
+        modalPaneForHeader.show(loader.load());
     }
 
     @FXML
@@ -50,8 +50,8 @@ public class HeaderController {
     @FXML
     void userIconClicked(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/Fxml/Profile-view-edit.fxml")));
-        modalPane.setAlignment(Pos.CENTER);
-        modalPane.show(loader.load());
+        modalPaneForHeader.setAlignment(Pos.CENTER);
+        modalPaneForHeader.show(loader.load());
     }
 
 }
