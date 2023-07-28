@@ -1,6 +1,5 @@
 package com.csquanta.streamline.Controllers;
 
-import com.csquanta.streamline.App;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;

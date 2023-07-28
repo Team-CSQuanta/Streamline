@@ -1,14 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Fxml.AvatarBackgrounds"
-            prefHeight="400.0" prefWidth="600.0">
 
-</AnchorPane>
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="475.0" spacing="20.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="containerBox" stylesheets="@../Styles/AvatarBackgrounds.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.AvatarBackgrounds">
+   <padding>
+      <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+   </padding>
+   <children>
+      <ImageView fitHeight="147.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true" styleClass="bgImage">
+         <image>
+            <Image url="@../Images/backgrounds/background_butterfly_garden.png" />
+         </image>
+      </ImageView>
+      <VBox alignment="CENTER" spacing="5.0">
+         <children>
+            <Label prefHeight="80.0" prefWidth="274.0" styleClass="detailsTitle" text="Flying over an ancient forest" wrapText="true" />
+            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="274.0" spacing="4.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="95.0" prefWidth="135.0">
+                     <children>
+                        <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="95.0" prefWidth="135.0">
+                           <children>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/Points/Gold.png" />
+                                 </image>
+                              </ImageView>
+                              <Label alignment="CENTER" prefHeight="47.0" prefWidth="64.0" styleClass="price" text="100" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="95.0" prefWidth="135.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="90.0" styleClass="buyButton" text="Buy" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</HBox>
