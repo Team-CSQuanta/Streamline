@@ -1,0 +1,30 @@
+@font-face {
+    src: url("../Fonts/ProductSans-Light.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Medium.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Regular.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Black.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Bold.ttf");
+}
+.itemTitle{
+    -fx-font-family: "Product Sans Light";
+    -fx-font-size: 25px;
+}
+.priceTag{
+    -fx-font-family: "Product Sans Light";
+    -fx-font-size: 15px;
+}
+.butButton{
+    -fx-font-family: "Product Sans Light";
+    -fx-font-size: 15px;
+    /*-fx-border-color:  linear-gradient(to bottom right, #18ABD1, #8968A3, #DD3982, #DE755C, #DEA63D);*/
+    /*!*-fx-border-radius: 5px;*!*/
+    /*!*-fx-background-radius: 5px;*!*/
+}
