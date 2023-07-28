@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 
 
-<AnchorPane fx:id="rootLayout" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.csquanta.streamline.Controllers.StartingAnimationController">
-    <children>
-        <Label fx:id="logo" layoutX="357.0" layoutY="320.0" prefHeight="161.0" prefWidth="487.0" styleClass="logo"
-               stylesheets="@../Styles/global.css" text="Streamline"/>
-    </children>
-</AnchorPane>
+<StackPane prefHeight="1000.0" prefWidth="1900.0" style="-fx-background-radius: 25px; -fx-border-radius: 25px;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.StartingAnimationController">
+   <children>
+        <Label fx:id="logo" prefHeight="161.0" prefWidth="499.0" styleClass="textAnimation" stylesheets="@../Styles/global.css" text="Streamline" />
+   </children>
+</StackPane>

@@ -1,15 +1,11 @@
 package com.csquanta.streamline.Controllers;
 
-import animatefx.animation.BounceInUp;
 import animatefx.animation.FadeInUp;
-import atlantafx.base.controls.ModalPane;
 import com.csquanta.streamline.App;
-import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.geometry.Side;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -20,7 +16,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static java.util.Objects.requireNonNull;
@@ -159,7 +154,7 @@ public class SidebarController implements Initializable {
         App.addNodesToMainStack(shop, Pos.BOTTOM_CENTER);
         FadeInUp fadeInUp = new FadeInUp();
         fadeInUp.setNode(shop);
-        fadeInUp.setSpeed(2);
+        fadeInUp.setSpeed(1);
         fadeInUp.play();
     }
 

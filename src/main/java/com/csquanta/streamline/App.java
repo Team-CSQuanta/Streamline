@@ -1,5 +1,4 @@
 package com.csquanta.streamline;
-
 import atlantafx.base.controls.ModalPane;
 import atlantafx.base.theme.Dracula;
 import javafx.application.Application;
@@ -11,7 +10,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
 import static java.util.Objects.requireNonNull;
 
 public class App extends Application {
@@ -21,11 +19,10 @@ public class App extends Application {
     private double x, y;
     public App() {
     }
-
     @Override
     public void start(Stage primaryStage) throws Exception {
         mainStage = primaryStage;
-        FXMLLoader fxmlLoader = new FXMLLoader(requireNonNull(getClass().getResource("/Fxml/MainStage.fxml")));
+        FXMLLoader fxmlLoader = new FXMLLoader(requireNonNull(getClass().getResource("/Fxml/StartingAnimation.fxml")));
         root =  fxmlLoader.load();
         Scene startingAnimation = new Scene(root);
         startingAnimation.setFill(Color.TRANSPARENT);
@@ -64,5 +61,6 @@ public class App extends Application {
     public static void removeModalPane(ModalPane modalPane){
         root.getChildren().remove(modalPane);
     }
+
 }
 

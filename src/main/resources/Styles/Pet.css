@@ -13,8 +13,12 @@
 @font-face {
     src: url("../Fonts/ProductSans-Bold.ttf");
 }
-.textAnimation{
-    -fx-font-family: "Product Sans Bold";
-    -fx-font-size: 100px;
-    -fx-text-fill: linear-gradient(to bottom right, #18ABD1, #8968A3, #DD3982, #DE755C, #DEA63D)
+.topTitle{
+    -fx-font-family: "Product Sans Medium";
+    -fx-font-size: 35px;
+    -fx-text-fill: linear-gradient(to bottom right, #18ABD1, #8968A3, #DD3982, #DE755C, #DEA63D);
+}
+.tabOption{
+    -fx-font-family: "Product Sans Medium";
+    -fx-font-size: 18px;
 }

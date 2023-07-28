@@ -6,16 +6,20 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="955.0" prefWidth="1900.0" style="-fx-background-radius: 0px 0px 25px 25px; -fx-border-radius: 0px 0px 25px 25px;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="955.0" prefWidth="1900.0" style="-fx-background-radius: 0px 0px 25px 25px; -fx-border-radius: 0px 0px 25px 25px;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.ShopController">
    <children>
       <SplitPane dividerPositions="0.6" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="955.0" prefWidth="1900.0" style="-fx-border-radius: 0px 0px 25px 25px; -fx-background-radius: 0px 0px 25px 25px;">
          <items>
             <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="955.0" prefWidth="1350.0" style="-fx-background-color: #B0FD9B; -fx-background-radius: 0px 0px 0px 25px; -fx-border-radius: 0px 0px 0px 25px;">
                <children>
-                  <ScrollPane hbarPolicy="NEVER" prefHeight="955.0" prefWidth="1350.0" style="-fx-background-color: #DDDDDD;">
+                  <ScrollPane hbarPolicy="NEVER" pannable="true" prefHeight="955.0" prefWidth="1350.0" style="-fx-background-color: #DDDDDD;">
                      <content>
-                        <VBox prefHeight="920.0" prefWidth="1270.0" />
+                        <VBox prefHeight="920.0" prefWidth="1270.0" spacing="10.0">
+                           <children>
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1260.0" style="-fx-background-color: #D8B2D8;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1260.0" style="-fx-background-color: #D8B2D8;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1260.0" style="-fx-background-color: #D8B2D8;" />
+                           </children></VBox>
                      </content>
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -34,7 +38,7 @@
                         <Label prefHeight="30.0" prefWidth="490.0" styleClass="underAwesome" stylesheets="@../Styles/Shop.css" text="places your character must go!" wrapText="true" />
                      </children>
                   </VBox>
-                  <ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="490.0" style="-fx-background-color: #D8B2D8;">
+                  <ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="745.0" prefWidth="490.0" style="-fx-background-color: #D8B2D8;">
                      <content>
                         <VBox prefHeight="745.0" prefWidth="475.0" spacing="10.0">
                            <children>
