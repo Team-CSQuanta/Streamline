@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1260.0" spacing="5.0" style="-fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #3C3365;" stylesheets="@../Styles/Pet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.ShopBlockController">
+   <padding>
+      <Insets bottom="15.0" top="15.0" />
+   </padding>
+   <children>
+      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1230.0">
+         <children>
+            <Label prefWidth="310.0" styleClass="topTitle" text="Avatar Accessories" />
+         </children>
+      </HBox>
+      <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="1258.0" styleClass="tabOption" stylesheets="@../Styles/Pet.css" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab closable="false" text="Armors">
+               <content>
+                  <ScrollPane hmax="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="270.0" prefWidth="1260.0" vbarPolicy="NEVER">
+                     <content>
+                        <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="265.0" spacing="20.0">
+                           <padding>
+                              <Insets bottom="10.0" left="20.0" top="10.0" />
+                           </padding>
+                           <children>
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
+                           </children>
+                        </HBox>
+                     </content>
+                  </ScrollPane>
+               </content>
+          </Tab>
+            <Tab closable="false" text="Head wears">
+               <content>
+                  <ScrollPane hmax="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="270.0" prefWidth="1260.0" vbarPolicy="NEVER">
+                     <content>
+                        <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="265.0" spacing="20.0">
+                           <padding>
+                              <Insets bottom="10.0" left="20.0" top="10.0" />
+                           </padding>
+                           <children>
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #B2D8D8; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #B2D8D8; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #B2D8D8; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #B2D8D8; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #B2D8D8; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #B2D8D8; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #B2D8D8; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #B2D8D8; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #B2D8D8; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #B2D8D8; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #B2D8D8; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #B2D8D8; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #B2D8D8; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #B2D8D8; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #B2D8D8; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #B2D8D8; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #B2D8D8; -fx-background-radius: 15px;" />
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #B2D8D8; -fx-background-radius: 15px;" />
+                           </children>
+                        </HBox>
+                     </content>
+                  </ScrollPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</VBox>
