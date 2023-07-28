@@ -29,7 +29,10 @@ import java.util.ResourceBundle;
 public class DashBoardController implements Initializable {
     @FXML
     private StackPane DashStackPane;
-    private final ModalPane modalPane = new ModalPane();
+
+    private  ModalPane modalPane = new ModalPane();
+
+    
     @FXML
     private Label Userlabel;
     @FXML
