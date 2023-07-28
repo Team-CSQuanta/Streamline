@@ -97,7 +97,7 @@ public class DashBoardController implements Initializable {
     }
     @FXML
     void profileButtonClicked(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/Fxml/Profile-view-edit.fxml")));
+        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/Fxml/Profile.fxml")));
         modalPane.show(loader.load());
     }
     @FXML

@@ -28,7 +28,12 @@ public class HeaderController {
 
     @FXML
     private ImageView user;
-
+    @FXML
+    void takeBreakClicked(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/Fxml/TakeBreak.fxml")));
+        modalPaneForHeader.setAlignment(Pos.CENTER);
+        modalPaneForHeader.show(loader.load());
+    }
     @FXML
     void inboxClicked(MouseEvent event) {
 
@@ -49,7 +54,7 @@ public class HeaderController {
 
     @FXML
     void userIconClicked(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/Fxml/Profile-view-edit.fxml")));
+        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/Fxml/Profile.fxml")));
         modalPaneForHeader.setAlignment(Pos.CENTER);
         modalPaneForHeader.show(loader.load());
     }
