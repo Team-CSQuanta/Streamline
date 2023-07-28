@@ -6,20 +6,15 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="955.0" prefWidth="1900.0" style="-fx-background-radius: 0px 0px 25px 25px; -fx-border-radius: 0px 0px 25px 25px;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.ShopController">
+<VBox fx:id="shopContainerVbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="955.0" prefWidth="1900.0" style="-fx-background-radius: 0px 0px 25px 25px; -fx-border-radius: 0px 0px 25px 25px;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.ShopController">
    <children>
-      <SplitPane dividerPositions="0.6" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="955.0" prefWidth="1900.0" style="-fx-border-radius: 0px 0px 25px 25px; -fx-background-radius: 0px 0px 25px 25px;">
+      <SplitPane fx:id="ShopSpiltPane" dividerPositions="0.6" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="955.0" prefWidth="1900.0" style="-fx-border-radius: 0px 0px 25px 25px; -fx-background-radius: 0px 0px 25px 25px;">
          <items>
-            <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="955.0" prefWidth="1350.0" style="-fx-background-color: #B0FD9B; -fx-background-radius: 0px 0px 0px 25px; -fx-border-radius: 0px 0px 0px 25px;">
+            <VBox fx:id="ItemBlockContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="955.0" prefWidth="1350.0" style="-fx-background-radius: 0px 0px 0px 25px; -fx-border-radius: 0px 0px 0px 25px;">
                <children>
-                  <ScrollPane hbarPolicy="NEVER" pannable="true" prefHeight="955.0" prefWidth="1350.0" style="-fx-background-color: #DDDDDD;">
+                  <ScrollPane fx:id="ItemBlockScrollPane" hbarPolicy="NEVER" pannable="true" prefHeight="955.0" prefWidth="1350.0" vbarPolicy="NEVER" vmax="2.0">
                      <content>
-                        <VBox prefHeight="920.0" prefWidth="1270.0" spacing="10.0">
-                           <children>
-                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1260.0" style="-fx-background-color: #D8B2D8;" />
-                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1260.0" style="-fx-background-color: #D8B2D8;" />
-                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1260.0" style="-fx-background-color: #D8B2D8;" />
-                           </children></VBox>
+                        <VBox fx:id="ItemBlockVBox" prefHeight="920.0" prefWidth="1270.0" spacing="30.0" />
                      </content>
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -30,17 +25,17 @@
                   <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                </padding>
             </VBox>
-            <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="955.0" prefWidth="550.0" spacing="10.0" style="-fx-background-color: #B2D8D8; -fx-background-radius: 0px 0px 25px 0px;" SplitPane.resizableWithParent="false">
+            <VBox fx:id="BgContainerVbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="955.0" prefWidth="550.0" spacing="10.0" style="-fx-background-radius: 0px 0px 25px 0px;" SplitPane.resizableWithParent="false">
                <children>
-                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="140.0" prefWidth="490.0">
+                  <VBox fx:id="bgTitleVBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="140.0" prefWidth="490.0">
                      <children>
-                        <Label prefHeight="80.0" prefWidth="490.0" styleClass="awesome" stylesheets="@../Styles/Shop.css" text="Awesome" />
-                        <Label prefHeight="30.0" prefWidth="490.0" styleClass="underAwesome" stylesheets="@../Styles/Shop.css" text="places your character must go!" wrapText="true" />
+                        <Label fx:id="bgLabel" prefHeight="80.0" prefWidth="490.0" styleClass="awesome" stylesheets="@../Styles/Shop.css" text="Awesome" />
+                        <Label fx:id="bgUnderLabeltxt" prefHeight="30.0" prefWidth="490.0" styleClass="underAwesome" stylesheets="@../Styles/Shop.css" text="places your character must go!" wrapText="true" />
                      </children>
                   </VBox>
-                  <ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="745.0" prefWidth="490.0" style="-fx-background-color: #D8B2D8;">
+                  <ScrollPane fx:id="bgScrollPane" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="745.0" prefWidth="490.0">
                      <content>
-                        <VBox prefHeight="745.0" prefWidth="475.0" spacing="10.0">
+                        <VBox fx:id="bgVBox" prefHeight="745.0" prefWidth="475.0" spacing="10.0">
                            <children>
                               <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #B0EDFF;" />
                               <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #B0EDFF;" />
