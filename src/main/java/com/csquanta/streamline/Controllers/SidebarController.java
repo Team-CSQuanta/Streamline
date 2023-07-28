@@ -21,11 +21,9 @@ import java.util.ResourceBundle;
 import static java.util.Objects.requireNonNull;
 
 public class SidebarController implements Initializable {
-    @FXML
-    private ImageView habitImg;
 
     @FXML
-    private ImageView leaderboardImg;
+    private ImageView challengeImg;
 
     @FXML
     private ImageView overviewImg;
@@ -64,29 +62,6 @@ public class SidebarController implements Initializable {
         taskImg.setImage(new Image(stream));
     }
     @FXML
-    void habitEntered(MouseEvent event) throws FileNotFoundException {
-        InputStream stream = new FileInputStream("src/main/resources/Images/icons8-combo-chart-24v2.png");
-        habitImg.setImage(new Image(stream));
-    }
-
-    @FXML
-    void habitExited(MouseEvent event) throws FileNotFoundException {
-        InputStream stream = new FileInputStream("src/main/resources/Images/icons8-combo-chart-24.png");
-        habitImg.setImage(new Image(stream));
-    }
-    @FXML
-    void leaderboardEntered(MouseEvent event) throws FileNotFoundException {
-        InputStream stream = new FileInputStream("src/main/resources/Images/icons8-leaderboard-24v2.png");
-        leaderboardImg.setImage(new Image(stream));
-    }
-
-    @FXML
-    void leaderboardExited(MouseEvent event) throws FileNotFoundException {
-        InputStream stream = new FileInputStream("src/main/resources/Images/icons8-leaderboard-24.png");
-        leaderboardImg.setImage(new Image(stream));
-    }
-
-    @FXML
     void shopEntered(MouseEvent event) throws FileNotFoundException {
         InputStream stream = new FileInputStream("src/main/resources/Images/icons8-shop-24v2.png");
         shopImg.setImage(new Image(stream));
@@ -119,13 +94,21 @@ public class SidebarController implements Initializable {
         settingsImg.setImage(new Image(stream));
     }
 
-    @FXML
-    void onHabitTrackerBtnClicked(MouseEvent event) {
 
+    @FXML
+    void challengesEntered(MouseEvent event) throws FileNotFoundException {
+        InputStream stream = new FileInputStream("src/main/resources/Images/icons8-challenge-24v2.png");
+        challengeImg.setImage(new Image(stream));
     }
 
     @FXML
-    void onLeaderBoardBtnClicked(MouseEvent event) {
+    void challengesExited(MouseEvent event) throws FileNotFoundException {
+        InputStream stream = new FileInputStream("src/main/resources/Images/icons8-challenge-24.png");
+        challengeImg.setImage(new Image(stream));
+    }
+
+    @FXML
+    void onChallengesBtnClicked(MouseEvent event) {
 
     }
 
