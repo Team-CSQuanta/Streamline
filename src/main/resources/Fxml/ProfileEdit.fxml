@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" spacing="5.0" stylesheets="@../Styles/ProfileEdit.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox fx:id="closeBtn" alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0">
+         <children>
+            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/icons8-close-24.png" />
+               </image>
+            </ImageView>
+         </children>
+         <VBox.margin>
+            <Insets right="5.0" top="5.0" />
+         </VBox.margin>
+      </HBox>
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="600.0">
+         <children>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="147.0" prefWidth="141.0" style="-fx-background-color: #B0EDFF;">
+               <children>
+                  <ImageView fx:id="image_bg" fitHeight="147.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/backgrounds/background_alpine_slopes.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="avatarHead" fitHeight="90.0" fitWidth="90.0" layoutX="26.0" layoutY="33.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/customize/skin/skin_aurora.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="avatarHair" fitHeight="90.0" fitWidth="90.0" layoutX="26.0" layoutY="29.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/customize/hair/hair_bangs_1_black.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="headGear" fitHeight="90.0" fitWidth="90.0" layoutX="26.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/gear/head/head_wizard_5.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="avatarBody" fitHeight="90.0" fitWidth="90.0" layoutX="26.0" layoutY="33.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/customize/shirts/broad_shirt_convict.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="avatarArmor" fitHeight="90.0" fitWidth="90.0" layoutX="26.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/gear/armor/slim_armor_wizard_5.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="avatarPet" fitHeight="99.0" fitWidth="81.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/stable/pets/Pet-TigerCub-Red.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="411.0" prefWidth="600.0" styleClass="tabPaneTitle" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab text="Body">
+               <content>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0" />
+               </content></Tab>
+          <Tab text="Skin" />
+          <Tab text="Head Gear" />
+            <Tab text="Backgrounds" />
+        </tabs>
+      </TabPane>
+   </children>
+</VBox>

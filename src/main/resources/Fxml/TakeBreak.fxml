@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import atlantafx.base.controls.ToggleSwitch?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" spacing="10.0" style="-fx-background-color: #282A36FF;" stylesheets="@../Styles/TakeBreak.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+   <children>
+      <HBox alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="780.0">
+         <children>
+            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/icons8-close-24.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <ImageView fitHeight="244.0" fitWidth="256.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/goose-goose-lies-relaxed-on-its-stomach.png" />
+         </image></ImageView>
+      <Label alignment="CENTER" prefHeight="100.0" prefWidth="740.0" styleClass="topTitle" text="It's okay to have a break from your daily challenges!" textAlignment="CENTER" wrapText="true" />
+      <Label alignment="CENTER" prefHeight="82.0" prefWidth="478.0" styleClass="descriptionText" text="Taking breaks has been shown to be important in recovering from stress, which can, in turn, improve your performance. Also, you may rest when you are ill, on vacation, or unable to complete tasks. This rest option prevents health loss from incomplete Dailies." textAlignment="JUSTIFY" wrapText="true" />
+      <ToggleSwitch alignment="CENTER" labelPosition="RIGHT" prefHeight="70.0" prefWidth="53.0" />
+      <Label alignment="CENTER" prefHeight="4.0" prefWidth="478.0" styleClass="descriptionText" text="Turn on the rest mode if you need..." textAlignment="JUSTIFY" wrapText="true" />
+   </children>
+</VBox>

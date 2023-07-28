@@ -140,7 +140,10 @@ public class SidebarController implements Initializable {
     }
 
     @FXML
-    void onSignOutBtnclicked(MouseEvent event) {
+    void onSignOutBtnclicked(MouseEvent event) throws IOException {
+        VBox signout = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/SignOutWarningPage.fxml")));
+        HeaderController.modalPaneForHeader.hide(true);
+        HeaderController.modalPaneForHeader.show(signout);
 
     }
 
@@ -151,6 +154,7 @@ public class SidebarController implements Initializable {
     @FXML
     void shopBtnClicked(MouseEvent event) throws IOException {
         VBox shop = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/Shop.fxml")));
+//        HeaderController.modalPaneForHeader.hide(true);
         App.addNodesToMainStack(shop, Pos.BOTTOM_CENTER);
         FadeInUp fadeInUp = new FadeInUp();
         fadeInUp.setNode(shop);
