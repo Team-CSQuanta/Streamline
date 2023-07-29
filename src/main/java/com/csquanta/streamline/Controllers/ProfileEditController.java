@@ -1,8 +1,11 @@
 package com.csquanta.streamline.Controllers;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+
+import static com.csquanta.streamline.Controllers.HeaderController.modalPaneForHeader;
 
 public class ProfileEditController {
 
@@ -32,6 +35,13 @@ public class ProfileEditController {
 
     @FXML
     private ImageView image_bg;
+
+
+
+    @FXML
+    void closeEditView(MouseEvent event) {
+        modalPaneForHeader.hide(true);
+    }
 
 }
 
