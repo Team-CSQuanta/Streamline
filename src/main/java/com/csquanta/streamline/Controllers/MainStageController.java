@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
 import static java.util.Objects.requireNonNull;
 
 public class MainStageController implements Initializable {
-    private final ModalPane modalPaneForExit = new ModalPane();
+    public static final ModalPane modalPaneForExit = new ModalPane();
     @FXML
     private StackPane mainStageStackPane;
 
@@ -32,7 +32,7 @@ public class MainStageController implements Initializable {
             throw new RuntimeException(e);
         }
         mainStageStackPane.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
-            if(KeyCode.ESCAPE == event.getCode()){
+            if(KeyCode.ALT == event.getCode()){
                 modalPaneForExit.setAlignment(Pos.BOTTOM_CENTER);
                 modalPaneForExit.usePredefinedTransitionFactories(Side.BOTTOM);
                 modalPaneForExit.show(exitOption);

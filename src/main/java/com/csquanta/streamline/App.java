@@ -1,15 +1,22 @@
 package com.csquanta.streamline;
-import atlantafx.base.controls.ModalPane;
 import atlantafx.base.theme.Dracula;
+import com.csquanta.streamline.Controllers.HeaderController;
+import com.csquanta.streamline.Controllers.MainStageController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
+import javafx.geometry.Side;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
+import java.io.IOException;
+
 import static java.util.Objects.requireNonNull;
 
 public class App extends Application {
@@ -48,18 +55,20 @@ public class App extends Application {
         launch(args);
 
     }
-    public static void addNodesToMainStack(Node node, Pos position){
-        StackPane.setAlignment(node, position);
-        root.getChildren().add(node);
-    }
-    public static void addModalPaneToMainStack(ModalPane modalPane){
-        root.getChildren().add(modalPane);
-    }
-    public static void removeNode(Node node){
-        root.getChildren().remove(node);
-    }
-    public static void removeModalPane(ModalPane modalPane){
-        root.getChildren().remove(modalPane);
+    public static void newLoad() throws IOException {
+        HBox header, exitOption;
+        root.getChildren().removeAll(root.getChildren());
+        exitOption = FXMLLoader.load(requireNonNull(App.class.getResource("/Fxml/ExitOption.fxml")));
+        header = FXMLLoader.load(requireNonNull(App.class.getResource("/Fxml/Header.fxml")));
+        StackPane.setAlignment(header, Pos.TOP_CENTER);
+        root.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
+            if(KeyCode.ALT == event.getCode()){
+                MainStageController.modalPaneForExit.setAlignment(Pos.BOTTOM_CENTER);
+                MainStageController.modalPaneForExit.usePredefinedTransitionFactories(Side.BOTTOM);
+                MainStageController.modalPaneForExit.show(exitOption);
+            }
+        });
+        root.getChildren().addAll(header, MainStageController.modalPaneForExit, HeaderController.modalPaneForHeader);
     }
 
 }

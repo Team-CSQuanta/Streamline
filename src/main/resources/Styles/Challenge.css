@@ -1,0 +1,49 @@
+@font-face {
+    src: url("../Fonts/ProductSans-Light.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Medium.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Regular.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Black.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Bold.ttf");
+}
+.titleMsg{
+    -fx-font-family: "Product Sans Medium";
+    -fx-font-size: 45px;
+    -fx-text-fill: linear-gradient(to bottom right, #18ABD1, #8968A3, #DD3982, #DE755C, #DEA63D);
+
+}
+
+.description{
+    -fx-font-family: "Product Sans Light";
+    -fx-font-size: 15px;
+
+}
+.takeChallengeBtn{
+    -fx-font-family: "Product Sans Light";
+}
+
+.noChallenge{
+    -fx-font-family: "Product Sans Light";
+    -fx-font-size: 25px;
+}
+
+/* Create Challenge */
+.selectChallengeTitle{
+    -fx-font-family: "Product Sans Medium";
+    -fx-font-size: 20px;
+    -fx-text-fill: linear-gradient(to bottom right, #18ABD1, #8968A3, #DD3982, #DE755C, #DEA63D);
+}
+.challengeTypeTabPane{
+    -fx-font-family: "Product Sans Light";
+    -fx-background-color: linear-gradient(to bottom right, #FF512F, #DD2476);
+}
+.selectTask{
+    -fx-font-family: "Product Sans Medium";
+}
