@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1290.0" stylesheets="@../Styles/Challenge.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1290.0">
+         <items>
+            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="300.0" spacing="10.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="49.0" prefWidth="280.0" styleClass="selectChallengeTitle" text="Select challenge type" />
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="280.0" style="-fx-border-radius: 10px; -fx-border-color: #9580FF;">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="60.0" prefWidth="280.0" styleClass="selectTask" text="Build Habits" />
+                     </children>
+                  </VBox>
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="280.0" style="-fx-border-radius: 10px; -fx-border-color: #9580FF;">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="60.0" prefWidth="280.0" styleClass="selectTask" text="Consistency on a specific task" />
+                     </children>
+                  </VBox>
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="280.0" style="-fx-border-radius: 10px; -fx-border-color: #9580FF;">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="60.0" prefWidth="280.0" styleClass="selectTask" text="Completion of daily tasks" />
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding></VBox>
+            <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="988.0" />
+         </items>
+      </SplitPane>
+   </children>
+</VBox>
