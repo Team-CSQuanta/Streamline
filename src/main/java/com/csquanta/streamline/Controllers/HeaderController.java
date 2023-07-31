@@ -1,8 +1,6 @@
 package com.csquanta.streamline.Controllers;
 
-import animatefx.animation.Jello;
 import animatefx.animation.Pulse;
-import animatefx.animation.ZoomIn;
 import atlantafx.base.controls.ModalPane;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,9 +20,6 @@ public class HeaderController {
 
     @FXML
     private Label logo;
-
-    @FXML
-    private ImageView notification;
 
     @FXML
     private ImageView sideMenuLoader;
@@ -56,10 +51,7 @@ public class HeaderController {
 
     }
 
-    @FXML
-    void notificationClicked(MouseEvent event) {
 
-    }
 
     @FXML
     void userIconClicked(MouseEvent event) throws IOException {

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1260.0" spacing="5.0" style="-fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #3C3365#3C3365;" stylesheets="@../Styles/AvatarAccessories.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.PetRelatedAccessoryController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1260.0" spacing="5.0" style="-fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #9580FF;" stylesheets="@../Styles/AvatarAccessories.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.PetRelatedAccessoryController">
    <padding>
       <Insets bottom="15.0" top="15.0" />
    </padding>

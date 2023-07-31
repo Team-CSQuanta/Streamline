@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.image.Image?>
@@ -19,9 +20,9 @@
                   <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                </padding>
                <children>
-                  <HBox fx:id="topHbox" alignment="CENTER_LEFT" style="-fx-border-color: #9580FF; -fx-border-radius: 10px;">
+                  <HBox fx:id="topHbox" alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="200.0" style="-fx-border-color: #9580FF; -fx-border-radius: 10px;">
                      <children>
-                        <ImageView fitHeight="244.0" fitWidth="256.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Images/bonbon-spam.png" />
                            </image>
@@ -29,7 +30,7 @@
                         <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="953.0">
                            <children>
                               <Label alignment="CENTER" prefHeight="56.0" prefWidth="811.0" styleClass="titleMsg" text="Fight with wicked monsters as a team" />
-                              <Label alignment="CENTER" prefHeight="96.0" prefWidth="657.0" styleClass="description" text="You can take challenge with your friend something like get fit challenge, stop smoking challenge etc and Together with you and your friend will damage the health of the evil monster." textAlignment="CENTER" wrapText="true" />
+                              <Label alignment="CENTER" prefHeight="72.0" prefWidth="657.0" styleClass="description" text="You can take challenge with your friend something like get fit challenge, stop smoking challenge etc and Together with you and your friend will damage the health of the evil monster." textAlignment="CENTER" wrapText="true" />
                               <Button fx:id="takeChallengeBtn" mnemonicParsing="false" onAction="#takeChallenge" styleClass="takeChallengeBtn" text="Take challenge" />
                            </children>
                            <HBox.margin>
@@ -52,33 +53,257 @@
             </VBox>
             <VBox fx:id="MonsterContainerVbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="955.0" prefWidth="550.0" spacing="10.0" style="-fx-background-radius: 0px 0px 25px 0px;" SplitPane.resizableWithParent="false">
                <children>
-                  <VBox fx:id="MonsterTitleVBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="140.0" prefWidth="490.0">
+                  <VBox fx:id="MonsterTitleVBox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="470.0">
                      <children>
-                        <Label fx:id="MonsterLabel" prefHeight="80.0" prefWidth="490.0" styleClass="awesome" stylesheets="@../Styles/Shop.css" text="Evil Monsters" />
-                        <Label fx:id="MonsterUnderLabeltxt" prefHeight="30.0" prefWidth="490.0" styleClass="underAwesome" stylesheets="@../Styles/Shop.css" text="you can defeate with your friend!" wrapText="true" />
+                        <Label fx:id="MonsterLabel" alignment="CENTER" prefHeight="49.0" prefWidth="470.0" styleClass="awesome" stylesheets="@../Styles/Shop.css" text="Evil Monsters" />
+                        <Label fx:id="MonsterUnderLabeltxt" alignment="CENTER" prefHeight="25.0" prefWidth="470.0" styleClass="underAwesome" stylesheets="@../Styles/Shop.css" text="you can defeate with your friend!" wrapText="true" />
                      </children>
                   </VBox>
-                  <ScrollPane fx:id="MonsterScrollPane" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="745.0" prefWidth="490.0">
+                  <ScrollPane fx:id="MonsterScrollPane" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="745.0" prefWidth="470.0">
                      <content>
-                        <VBox fx:id="MonsterVBox" prefHeight="745.0" prefWidth="475.0" spacing="10.0">
+                        <VBox fx:id="MonsterVBox" prefHeight="745.0" prefWidth="455.0" spacing="10.0">
                            <children>
-                              <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #B0EDFF;" />
-                              <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #B0EDFF;" />
-                              <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #B0EDFF;" />
-                              <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #B0EDFF;" />
-                              <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #B0EDFF;" />
-                              <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #B0EDFF;" />
-                              <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #B0EDFF;" />
-                              <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #B0EDFF;" />
-                              <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #B0EDFF;" />
-                              <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #B0EDFF;" />
+                              <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="455.0" spacing="20.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="containerBox" stylesheets="@../Styles/AvatarBackgrounds.css">
+                                 <padding>
+                                    <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                 </padding>
+                                 <children>
+                                    <ImageView fitHeight="147.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true" styleClass="bgImage">
+                                       <image>
+                                          <Image url="@../Images/quests/bosses/quest_dilatory.png" />
+                                       </image>
+                                    </ImageView>
+                                    <VBox alignment="CENTER" spacing="5.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="25.0" prefWidth="274.0" styleClass="detailsTitle" text="Ferret" wrapText="true" />
+                                          <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="274.0" spacing="10.0">
+                                             <children>
+                                                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/icons8-love-48.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ProgressBar prefHeight="12.0" prefWidth="156.0" progress="0.66" />
+                                                <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="65.0" styleClass="price" text="2000 HP" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="274.0" spacing="10.0">
+                                             <children>
+                                                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/icons8-electric-24.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ProgressBar prefHeight="12.0" prefWidth="156.0" progress="0.2" style="-fx-progress-color: #FA5252;" />
+                                                <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="65.0" styleClass="price" text="28 Hp" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="455.0" spacing="20.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="containerBox" stylesheets="@../Styles/AvatarBackgrounds.css">
+                                 <padding>
+                                    <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                 </padding>
+                                 <children>
+                                    <ImageView fitHeight="147.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true" styleClass="bgImage">
+                                       <image>
+                                          <Image url="@../Images/quests/bosses/quest_armadillo.png" />
+                                       </image>
+                                    </ImageView>
+                                    <VBox alignment="CENTER" spacing="5.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="25.0" prefWidth="274.0" styleClass="detailsTitle" text="Ferret" wrapText="true" />
+                                          <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="274.0" spacing="10.0">
+                                             <children>
+                                                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/icons8-love-48.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ProgressBar prefHeight="12.0" prefWidth="156.0" progress="0.66" />
+                                                <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="65.0" styleClass="price" text="2000 HP" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="274.0" spacing="10.0">
+                                             <children>
+                                                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/icons8-electric-24.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ProgressBar prefHeight="12.0" prefWidth="156.0" progress="0.2" style="-fx-progress-color: #FA5252;" />
+                                                <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="65.0" styleClass="price" text="28 Hp" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="455.0" spacing="20.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="containerBox" stylesheets="@../Styles/AvatarBackgrounds.css">
+                                 <padding>
+                                    <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                 </padding>
+                                 <children>
+                                    <ImageView fitHeight="147.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true" styleClass="bgImage">
+                                       <image>
+                                          <Image url="@../Images/quests/bosses/quest_sheep.png" />
+                                       </image>
+                                    </ImageView>
+                                    <VBox alignment="CENTER" spacing="5.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="25.0" prefWidth="274.0" styleClass="detailsTitle" text="Ferret" wrapText="true" />
+                                          <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="274.0" spacing="10.0">
+                                             <children>
+                                                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/icons8-love-48.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ProgressBar prefHeight="12.0" prefWidth="156.0" progress="0.66" />
+                                                <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="65.0" styleClass="price" text="2000 HP" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="274.0" spacing="10.0">
+                                             <children>
+                                                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/icons8-electric-24.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ProgressBar prefHeight="12.0" prefWidth="156.0" progress="0.2" style="-fx-progress-color: #FA5252;" />
+                                                <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="65.0" styleClass="price" text="28 Hp" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="455.0" spacing="20.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="containerBox" stylesheets="@../Styles/AvatarBackgrounds.css">
+                                 <padding>
+                                    <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                 </padding>
+                                 <children>
+                                    <ImageView fitHeight="147.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true" styleClass="bgImage">
+                                       <image>
+                                          <Image url="@../Images/quests/bosses/quest_vice2.png" />
+                                       </image>
+                                    </ImageView>
+                                    <VBox alignment="CENTER" spacing="5.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="25.0" prefWidth="274.0" styleClass="detailsTitle" text="Ferret" wrapText="true" />
+                                          <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="274.0" spacing="10.0">
+                                             <children>
+                                                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/icons8-love-48.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ProgressBar prefHeight="12.0" prefWidth="156.0" progress="0.66" />
+                                                <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="65.0" styleClass="price" text="2000 HP" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="274.0" spacing="10.0">
+                                             <children>
+                                                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/icons8-electric-24.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ProgressBar prefHeight="12.0" prefWidth="156.0" progress="0.2" style="-fx-progress-color: #FA5252;" />
+                                                <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="65.0" styleClass="price" text="28 Hp" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="455.0" spacing="20.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="containerBox" stylesheets="@../Styles/AvatarBackgrounds.css">
+                                 <padding>
+                                    <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                 </padding>
+                                 <children>
+                                    <ImageView fitHeight="147.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true" styleClass="bgImage">
+                                       <image>
+                                          <Image url="@../Images/quests/bosses/quest_vice2.png" />
+                                       </image>
+                                    </ImageView>
+                                    <VBox alignment="CENTER" spacing="5.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="25.0" prefWidth="274.0" styleClass="detailsTitle" text="Ferret" wrapText="true" />
+                                          <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="274.0" spacing="10.0">
+                                             <children>
+                                                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/icons8-love-48.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ProgressBar prefHeight="12.0" prefWidth="156.0" progress="0.66" />
+                                                <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="65.0" styleClass="price" text="2000 HP" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="274.0" spacing="10.0">
+                                             <children>
+                                                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/icons8-electric-24.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ProgressBar prefHeight="12.0" prefWidth="156.0" progress="0.2" style="-fx-progress-color: #FA5252;" />
+                                                <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="65.0" styleClass="price" text="28 Hp" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="455.0" spacing="20.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="containerBox" stylesheets="@../Styles/AvatarBackgrounds.css">
+                                 <padding>
+                                    <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                 </padding>
+                                 <children>
+                                    <ImageView fitHeight="147.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true" styleClass="bgImage">
+                                       <image>
+                                          <Image url="@../Images/quests/bosses/quest_whale.png" />
+                                       </image>
+                                    </ImageView>
+                                    <VBox alignment="CENTER" spacing="5.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="25.0" prefWidth="274.0" styleClass="detailsTitle" text="Ferret" wrapText="true" />
+                                          <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="274.0" spacing="10.0">
+                                             <children>
+                                                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/icons8-love-48.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ProgressBar prefHeight="12.0" prefWidth="156.0" progress="0.66" />
+                                                <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="65.0" styleClass="price" text="2000 HP" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="274.0" spacing="10.0">
+                                             <children>
+                                                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/icons8-electric-24.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ProgressBar prefHeight="12.0" prefWidth="156.0" progress="0.2" style="-fx-progress-color: #FA5252;" />
+                                                <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="65.0" styleClass="price" text="28 Hp" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
                            </children>
                         </VBox>
                      </content>
                   </ScrollPane>
                </children>
                <padding>
-                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                  <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
                </padding>
             </VBox>
          </items>
