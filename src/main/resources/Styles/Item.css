@@ -15,15 +15,15 @@
 }
 .itemTitle{
     -fx-font-family: "Product Sans Light";
-    -fx-font-size: 25px;
+    -fx-font-size: 20px;
 }
 .priceTag{
     -fx-font-family: "Product Sans Light";
-    -fx-font-size: 15px;
+    -fx-font-size: 12px;
 }
 .butButton{
     -fx-font-family: "Product Sans Light";
-    -fx-font-size: 15px;
+    -fx-font-size: 12px;
     /*-fx-border-color:  linear-gradient(to bottom right, #18ABD1, #8968A3, #DD3982, #DE755C, #DEA63D);*/
     /*!*-fx-border-radius: 5px;*!*/
     /*!*-fx-background-radius: 5px;*!*/

@@ -1,6 +1,6 @@
 package com.csquanta.streamline.Controllers;
 
-import animatefx.animation.ZoomIn;
+import animatefx.animation.Pulse;
 import atlantafx.base.controls.ModalPane;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,9 +22,6 @@ public class HeaderController {
     private Label logo;
 
     @FXML
-    private ImageView notification;
-
-    @FXML
     private ImageView sideMenuLoader;
 
     @FXML
@@ -34,10 +31,10 @@ public class HeaderController {
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/Fxml/TakeBreak.fxml")));
         modalPaneForHeader.setAlignment(Pos.CENTER);
         modalPaneForHeader.show(loader.load());
-        ZoomIn zoomIn = new ZoomIn();
-        zoomIn.setNode(modalPaneForHeader);
-        zoomIn.setSpeed(3);
-        zoomIn.play();
+        Pulse pulse = new Pulse();
+        pulse.setNode(modalPaneForHeader);
+        pulse.setSpeed(3);
+        pulse.play();
 
     }
     @FXML
@@ -54,20 +51,17 @@ public class HeaderController {
 
     }
 
-    @FXML
-    void notificationClicked(MouseEvent event) {
 
-    }
 
     @FXML
     void userIconClicked(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/Fxml/Profile.fxml")));
         modalPaneForHeader.setAlignment(Pos.CENTER);
         modalPaneForHeader.show(loader.load());
-        ZoomIn zoomIn = new ZoomIn();
-        zoomIn.setNode(modalPaneForHeader);
-        zoomIn.setSpeed(3);
-        zoomIn.play();
+        Pulse pulse = new Pulse();
+        pulse.setNode(modalPaneForHeader);
+        pulse.setSpeed(3);
+        pulse.play();
     }
 
 }
