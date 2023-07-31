@@ -2,6 +2,7 @@ package com.csquanta.streamline.Controllers;
 
 import animatefx.animation.BounceIn;
 import animatefx.animation.FadeIn;
+import animatefx.animation.ZoomIn;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -44,10 +45,10 @@ public class StartingAnimationController implements Initializable {
                 });
                 dashboard.setFill(Color.TRANSPARENT);
                 mainStage.setScene(dashboard);
-                FadeIn fadeIn = new FadeIn();
-                fadeIn.setNode(root);
-                fadeIn.setSpeed(1);
-                fadeIn.play();
+                ZoomIn zoomIn = new ZoomIn();
+                zoomIn.setNode(root);
+                zoomIn.setSpeed(3);
+                zoomIn.play();
 
             } catch (IOException e) {
                 throw new RuntimeException(e);

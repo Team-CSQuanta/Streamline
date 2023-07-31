@@ -1,5 +1,6 @@
 package com.csquanta.streamline.Controllers;
 
+import animatefx.animation.ZoomIn;
 import atlantafx.base.controls.ModalPane;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,6 +34,11 @@ public class HeaderController {
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/Fxml/TakeBreak.fxml")));
         modalPaneForHeader.setAlignment(Pos.CENTER);
         modalPaneForHeader.show(loader.load());
+        ZoomIn zoomIn = new ZoomIn();
+        zoomIn.setNode(modalPaneForHeader);
+        zoomIn.setSpeed(3);
+        zoomIn.play();
+
     }
     @FXML
     void inboxClicked(MouseEvent event) {
@@ -45,6 +51,7 @@ public class HeaderController {
         modalPaneForHeader.setAlignment(Pos.CENTER_LEFT);
         modalPaneForHeader.usePredefinedTransitionFactories(Side.LEFT);
         modalPaneForHeader.show(loader.load());
+
     }
 
     @FXML
@@ -57,6 +64,10 @@ public class HeaderController {
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/Fxml/Profile.fxml")));
         modalPaneForHeader.setAlignment(Pos.CENTER);
         modalPaneForHeader.show(loader.load());
+        ZoomIn zoomIn = new ZoomIn();
+        zoomIn.setNode(modalPaneForHeader);
+        zoomIn.setSpeed(3);
+        zoomIn.play();
     }
 
 }
