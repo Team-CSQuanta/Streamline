@@ -123,6 +123,7 @@ public class SidebarController implements Initializable {
     @FXML
     void onOverviewBtnClicked(MouseEvent event) {
 
+
     }
 
     @FXML
