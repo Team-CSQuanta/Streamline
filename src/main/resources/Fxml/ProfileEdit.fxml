@@ -11,21 +11,24 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" spacing="5.0" stylesheets="@../Styles/ProfileEdit.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" spacing="5.0" style="-fx-background-color: modalPaneForHeader.hide(true);;" stylesheets="@../Styles/ProfileEdit.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.ProfileEditController">
    <children>
-      <HBox fx:id="closeBtn" alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0">
+      <HBox fx:id="closeBtn" alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: #282A36;">
          <children>
-            <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="24.0" fitWidth="24.0" onMouseClicked="#closeEditView" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Images/icons8-close-24.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
          </children>
          <VBox.margin>
             <Insets right="5.0" top="5.0" />
          </VBox.margin>
       </HBox>
-      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="600.0">
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="157.0" prefWidth="801.0" style="-fx-background-color: #282A36;">
          <children>
             <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="147.0" prefWidth="141.0" style="-fx-background-color: #B0EDFF;">
                <children>
@@ -77,7 +80,7 @@
             </AnchorPane>
          </children>
       </VBox>
-      <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="411.0" prefWidth="600.0" styleClass="tabPaneTitle" tabClosingPolicy="UNAVAILABLE">
+      <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="800.0" style="-fx-background-color: #FFF69B;" styleClass="tabPaneTitle" tabClosingPolicy="UNAVAILABLE">
         <tabs>
             <Tab text="Body">
                <content>
