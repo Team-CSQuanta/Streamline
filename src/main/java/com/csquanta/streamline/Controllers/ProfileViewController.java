@@ -1,7 +1,5 @@
 package com.csquanta.streamline.Controllers;
 
-import animatefx.animation.FadeInUp;
-import com.csquanta.streamline.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,13 +7,11 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.util.Objects;
 
 import static com.csquanta.streamline.Controllers.HeaderController.modalPaneForHeader;
-import static java.util.Objects.requireNonNull;
 
 public class ProfileViewController {
 
