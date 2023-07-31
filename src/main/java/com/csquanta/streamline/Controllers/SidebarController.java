@@ -9,6 +9,7 @@ import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 import java.io.FileInputStream;
@@ -108,8 +109,15 @@ public class SidebarController implements Initializable {
     }
 
     @FXML
-    void onChallengesBtnClicked(MouseEvent event) {
-
+    void onChallengesBtnClicked(MouseEvent event) throws IOException {
+        App.newLoad();
+        VBox shop = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/Challenge.fxml")));
+        StackPane.setAlignment(shop, Pos.BOTTOM_CENTER);
+        App.root.getChildren().add(shop);
+        FadeInUp fadeInUp = new FadeInUp();
+        fadeInUp.setNode(shop);
+        fadeInUp.setSpeed(1);
+        fadeInUp.play();
     }
 
     @FXML
@@ -136,9 +144,10 @@ public class SidebarController implements Initializable {
     }
     @FXML
     void shopBtnClicked(MouseEvent event) throws IOException {
+        App.newLoad();
         VBox shop = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/Shop.fxml")));
-//        HeaderController.modalPaneForHeader.hide(true);
-        App.addNodesToMainStack(shop, Pos.BOTTOM_CENTER);
+        StackPane.setAlignment(shop, Pos.BOTTOM_CENTER);
+        App.root.getChildren().add(shop);
         FadeInUp fadeInUp = new FadeInUp();
         fadeInUp.setNode(shop);
         fadeInUp.setSpeed(1);
