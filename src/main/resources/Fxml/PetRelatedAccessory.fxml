@@ -1,52 +1,397 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1260.0" spacing="5.0" style="-fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #3C3365#3C3365;" stylesheets="@../Styles/Pet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.PetRelatedAccessoryController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1260.0" spacing="5.0" style="-fx-background-radius: 15px; -fx-border-radius: 15px; -fx-border-color: #3C3365#3C3365;" stylesheets="@../Styles/AvatarAccessories.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.PetRelatedAccessoryController">
    <padding>
       <Insets bottom="15.0" top="15.0" />
    </padding>
    <children>
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1230.0">
          <children>
-            <Label fx:id="ItemBlockTitle" alignment="CENTER" prefHeight="43.0" prefWidth="354.0" styleClass="topTitle" text="Take care of your pet" />
+            <Label fx:id="ItemBlockTitle" alignment="CENTER" prefHeight="49.0" prefWidth="398.0" styleClass="topTitle" text="Take care of your pet" />
          </children>
       </HBox>
-      <TabPane fx:id="itemBlockTabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="1258.0" styleClass="tabOption" stylesheets="@../Styles/Pet.css" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="itemBlockTabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="1258.0" styleClass="tabOption" stylesheets="@../Styles/AvatarAccessories.css" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab fx:id="itemBlockTab1" closable="false" text="Pets">
                <content>
-                  <ScrollPane fx:id="ArmorTabScrollPane" hmax="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="270.0" prefWidth="1260.0" vbarPolicy="NEVER">
+                  <ScrollPane fx:id="ArmorTabScrollPane" hbarPolicy="NEVER" hmax="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="270.0" prefWidth="1260.0" vbarPolicy="NEVER">
                      <content>
                         <HBox fx:id="PetsHbox" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="265.0" spacing="20.0">
                            <padding>
                               <Insets bottom="10.0" left="20.0" top="10.0" />
                            </padding>
                            <children>
-                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
-                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
-                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
-                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
-                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
-                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
-                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
-                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
-                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
-                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
-                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
-                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
-                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
-                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
-                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
-                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
-                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
-                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 15px;" />
+                              <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-radius: 15px; -fx-border-color: #9580FF; -fx-border-width: 1px; -fx-border-radius: 15px;" stylesheets="@../Styles/Item.css">
+                                 <children>
+                                    <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="56.0" prefWidth="188.0" styleClass="itemTitle" text="Bear cub" textAlignment="CENTER" wrapText="true" />
+                                    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="99.0" prefWidth="188.0">
+                                       <children>
+                                          <ImageView fitHeight="99.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Images/stable/pets/Pet-BearCub-RoyalPurple.png" />
+                                             </image>
+                                          </ImageView>
+                                          <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="14.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="78.0" prefWidth="188.0">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="87.0" prefWidth="112.0">
+                                             <children>
+                                                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/Points/Gold.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label alignment="CENTER" prefHeight="32.0" prefWidth="45.0" styleClass="priceTag" text="100" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" top="5.0" />
+                                             </padding>
+                                          </HBox>
+                                          <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="87.0" prefWidth="132.0">
+                                             <children>
+                                                <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="61.0" styleClass="butButton" text="Buy" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-radius: 15px; -fx-border-color: #9580FF; -fx-border-width: 1px; -fx-border-radius: 15px;" stylesheets="@../Styles/Item.css">
+                                 <children>
+                                    <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="56.0" prefWidth="188.0" styleClass="itemTitle" text="Bear cub" textAlignment="CENTER" wrapText="true" />
+                                    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="99.0" prefWidth="188.0">
+                                       <children>
+                                          <ImageView fitHeight="99.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Images/stable/pets/Pet-BearCub-RoyalPurple.png" />
+                                             </image>
+                                          </ImageView>
+                                          <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="14.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="78.0" prefWidth="188.0">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="87.0" prefWidth="112.0">
+                                             <children>
+                                                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/Points/Gold.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label alignment="CENTER" prefHeight="32.0" prefWidth="45.0" styleClass="priceTag" text="100" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" top="5.0" />
+                                             </padding>
+                                          </HBox>
+                                          <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="87.0" prefWidth="132.0">
+                                             <children>
+                                                <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="61.0" styleClass="butButton" text="Buy" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-radius: 15px; -fx-border-color: #9580FF; -fx-border-width: 1px; -fx-border-radius: 15px;" stylesheets="@../Styles/Item.css">
+                                 <children>
+                                    <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="56.0" prefWidth="188.0" styleClass="itemTitle" text="Bear cub" textAlignment="CENTER" wrapText="true" />
+                                    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="99.0" prefWidth="188.0">
+                                       <children>
+                                          <ImageView fitHeight="99.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Images/stable/pets/Pet-BearCub-RoyalPurple.png" />
+                                             </image>
+                                          </ImageView>
+                                          <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="14.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="78.0" prefWidth="188.0">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="87.0" prefWidth="112.0">
+                                             <children>
+                                                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/Points/Gold.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label alignment="CENTER" prefHeight="32.0" prefWidth="45.0" styleClass="priceTag" text="100" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" top="5.0" />
+                                             </padding>
+                                          </HBox>
+                                          <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="87.0" prefWidth="132.0">
+                                             <children>
+                                                <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="61.0" styleClass="butButton" text="Buy" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-radius: 15px; -fx-border-color: #9580FF; -fx-border-width: 1px; -fx-border-radius: 15px;" stylesheets="@../Styles/Item.css">
+                                 <children>
+                                    <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="56.0" prefWidth="188.0" styleClass="itemTitle" text="Bear cub" textAlignment="CENTER" wrapText="true" />
+                                    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="99.0" prefWidth="188.0">
+                                       <children>
+                                          <ImageView fitHeight="99.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Images/stable/pets/Pet-BearCub-RoyalPurple.png" />
+                                             </image>
+                                          </ImageView>
+                                          <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="14.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="78.0" prefWidth="188.0">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="87.0" prefWidth="112.0">
+                                             <children>
+                                                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/Points/Gold.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label alignment="CENTER" prefHeight="32.0" prefWidth="45.0" styleClass="priceTag" text="100" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" top="5.0" />
+                                             </padding>
+                                          </HBox>
+                                          <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="87.0" prefWidth="132.0">
+                                             <children>
+                                                <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="61.0" styleClass="butButton" text="Buy" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-radius: 15px; -fx-border-color: #9580FF; -fx-border-width: 1px; -fx-border-radius: 15px;" stylesheets="@../Styles/Item.css">
+                                 <children>
+                                    <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="56.0" prefWidth="188.0" styleClass="itemTitle" text="Bear cub" textAlignment="CENTER" wrapText="true" />
+                                    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="99.0" prefWidth="188.0">
+                                       <children>
+                                          <ImageView fitHeight="99.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Images/stable/pets/Pet-BearCub-RoyalPurple.png" />
+                                             </image>
+                                          </ImageView>
+                                          <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="14.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="78.0" prefWidth="188.0">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="87.0" prefWidth="112.0">
+                                             <children>
+                                                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/Points/Gold.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label alignment="CENTER" prefHeight="32.0" prefWidth="45.0" styleClass="priceTag" text="100" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" top="5.0" />
+                                             </padding>
+                                          </HBox>
+                                          <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="87.0" prefWidth="132.0">
+                                             <children>
+                                                <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="61.0" styleClass="butButton" text="Buy" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-radius: 15px; -fx-border-color: #9580FF; -fx-border-width: 1px; -fx-border-radius: 15px;" stylesheets="@../Styles/Item.css">
+                                 <children>
+                                    <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="56.0" prefWidth="188.0" styleClass="itemTitle" text="Bear cub" textAlignment="CENTER" wrapText="true" />
+                                    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="99.0" prefWidth="188.0">
+                                       <children>
+                                          <ImageView fitHeight="99.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Images/stable/pets/Pet-BearCub-RoyalPurple.png" />
+                                             </image>
+                                          </ImageView>
+                                          <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="14.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="78.0" prefWidth="188.0">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="87.0" prefWidth="112.0">
+                                             <children>
+                                                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/Points/Gold.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label alignment="CENTER" prefHeight="32.0" prefWidth="45.0" styleClass="priceTag" text="100" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" top="5.0" />
+                                             </padding>
+                                          </HBox>
+                                          <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="87.0" prefWidth="132.0">
+                                             <children>
+                                                <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="61.0" styleClass="butButton" text="Buy" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-radius: 15px; -fx-border-color: #9580FF; -fx-border-width: 1px; -fx-border-radius: 15px;" stylesheets="@../Styles/Item.css">
+                                 <children>
+                                    <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="56.0" prefWidth="188.0" styleClass="itemTitle" text="Bear cub" textAlignment="CENTER" wrapText="true" />
+                                    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="99.0" prefWidth="188.0">
+                                       <children>
+                                          <ImageView fitHeight="99.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Images/stable/pets/Pet-BearCub-RoyalPurple.png" />
+                                             </image>
+                                          </ImageView>
+                                          <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="14.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="78.0" prefWidth="188.0">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="87.0" prefWidth="112.0">
+                                             <children>
+                                                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/Points/Gold.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label alignment="CENTER" prefHeight="32.0" prefWidth="45.0" styleClass="priceTag" text="100" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" top="5.0" />
+                                             </padding>
+                                          </HBox>
+                                          <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="87.0" prefWidth="132.0">
+                                             <children>
+                                                <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="61.0" styleClass="butButton" text="Buy" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-radius: 15px; -fx-border-color: #9580FF; -fx-border-width: 1px; -fx-border-radius: 15px;" stylesheets="@../Styles/Item.css">
+                                 <children>
+                                    <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="56.0" prefWidth="188.0" styleClass="itemTitle" text="Bear cub" textAlignment="CENTER" wrapText="true" />
+                                    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="99.0" prefWidth="188.0">
+                                       <children>
+                                          <ImageView fitHeight="99.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Images/stable/pets/Pet-BearCub-RoyalPurple.png" />
+                                             </image>
+                                          </ImageView>
+                                          <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="14.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="78.0" prefWidth="188.0">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="87.0" prefWidth="112.0">
+                                             <children>
+                                                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/Points/Gold.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label alignment="CENTER" prefHeight="32.0" prefWidth="45.0" styleClass="priceTag" text="100" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" top="5.0" />
+                                             </padding>
+                                          </HBox>
+                                          <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="87.0" prefWidth="132.0">
+                                             <children>
+                                                <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="61.0" styleClass="butButton" text="Buy" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-radius: 15px; -fx-border-color: #9580FF; -fx-border-width: 1px; -fx-border-radius: 15px;" stylesheets="@../Styles/Item.css">
+                                 <children>
+                                    <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="56.0" prefWidth="188.0" styleClass="itemTitle" text="Bear cub" textAlignment="CENTER" wrapText="true" />
+                                    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="99.0" prefWidth="188.0">
+                                       <children>
+                                          <ImageView fitHeight="99.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../Images/stable/pets/Pet-BearCub-RoyalPurple.png" />
+                                             </image>
+                                          </ImageView>
+                                          <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="14.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="78.0" prefWidth="188.0">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="87.0" prefWidth="112.0">
+                                             <children>
+                                                <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/Points/Gold.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label alignment="CENTER" prefHeight="32.0" prefWidth="45.0" styleClass="priceTag" text="100" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" top="5.0" />
+                                             </padding>
+                                          </HBox>
+                                          <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="87.0" prefWidth="132.0">
+                                             <children>
+                                                <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="61.0" styleClass="butButton" text="Buy" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </VBox>
                            </children>
                         </HBox>
                      </content>
@@ -55,7 +400,7 @@
           </Tab>
             <Tab fx:id="itemBlockTab1ScrollPane" closable="false" text="Pet Foods">
                <content>
-                  <ScrollPane fx:id="itemBlockTab2ScrollPane" hmax="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="270.0" prefWidth="1260.0" vbarPolicy="NEVER">
+                  <ScrollPane fx:id="itemBlockTab2ScrollPane" hbarPolicy="NEVER" hmax="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="270.0" prefWidth="1260.0" vbarPolicy="NEVER">
                      <content>
                         <HBox fx:id="PetFoodsHbox" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="265.0" spacing="20.0">
                            <padding>
@@ -88,7 +433,7 @@
             </Tab>
             <Tab fx:id="itemBlockTab3" closable="false" text="Pet Eggs">
                <content>
-                  <ScrollPane fx:id="itemBlockTab3ScrollPane" hmax="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="270.0" prefWidth="1260.0" vbarPolicy="NEVER">
+                  <ScrollPane fx:id="itemBlockTab3ScrollPane" hbarPolicy="NEVER" hmax="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="270.0" prefWidth="1260.0" vbarPolicy="NEVER">
                      <content>
                         <HBox fx:id="PetEggsHbox" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="265.0" spacing="20.0">
                            <padding>
@@ -121,7 +466,7 @@
             </Tab>
             <Tab fx:id="itemBlockTab4" closable="false" text="Egg Hatching Potion">
                <content>
-                  <ScrollPane fx:id="itemBlockTab4ScrollPane" hmax="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="270.0" prefWidth="1260.0" vbarPolicy="NEVER">
+                  <ScrollPane fx:id="itemBlockTab4ScrollPane" hbarPolicy="NEVER" hmax="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="270.0" prefWidth="1260.0" vbarPolicy="NEVER">
                      <content>
                         <HBox fx:id="EggHatchingPotionHbox" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="265.0" spacing="20.0">
                            <padding>

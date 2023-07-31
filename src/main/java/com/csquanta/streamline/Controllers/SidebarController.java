@@ -1,6 +1,7 @@
 package com.csquanta.streamline.Controllers;
 
 import animatefx.animation.FadeInUp;
+import atlantafx.base.controls.ModalPane;
 import com.csquanta.streamline.App;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,6 +23,7 @@ import java.util.ResourceBundle;
 import static java.util.Objects.requireNonNull;
 
 public class SidebarController implements Initializable {
+    private final ModalPane modalPaneForSignOut = new ModalPane();
 
     @FXML
     private ImageView challengeImg;
@@ -135,7 +137,7 @@ public class SidebarController implements Initializable {
     void onSignOutBtnclicked(MouseEvent event) throws IOException {
         VBox signout = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/SignOutWarningPage.fxml")));
         HeaderController.modalPaneForHeader.hide(true);
-        HeaderController.modalPaneForHeader.show(signout);
+        modalPaneForSignOut.show(signout);
 
     }
 
@@ -157,7 +159,7 @@ public class SidebarController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        App.root.getChildren().add(modalPaneForSignOut);
     }
 
 
