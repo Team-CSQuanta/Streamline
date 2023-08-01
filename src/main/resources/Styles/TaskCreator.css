@@ -32,6 +32,13 @@
     -fx-font-size: 35px;
     -fx-fill: #94959B1A;
 }
+.materialInputField{
+    -fx-font-family: "Product Sans Light";
+    -fx-background-color: #94959B1A;
+}
+.materialInputField:focused{
+    -fx-font-family: "Product Sans Light";
+}
 .datePickerInput{
     -fx-font-family: "Product Sans Light";
     -fx-font-size: 15px;
