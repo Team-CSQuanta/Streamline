@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="475.0" spacing="20.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="containerBox" stylesheets="@../Styles/AvatarBackgrounds.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.AvatarBackgrounds">
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="455.0" spacing="20.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="containerBox" stylesheets="@../Styles/AvatarBackgrounds.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.AvatarBackgrounds">
    <padding>
       <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
    </padding>
@@ -21,14 +20,14 @@
       </ImageView>
       <VBox alignment="CENTER" spacing="5.0">
          <children>
-            <Label prefHeight="80.0" prefWidth="274.0" styleClass="detailsTitle" text="Flying over an ancient forest" wrapText="true" />
-            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="274.0" spacing="4.0">
+            <Label prefHeight="95.0" prefWidth="274.0" styleClass="detailsTitle" text="Flying over an ancient forest" wrapText="true" />
+            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.0" prefWidth="274.0" spacing="4.0">
                <children>
                   <VBox alignment="CENTER" prefHeight="95.0" prefWidth="135.0">
                      <children>
                         <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="95.0" prefWidth="135.0">
                            <children>
-                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../Images/Points/Gold.png" />
                                  </image>
@@ -40,7 +39,7 @@
                   </VBox>
                   <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="95.0" prefWidth="135.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="90.0" styleClass="buyButton" text="Buy" />
+                        <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="70.0" styleClass="buyButton" text="Buy" />
                      </children>
                   </VBox>
                </children>

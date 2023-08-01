@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="455.0" spacing="20.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="containerBox" stylesheets="@../Styles/AvatarBackgrounds.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <padding>
+      <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+   </padding>
+   <children>
+      <ImageView fitHeight="147.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true" styleClass="bgImage">
+         <image>
+            <Image url="@../Images/quests/bosses/quest_dilatory.png" />
+         </image>
+      </ImageView>
+      <VBox alignment="CENTER" spacing="5.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="25.0" prefWidth="274.0" styleClass="detailsTitle" text="Ferret" wrapText="true" />
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="274.0" spacing="10.0">
+               <children>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/icons8-love-48.png" />
+                     </image>
+                  </ImageView>
+                  <ProgressBar prefHeight="12.0" prefWidth="156.0" progress="0.66" />
+                  <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="65.0" styleClass="price" text="2000 HP" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="274.0" spacing="10.0">
+               <children>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/icons8-electric-24.png" />
+                     </image>
+                  </ImageView>
+                  <ProgressBar prefHeight="12.0" prefWidth="156.0" progress="0.2" style="-fx-progress-color: #FA5252;" />
+                  <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="65.0" styleClass="price" text="28 Hp" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</HBox>

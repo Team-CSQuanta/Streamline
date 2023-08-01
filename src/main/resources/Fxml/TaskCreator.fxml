@@ -28,24 +28,25 @@
             <Insets left="15.0" right="15.0" top="10.0" />
          </VBox.margin>
          <children>
-            <TextField maxWidth="-Infinity" minHeight="-Infinity" prefHeight="45.0" prefWidth="750.0" promptText="Untitled" styleClass="titletextinput" />
+            <TextField focusTraversable="false" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="45.0" prefWidth="750.0" promptText="Untitled" styleClass="titletextinput" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" spacing="70.0">
          <children>
-            <DatePicker editable="false" prefHeight="35.0" prefWidth="200.0" promptText="Enter due date" styleClass="datePickerInput" />
-            <ComboBox editable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="200.0" promptText="Enter tag" styleClass="tagComboBox" />
-            <ComboBox editable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="200.0" promptText="Priority" styleClass="tagComboBox" />
+            <DatePicker editable="false" focusTraversable="false" prefHeight="35.0" prefWidth="200.0" promptText="Enter due date" styleClass="datePickerInput" />
+            <ComboBox editable="true" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="200.0" promptText="Enter tag" styleClass="tagComboBox" />
+            <ComboBox editable="true" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="200.0" promptText="Priority" styleClass="tagComboBox" />
          </children>
          <VBox.margin>
             <Insets left="15.0" right="15.0" top="10.0" />
-         </VBox.margin></HBox>
-      <HBox alignment="CENTER" prefHeight="300.0" prefWidth="725.0">
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="217.0" prefWidth="725.0">
          <VBox.margin>
             <Insets left="15.0" right="15.0" top="10.0" />
          </VBox.margin>
          <children>
-            <TextArea maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="725.0" promptText="Description" styleClass="taskDescription" wrapText="true" />
+            <TextArea focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="168.0" prefWidth="725.0" promptText="Description" styleClass="taskDescription" wrapText="true" />
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="725.0">
@@ -55,12 +56,12 @@
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="362.5">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="49.0" prefWidth="200.0" styleClass="taskCancel" text="Cancel" />
+                  <Button focusTraversable="false" mnemonicParsing="false" prefHeight="49.0" prefWidth="200.0" styleClass="taskCancel" text="Cancel" />
                </children>
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="362.5">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="49.0" prefWidth="200.0" styleClass="taskDone" text="Done" />
+                  <Button focusTraversable="false" mnemonicParsing="false" prefHeight="49.0" prefWidth="200.0" styleClass="taskDone" text="Done" />
                </children>
             </HBox>
          </children>
