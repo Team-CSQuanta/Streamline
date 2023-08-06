@@ -1,11 +1,15 @@
 package com.csquanta.streamline.Controllers;
 
+import com.csquanta.streamline.Models.Item;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+
+import java.util.Objects;
 
 public class ItemGearController {
 
@@ -28,28 +32,9 @@ public class ItemGearController {
     void buyBtnClicked(ActionEvent event) {
 
     }
-
-    public ImageView getItemImg() {
-        return itemImg;
-    }
-
-    public void setItemImg(ImageView itemImg) {
-        this.itemImg = itemImg;
-    }
-
-    public Label getItemLabel() {
-        return itemLabel;
-    }
-
-    public void setItemLabel(Label itemLabel) {
-        this.itemLabel = itemLabel;
-    }
-
-    public Label getItemPrice() {
-        return itemPrice;
-    }
-
-    public void setItemPrice(Label itemPrice) {
-        this.itemPrice = itemPrice;
+    public void setData(Item item){
+        itemImg.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(item.getImgSrc()))));
+        itemLabel.setText(item.getTitle());
+        itemPrice.setText(item.getPrice());
     }
 }
