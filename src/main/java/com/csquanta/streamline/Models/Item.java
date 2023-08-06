@@ -3,9 +3,9 @@ package com.csquanta.streamline.Models;
 public class Item {
     private String imgSrc;
     private String title;
-    private int Price;
+    private String Price;
 
-    public Item(String imgSrc, String title, int price) {
+    public Item(String imgSrc, String title, String price) {
         this.imgSrc = imgSrc;
         this.title = title;
         Price = price;
@@ -27,11 +27,11 @@ public class Item {
         this.title = title;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return Price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         Price = price;
     }
 
