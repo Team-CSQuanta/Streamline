@@ -1,7 +1,7 @@
 package com.csquanta.streamline.Models;
 
 public class HeadWear extends Item{
-    public HeadWear(String imgSrc, String title, int price) {
-        super(imgSrc, title, price);
+    public HeadWear(String imgSrc, String headWearName, String price) {
+        super(imgSrc, headWearName, price);
     }
 }

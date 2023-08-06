@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-radius: 15px; -fx-border-color: #9580FF; -fx-border-width: 1px; -fx-border-radius: 15px;" stylesheets="@../Styles/Item.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.ItemGearController">
+<VBox fx:id="itemContainer" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="245.0" prefWidth="200.0" style="-fx-background-radius: 15px; -fx-border-color: #9580FF; -fx-border-width: 1px; -fx-border-radius: 15px;" stylesheets="@../Styles/Item.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.ItemGearController">
    <children>
-      <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="56.0" prefWidth="188.0" styleClass="itemTitle" text="Armor wizard 5" textAlignment="CENTER" wrapText="true" />
+      <Label fx:id="itemLabel" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="56.0" prefWidth="188.0" styleClass="itemTitle" text="Armor wizard 5" textAlignment="CENTER" wrapText="true" />
       <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="188.0">
          <children>
-            <ImageView fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="itemImg" fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/gear/armor/slim_armor_wizard_5.png" />
+                  <Image url="@../Images/gear/armor/Wizard/wizard_5.png" />
                </image>
             </ImageView>
             <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="90.0" prefWidth="25.0" />
@@ -30,7 +30,7 @@
                         <Image url="@../Images/Points/Gold.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" prefHeight="32.0" prefWidth="45.0" styleClass="priceTag" text="100" />
+                  <Label fx:id="itemPrice" alignment="CENTER" prefHeight="32.0" prefWidth="45.0" styleClass="priceTag" text="100" />
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" top="5.0" />
@@ -38,7 +38,7 @@
             </HBox>
             <VBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="87.0" prefWidth="132.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="70.0" styleClass="butButton" text="Buy" />
+                  <Button fx:id="itemBuyButton" mnemonicParsing="false" onAction="#buyBtnClicked" prefHeight="35.0" prefWidth="70.0" styleClass="butButton" text="Buy" />
                </children>
             </VBox>
          </children>
