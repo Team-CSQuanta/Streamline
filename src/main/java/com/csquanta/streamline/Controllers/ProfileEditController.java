@@ -12,14 +12,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
-
 import static com.csquanta.streamline.Controllers.HeaderController.modalPaneForHeader;
 
 public class ProfileEditController implements Initializable {
