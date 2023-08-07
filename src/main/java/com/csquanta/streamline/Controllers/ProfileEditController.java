@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -53,14 +54,24 @@ public class ProfileEditController implements Initializable {
     @FXML
     private GridPane gridPaneBody;
 
+    @FXML
+    private GridPane gridPaneBg;
+
+    @FXML
+    private GridPane gridPaneHead;
+
+    @FXML
+    private GridPane gridPaneHeadGear;
+
+
     private CustomizeBlockController selectedBlockController;
 
     public void setHeadGear(ImageView headGear) {
-        this.headGear = headGear;
+        this.headGear.setImage(headGear.getImage());
     }
 
     public void setAvatarArmor(ImageView avatarArmor) {
-        this.avatarArmor = avatarArmor;
+        this.avatarArmor.setImage(avatarArmor.getImage());
     }
 
     public void setAvatarBody(ImageView newAvatarBody) {
@@ -71,15 +82,15 @@ public class ProfileEditController implements Initializable {
 
 
     public void setAvatarHair(ImageView avatarHair) {
-        this.avatarHair = avatarHair;
+        this.avatarHair.setImage(avatarHair.getImage());
     }
 
-    public void setAvatarHead(ImageView avatarHead) {
-        this.avatarHead = avatarHead;
+    public void setAvatarHead(ImageView NewAvatarHead) {
+        this.avatarHead.setImage(NewAvatarHead.getImage());
     }
 
     public void setAvatarPet(ImageView avatarPet) {
-        this.avatarPet = avatarPet;
+        this.avatarPet.setImage(avatarPet.getImage());
     }
 
     @FXML
@@ -98,40 +109,94 @@ public class ProfileEditController implements Initializable {
     }
 
 
+    @FXML
     void setComponent(MouseEvent event) {
         if (event.getSource() instanceof ImageView clickedImageView) {
             selectedBlockController = (CustomizeBlockController) clickedImageView.getProperties().get("controller");
-            setAvatarBody(clickedImageView);
+
+            // Determine the source GridPane based on the parent of the parent (ImageView -> VBox -> GridPane)
+            GridPane parentGrid = null;
+
+            if (clickedImageView.getParent().getParent() instanceof GridPane) {
+                parentGrid = (GridPane) clickedImageView.getParent().getParent();
+            }
+
+            if (selectedBlockController != null && parentGrid != null) {
+                if (parentGrid == gridPaneBody) {
+                    setAvatarBody(clickedImageView);
+                } else if (parentGrid == gridPaneHead) {
+                    setAvatarHead(clickedImageView);
+                }
+
+            }
         }
     }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         File shirts = new File("src/main/resources/Images/customize/shirts");
+        File skin = new File("src/main/resources/Images/customize/skin");
         File[] listImg = shirts.listFiles();
-        int row = 1;
-        int column = 0;
-        for (int i = 0; i < Objects.requireNonNull(listImg).length; i++) {
+        File[] listSkin = skin.listFiles();
+
+        int rowShirt = 1;
+        int columnShirt = 0;
+        int rowSkin = 1;
+        int columnSkin = 0;
+
+        int numShirts = listImg != null ? listImg.length : 0;
+        int numSkins = listSkin != null ? listSkin.length : 0;
+        int maxIterations = Math.max(numShirts, numSkins);
+
+        for (int i = 0; i < maxIterations; i++) {
             try {
-                FXMLScene fxmlScene = FXMLScene.load("/Fxml/customizeBlock.fxml");
-                CustomizeBlockController customizeBlockController = (CustomizeBlockController) fxmlScene.controller;
+                // Load and set up for shirts
+                if (i < numShirts) {
+                    FXMLScene fxmlSceneShirt = FXMLScene.load("/Fxml/customizeBlock.fxml");
+                    CustomizeBlockController customizeBlockControllerShirt = (CustomizeBlockController) fxmlSceneShirt.controller;
 
-                String imagePath = getRelativePath(listImg[i]);
-                InputStream imageStream = getClass().getResourceAsStream(imagePath);
-                if (imageStream != null) {
-                    customizeBlockController.setCustomizeBlockDate(new Image(imageStream));
-                    ImageView imageView = (ImageView) fxmlScene.root.lookup("#componentImg");
-                    imageView.getProperties().put("controller", customizeBlockController);
-                    imageView.setOnMouseClicked(this::setComponent);
+                    String imagePathShirt = getRelativePath(listImg[i]);
+                    InputStream imageStreamShirt = getClass().getResourceAsStream(imagePathShirt);
+                    if (imageStreamShirt != null) {
+                        customizeBlockControllerShirt.setCustomizeBlockData(new Image(imageStreamShirt));
+                        ImageView imageViewShirt = (ImageView) fxmlSceneShirt.root.lookup("#componentImg");
+                        imageViewShirt.getProperties().put("controller", customizeBlockControllerShirt);
+                        imageViewShirt.setOnMouseClicked(this::setComponent);
 
-                } else {
-                    System.err.println("Image not found: " + imagePath);
+                    } else {
+                        System.err.println("Shirt Image not found: " + imagePathShirt);
+                    }
+
+                    gridPaneBody.add(fxmlSceneShirt.root, columnShirt++, rowShirt);
+                    if (columnShirt == 7) {
+                        columnShirt = 0;
+                        rowShirt++;
+                    }
                 }
 
-                gridPaneBody.add(fxmlScene.root, column++, row);
-                if (column == 7) {
-                    column = 0;
-                    row++;
+                // Load and set up for skin
+                if (i < numSkins) {
+                    FXMLScene fxmlSceneSkin = FXMLScene.load("/Fxml/customizeBlock.fxml");
+                    CustomizeBlockController customizeBlockControllerSkin = (CustomizeBlockController) fxmlSceneSkin.controller;
+
+                    String imagePathSkin = getRelativePath(listSkin[i]);
+                    InputStream imageStreamSkin = getClass().getResourceAsStream(imagePathSkin);
+                    if (imageStreamSkin != null) {
+                        customizeBlockControllerSkin.setCustomizeBlockData(new Image(imageStreamSkin));
+                        ImageView imageViewSkin = (ImageView) fxmlSceneSkin.root.lookup("#componentImg");
+                        imageViewSkin.getProperties().put("controller", customizeBlockControllerSkin);
+                        imageViewSkin.setOnMouseClicked(this::setComponent);
+
+                    } else {
+                        System.err.println("Skin Image not found: " + imagePathSkin);
+                    }
+
+                    gridPaneHead.add(fxmlSceneSkin.root, columnSkin++, rowSkin);
+                    if (columnSkin == 7) {
+                        columnSkin = 0;
+                        rowSkin++;
+                    }
                 }
             } catch (IOException e) {
                 throw new RuntimeException(e);
