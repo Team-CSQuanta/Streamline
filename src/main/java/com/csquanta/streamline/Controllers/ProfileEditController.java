@@ -8,12 +8,14 @@ import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -21,6 +23,10 @@ import java.util.ResourceBundle;
 import static com.csquanta.streamline.Controllers.HeaderController.modalPaneForHeader;
 
 public class ProfileEditController implements Initializable {
+    @FXML
+    private VBox mainComponent;
+    @FXML
+    private AnchorPane profileArea;
 
     @FXML
     private ImageView avatarArmor;
@@ -49,6 +55,8 @@ public class ProfileEditController implements Initializable {
     @FXML
     private GridPane gridPaneBody;
 
+    private CustomizeBlockController selectedBlockController;
+
     public void setHeadGear(ImageView headGear) {
         this.headGear = headGear;
     }
@@ -57,10 +65,12 @@ public class ProfileEditController implements Initializable {
         this.avatarArmor = avatarArmor;
     }
 
-    public void setAvatarBody(ImageView avatarBody) {
-        this.avatarBody = avatarBody;
+    public void setAvatarBody(ImageView newAvatarBody) {
+
+        this.avatarBody.setImage(newAvatarBody.getImage());
 
     }
+
 
     public void setAvatarHair(ImageView avatarHair) {
         this.avatarHair = avatarHair;
@@ -89,19 +99,39 @@ public class ProfileEditController implements Initializable {
         fadeIn.play();
     }
 
+
+    void setComponent(MouseEvent event) {
+        if (event.getSource() instanceof ImageView clickedImageView) {
+            selectedBlockController = (CustomizeBlockController) clickedImageView.getProperties().get("controller");
+            setAvatarBody(clickedImageView);
+        }
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         File shirts = new File("src/main/resources/Images/customize/shirts");
         File[] listImg = shirts.listFiles();
         int row = 1;
         int column = 0;
-        for(int i = 0; i< Objects.requireNonNull(listImg).length; i++){
+        for (int i = 0; i < Objects.requireNonNull(listImg).length; i++) {
             try {
                 FXMLScene fxmlScene = FXMLScene.load("/Fxml/customizeBlock.fxml");
                 CustomizeBlockController customizeBlockController = (CustomizeBlockController) fxmlScene.controller;
-                customizeBlockController.setCustomizeBlockDate(new Image(Objects.requireNonNull(getClass().getResourceAsStream(getRelativePath(listImg[i])))));
+
+                String imagePath = getRelativePath(listImg[i]);
+                InputStream imageStream = getClass().getResourceAsStream(imagePath);
+                if (imageStream != null) {
+                    customizeBlockController.setCustomizeBlockDate(new Image(imageStream));
+                    ImageView imageView = (ImageView) fxmlScene.root.lookup("#componentImg");
+                    imageView.getProperties().put("controller", customizeBlockController);
+                    imageView.setOnMouseClicked(this::setComponent);
+
+                } else {
+                    System.err.println("Image not found: " + imagePath);
+                }
+
                 gridPaneBody.add(fxmlScene.root, column++, row);
-                if(column ==7){
+                if (column == 7) {
                     column = 0;
                     row++;
                 }
@@ -109,11 +139,19 @@ public class ProfileEditController implements Initializable {
                 throw new RuntimeException(e);
             }
         }
+
     }
+
     public String getRelativePath(File file) throws IOException {
-        String getPath = file.getPath();
-        String getParent = "src/main/resources";
-        return getPath.substring(getParent.length());
+        String getPath = file.getCanonicalPath();
+        String parentPath = new File("src/main/resources").getCanonicalPath();
+
+        if (getPath.startsWith(parentPath)) {
+            String relativePath = getPath.substring(parentPath.length() );
+            return relativePath.replace("\\", "/");
+        } else {
+            throw new IllegalArgumentException("File is not within the resources directory: " + getPath);
+        }
     }
 }
 
