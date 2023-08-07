@@ -6,7 +6,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,9 +13,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" style="-fx-background-color: #282A36FF;" stylesheets="@../Styles/ProfileView.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.ProfileViewController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" style="-fx-background-color: #282A36FF;" stylesheets="@../Styles/ProfileView.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.ProfileViewController">
    <children>
-      <HBox alignment="CENTER_RIGHT" prefHeight="24.0" prefWidth="800.0">
+      <HBox alignment="CENTER_RIGHT" prefHeight="76.0" prefWidth="800.0">
          <children>
             <ImageView fitHeight="24.0" fitWidth="24.0" onMouseClicked="#closeUserProfileView" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -25,7 +24,7 @@
             </ImageView>
          </children>
          <padding>
-            <Insets right="10.0" top="5.0" />
+            <Insets right="20.0" top="5.0" />
          </padding>
          <VBox.margin>
             <Insets />
@@ -76,7 +75,7 @@
                         </ImageView>
                         <ImageView fx:id="avatarArmor" fitHeight="90.0" fitWidth="90.0" layoutX="26.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../Images/gear/armor/slim_armor_wizard_5.png" />
+                              <Image url="@../Images/gear/armor/Warrior/warrior_2.png" />
                            </image>
                         </ImageView>
                         <ImageView fx:id="avatarPet" fitHeight="99.0" fitWidth="81.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
@@ -175,7 +174,6 @@
             <Insets bottom="5.0" left="30.0" right="30.0" />
          </padding>
       </HBox>
-      <Separator opacity="0.5" prefWidth="200.0" />
-      <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="800.0" style="-fx-background-color: #FFF69B;" />
+      <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="800.0" />
    </children>
 </VBox>
