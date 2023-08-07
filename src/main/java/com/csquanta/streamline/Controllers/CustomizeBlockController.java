@@ -23,13 +23,6 @@ public class CustomizeBlockController {
 
     }
 
-    @FXML
-    void setComponent(MouseEvent event) throws IOException {
-        FXMLScene fxmlScene = FXMLScene.load("/Fxml/ProfileEdit.fxml");
-        ProfileEditController profileEditController = (ProfileEditController) fxmlScene.controller;
-        profileEditController.setAvatarBody(componentImg);
-        System.out.println("Set image");
-    }
     public void setCustomizeBlockDate(Image image){
         componentImg.setImage(image);
     }

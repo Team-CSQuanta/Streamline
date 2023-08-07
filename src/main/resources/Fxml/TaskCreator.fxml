@@ -65,7 +65,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="362.5">
                <children>
-                  <Button fx:id="submit" focusTraversable="false" mnemonicParsing="false" prefHeight="49.0" prefWidth="200.0" styleClass="taskDone" text="Done" />
+                  <Button fx:id="submit" focusTraversable="false" mnemonicParsing="false" onAction="#onSaveButtonClicked" prefHeight="49.0" prefWidth="200.0" styleClass="taskDone" text="Done" />
                </children>
             </HBox>
          </children>

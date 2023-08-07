@@ -13,7 +13,7 @@ public class Task {
     private StringProperty priority;
     private StringProperty dueDate;
     private StringProperty description;
-    private ObjectProperty<ImageView> icon;
+
 
     public Task(String title, String tag, String priority, String dueDate, String description, ImageView icon) {
         this.title = new SimpleStringProperty(title);
@@ -21,7 +21,6 @@ public class Task {
         this.priority = new SimpleStringProperty(priority);
         this.dueDate = new SimpleStringProperty(dueDate);
         this.description = new SimpleStringProperty(description);
-        this.icon = new SimpleObjectProperty<>(icon);
 
     }
 
@@ -91,16 +90,6 @@ public class Task {
     }
 
 
-    public ObjectProperty<ImageView> iconProperty() {
-        return icon;
-    }
 
-    public ImageView getIcon() {
-        return icon.get();
-    }
-
-    public void setIcon(ImageView icon) {
-        this.icon.set(icon);
-    }
 }
 
