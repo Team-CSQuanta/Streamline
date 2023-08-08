@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="mainComponent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" spacing="5.0" style="-fx-background-color: #282A36FF #282A36FF;" stylesheets="@../Styles/ProfileEdit.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.ProfileEditController">
+<VBox fx:id="mainComponent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" spacing="5.0" style="-fx-background-color: #282A36FF #282A36FF;" stylesheets="@../Styles/ProfileEdit.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.ProfileEditController">
    <children>
       <HBox fx:id="closeBtn" alignment="CENTER" prefHeight="136.0" prefWidth="795.0" style="-fx-background-color: #282A36;">
          <children>
@@ -113,6 +113,9 @@
                           </rowConstraints>
                         </GridPane>
                      </content>
+                     <padding>
+                        <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+                     </padding>
                   </ScrollPane>
                </content></Tab>
           <Tab text="Head Gear">
@@ -125,6 +128,9 @@
                            </rowConstraints>
                         </GridPane>
                      </content>
+                     <padding>
+                        <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+                     </padding>
                   </ScrollPane>
                </content></Tab>
             <Tab text="Backgrounds">
@@ -135,6 +141,9 @@
                            <rowConstraints>
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                            </rowConstraints>
+                           <padding>
+                              <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+                           </padding>
                         </GridPane>
                      </content>
                   </ScrollPane>
