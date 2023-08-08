@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" spacing="5.0" style="-fx-background-color: #282A36FF #282A36FF;" stylesheets="@../Styles/ProfileEdit.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.ProfileEditController">
+<VBox fx:id="mainComponent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" spacing="5.0" style="-fx-background-color: #282A36FF #282A36FF;" stylesheets="@../Styles/ProfileEdit.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.ProfileEditController">
    <children>
       <HBox fx:id="closeBtn" alignment="CENTER" prefHeight="136.0" prefWidth="795.0" style="-fx-background-color: #282A36;">
          <children>
@@ -41,7 +41,7 @@
       </HBox>
       <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="190.0" prefWidth="800.0" style="-fx-background-color: #282A36;">
          <children>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="147.0" prefWidth="141.0" style="-fx-background-color: #B0EDFF;">
+            <AnchorPane fx:id="profileArea" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="147.0" prefWidth="141.0" style="-fx-background-color: #B0EDFF;">
                <children>
                   <ImageView fx:id="image_bg" fitHeight="147.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -93,7 +93,7 @@
                <content>
                   <ScrollPane prefHeight="200.0" prefWidth="200.0">
                      <content>
-                        <GridPane fx:id="gridPaneBody" hgap="10.0" prefHeight="0.0" prefWidth="0.0" vgap="10.0">
+                        <GridPane fx:id="gridPaneBody" hgap="10.0" prefHeight="29.0" prefWidth="0.0" vgap="10.0">
                            <rowConstraints>
                               <RowConstraints minHeight="10.0" prefHeight="30.0" />
                            </rowConstraints>
@@ -103,9 +103,42 @@
                         <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
                      </padding></ScrollPane>
                </content></Tab>
-          <Tab text="Skin" />
-          <Tab text="Head Gear" />
-            <Tab text="Backgrounds" />
+          <Tab text="Skin">
+               <content>
+                  <ScrollPane prefHeight="521.0" prefWidth="655.0">
+                     <content>
+                        <GridPane fx:id="gridPaneHead" hgap="10.0" prefHeight="29.0" prefWidth="0.0" vgap="10.0">
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
+                     </content>
+                  </ScrollPane>
+               </content></Tab>
+          <Tab text="Head Gear">
+               <content>
+                  <ScrollPane prefHeight="521.0" prefWidth="655.0">
+                     <content>
+                        <GridPane fx:id="gridPaneHeadGear" hgap="10.0" prefHeight="29.0" prefWidth="0.0" vgap="10.0">
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                     </content>
+                  </ScrollPane>
+               </content></Tab>
+            <Tab text="Backgrounds">
+               <content>
+                  <ScrollPane prefHeight="521.0" prefWidth="655.0">
+                     <content>
+                        <GridPane fx:id="gridPaneBg" hgap="10.0" prefHeight="29.0" prefWidth="0.0" vgap="10.0">
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                     </content>
+                  </ScrollPane>
+               </content></Tab>
         </tabs>
       </TabPane>
    </children>
