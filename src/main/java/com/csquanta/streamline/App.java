@@ -1,12 +1,17 @@
 package com.csquanta.streamline;
+
 import atlantafx.base.theme.Dracula;
 import com.csquanta.streamline.Controllers.HeaderController;
 import com.csquanta.streamline.Controllers.MainStageController;
+import com.csquanta.streamline.Controllers.SidebarController;
+import com.csquanta.streamline.Models.StaticUserInformation;
+import com.csquanta.streamline.Models.UserInformation;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.geometry.Side;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
@@ -15,7 +20,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.io.IOException;
+import java.io.*;
 
 import static java.util.Objects.requireNonNull;
 
@@ -26,6 +31,30 @@ public class App extends Application {
     private double x, y;
     public App() {
     }
+
+    @Override
+    public void init(){
+        try(ObjectInputStream objIStrm = new ObjectInputStream(new FileInputStream("userInformation"))){
+            UserInformation userInfo = (UserInformation) objIStrm.readObject();
+            System.out.println("Entered into init");
+            if(userInfo.avatarImageBody != null)
+            {
+                StaticUserInformation.avatarImageBody = new Image(requireNonNull(getClass().getResourceAsStream(userInfo.avatarImageBody)));
+
+            }
+            if(userInfo.avatarImageHead != null){
+                StaticUserInformation.avatarImageHead = new Image(requireNonNull(getClass().getResourceAsStream(userInfo.avatarImageHead)));
+            }
+
+
+        }catch (Exception e){
+            System.out.println("Deserialization failed");
+            e.printStackTrace();
+        }
+    }
+
+
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         mainStage = primaryStage;
@@ -50,10 +79,19 @@ public class App extends Application {
         primaryStage.show();
 
     }
+    @Override
+    public void stop() {
+        try(ObjectOutputStream objOStrm = new ObjectOutputStream(new FileOutputStream("userInformation"))){
+            System.out.println("Entered Into to stop");
+            objOStrm.writeObject(StaticUserInformation.userInfo);
+        }catch (Exception e){
+            System.out.println("Serialization failed");
+            e.printStackTrace();
+        }
+    }
 
     public static void main(String[] args) {
         launch(args);
-
     }
     public static void newLoad() throws IOException {
         HBox header, exitOption;
@@ -68,7 +106,7 @@ public class App extends Application {
                 MainStageController.modalPaneForExit.show(exitOption);
             }
         });
-        root.getChildren().addAll(header, MainStageController.modalPaneForExit, HeaderController.modalPaneForHeader);
+        root.getChildren().addAll(header, MainStageController.modalPaneForExit, HeaderController.modalPaneForHeader, SidebarController.modalPaneForSignOut);
     }
 
 }

@@ -1,8 +1,10 @@
 package com.csquanta.streamline.Controllers;
 
 import animatefx.animation.FadeInUp;
+import animatefx.animation.Pulse;
 import atlantafx.base.controls.ModalPane;
 import com.csquanta.streamline.App;
+import com.google.api.client.json.webtoken.JsonWebToken;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -10,6 +12,7 @@ import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
@@ -23,7 +26,7 @@ import java.util.ResourceBundle;
 import static java.util.Objects.requireNonNull;
 
 public class SidebarController implements Initializable {
-    private final ModalPane modalPaneForSignOut = new ModalPane();
+    public final static ModalPane modalPaneForSignOut = new ModalPane();
 
     @FXML
     private ImageView challengeImg;
@@ -137,7 +140,12 @@ public class SidebarController implements Initializable {
     void onSignOutBtnclicked(MouseEvent event) throws IOException {
         VBox signout = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/SignOutWarningPage.fxml")));
         HeaderController.modalPaneForHeader.hide(true);
+        modalPaneForSignOut.setAlignment(Pos.CENTER);
         modalPaneForSignOut.show(signout);
+        Pulse pulse = new Pulse();
+        pulse.setNode(signout);
+        pulse.setSpeed(3);
+        pulse.play();
 
     }
 
@@ -159,7 +167,7 @@ public class SidebarController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        App.root.getChildren().add(modalPaneForSignOut);
+
     }
 
 

@@ -1,11 +1,11 @@
 package com.csquanta.streamline.Controllers;
 
 import animatefx.animation.FadeIn;
+import com.csquanta.streamline.Models.StaticUserInformation;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -13,12 +13,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+
+import java.io.*;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
+
 import static com.csquanta.streamline.Controllers.HeaderController.modalPaneForHeader;
 
 public class ProfileEditController implements Initializable {
@@ -124,17 +124,23 @@ public class ProfileEditController implements Initializable {
             if (selectedBlockController != null && parentGrid != null) {
                 if (parentGrid == gridPaneBody) {
                     setAvatarBody(clickedImageView);
+                    StaticUserInformation.avatarImageBody = clickedImageView.getImage();
+                    StaticUserInformation.userInfo.setAvatarImageBody(selectedBlockController.getPath());
                 } else if (parentGrid == gridPaneHead) {
                     setAvatarHead(clickedImageView);
+                    StaticUserInformation.avatarImageHead = clickedImageView.getImage();
+                    StaticUserInformation.userInfo.setAvatarImageHead(selectedBlockController.getPath());
+                    System.out.println("Head Path :"+ selectedBlockController.getPath());
                 }
 
             }
         }
     }
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        avatarBody.setImage(StaticUserInformation.avatarImageBody);
+        avatarHead.setImage(StaticUserInformation.avatarImageHead);
         File shirts = new File("src/main/resources/Images/customize/shirts");
         File skin = new File("src/main/resources/Images/customize/skin");
         File[] listImg = shirts.listFiles();
@@ -160,6 +166,7 @@ public class ProfileEditController implements Initializable {
                     InputStream imageStreamShirt = getClass().getResourceAsStream(imagePathShirt);
                     if (imageStreamShirt != null) {
                         customizeBlockControllerShirt.setCustomizeBlockData(new Image(imageStreamShirt));
+                        customizeBlockControllerShirt.setPath(imagePathShirt);
                         ImageView imageViewShirt = (ImageView) fxmlSceneShirt.root.lookup("#componentImg");
                         imageViewShirt.getProperties().put("controller", customizeBlockControllerShirt);
                         imageViewShirt.setOnMouseClicked(this::setComponent);
@@ -184,6 +191,7 @@ public class ProfileEditController implements Initializable {
                     InputStream imageStreamSkin = getClass().getResourceAsStream(imagePathSkin);
                     if (imageStreamSkin != null) {
                         customizeBlockControllerSkin.setCustomizeBlockData(new Image(imageStreamSkin));
+                        customizeBlockControllerSkin.setPath(imagePathSkin);
                         ImageView imageViewSkin = (ImageView) fxmlSceneSkin.root.lookup("#componentImg");
                         imageViewSkin.getProperties().put("controller", customizeBlockControllerSkin);
                         imageViewSkin.setOnMouseClicked(this::setComponent);

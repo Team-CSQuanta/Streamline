@@ -39,6 +39,6 @@ public class MainStageController implements Initializable {
             }
         });
         StackPane.setAlignment(header, Pos.TOP_CENTER);
-        mainStageStackPane.getChildren().addAll(header, HeaderController.modalPaneForHeader,modalPaneForExit);
+        mainStageStackPane.getChildren().addAll(header, HeaderController.modalPaneForHeader,modalPaneForExit, SidebarController.modalPaneForSignOut);
     }
 }
