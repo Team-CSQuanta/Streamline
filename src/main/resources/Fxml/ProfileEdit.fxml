@@ -45,7 +45,7 @@
                <children>
                   <ImageView fx:id="image_bg" fitHeight="147.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../Images/backgrounds/background_alpine_slopes.png" />
+                        <Image url="@../Images/backgrounds/background_bamboo_forest.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="avatarHead" fitHeight="90.0" fitWidth="90.0" layoutX="26.0" layoutY="33.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
@@ -146,6 +146,9 @@
                            </padding>
                         </GridPane>
                      </content>
+                     <padding>
+                        <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+                     </padding>
                   </ScrollPane>
                </content></Tab>
         </tabs>

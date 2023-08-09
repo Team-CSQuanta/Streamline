@@ -7,6 +7,15 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
 public class CustomizeBlockController {
+    private String path;
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    public String getPath() {
+        return path;
+    }
 
     @FXML
     private ImageView componentImg;

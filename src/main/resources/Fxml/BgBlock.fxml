@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox fx:id="bgContainer" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="160.0" style="-fx-background-radius: 10px; -fx-border-color: #9580FF; -fx-border-radius: 10px;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.BgBlockController">
+   <children>
+      <ImageView fx:id="bgImg" fitHeight="147.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/backgrounds/background_afternoon_picnic.png" />
+         </image>
+      </ImageView>
+   </children>
+</VBox>
