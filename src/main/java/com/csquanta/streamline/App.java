@@ -34,23 +34,7 @@ public class App extends Application {
 
     @Override
     public void init(){
-        try(ObjectInputStream objIStrm = new ObjectInputStream(new FileInputStream("userInformation"))){
-            UserInformation userInfo = (UserInformation) objIStrm.readObject();
-            System.out.println("Entered into init");
-            if(userInfo.avatarImageBody != null)
-            {
-                StaticUserInformation.avatarImageBody = new Image(requireNonNull(getClass().getResourceAsStream(userInfo.avatarImageBody)));
-
-            }
-            if(userInfo.avatarImageHead != null){
-                StaticUserInformation.avatarImageHead = new Image(requireNonNull(getClass().getResourceAsStream(userInfo.avatarImageHead)));
-            }
-
-
-        }catch (Exception e){
-            System.out.println("Deserialization failed");
-            e.printStackTrace();
-        }
+        UserInformation.deserializeUserInfo();
     }
 
 
@@ -81,13 +65,7 @@ public class App extends Application {
     }
     @Override
     public void stop() {
-        try(ObjectOutputStream objOStrm = new ObjectOutputStream(new FileOutputStream("userInformation"))){
-            System.out.println("Entered Into to stop");
-            objOStrm.writeObject(StaticUserInformation.userInfo);
-        }catch (Exception e){
-            System.out.println("Serialization failed");
-            e.printStackTrace();
-        }
+        UserInformation.serializeUserInfo();
     }
 
     public static void main(String[] args) {
