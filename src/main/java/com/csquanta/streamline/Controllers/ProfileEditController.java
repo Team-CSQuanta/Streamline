@@ -2,6 +2,7 @@ package com.csquanta.streamline.Controllers;
 
 import animatefx.animation.FadeIn;
 import com.csquanta.streamline.Models.StaticUserInformation;
+import com.csquanta.streamline.Models.UserInformation;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -124,13 +125,22 @@ public class ProfileEditController implements Initializable {
             if (selectedBlockController != null && parentGrid != null) {
                 if (parentGrid == gridPaneBody) {
                     setAvatarBody(clickedImageView);
-                    StaticUserInformation.avatarImageBody = clickedImageView.getImage();
-                    StaticUserInformation.userInfo.setAvatarImageBody(selectedBlockController.getPath());
+                    if(clickedImageView.getImage() != null){
+                        StaticUserInformation.avatarImageBody = clickedImageView.getImage();
+                        UserInformation.userInfo.setAvatarImageBody(selectedBlockController.getPath());
+                    }
+                    else{
+                        UserInformation.userInfo.setAvatarImageBody(UserInformation.userInfo.avatarImageBody);
+                    }
                 } else if (parentGrid == gridPaneHead) {
                     setAvatarHead(clickedImageView);
-                    StaticUserInformation.avatarImageHead = clickedImageView.getImage();
-                    StaticUserInformation.userInfo.setAvatarImageHead(selectedBlockController.getPath());
-                    System.out.println("Head Path :"+ selectedBlockController.getPath());
+                    if(clickedImageView.getImage() != null){
+                        StaticUserInformation.avatarImageHead = clickedImageView.getImage();
+                        UserInformation.userInfo.setAvatarImageHead(selectedBlockController.getPath());
+                    }
+                    else{
+                        UserInformation.userInfo.setAvatarImageHead(UserInformation.userInfo.avatarImageHead);
+                    }
                 }
 
             }

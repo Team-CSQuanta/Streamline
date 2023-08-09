@@ -7,7 +7,6 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 public class StaticUserInformation {
-    public static UserInformation userInfo = new UserInformation();
     // Avatar picture information
     public static Image avatarImageBg;
     public static String avatarImageBgPath;
