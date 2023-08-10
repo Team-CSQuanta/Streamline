@@ -75,5 +75,6 @@ public class Shop implements Serializable {
         headWearList.add(new Item("/Images/gear/head/head_warrior_5.png", "Head Warrior Five", "500"));
         return headWearList;
     }
-
+    private final TreeSet<Item> backgroundsList = new TreeSet<>(new ItemComparator());
+//    public TreeSet<Item> default
 }

@@ -149,13 +149,10 @@
                <content>
                   <ScrollPane prefHeight="521.0" prefWidth="655.0">
                      <content>
-                        <GridPane fx:id="gridPaneBg" hgap="10.0" prefHeight="29.0" prefWidth="0.0" vgap="10.0">
+                        <GridPane fx:id="gridPaneBg" hgap="40.0" prefHeight="29.0" prefWidth="0.0" vgap="20.0">
                            <rowConstraints>
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                            </rowConstraints>
-                           <padding>
-                              <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
-                           </padding>
                         </GridPane>
                      </content>
                      <padding>

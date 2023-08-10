@@ -1,6 +1,6 @@
 package com.csquanta.streamline.Controllers;
 
-import animatefx.animation.Flip;
+import animatefx.animation.*;
 import com.csquanta.streamline.Models.Item;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -45,8 +45,8 @@ public class ItemGearController implements Initializable {
             itemContainer.setStyle("-fx-background-color: transparent;");
             itemContainer.getChildren().setAll( successMsg);
 
-            Flip flip = new Flip(successMsg);
-            flip.setSpeed(2);
+            JackInTheBox flip = new JackInTheBox(successMsg);
+            flip.setSpeed(1);
             flip.play();
         } catch (IOException e) {
             System.out.println(e.getMessage());
