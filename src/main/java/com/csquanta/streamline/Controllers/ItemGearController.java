@@ -35,6 +35,7 @@ public class ItemGearController implements Initializable {
 
     @FXML
     void buyBtnClicked(ActionEvent event) {
+
         FXMLScene fxmlScene;
         try {
             fxmlScene= FXMLScene.load("/Fxml/ItemGearPurchasedSuccessFully.fxml");
