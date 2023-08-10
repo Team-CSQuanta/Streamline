@@ -4,14 +4,12 @@ import atlantafx.base.theme.Dracula;
 import com.csquanta.streamline.Controllers.HeaderController;
 import com.csquanta.streamline.Controllers.MainStageController;
 import com.csquanta.streamline.Controllers.SidebarController;
-import com.csquanta.streamline.Models.StaticUserInformation;
 import com.csquanta.streamline.Models.UserInformation;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.geometry.Side;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
@@ -19,9 +17,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
-import java.io.*;
-
+import java.io.IOException;
 import static java.util.Objects.requireNonNull;
 
 public class App extends Application {

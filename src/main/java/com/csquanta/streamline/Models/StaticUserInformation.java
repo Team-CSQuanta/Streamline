@@ -9,20 +9,13 @@ import java.io.InputStream;
 public class StaticUserInformation {
     // Avatar picture information
     public static Image avatarImageBg;
-    public static String avatarImageBgPath;
     public static Image avatarImageHead;
-    public static String avatarImageHeadPath;
     public static Image avatarImageHair;
-    public static String avatarImageHairPath;
     public static Image avatarImageHeadGear;
-    public static String avatarImageHeadGearPath;
 
     public static Image avatarImageBody;
-    public static String avatarImageBodyPath;
     public static Image avatarImageArmor;
-    public static String avatarImageArmorPath;
     public static Image avatarImagePet;
-    public static String avatarImagePetPath;
 
 
 }

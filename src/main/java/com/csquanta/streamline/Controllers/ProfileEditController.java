@@ -1,12 +1,14 @@
 package com.csquanta.streamline.Controllers;
 
 import animatefx.animation.FadeIn;
+import animatefx.animation.ZoomIn;
 import com.csquanta.streamline.Models.StaticUserInformation;
 import com.csquanta.streamline.Models.UserInformation;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.control.Tab;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -14,7 +16,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-
+import javafx.event.Event;
 import java.io.*;
 import java.net.URL;
 import java.util.Objects;
@@ -63,6 +65,23 @@ public class ProfileEditController implements Initializable {
 
     @FXML
     private GridPane gridPaneHeadGear;
+    @FXML
+    private GridPane gridPaneHair;
+
+    @FXML
+    private Tab backgroundTab;
+
+    @FXML
+    private Tab hairTab;
+
+    @FXML
+    private Tab bodyTab;
+
+    @FXML
+    private Tab headWearTab;
+
+    @FXML
+    private Tab skinTab;
 
 
     private CustomizeBlockController selectedBlockController;
@@ -104,11 +123,47 @@ public class ProfileEditController implements Initializable {
         VBox profileView = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/Profile.fxml")));
         modalPaneForHeader.setAlignment(Pos.CENTER);
         modalPaneForHeader.show(profileView);
-        FadeIn fadeIn = new FadeIn();
-        fadeIn.setNode(profileView);
-        fadeIn.play();
+        ZoomIn zoomIn = new ZoomIn();
+        zoomIn.setNode(profileView);
+        zoomIn.setSpeed(3);
+        zoomIn.play();
+    }
+    @FXML
+    void onHairSelectionChanged(Event event) {
+        if(hairTab.isSelected()){
+            addProfileEditItems("/Fxml/customizeBlock.fxml", "src/main/resources/Images/customize/hair", gridPaneHair);
+        }
+    }
+    @FXML
+    void onBGSelectionChanged(Event event) {
+        if(backgroundTab.isSelected()){
+            System.out.println("Background Tab is selected");
+        }
     }
 
+    @FXML
+    void onBodySelectionChanged(Event event) {
+        if(bodyTab.isSelected()){
+            System.out.println("Body Tab is selected");
+            addProfileEditItems("/Fxml/customizeBlock.fxml", "src/main/resources/Images/customize/shirts", gridPaneBody);
+        }
+    }
+
+    @FXML
+    void onHeadGearSelectionChanged(Event event) {
+        if(headWearTab.isSelected()){
+            System.out.println("Head Wear Tab is selected");
+//            addShopItems("/Fxml/customizeBlock.fxml", );
+        }
+    }
+
+    @FXML
+    void OnSkinSelectionChanged(Event event) {
+        if(skinTab.isSelected()){
+            System.out.println("Skin Tab is selected");
+            addProfileEditItems("/Fxml/customizeBlock.fxml", "src/main/resources/Images/customize/skin", gridPaneHead);
+        }
+    }
 
     @FXML
     void setComponent(MouseEvent event) {
@@ -141,6 +196,16 @@ public class ProfileEditController implements Initializable {
                     else{
                         UserInformation.userInfo.setAvatarImageHead(UserInformation.userInfo.avatarImageHead);
                     }
+                }else if(parentGrid == gridPaneHair){
+                    setAvatarHair(clickedImageView);
+                    if(clickedImageView.getImage() != null){
+                        StaticUserInformation.avatarImageHair = clickedImageView.getImage();
+                        UserInformation.userInfo.setAvatarImageHair(selectedBlockController.getPath());
+                    }
+                    else{
+                        UserInformation.userInfo.setAvatarImageHair(UserInformation.userInfo.avatarImageHair);
+                    }
+
                 }
 
             }
@@ -151,76 +216,7 @@ public class ProfileEditController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         avatarBody.setImage(StaticUserInformation.avatarImageBody);
         avatarHead.setImage(StaticUserInformation.avatarImageHead);
-        File shirts = new File("src/main/resources/Images/customize/shirts");
-        File skin = new File("src/main/resources/Images/customize/skin");
-        File[] listImg = shirts.listFiles();
-        File[] listSkin = skin.listFiles();
-
-        int rowShirt = 1;
-        int columnShirt = 0;
-        int rowSkin = 1;
-        int columnSkin = 0;
-
-        int numShirts = listImg != null ? listImg.length : 0;
-        int numSkins = listSkin != null ? listSkin.length : 0;
-        int maxIterations = Math.max(numShirts, numSkins);
-
-        for (int i = 0; i < maxIterations; i++) {
-            try {
-                // Load and set up for shirts
-                if (i < numShirts) {
-                    FXMLScene fxmlSceneShirt = FXMLScene.load("/Fxml/customizeBlock.fxml");
-                    CustomizeBlockController customizeBlockControllerShirt = (CustomizeBlockController) fxmlSceneShirt.controller;
-
-                    String imagePathShirt = getRelativePath(listImg[i]);
-                    InputStream imageStreamShirt = getClass().getResourceAsStream(imagePathShirt);
-                    if (imageStreamShirt != null) {
-                        customizeBlockControllerShirt.setCustomizeBlockData(new Image(imageStreamShirt));
-                        customizeBlockControllerShirt.setPath(imagePathShirt);
-                        ImageView imageViewShirt = (ImageView) fxmlSceneShirt.root.lookup("#componentImg");
-                        imageViewShirt.getProperties().put("controller", customizeBlockControllerShirt);
-                        imageViewShirt.setOnMouseClicked(this::setComponent);
-
-                    } else {
-                        System.err.println("Shirt Image not found: " + imagePathShirt);
-                    }
-
-                    gridPaneBody.add(fxmlSceneShirt.root, columnShirt++, rowShirt);
-                    if (columnShirt == 7) {
-                        columnShirt = 0;
-                        rowShirt++;
-                    }
-                }
-
-                // Load and set up for skin
-                if (i < numSkins) {
-                    FXMLScene fxmlSceneSkin = FXMLScene.load("/Fxml/customizeBlock.fxml");
-                    CustomizeBlockController customizeBlockControllerSkin = (CustomizeBlockController) fxmlSceneSkin.controller;
-
-                    String imagePathSkin = getRelativePath(listSkin[i]);
-                    InputStream imageStreamSkin = getClass().getResourceAsStream(imagePathSkin);
-                    if (imageStreamSkin != null) {
-                        customizeBlockControllerSkin.setCustomizeBlockData(new Image(imageStreamSkin));
-                        customizeBlockControllerSkin.setPath(imagePathSkin);
-                        ImageView imageViewSkin = (ImageView) fxmlSceneSkin.root.lookup("#componentImg");
-                        imageViewSkin.getProperties().put("controller", customizeBlockControllerSkin);
-                        imageViewSkin.setOnMouseClicked(this::setComponent);
-
-                    } else {
-                        System.err.println("Skin Image not found: " + imagePathSkin);
-                    }
-
-                    gridPaneHead.add(fxmlSceneSkin.root, columnSkin++, rowSkin);
-                    if (columnSkin == 7) {
-                        columnSkin = 0;
-                        rowSkin++;
-                    }
-                }
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-
+        avatarHair.setImage(StaticUserInformation.avatarImageHair);
     }
 
     public String getRelativePath(File file) throws IOException {
@@ -232,6 +228,41 @@ public class ProfileEditController implements Initializable {
             return relativePath.replace("\\", "/");
         } else {
             throw new IllegalArgumentException("File is not within the resources directory: " + getPath);
+        }
+    }
+    public void addProfileEditItems(String fxmlPath, String filePath, GridPane gridPane){
+        File itemFile = new File(filePath);
+        File[] itemList = itemFile.listFiles();
+        int row= 1;
+        int column= 0;
+        int numOfItem = itemList != null ? itemList.length : 0;
+        for(int i = 0; i<numOfItem; i++){
+            // Load and set up for shirts
+            try{
+                FXMLScene fxmlScene = FXMLScene.load(fxmlPath);
+                CustomizeBlockController customizeBlockController = (CustomizeBlockController) fxmlScene.controller;
+                String imagePath = getRelativePath(itemList[i]);
+                InputStream imageStream = getClass().getResourceAsStream(imagePath);
+                if (imageStream != null) {
+                    customizeBlockController.setCustomizeBlockData(new Image(imageStream));
+                    customizeBlockController.setPath(imagePath);
+                    ImageView imageView = (ImageView) fxmlScene.root.lookup("#componentImg");
+                    imageView.getProperties().put("controller", customizeBlockController);
+                    imageView.setOnMouseClicked(this::setComponent);
+
+                } else {
+                    System.err.println("Shirt Image not found: " + imagePath);
+                }
+
+                gridPane.add(fxmlScene.root, column++, row);
+                if (column == 7) {
+                    column = 0;
+                    row++;
+                }
+            }catch (IOException e){
+                System.out.println(e.getMessage());
+            }
+
         }
     }
 }

@@ -14,7 +14,7 @@
             <Image url="@../Images/jelly-sad-blue-character.png" />
          </image>
       </ImageView>
-      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="500.0" style="-fx-background-radius: 15px; -fx-border-radius: 15px; -fx-background-color: #282A36FF; -fx-border-color: linear-gradient(to bottom right, #18ABD1, #8968A3, #DD3982, #DE755C, #DEA63D);;" stylesheets="@../Styles/SignOutWarning.css">
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="500.0" style="-fx-background-radius: 15px; -fx-border-radius: 15px; -fx-background-color: #282A36FF;" stylesheets="@../Styles/SignOutWarning.css">
          <children>
             <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="147.0" prefWidth="500.0">
                <children>

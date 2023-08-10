@@ -61,14 +61,16 @@ public class ProfileViewController implements Initializable {
         VBox profileEditor = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/ProfileEdit.fxml")));
         modalPaneForHeader.setAlignment(Pos.CENTER);
         modalPaneForHeader.show(profileEditor);
-        FadeIn fadeIn = new FadeIn();
-        fadeIn.setNode(profileEditor);
-        fadeIn.play();
+        ZoomIn zoomIn = new ZoomIn();
+        zoomIn.setNode(profileEditor);
+        zoomIn.setSpeed(3);
+        zoomIn.play();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         avatarBody.setImage(StaticUserInformation.avatarImageBody);
         avatarHead.setImage(StaticUserInformation.avatarImageHead);
+        avatarHair.setImage(StaticUserInformation.avatarImageHair);
     }
 }

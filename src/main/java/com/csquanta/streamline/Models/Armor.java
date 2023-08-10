@@ -5,7 +5,6 @@ import java.io.File;
 public class Armor extends Item{
     public Armor(String imgSrc, String armorName, String price) {
         super(imgSrc, armorName, price);
-
     }
 
 }
