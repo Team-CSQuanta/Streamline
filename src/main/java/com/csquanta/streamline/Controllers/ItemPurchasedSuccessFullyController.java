@@ -20,8 +20,8 @@ public class ItemPurchasedSuccessFullyController {
         return itemLabel;
     }
 
-    public void setItemLabel(Label itemLabel) {
-        this.itemLabel = itemLabel;
+     public void setItemLabel(Label itemLabel) {
+        this.itemLabel.setText(itemLabel.getText());
     }
 
     public ImageView getItemPurchasedImg() {
@@ -29,6 +29,8 @@ public class ItemPurchasedSuccessFullyController {
     }
 
     public void setItemPurchasedImg(ImageView itemPurchasedImg) {
-        this.itemPurchasedImg = itemPurchasedImg;
+        this.itemPurchasedImg.setImage(itemPurchasedImg.getImage());
+
+
     }
 }
