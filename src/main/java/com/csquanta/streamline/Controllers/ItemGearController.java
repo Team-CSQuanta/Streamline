@@ -33,24 +33,24 @@ public class ItemGearController implements Initializable {
     @FXML
     private Label itemPrice;
 
-    @FXML
+     @FXML
     void buyBtnClicked(ActionEvent event) {
-
-        FXMLScene fxmlScene;
         try {
-            fxmlScene= FXMLScene.load("/Fxml/ItemGearPurchasedSuccessFully.fxml");
+            FXMLScene fxmlScene = FXMLScene.load("/Fxml/ItemGearPurchasedSuccessFully.fxml");
+
             VBox successMsg = (VBox) fxmlScene.root;
             ItemPurchasedSuccessFullyController itemPurchasedSuccessFullyController = (ItemPurchasedSuccessFullyController) fxmlScene.controller;
             itemPurchasedSuccessFullyController.setItemLabel(itemLabel);
             itemPurchasedSuccessFullyController.setItemPurchasedImg(itemImg);
-            itemContainer = successMsg;
-        }catch (IOException e){
+            itemContainer.setStyle("-fx-background-color: transparent;");
+            itemContainer.getChildren().setAll( successMsg);
+
+            Flip flip = new Flip(successMsg);
+            flip.setSpeed(2);
+            flip.play();
+        } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-
-//        Flip flip = new Flip(successMsg);
-//        flip.setSpeed(2);
-//        flip.play();
     }
     public void setData(Item item){
         itemImg.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(item.getImgSrc()))));
