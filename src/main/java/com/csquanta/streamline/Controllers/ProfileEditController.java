@@ -144,7 +144,6 @@ public class ProfileEditController implements Initializable {
     @FXML
     void onBodySelectionChanged(Event event) {
         if(bodyTab.isSelected()){
-            System.out.println("Body Tab is selected");
             addProfileEditItems("/Fxml/customizeBlock.fxml", "src/main/resources/Images/customize/shirts", gridPaneBody);
         }
     }
@@ -152,7 +151,6 @@ public class ProfileEditController implements Initializable {
     @FXML
     void onHeadGearSelectionChanged(Event event) {
         if(headWearTab.isSelected()){
-            System.out.println("Head Wear Tab is selected");
 //            addShopItems("/Fxml/customizeBlock.fxml", );
         }
     }
@@ -160,7 +158,6 @@ public class ProfileEditController implements Initializable {
     @FXML
     void OnSkinSelectionChanged(Event event) {
         if(skinTab.isSelected()){
-            System.out.println("Skin Tab is selected");
             addProfileEditItems("/Fxml/customizeBlock.fxml", "src/main/resources/Images/customize/skin", gridPaneHead);
         }
     }

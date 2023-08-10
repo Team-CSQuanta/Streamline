@@ -1,5 +1,6 @@
 package com.csquanta.streamline.Controllers;
 
+import animatefx.animation.Shake;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -26,6 +27,12 @@ public class CustomizeBlockController {
     @FXML
     void mouseEnteredInBlock(MouseEvent event) {
 
+    }
+
+    @FXML
+    void customizeBlockClicked(MouseEvent event) {
+//        Shake shake = new Shake(mainContainer);
+//        shake.play();
     }
 
     public void setCustomizeBlockData(Image image){

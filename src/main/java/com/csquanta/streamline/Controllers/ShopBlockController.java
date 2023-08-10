@@ -1,6 +1,6 @@
 package com.csquanta.streamline.Controllers;
 
-import com.csquanta.streamline.Models.Armor;
+import com.csquanta.streamline.Models.Item;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -50,27 +50,34 @@ public class ShopBlockController implements Initializable {
     void armorTabSelect(Event event) {
         if(itemBlockTab.isSelected()) {
 
-            TreeSet<Armor> armorsInShop = ShopController.getShop().getArmorsList();
+            TreeSet<Item> armorsInShop = ShopController.getShop().getArmorsList();
             ShopController.getShop().firstInitializeArmor();
-            Iterator<Armor> iterator = armorsInShop.iterator();
-            FXMLScene fxmlScene;
-            while (iterator.hasNext()) {
-                try {
-                    fxmlScene = FXMLScene.load("/Fxml/ItemGear.fxml");
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-                ItemGearController itemGearController = (ItemGearController) fxmlScene.controller;
-                itemGearController.setData(iterator.next());
-                armorTabHbox.getChildren().add(fxmlScene.root);
-            }
+            addItemToShop(armorsInShop, armorTabHbox);
+
         }
     }
 
     @FXML
     void headWearTabSelect(Event event) {
-        if(itemBlockTab2.isSelected())
-            System.out.println("head wear tab selected");
+        if(itemBlockTab2.isSelected()){
+            TreeSet<Item> headWearInShop = ShopController.getShop().getHeadWearList();
+            ShopController.getShop().firstInitializeHeadWear();
+            addItemToShop(headWearInShop, headWearTabHBox);
+        }
+    }
+    public void addItemToShop(TreeSet<Item> itemList, HBox tab){
+        Iterator<Item> iterator = itemList.iterator();
+        FXMLScene fxmlScene;
+        while (iterator.hasNext()) {
+            try {
+                fxmlScene = FXMLScene.load("/Fxml/ItemGear.fxml");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            ItemGearController itemGearController = (ItemGearController) fxmlScene.controller;
+            itemGearController.setData(iterator.next());
+            tab.getChildren().add(fxmlScene.root);
+        }
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
