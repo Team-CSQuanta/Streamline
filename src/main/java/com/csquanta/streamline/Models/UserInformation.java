@@ -7,7 +7,6 @@ import static java.util.Objects.requireNonNull;
 
 public class UserInformation implements Serializable {
     public static UserInformation userInfo = new UserInformation();
-    private UserInformation userInfoNotStatic = userInfo;
     public  String avatarImageBg;
     public  String avatarImageHead;
     public  String avatarImageHair;
@@ -15,10 +14,6 @@ public class UserInformation implements Serializable {
     public  String avatarImageBody;
     public  String avatarImageArmor;
     public  String avatarImagePet;
-
-    public static UserInformation getUserInfo() {
-        return userInfo;
-    }
 
     public UserInformation() {
     }
@@ -90,16 +85,16 @@ public class UserInformation implements Serializable {
     }
 
     public static void serializeUserInfo(){
-        try(ObjectOutputStream objOStrm = new ObjectOutputStream(new FileOutputStream("userInformation"))){
+        try(ObjectOutputStream objOStream = new ObjectOutputStream(new FileOutputStream("User_Information_file"))){
             UserInformation userInformation = new UserInformation(userInfo.getAvatarImageBg(), userInfo.getAvatarImageHead(), userInfo.getAvatarImageHair(), userInfo.getAvatarImageHeadGear(), userInfo.getAvatarImageBody(), userInfo.getAvatarImageArmor(), userInfo.getAvatarImagePet());
-            objOStrm.writeObject(userInformation);
+            objOStream.writeObject(userInformation);
         }catch (Exception e){
             System.out.println("Serialization failed");
         }
     }
     public static void deserializeUserInfo(){
-        try(ObjectInputStream objIStrm = new ObjectInputStream(new FileInputStream("userInformation"))){
-            UserInformation user = (UserInformation) objIStrm.readObject();
+        try(ObjectInputStream objIStream = new ObjectInputStream(new FileInputStream("User_Information_file"))){
+            UserInformation user = (UserInformation) objIStream.readObject();
             if(user.avatarImageBody != null)
             {
                 StaticUserInformation.avatarImageBody = new Image(requireNonNull(UserInformation.class.getResourceAsStream(user.avatarImageBody)));
@@ -109,6 +104,10 @@ public class UserInformation implements Serializable {
             if(user.avatarImageHead != null){
                 StaticUserInformation.avatarImageHead = new Image(requireNonNull(UserInformation.class.getResourceAsStream(user.avatarImageHead)));
                 userInfo.setAvatarImageHead(user.avatarImageHead);
+            }
+            if(user.avatarImageHair != null){
+                StaticUserInformation.avatarImageHair = new Image(requireNonNull(UserInformation.class.getResourceAsStream(user.avatarImageHair)));
+                userInfo.setAvatarImageHair(user.avatarImageHair);
             }
 
         }catch (Exception e){

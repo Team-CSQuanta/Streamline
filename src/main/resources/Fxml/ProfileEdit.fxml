@@ -64,11 +64,7 @@
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
                   </ImageView>
-                  <ImageView fx:id="headGear" fitHeight="90.0" fitWidth="90.0" layoutX="26.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Images/gear/head/head_wizard_5.png" />
-                     </image>
-                  </ImageView>
+                  <ImageView fx:id="headGear" fitHeight="90.0" fitWidth="90.0" layoutX="26.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
                   <ImageView fx:id="avatarBody" fitHeight="90.0" fitWidth="90.0" layoutX="26.0" layoutY="33.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Images/customize/shirts/broad_shirt_convict.png" />
@@ -89,7 +85,7 @@
       </VBox>
       <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="800.0" styleClass="tabPaneTitle" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-            <Tab text="Body">
+            <Tab fx:id="bodyTab" onSelectionChanged="#onBodySelectionChanged" text="Body">
                <content>
                   <ScrollPane prefHeight="200.0" prefWidth="200.0">
                      <content>
@@ -103,7 +99,23 @@
                         <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
                      </padding></ScrollPane>
                </content></Tab>
-          <Tab text="Skin">
+            <Tab fx:id="hairTab" onSelectionChanged="#onHairSelectionChanged" text="Hair">
+               <content>
+                  <ScrollPane prefHeight="521.0" prefWidth="655.0">
+                     <content>
+                        <GridPane fx:id="gridPaneHair" hgap="10.0" prefHeight="29.0" prefWidth="0.0" vgap="10.0">
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                     </content>
+                     <padding>
+                        <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+                     </padding>
+                  </ScrollPane>
+               </content>
+            </Tab>
+          <Tab fx:id="skinTab" onSelectionChanged="#OnSkinSelectionChanged" text="Skin">
                <content>
                   <ScrollPane prefHeight="521.0" prefWidth="655.0">
                      <content>
@@ -118,7 +130,7 @@
                      </padding>
                   </ScrollPane>
                </content></Tab>
-          <Tab text="Head Gear">
+          <Tab fx:id="headWearTab" onSelectionChanged="#onHeadGearSelectionChanged" text="Head Gear">
                <content>
                   <ScrollPane prefHeight="521.0" prefWidth="655.0">
                      <content>
@@ -133,7 +145,7 @@
                      </padding>
                   </ScrollPane>
                </content></Tab>
-            <Tab text="Backgrounds">
+            <Tab fx:id="backgroundTab" onSelectionChanged="#onBGSelectionChanged" text="Backgrounds">
                <content>
                   <ScrollPane prefHeight="521.0" prefWidth="655.0">
                      <content>

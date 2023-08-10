@@ -1,7 +1,7 @@
 package com.csquanta.streamline.Controllers;
 
 import com.csquanta.streamline.Models.Armor;
-import com.csquanta.streamline.Models.ArmorComp;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
 import java.util.TreeSet;
 
 public class ShopBlockController implements Initializable {
-    private final TreeSet<Armor> armors = getArmorData();
+
     @FXML
     private ScrollPane ArmorTabScrollPane;
 
@@ -27,6 +27,7 @@ public class ShopBlockController implements Initializable {
 
     @FXML
     private HBox armorTabHbox;
+
 
     @FXML
     private ScrollPane headWearScrollPane;
@@ -45,30 +46,35 @@ public class ShopBlockController implements Initializable {
 
     @FXML
     private VBox mainVbox;
+    @FXML
+    void armorTabSelect(Event event) {
+        if(itemBlockTab.isSelected()) {
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        Iterator<Armor> iterator = armors.iterator();
-        FXMLScene fxmlScene;
-        while(iterator.hasNext()){
-            try {
-                fxmlScene = FXMLScene.load("/Fxml/ItemGear.fxml");
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+            TreeSet<Armor> armorsInShop = ShopController.getShop().getArmorsList();
+            ShopController.getShop().firstInitializeArmor();
+            Iterator<Armor> iterator = armorsInShop.iterator();
+            FXMLScene fxmlScene;
+            while (iterator.hasNext()) {
+                try {
+                    fxmlScene = FXMLScene.load("/Fxml/ItemGear.fxml");
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                ItemGearController itemGearController = (ItemGearController) fxmlScene.controller;
+                itemGearController.setData(iterator.next());
+                armorTabHbox.getChildren().add(fxmlScene.root);
             }
-            ItemGearController itemGearController = (ItemGearController) fxmlScene.controller;
-            itemGearController.setData(iterator.next());
-            armorTabHbox.getChildren().add(fxmlScene.root);
         }
     }
-    private TreeSet<Armor> getArmorData(){
-        TreeSet<Armor> armorsList = new TreeSet<>(new ArmorComp());
-        armorsList.add(new Armor("/Images/gear/armor/Healer/healer_1.png", "Healer V1", "100"));
-        armorsList.add(new Armor("/Images/gear/armor/Healer/healer_2.png", "Healer V2", "200"));
-        armorsList.add(new Armor("/Images/gear/armor/Healer/healer_3.png", "Healer V3", "300"));
-        armorsList.add(new Armor("/Images/gear/armor/Healer/healer_4.png", "Healer V4", "400"));
-        armorsList.add(new Armor("/Images/gear/armor/Healer/healer_5.png", "Healer V5", "500"));
-        return armorsList;
+
+    @FXML
+    void headWearTabSelect(Event event) {
+        if(itemBlockTab2.isSelected())
+            System.out.println("head wear tab selected");
     }
-}
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        }
+    }
+
 

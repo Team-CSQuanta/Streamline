@@ -20,7 +20,7 @@
       </HBox>
       <TabPane fx:id="itemBlockTabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="1258.0" styleClass="tabOption" stylesheets="@../Styles/AvatarAccessories.css" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab fx:id="itemBlockTab" closable="false" text="Armors">
+          <Tab fx:id="itemBlockTab" closable="false" onSelectionChanged="#armorTabSelect" text="Armors">
                <content>
                   <ScrollPane fx:id="ArmorTabScrollPane" hbarPolicy="NEVER" hmax="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="270.0" prefWidth="1260.0" vbarPolicy="NEVER">
                      <content>
@@ -33,7 +33,7 @@
                   </ScrollPane>
                </content>
           </Tab>
-            <Tab fx:id="itemBlockTab2" closable="false" text="Head wears">
+            <Tab fx:id="itemBlockTab2" closable="false" onSelectionChanged="#headWearTabSelect" text="Head wears">
                <content>
                   <ScrollPane fx:id="headWearScrollPane" hbarPolicy="NEVER" hmax="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="270.0" prefWidth="1260.0" vbarPolicy="NEVER">
                      <content>

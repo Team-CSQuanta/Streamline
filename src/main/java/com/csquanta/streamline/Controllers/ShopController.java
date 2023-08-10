@@ -1,7 +1,6 @@
 package com.csquanta.streamline.Controllers;
 
-import com.csquanta.streamline.Models.Armor;
-import com.csquanta.streamline.Models.ArmorComp;
+import com.csquanta.streamline.Models.Shop;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -10,15 +9,18 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SplitPane;
 import javafx.scene.layout.VBox;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
-import java.util.TreeSet;
 
 public class ShopController implements Initializable {
+    private static final Shop shop = new Shop();
+
+    public static Shop getShop() {
+        return shop;
+    }
+
     @FXML
     private VBox BgContainerVbox;
 
@@ -63,9 +65,6 @@ public class ShopController implements Initializable {
         }
 
         ItemBlockVBox.getChildren().addAll(vbox1, vbox2);
-    }
-    public void  addItemBlock(){
-
     }
 
 }

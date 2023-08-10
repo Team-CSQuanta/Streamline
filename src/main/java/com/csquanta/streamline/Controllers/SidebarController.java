@@ -2,9 +2,9 @@ package com.csquanta.streamline.Controllers;
 
 import animatefx.animation.FadeInUp;
 import animatefx.animation.Pulse;
+import animatefx.animation.ZoomIn;
 import atlantafx.base.controls.ModalPane;
 import com.csquanta.streamline.App;
-import com.google.api.client.json.webtoken.JsonWebToken;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,7 +12,6 @@ import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
@@ -116,13 +115,13 @@ public class SidebarController implements Initializable {
     @FXML
     void onChallengesBtnClicked(MouseEvent event) throws IOException {
         App.newLoad();
-        VBox shop = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/Challenge.fxml")));
-        StackPane.setAlignment(shop, Pos.BOTTOM_CENTER);
-        App.root.getChildren().add(shop);
-        FadeInUp fadeInUp = new FadeInUp();
-        fadeInUp.setNode(shop);
-        fadeInUp.setSpeed(1);
-        fadeInUp.play();
+        VBox challengePage = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/Challenge.fxml")));
+        StackPane.setAlignment(challengePage, Pos.BOTTOM_CENTER);
+        App.root.getChildren().add(challengePage);
+        ZoomIn zoomIn = new ZoomIn();
+        zoomIn.setNode(challengePage);
+        zoomIn.setSpeed(3);
+        zoomIn.play();
     }
 
     @FXML
@@ -160,9 +159,10 @@ public class SidebarController implements Initializable {
         StackPane.setAlignment(shop, Pos.BOTTOM_CENTER);
         App.root.getChildren().add(shop);
         FadeInUp fadeInUp = new FadeInUp();
-        fadeInUp.setNode(shop);
-        fadeInUp.setSpeed(1);
-        fadeInUp.play();
+        ZoomIn zoomIn = new ZoomIn();
+        zoomIn.setNode(shop);
+        zoomIn.setSpeed(3);
+        zoomIn.play();
     }
 
     @Override
