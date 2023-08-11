@@ -52,6 +52,9 @@ public class ProfileViewController implements Initializable {
     private Label userName;
 
     @FXML
+    private Label priceLabel;
+
+    @FXML
     void closeUserProfileView(MouseEvent event) {
         modalPaneForHeader.hide(true);
     }
@@ -73,5 +76,6 @@ public class ProfileViewController implements Initializable {
         avatarHead.setImage(StaticUserInformation.avatarImageHead);
         avatarHair.setImage(StaticUserInformation.avatarImageHair);
         image_bg.setImage(StaticUserInformation.avatarImageBg);
+        priceLabel.setText(StaticUserInformation.totalGoldCoins.toString());
     }
 }

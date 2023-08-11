@@ -18,4 +18,9 @@ public class StaticUserInformation {
     public static Image avatarImagePet;
 
 
+    // Users point related
+    public static Double totalGoldCoins;
+    public static int userHealth;
+
+
 }

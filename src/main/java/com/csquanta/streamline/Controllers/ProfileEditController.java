@@ -185,7 +185,7 @@ public class ProfileEditController implements Initializable {
                         UserInformation.userInfo.setAvatarImageBody(selectedBlockController.getPath());
                     }
                     else{
-                        UserInformation.userInfo.setAvatarImageBody(UserInformation.userInfo.avatarImageBody);
+                        UserInformation.userInfo.setAvatarImageBody(UserInformation.userInfo.getAvatarImageBody());
                     }
                 } else if (parentGrid == gridPaneHead) {
                     setAvatarHead(clickedImageView);
@@ -194,7 +194,7 @@ public class ProfileEditController implements Initializable {
                         UserInformation.userInfo.setAvatarImageHead(selectedBlockController.getPath());
                     }
                     else{
-                        UserInformation.userInfo.setAvatarImageHead(UserInformation.userInfo.avatarImageHead);
+                        UserInformation.userInfo.setAvatarImageHead(UserInformation.userInfo.getAvatarImageHead());
                     }
                 }else if(parentGrid == gridPaneHair){
                     setAvatarHair(clickedImageView);
@@ -203,7 +203,7 @@ public class ProfileEditController implements Initializable {
                         UserInformation.userInfo.setAvatarImageHair(selectedBlockController.getPath());
                     }
                     else{
-                        UserInformation.userInfo.setAvatarImageHair(UserInformation.userInfo.avatarImageHair);
+                        UserInformation.userInfo.setAvatarImageHair(UserInformation.userInfo.getAvatarImageHair());
                     }
 
                 }
@@ -230,7 +230,7 @@ public class ProfileEditController implements Initializable {
                         UserInformation.userInfo.setAvatarImageBg(selectedBgBlockController.getBgPath());
                     }
                     else{
-                        UserInformation.userInfo.setAvatarImageBg(UserInformation.userInfo.avatarImageBody);
+                        UserInformation.userInfo.setAvatarImageBg(UserInformation.userInfo.getAvatarImageBg());
                     }
                 }
 

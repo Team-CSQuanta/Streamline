@@ -7,18 +7,58 @@ import static java.util.Objects.requireNonNull;
 
 public class UserInformation implements Serializable {
     public static UserInformation userInfo = new UserInformation();
-    public  String avatarImageBg;
-    public  String avatarImageHead;
-    public  String avatarImageHair;
-    public  String avatarImageHeadGear;
-    public  String avatarImageBody;
-    public  String avatarImageArmor;
-    public  String avatarImagePet;
+    // Avatar related Field
+    private  String avatarImageBg;
+    private  String avatarImageHead;
+    private  String avatarImageHair;
+    private  String avatarImageHeadGear;
+    private  String avatarImageBody;
+    private  String avatarImageArmor;
+    private  String avatarImagePet;
+
+    // Users points, health points related
+    private Double totalGoldCoins;
+    private int userHealth;
+
+    // User points health points related getter & Setter
+
+    public Double getTotalGoldCoins() {
+        return totalGoldCoins;
+    }
+
+    public void setTotalGoldCoins(Double totalGoldCoins) {
+        this.totalGoldCoins = totalGoldCoins;
+    }
+    public Double deductGoldCoins(Double amounts){
+        Double remainingGoldCoins = this.totalGoldCoins -amounts;
+        if((remainingGoldCoins)< 0){
+            this.totalGoldCoins = remainingGoldCoins;
+            StaticUserInformation.totalGoldCoins = 0.0;
+            return 0.0;
+        }
+        else{
+            StaticUserInformation.totalGoldCoins = remainingGoldCoins;
+            this.totalGoldCoins = remainingGoldCoins;
+            return remainingGoldCoins;
+        }
+    }
+    public void addGoldCoins(Double amounts){
+        this.totalGoldCoins += amounts;
+        StaticUserInformation.totalGoldCoins = this.totalGoldCoins;
+    }
+
+    public int getUserHealth() {
+        return userHealth;
+    }
+
+    public void setUserHealth(int userHealth) {
+        this.userHealth = userHealth;
+    }
 
     public UserInformation() {
     }
 
-    public UserInformation(String avatarImageBg, String avatarImageHead, String avatarImageHair, String avatarImageHeadGear, String avatarImageBody, String avatarImageArmor, String avatarImagePet) {
+    public UserInformation(String avatarImageBg, String avatarImageHead, String avatarImageHair, String avatarImageHeadGear, String avatarImageBody, String avatarImageArmor, String avatarImagePet, Double totalGoldCoins, int userHealth) {
         this.avatarImageBg = avatarImageBg;
         this.avatarImageHead = avatarImageHead;
         this.avatarImageHair = avatarImageHair;
@@ -26,8 +66,10 @@ public class UserInformation implements Serializable {
         this.avatarImageBody = avatarImageBody;
         this.avatarImageArmor = avatarImageArmor;
         this.avatarImagePet = avatarImagePet;
+        this.totalGoldCoins = totalGoldCoins;
+        this.userHealth = userHealth;
     }
-
+    // Avatar related getter & setter
     public String getAvatarImageBg() {
         return avatarImageBg;
     }
@@ -86,7 +128,7 @@ public class UserInformation implements Serializable {
 
     public static void serializeUserInfo(){
         try(ObjectOutputStream objOStream = new ObjectOutputStream(new FileOutputStream("User_Information_file"))){
-            UserInformation userInformation = new UserInformation(userInfo.getAvatarImageBg(), userInfo.getAvatarImageHead(), userInfo.getAvatarImageHair(), userInfo.getAvatarImageHeadGear(), userInfo.getAvatarImageBody(), userInfo.getAvatarImageArmor(), userInfo.getAvatarImagePet());
+            UserInformation userInformation = new UserInformation(userInfo.getAvatarImageBg(), userInfo.getAvatarImageHead(), userInfo.getAvatarImageHair(), userInfo.getAvatarImageHeadGear(), userInfo.getAvatarImageBody(), userInfo.getAvatarImageArmor(), userInfo.getAvatarImagePet(), 2000.0, userInfo.getUserHealth());
             objOStream.writeObject(userInformation);
         }catch (Exception e){
             System.out.println("Serialization failed");
@@ -95,6 +137,13 @@ public class UserInformation implements Serializable {
     public static void deserializeUserInfo(){
         try(ObjectInputStream objIStream = new ObjectInputStream(new FileInputStream("User_Information_file"))){
             UserInformation user = (UserInformation) objIStream.readObject();
+            // User health point
+            StaticUserInformation.userHealth = user.getUserHealth();
+            userInfo.setUserHealth(user.getUserHealth());
+
+            // Total points
+            StaticUserInformation.totalGoldCoins = user.getTotalGoldCoins();
+            userInfo.setTotalGoldCoins(user.getTotalGoldCoins());
             if(user.avatarImageBody != null)
             {
                 StaticUserInformation.avatarImageBody = new Image(requireNonNull(UserInformation.class.getResourceAsStream(user.avatarImageBody)));
@@ -113,6 +162,7 @@ public class UserInformation implements Serializable {
                 StaticUserInformation.avatarImageBg = new Image(requireNonNull(UserInformation.class.getResourceAsStream(user.avatarImageBg)));
                 userInfo.setAvatarImageBg(user.avatarImageBg);
             }
+
 
         }catch (Exception e){
             System.out.println("Deserialization failed");
