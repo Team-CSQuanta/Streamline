@@ -18,8 +18,10 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class ItemGearController implements Initializable {
+import static java.util.Objects.requireNonNull;
 
+public class ItemGearController implements Initializable {
+    ProfileEditController profileEditController= new ProfileEditController();
     @FXML
     private Button itemBuyButton;
 
@@ -27,7 +29,7 @@ public class ItemGearController implements Initializable {
     private VBox itemContainer;
 
     @FXML
-    private ImageView itemImg;
+    private ImageView armor;
 
     @FXML
     private Label itemLabel;
@@ -62,13 +64,19 @@ public class ItemGearController implements Initializable {
                     VBox successMsg = (VBox) fxmlScene.root;
                     ItemPurchasedSuccessFullyController itemPurchasedSuccessFullyController = (ItemPurchasedSuccessFullyController) fxmlScene.controller;
                     itemPurchasedSuccessFullyController.setItemLabel(itemLabel);
-                    itemPurchasedSuccessFullyController.setItemPurchasedImg(itemImg);
+                    itemPurchasedSuccessFullyController.setItemPurchasedImg(armor);
                     itemContainer.setStyle("-fx-background-color: transparent;");
-                    itemContainer.getChildren().setAll( successMsg);
+                    itemContainer.getChildren().setAll(successMsg);
                     UserInformation.userInfo.deductGoldCoins(Double.parseDouble(priceLabel.getText()));
                     JackInTheBox flip = new JackInTheBox(successMsg);
                     flip.setSpeed(1);
                     flip.play();
+
+                    String imagePath = (String) armor.getUserData();
+                    Image image=  new Image(requireNonNull(getClass().getResourceAsStream(imagePath)));
+                    ImageView purchasedItemImageView = new ImageView(image);
+                    profileEditController.addPurchasedItemToAvatar(purchasedItemImageView, "gridPaneArmor");
+
                 } catch (IOException e) {
                     System.out.println(e.getMessage());
                 }
@@ -81,7 +89,9 @@ public class ItemGearController implements Initializable {
 
     }
     public void setData(Item item){
-        itemImg.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(item.getImgSrc()))));
+        String imagePath = item.getImgSrc();
+        armor.setImage(new Image(Objects.requireNonNull(getClass().getResource(imagePath)).toExternalForm()));
+        armor.setUserData(imagePath);
         itemLabel.setText(item.getTitle());
         itemPrice.setText(item.getPrice());
     }
