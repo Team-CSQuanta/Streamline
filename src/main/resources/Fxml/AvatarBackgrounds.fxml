@@ -8,19 +8,19 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="455.0" spacing="20.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="containerBox" stylesheets="@../Styles/AvatarBackgrounds.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.AvatarBackgrounds">
+<HBox fx:id="avatarBgMainContainer" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="455.0" spacing="20.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" styleClass="containerBox" stylesheets="@../Styles/AvatarBackgrounds.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.AvatarBackgrounds">
    <padding>
       <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
    </padding>
    <children>
-      <ImageView fitHeight="147.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true" styleClass="bgImage">
+      <ImageView fx:id="bgImage" fitHeight="147.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true" styleClass="bgImage">
          <image>
             <Image url="@../Images/backgrounds/background_butterfly_garden.png" />
          </image>
       </ImageView>
       <VBox alignment="CENTER" spacing="5.0">
          <children>
-            <Label prefHeight="95.0" prefWidth="274.0" styleClass="detailsTitle" text="Flying over an ancient forest" wrapText="true" />
+            <Label fx:id="bgTitle" prefHeight="95.0" prefWidth="274.0" styleClass="detailsTitle" text="Flying over an ancient forest" wrapText="true" />
             <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.0" prefWidth="274.0" spacing="4.0">
                <children>
                   <VBox alignment="CENTER" prefHeight="95.0" prefWidth="135.0">
@@ -32,14 +32,14 @@
                                     <Image url="@../Images/Points/Gold.png" />
                                  </image>
                               </ImageView>
-                              <Label alignment="CENTER" prefHeight="47.0" prefWidth="64.0" styleClass="price" text="100" />
+                              <Label fx:id="bgPriceTag" alignment="CENTER" prefHeight="47.0" prefWidth="64.0" styleClass="price" text="100" />
                            </children>
                         </HBox>
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="95.0" prefWidth="135.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="70.0" styleClass="buyButton" text="Buy" />
+                        <Button fx:id="bgBuBtn" mnemonicParsing="false" onAction="#buyBtnClicked" prefHeight="35.0" prefWidth="70.0" styleClass="buyButton" text="Buy" />
                      </children>
                   </VBox>
                </children>

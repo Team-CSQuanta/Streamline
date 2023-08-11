@@ -50,19 +50,13 @@ public class ShopBlockController implements Initializable {
     void armorTabSelect(Event event) {
         if(itemBlockTab.isSelected()) {
 
-            TreeSet<Item> armorsInShop = ShopController.getShop().getArmorsList();
-            ShopController.getShop().firstInitializeArmor();
-            addItemToShop(armorsInShop, armorTabHbox);
-
         }
     }
 
     @FXML
     void headWearTabSelect(Event event) {
         if(itemBlockTab2.isSelected()){
-            TreeSet<Item> headWearInShop = ShopController.getShop().getHeadWearList();
-            ShopController.getShop().firstInitializeHeadWear();
-            addItemToShop(headWearInShop, headWearTabHBox);
+
         }
     }
     public void addItemToShop(TreeSet<Item> itemList, HBox tab){
@@ -81,7 +75,15 @@ public class ShopBlockController implements Initializable {
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        }
+        TreeSet<Item> headWearInShop = ShopController.getShop().getHeadWearList();
+        ShopController.getShop().firstInitializeHeadWear();
+        headWearTabHBox.getChildren().removeAll();
+        addItemToShop(headWearInShop, headWearTabHBox);
+
+        TreeSet<Item> armorsInShop = ShopController.getShop().getArmorsList();
+        ShopController.getShop().firstInitializeArmor();
+        addItemToShop(armorsInShop, armorTabHbox);
     }
+}
 
 

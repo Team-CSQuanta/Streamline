@@ -109,6 +109,10 @@ public class UserInformation implements Serializable {
                 StaticUserInformation.avatarImageHair = new Image(requireNonNull(UserInformation.class.getResourceAsStream(user.avatarImageHair)));
                 userInfo.setAvatarImageHair(user.avatarImageHair);
             }
+            if(user.avatarImageBg != null){
+                StaticUserInformation.avatarImageBg = new Image(requireNonNull(UserInformation.class.getResourceAsStream(user.avatarImageBg)));
+                userInfo.setAvatarImageBg(user.avatarImageBg);
+            }
 
         }catch (Exception e){
             System.out.println("Deserialization failed");

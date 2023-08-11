@@ -85,6 +85,7 @@ public class ProfileEditController implements Initializable {
 
 
     private CustomizeBlockController selectedBlockController;
+    private CustomizeBlockBgController selectedBgBlockController;
 
     public void setHeadGear(ImageView headGear) {
         this.headGear.setImage(headGear.getImage());
@@ -111,6 +112,9 @@ public class ProfileEditController implements Initializable {
 
     public void setAvatarPet(ImageView avatarPet) {
         this.avatarPet.setImage(avatarPet.getImage());
+    }
+    public void setAvatarBg(ImageView avatarBg){
+        this.image_bg.setImage(avatarBg.getImage());
     }
 
     @FXML
@@ -162,7 +166,6 @@ public class ProfileEditController implements Initializable {
         }
     }
 
-    @FXML
     void setComponent(MouseEvent event) {
         if (event.getSource() instanceof ImageView clickedImageView) {
             selectedBlockController = (CustomizeBlockController) clickedImageView.getProperties().get("controller");
@@ -208,12 +211,72 @@ public class ProfileEditController implements Initializable {
             }
         }
     }
+    private void setBgComponent(MouseEvent event){
+        if (event.getSource() instanceof ImageView clickedImageView) {
+            selectedBgBlockController = (CustomizeBlockBgController) clickedImageView.getProperties().get("controller");
+
+            // Determine the source GridPane based on the parent of the parent (ImageView -> VBox -> GridPane)
+            GridPane parentGrid = null;
+
+            if (clickedImageView.getParent().getParent() instanceof GridPane) {
+                parentGrid = (GridPane) clickedImageView.getParent().getParent();
+            }
+
+            if (selectedBgBlockController != null && parentGrid != null) {
+                if (parentGrid == gridPaneBg) {
+                    setAvatarBg(clickedImageView);
+                    if(clickedImageView.getImage() != null){
+                        StaticUserInformation.avatarImageBg = clickedImageView.getImage();
+                        UserInformation.userInfo.setAvatarImageBg(selectedBgBlockController.getBgPath());
+                    }
+                    else{
+                        UserInformation.userInfo.setAvatarImageBg(UserInformation.userInfo.avatarImageBody);
+                    }
+                }
+
+            }
+
+        }
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         avatarBody.setImage(StaticUserInformation.avatarImageBody);
         avatarHead.setImage(StaticUserInformation.avatarImageHead);
         avatarHair.setImage(StaticUserInformation.avatarImageHair);
+        image_bg.setImage(StaticUserInformation.avatarImageBg);
+        // Adding Default Backgrounds
+        File bgFile = new File("src/main/resources/Images/backgrounds/Defaults");
+        File[] listBGFile = bgFile.listFiles();
+        int rowBackground = 1;
+        int columnBackground = 0;
+        for(int i = 0; i < listBGFile.length; i++){
+
+            try{
+                FXMLScene fxmlScene = FXMLScene.load("/Fxml/CustomizeBlockBg.fxml");
+                CustomizeBlockBgController customizeBlockBgController = (CustomizeBlockBgController) fxmlScene.controller;
+                String imagePath = getRelativePath(listBGFile[i]);
+                InputStream imageStream = getClass().getResourceAsStream(imagePath);
+                if (imageStream != null) {
+                    customizeBlockBgController.setCustomizeBlockBgData(new Image(imageStream));
+                    customizeBlockBgController.setBgPath(imagePath);
+                    ImageView imageView = (ImageView) fxmlScene.root.lookup("#bgImage");
+                    imageView.getProperties().put("controller", customizeBlockBgController);
+                    imageView.setOnMouseClicked(this::setBgComponent);
+
+                } else {
+                    System.err.println("Shirt Image not found: " + imagePath);
+                }
+
+                gridPaneBg.add(fxmlScene.root, columnBackground++, rowBackground);
+                if (columnBackground == 4) {
+                    columnBackground = 0;
+                    rowBackground++;
+                }
+            }catch (IOException e){
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
     public String getRelativePath(File file) throws IOException {
@@ -259,7 +322,6 @@ public class ProfileEditController implements Initializable {
             }catch (IOException e){
                 System.out.println(e.getMessage());
             }
-
         }
     }
 }

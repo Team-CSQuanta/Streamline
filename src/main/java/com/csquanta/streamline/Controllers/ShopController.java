@@ -1,5 +1,6 @@
 package com.csquanta.streamline.Controllers;
 
+import com.csquanta.streamline.Models.Item;
 import com.csquanta.streamline.Models.Shop;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +14,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
+import java.util.TreeSet;
 
 public class ShopController implements Initializable {
     private static final Shop shop = new Shop();
@@ -62,6 +64,21 @@ public class ShopController implements Initializable {
             vbox2 = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/PetRelatedAccessory.fxml")));
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+
+        // Adding backgrounds
+        TreeSet<Item> backgroundsInShop = shop.getBackgroundsList();
+        shop.firstInitializeBackgrounds();
+        for(Item bg: backgroundsInShop){
+            FXMLScene fxmlScene;
+            try {
+                fxmlScene = FXMLScene.load("/Fxml/AvatarBackgrounds.fxml");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            AvatarBackgrounds avatarBackgrounds = (AvatarBackgrounds) fxmlScene.controller;
+            avatarBackgrounds.setBGData(bg);
+            bgVBox.getChildren().add(fxmlScene.root);
         }
 
         ItemBlockVBox.getChildren().addAll(vbox1, vbox2);
