@@ -76,5 +76,56 @@ public class Shop implements Serializable {
         return headWearList;
     }
     private final TreeSet<Item> backgroundsList = new TreeSet<>(new ItemComparator());
-//    public TreeSet<Item> default
+    public TreeSet<Item> getBackgroundsList(){
+        return backgroundsList;
+    }
+    public void addBackgrounds(Item item){
+        backgroundsList.add(item);
+    }
+    public void removeBackgrounds(Item item){
+        backgroundsList.remove(item);
+    }
+    public TreeSet<Item> firstInitializeBackgrounds(){
+        backgroundsList.add(new Item("/Images/backgrounds/background_at_the_docks.png", "At the docks", "800"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_aurora.png", "Aurora", "1000"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_autumn_bridge.png", "Autumn bridge", "900"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_autumn_lakeshore.png", "Autumn lakeshore", "900"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_boardwalk_into_sunset.png", "Boardwalk into sunset", "1000"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_cherry_trees.png", "Cherry Trees", "1000"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_cozy_bedroom.png", "Cozy Bedroom", "900"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_daytime_misty_forest.png", "Misty Forest", "950"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_distant_castle.png", "Castle", "900"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_elegant_ballroom.png", "Elegant Ballroom", "1000"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_elegant_garden.png", "Elegant Garden", "900"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_enchanted_music_room.png", "Music Room", "1000"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_flying_over_an_autumn_forest.png", "Autumn Forest", "1000"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_fortune_tellers_shop.png", "Fortune tellers house", "900"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_gazebo.png", "Gazebo", "1000"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_grand_staircase.png", "Grand Staircase", "900"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_hall_of_heroes.png", "Hall of heroes", "1000"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_in_a_classroom.png", "In a Classroom", "1000"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_in_front_of_fountain.png", "Front of fountain", "800"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_magical_museum.png", "Magical Museum", "800"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_mist_shrouded_mountain.png", "Mountain", "1000"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_misty_autumn_forest.png", "Misty autumn forest", "800"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_mountain_lake.png", "Mountain lake", "1000"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_ocean_sunrise.png", "Ocean sunrise", "800"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_pagodas.png", "Pagodas", "1000"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_pyramids.png", "Pyramids", "800"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_rainbow_eucalyptus.png", "Eucalyptus", "1000"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_rainforest.png", "Rainforest", "800"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_rowboat.png", "Rowboat", "900"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_sailboat_at_sunset.png", "Sailboat on sunset", "1000"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_salt_lake.png", "Salt lake", "700"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_snowy_sunrise.png", "Snowy Sunrise", "1000"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_snowy_temple.png", "Snowy Temple", "950"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_stained_glass.png", "Stained glass", "600"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_sunset_meadow.png", "Sunset meadow", "1000"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_sunset_oasis.png", "Sunset oasis", "900"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_treasure_room.png", "Treasure room", "1100"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_treehouse.png", "Treehouse", "1000"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_twinkly_lights.png", "Twinkly lights", "900"));
+        backgroundsList.add(new Item("/Images/backgrounds/background_vineyard.png", "Vineyard", "900"));
+        return backgroundsList;
+    }
 }

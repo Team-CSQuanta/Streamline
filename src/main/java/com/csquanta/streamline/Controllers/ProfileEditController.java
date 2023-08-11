@@ -244,7 +244,7 @@ public class ProfileEditController implements Initializable {
         avatarBody.setImage(StaticUserInformation.avatarImageBody);
         avatarHead.setImage(StaticUserInformation.avatarImageHead);
         avatarHair.setImage(StaticUserInformation.avatarImageHair);
-
+        image_bg.setImage(StaticUserInformation.avatarImageBg);
         // Adding Default Backgrounds
         File bgFile = new File("src/main/resources/Images/backgrounds/Defaults");
         File[] listBGFile = bgFile.listFiles();
