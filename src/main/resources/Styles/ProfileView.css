@@ -25,3 +25,7 @@
     -fx-font-family: "Product Sans Light";
     -fx-font-size: 15px;
 }
+.priceTag{
+    -fx-font-family: "Product Sans Medium";
+    -fx-font-size: 20px;
+}
