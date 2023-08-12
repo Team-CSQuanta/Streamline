@@ -1,25 +1,26 @@
 package com.csquanta.streamline.Controllers;
 
-import animatefx.animation.FadeIn;
 import animatefx.animation.ZoomIn;
 import com.csquanta.streamline.Models.Item;
 import com.csquanta.streamline.Models.StaticUserInformation;
 import com.csquanta.streamline.Models.UserInformation;
-import javafx.application.Platform;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.control.Tab;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.*;
-import javafx.event.Event;
-import javafx.scene.paint.Color;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -146,6 +147,37 @@ public class ProfileEditController implements Initializable {
     }
 
     @FXML
+    void onArmorTabSelected(Event event) {
+        int columnArmor = 0;
+        int rowArmor = 1;
+        for(Item item: ShopController.getShop().getBuyedArmorList()){
+            try {
+                FXMLScene fxmlScene = FXMLScene.load("/Fxml/customizeBlock.fxml");
+                CustomizeBlockController customizeBlockController = (CustomizeBlockController) fxmlScene.controller;
+                String imagePath = item.getImgSrc();
+                InputStream imageStream = getClass().getResourceAsStream(imagePath);
+                if (imageStream != null) {
+                    customizeBlockController.setCustomizeBlockData(new Image(imageStream));
+                    customizeBlockController.setPath(imagePath);
+                    ImageView imageView = (ImageView) fxmlScene.root.lookup("#componentImg");
+                    imageView.getProperties().put("controller", customizeBlockController);
+                    imageView.setOnMouseClicked(this::setComponent);
+
+                } else {
+                    System.err.println("Shirt Image not found: " + imagePath);
+                }
+
+                gridPaneArmor.add(fxmlScene.root, columnArmor++, rowArmor);
+                if (columnArmor == 7) {
+                    columnArmor = 0;
+                    rowArmor++;
+                }
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+    @FXML
     void onHairSelectionChanged(Event event) {
         if (hairTab.isSelected()) {
             addProfileEditItems("/Fxml/customizeBlock.fxml", "src/main/resources/Images/customize/hair", gridPaneHair);
@@ -154,36 +186,6 @@ public class ProfileEditController implements Initializable {
 
     @FXML
     void onBGSelectionChanged(Event event) {
-        if (backgroundTab.isSelected()) {
-            for(Item item: ShopController.getShop().getBuyedArmorList()){
-                try {
-                    FXMLScene fxmlScene = FXMLScene.load("/Fxml/CustomizeBlockBg.fxml");
-                    CustomizeBlockBgController customizeBlockBgController = (CustomizeBlockBgController) fxmlScene.controller;
-                    String imagePath = item.getImgSrc();
-                    InputStream imageStream = getClass().getResourceAsStream(imagePath);
-                    if (imageStream != null) {
-                        customizeBlockBgController.setCustomizeBlockBgData(new Image(imageStream));
-                        customizeBlockBgController.setBgPath(imagePath);
-                        ImageView imageView = (ImageView) fxmlScene.root.lookup("#bgImage");
-                        imageView.getProperties().put("controller", customizeBlockBgController);
-                        imageView.setOnMouseClicked(this::setBgComponent);
-
-                    } else {
-                        System.err.println("Shirt Image not found: " + imagePath);
-                    }
-
-                    gridPaneBg.add(fxmlScene.root, columnBackground++, rowBackground);
-                    if (columnBackground == 4) {
-                        columnBackground = 0;
-                        rowBackground++;
-                    }
-                } catch (IOException e) {
-                    System.out.println(e.getMessage());
-                }
-            }
-            System.out.println("Background Tab is selected");
-
-        }
     }
 
     @FXML
@@ -244,9 +246,16 @@ public class ProfileEditController implements Initializable {
                     } else {
                         UserInformation.userInfo.setAvatarImageHair(UserInformation.userInfo.getAvatarImageHair());
                     }
-
                 }
-
+                else if (parentGrid == gridPaneArmor) {
+                    setAvatarArmor(clickedImageView);
+                    if (clickedImageView.getImage() != null) {
+                        StaticUserInformation.avatarImageArmor = clickedImageView.getImage();
+                        UserInformation.userInfo.setAvatarImageArmor(selectedBlockController.getPath());
+                    } else {
+                        UserInformation.userInfo.setAvatarImageArmor(UserInformation.userInfo.getAvatarImageArmor());
+                    }
+                }
             }
         }
     }
@@ -284,6 +293,7 @@ public class ProfileEditController implements Initializable {
         avatarHead.setImage(StaticUserInformation.avatarImageHead);
         avatarHair.setImage(StaticUserInformation.avatarImageHair);
         image_bg.setImage(StaticUserInformation.avatarImageBg);
+        avatarArmor.setImage(StaticUserInformation.avatarImageArmor);
         // Adding Default Backgrounds
         File bgFile = new File("src/main/resources/Images/backgrounds/Defaults");
         File[] listBGFile = bgFile.listFiles();

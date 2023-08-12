@@ -11,7 +11,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1000.0" prefWidth="200.0" style="-fx-background-radius: 25px; -fx-border-radius: 25px; -fx-background-color: transparent;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.SidebarController">
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="1000.0" prefWidth="190.0" style="-fx-background-radius: 25px; -fx-border-color: #3C3365; -fx-border-width: 1; -fx-border-radius: 25px; -fx-background-color: #282A36;">
+      <VBox alignment="TOP_CENTER" prefHeight="1000.0" prefWidth="190.0" style="-fx-background-radius: 25px; -fx-border-color: #9580FF; -fx-border-width: 1; -fx-border-radius: 25px; -fx-background-color: #282A36;">
          <children>
             <HBox minHeight="-Infinity" prefHeight="285.5" prefWidth="183.0" />
             <HBox alignment="CENTER_LEFT" minHeight="40.0" minWidth="-Infinity" onMouseClicked="#onOverviewBtnClicked" onMouseEntered="#overviewEntered" onMouseExited="#overviewExited" prefHeight="60.0" prefWidth="183.0" spacing="8.0" styleClass="DashboardleftHBox" stylesheets="@../Styles/Sidebar.css">

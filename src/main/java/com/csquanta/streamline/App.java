@@ -1,6 +1,7 @@
 package com.csquanta.streamline;
 
 import atlantafx.base.theme.Dracula;
+import com.csquanta.streamline.Controllers.CreateANewTaskController;
 import com.csquanta.streamline.Controllers.HeaderController;
 import com.csquanta.streamline.Controllers.MainStageController;
 import com.csquanta.streamline.Controllers.SidebarController;
@@ -80,7 +81,7 @@ public class App extends Application {
                 MainStageController.modalPaneForExit.show(exitOption);
             }
         });
-        root.getChildren().addAll(header, MainStageController.modalPaneForExit, HeaderController.modalPaneForHeader, SidebarController.modalPaneForSignOut);
+        root.getChildren().addAll(header, MainStageController.modalPaneForExit, HeaderController.modalPaneForHeader, SidebarController.modalPaneForSignOut, CreateANewTaskController.modalPaneForTaskCreator);
     }
 
 }

@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="mainComponent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" spacing="5.0" style="-fx-background-color: #282A36FF #282A36FF;" stylesheets="@../Styles/ProfileEdit.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.ProfileEditController">
+<VBox fx:id="mainComponent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" spacing="5.0" style="-fx-background-color: #282A36FF #282A36FF; -fx-border-color: #9580FF;" stylesheets="@../Styles/ProfileEdit.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.ProfileEditController">
    <children>
       <HBox fx:id="closeBtn" alignment="CENTER" prefHeight="136.0" prefWidth="795.0" style="-fx-background-color: #282A36;">
          <children>
@@ -39,7 +39,7 @@
             <Insets right="5.0" top="5.0" />
          </VBox.margin>
       </HBox>
-      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="190.0" prefWidth="800.0" style="-fx-background-color: #282A36;">
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="190.0" prefWidth="793.0" style="-fx-background-color: #282A36;">
          <children>
             <AnchorPane fx:id="profileArea" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="147.0" prefWidth="141.0" style="-fx-background-color: #B0EDFF;">
                <children>
@@ -83,7 +83,7 @@
             </AnchorPane>
          </children>
       </VBox>
-      <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="800.0" styleClass="tabPaneTitle" tabClosingPolicy="UNAVAILABLE">
+      <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="553.0" prefWidth="798.0" styleClass="tabPaneTitle" tabClosingPolicy="UNAVAILABLE">
         <tabs>
             <Tab fx:id="bodyTab" onSelectionChanged="#onBodySelectionChanged" text="Body">
                <content>
@@ -160,7 +160,7 @@
                      </padding>
                   </ScrollPane>
                </content></Tab>
-            <Tab fx:id="armorTab" text="Armors">
+            <Tab fx:id="armorTab" onSelectionChanged="#onArmorTabSelected" text="Armors">
                <content>
                   <ScrollPane prefHeight="200.0" prefWidth="200.0">
                      <content>

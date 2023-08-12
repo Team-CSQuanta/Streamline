@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" spacing="30.0" style="-fx-background-radius: 25px; -fx-border-radius: 25px;" stylesheets="@../Styles/TaskCreator.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.TaskCreatorController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" spacing="35.0" style="-fx-border-color: #9580FF; -fx-background-color: #282A36FF;;" stylesheets="@../Styles/TaskCreator.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.TaskCreatorController">
    <padding>
-      <Insets bottom="40.0" left="25.0" right="25.0" top="15.0" />
+      <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
    </padding>
    <children>
       <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" prefWidth="735.0">
@@ -21,7 +21,7 @@
             <Insets left="15.0" right="15.0" top="15.0" />
          </VBox.margin>
          <children>
-            <Label contentDisplay="CENTER" prefHeight="47.0" prefWidth="735.0" styleClass="taskNameLabel" text="Add task" textAlignment="JUSTIFY" textFill="#94959b">
+            <Label contentDisplay="CENTER" prefHeight="64.0" prefWidth="720.0" styleClass="taskNameLabel" text="Add task" textAlignment="JUSTIFY" textFill="#94959b">
                <font>
                   <Font name="Arial Black" size="21.0" />
                </font></Label>
@@ -32,25 +32,33 @@
             <Insets left="15.0" right="15.0" top="10.0" />
          </VBox.margin>
          <children>
-            <TextField fx:id="title" focusTraversable="false" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="45.0" prefWidth="750.0" promptText="Enter task name here" styleClass="titletextinput" />
+            <TextField fx:id="title" focusTraversable="false" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="45.0" prefWidth="750.0" promptText="Task" styleClass="titletextinput" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" spacing="70.0">
          <children>
-            <DatePicker fx:id="dueDate" editable="false" focusTraversable="false" prefHeight="35.0" prefWidth="200.0" promptText="Enter due date" styleClass="datePickerInput" />
-            <TextField fx:id="tag" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="200.0" promptText="Enter tag/ Preffered section" />
-            <ComboBox fx:id="priority" editable="true" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="200.0" promptText="Priority" styleClass="tagComboBox" />
+            <DatePicker fx:id="dueDate" editable="false" focusTraversable="false" prefHeight="45.0" prefWidth="200.0" promptText="Due date" styleClass="datePickerInput" />
+            <ComboBox fx:id="tag" editable="true" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="200.0" promptText="Tag" styleClass="tagComboBox" />
+            <ComboBox fx:id="priority" editable="true" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="200.0" promptText="Priority" styleClass="tagComboBox" />
          </children>
          <VBox.margin>
             <Insets left="15.0" right="15.0" top="10.0" />
          </VBox.margin>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="217.0" prefWidth="725.0">
+      <HBox>
+         <children>
+            <ComboBox fx:id="pomodoroSessions" editable="true" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="689.0" promptText="How many pomodro session you need.... " styleClass="tagComboBox" />
+         </children>
+         <VBox.margin>
+            <Insets left="15.0" right="15.0" top="10.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="73.0" prefWidth="725.0">
          <VBox.margin>
             <Insets left="15.0" right="15.0" top="10.0" />
          </VBox.margin>
          <children>
-            <TextArea fx:id="description" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="143.0" prefWidth="725.0" promptText="Description" styleClass="taskDescription" wrapText="true" />
+            <TextArea fx:id="description" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="184.0" prefWidth="691.0" promptText="Description" styleClass="taskDescription" wrapText="true" />
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="725.0">
@@ -60,7 +68,7 @@
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="362.5">
                <children>
-                  <Button fx:id="cancel" focusTraversable="false" mnemonicParsing="false" prefHeight="49.0" prefWidth="200.0" styleClass="taskCancel" text="Cancel" />
+                  <Button fx:id="cancel" focusTraversable="false" mnemonicParsing="false" onAction="#onCancelButtonClicked" prefHeight="49.0" prefWidth="200.0" styleClass="taskCancel" text="Cancel" />
                </children>
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="362.5">
