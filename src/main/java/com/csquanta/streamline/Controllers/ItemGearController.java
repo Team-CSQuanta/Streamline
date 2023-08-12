@@ -73,9 +73,11 @@ public class ItemGearController implements Initializable {
                     flip.play();
 
                     String imagePath = (String) armor.getUserData();
-                    Image image=  new Image(requireNonNull(getClass().getResourceAsStream(imagePath)));
-                    ImageView purchasedItemImageView = new ImageView(image);
-                    profileEditController.addPurchasedItemToAvatar(purchasedItemImageView, "gridPaneArmor");
+                    Item itemNeedToAdd = new Item(imagePath, null, null);
+                    ShopController.getShop().addArmorToBuyedList(itemNeedToAdd);
+//                    Image image=  new Image(requireNonNull(getClass().getResourceAsStream(imagePath)));
+//                    ImageView purchasedItemImageView = new ImageView(image);
+//                    profileEditController.addPurchasedItemToAvatar(purchasedItemImageView, "gridPaneArmor");
 
                 } catch (IOException e) {
                     System.out.println(e.getMessage());
