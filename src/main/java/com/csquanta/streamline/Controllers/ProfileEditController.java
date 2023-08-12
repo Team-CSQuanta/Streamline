@@ -2,6 +2,7 @@ package com.csquanta.streamline.Controllers;
 
 import animatefx.animation.FadeIn;
 import animatefx.animation.ZoomIn;
+import com.csquanta.streamline.Models.Item;
 import com.csquanta.streamline.Models.StaticUserInformation;
 import com.csquanta.streamline.Models.UserInformation;
 import javafx.application.Platform;
@@ -26,7 +27,8 @@ import java.util.ResourceBundle;
 import static com.csquanta.streamline.Controllers.HeaderController.modalPaneForHeader;
 
 public class ProfileEditController implements Initializable {
-
+    static int rowBackground = 1;
+    static int columnBackground = 0;
     @FXML
     private VBox mainComponent;
     @FXML
@@ -153,7 +155,34 @@ public class ProfileEditController implements Initializable {
     @FXML
     void onBGSelectionChanged(Event event) {
         if (backgroundTab.isSelected()) {
+            for(Item item: ShopController.getShop().getBuyedArmorList()){
+                try {
+                    FXMLScene fxmlScene = FXMLScene.load("/Fxml/CustomizeBlockBg.fxml");
+                    CustomizeBlockBgController customizeBlockBgController = (CustomizeBlockBgController) fxmlScene.controller;
+                    String imagePath = item.getImgSrc();
+                    InputStream imageStream = getClass().getResourceAsStream(imagePath);
+                    if (imageStream != null) {
+                        customizeBlockBgController.setCustomizeBlockBgData(new Image(imageStream));
+                        customizeBlockBgController.setBgPath(imagePath);
+                        ImageView imageView = (ImageView) fxmlScene.root.lookup("#bgImage");
+                        imageView.getProperties().put("controller", customizeBlockBgController);
+                        imageView.setOnMouseClicked(this::setBgComponent);
+
+                    } else {
+                        System.err.println("Shirt Image not found: " + imagePath);
+                    }
+
+                    gridPaneBg.add(fxmlScene.root, columnBackground++, rowBackground);
+                    if (columnBackground == 4) {
+                        columnBackground = 0;
+                        rowBackground++;
+                    }
+                } catch (IOException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
             System.out.println("Background Tab is selected");
+
         }
     }
 
@@ -258,8 +287,7 @@ public class ProfileEditController implements Initializable {
         // Adding Default Backgrounds
         File bgFile = new File("src/main/resources/Images/backgrounds/Defaults");
         File[] listBGFile = bgFile.listFiles();
-        int rowBackground = 1;
-        int columnBackground = 0;
+
         for (int i = 0; i < listBGFile.length; i++) {
 
             try {
@@ -342,72 +370,72 @@ public class ProfileEditController implements Initializable {
 
     //I will complete it later!
 
-    public void addPurchasedItemToAvatar(ImageView purchasedItemImageView, String gridPaneName) {
-
-        FXMLScene fxmlScene;
-        try {
-            fxmlScene = FXMLScene.load("/Fxml/ProfileEdit.fxml");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        ProfileEditController controller = (ProfileEditController) fxmlScene.controller;
-
-        GridPane targetGridPane = null;
-        switch (gridPaneName) {
-            case "gridPaneArmor":
-                targetGridPane = controller.gridPaneArmor;
-                break;
-
-            case "gridPaneHeadGear":
-                targetGridPane = gridPaneHeadGear;
-                break;
-        }
-
-
-        int nextRow = 0;
-        int nextCol = 0;
-
-        if (targetGridPane != null) {
-
-            int numRows = targetGridPane.getRowCount();
-            int numCols = targetGridPane.getColumnCount();
-            nextRow = numRows -1;
-
-
-            boolean[] occupiedCols = new boolean[numCols];
-
-
-            for (Node node : targetGridPane.getChildren()) {
-                Integer colIndex = GridPane.getColumnIndex(node);
-                Integer rowIndex = GridPane.getRowIndex(node);
-
-                if (colIndex != null && rowIndex != null && rowIndex == nextRow) {
-                    occupiedCols[colIndex] = true;
-                }
-            }
-
-
-            for (int col = 0; col < numCols; col++) {
-                if (!occupiedCols[col]) {
-                    nextCol = col;
-                    break;
-                }
-            }
-            VBox vbox = new VBox();
-            vbox.setPrefSize(100, 100);
-            vbox.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(10), null)));
-            vbox.setBorder(new Border(new BorderStroke(Color.valueOf("#9580FF"), BorderStrokeStyle.SOLID, new CornerRadii(10), BorderWidths.DEFAULT)));
-            vbox.getChildren().add(purchasedItemImageView);
-
-            targetGridPane.add(vbox, nextCol, nextRow);
-            System.out.println("CC");
-            purchasedItemImageView.setOnMouseClicked(this::setComponent);
-
-           // targetGridPane.layout();
-
-
-        }
-
-    }
+//    public void addPurchasedItemToAvatar(ImageView purchasedItemImageView, String gridPaneName) {
+//
+//        FXMLScene fxmlScene;
+//        try {
+//            fxmlScene = FXMLScene.load("/Fxml/ProfileEdit.fxml");
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//        ProfileEditController controller = (ProfileEditController) fxmlScene.controller;
+//
+//        GridPane targetGridPane = null;
+//        switch (gridPaneName) {
+//            case "gridPaneArmor":
+//                targetGridPane = controller.gridPaneArmor;
+//                break;
+//
+//            case "gridPaneHeadGear":
+//                targetGridPane = gridPaneHeadGear;
+//                break;
+//        }
+//
+//
+//        int nextRow = 0;
+//        int nextCol = 0;
+//
+//        if (targetGridPane != null) {
+//
+//            int numRows = targetGridPane.getRowCount();
+//            int numCols = targetGridPane.getColumnCount();
+//            nextRow = numRows -1;
+//
+//
+//            boolean[] occupiedCols = new boolean[numCols];
+//
+//
+//            for (Node node : targetGridPane.getChildren()) {
+//                Integer colIndex = GridPane.getColumnIndex(node);
+//                Integer rowIndex = GridPane.getRowIndex(node);
+//
+//                if (colIndex != null && rowIndex != null && rowIndex == nextRow) {
+//                    occupiedCols[colIndex] = true;
+//                }
+//            }
+//
+//
+//            for (int col = 0; col < numCols; col++) {
+//                if (!occupiedCols[col]) {
+//                    nextCol = col;
+//                    break;
+//                }
+//            }
+//            VBox vbox = new VBox();
+//            vbox.setPrefSize(100, 100);
+//            vbox.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(10), null)));
+//            vbox.setBorder(new Border(new BorderStroke(Color.valueOf("#9580FF"), BorderStrokeStyle.SOLID, new CornerRadii(10), BorderWidths.DEFAULT)));
+//            vbox.getChildren().add(purchasedItemImageView);
+//
+//            targetGridPane.add(vbox, nextCol, nextRow);
+//            System.out.println("CC");
+//            purchasedItemImageView.setOnMouseClicked(this::setComponent);
+//
+//           // targetGridPane.layout();
+//
+//
+//        }
+//
+//    }
 
 }
