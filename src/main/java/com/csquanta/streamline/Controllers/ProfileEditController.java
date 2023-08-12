@@ -14,11 +14,10 @@ import javafx.scene.control.Tab;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.event.Event;
+import javafx.scene.paint.Color;
+
 import java.io.*;
 import java.net.URL;
 import java.util.Objects;
@@ -326,8 +325,9 @@ public class ProfileEditController implements Initializable {
                 } else {
                     System.err.println("Shirt Image not found: " + imagePath);
                 }
-
                 gridPane.add(fxmlScene.root, column++, row);
+                System.out.println(column);
+                System.out.println(row);
                 if (column == 7) {
                     column = 0;
                     row++;
@@ -393,11 +393,17 @@ public class ProfileEditController implements Initializable {
                     break;
                 }
             }
+            VBox vbox = new VBox();
+            vbox.setPrefSize(100, 100);
+            vbox.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(10), null)));
+            vbox.setBorder(new Border(new BorderStroke(Color.valueOf("#9580FF"), BorderStrokeStyle.SOLID, new CornerRadii(10), BorderWidths.DEFAULT)));
+            vbox.getChildren().add(purchasedItemImageView);
 
+            targetGridPane.add(vbox, nextCol, nextRow);
+            System.out.println("CC");
+            purchasedItemImageView.setOnMouseClicked(this::setComponent);
 
-            //purchasedItemImageView.setOnMouseClicked(this::setComponent);
-             targetGridPane.add(purchasedItemImageView, nextCol, nextRow);
-            targetGridPane.layout();
+           // targetGridPane.layout();
 
 
         }
