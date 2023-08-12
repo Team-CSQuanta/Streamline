@@ -36,3 +36,12 @@
     -fx-font-family: "Product Sans Medium";
     -fx-font-size: 15px;
 }
+.createANewTask{
+    -fx-font-family: "Product Sans Medium";
+    -fx-font-size: 30px;
+    -fx-text-fill: linear-gradient(to bottom right, #18ABD1, #8968A3, #DD3982, #DE755C, #DEA63D);
+}
+.createANewTaskDescription{
+    -fx-font-family: "Product Sans Medium";
+    -fx-font-size: 20px;
+}

@@ -149,8 +149,16 @@ public class SidebarController implements Initializable {
     }
 
     @FXML
-    void tasksBtnClicked(MouseEvent event) {
-
+    void tasksBtnClicked(MouseEvent event) throws IOException {
+        App.newLoad();
+        VBox taskPage = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/ToDoListGridPane.fxml")));
+        StackPane.setAlignment(taskPage, Pos.BOTTOM_CENTER);
+        App.root.getChildren().add(taskPage);
+        FadeInUp fadeInUp = new FadeInUp();
+        ZoomIn zoomIn = new ZoomIn();
+        zoomIn.setNode(taskPage);
+        zoomIn.setSpeed(3);
+        zoomIn.play();
     }
     @FXML
     void shopBtnClicked(MouseEvent event) throws IOException {
