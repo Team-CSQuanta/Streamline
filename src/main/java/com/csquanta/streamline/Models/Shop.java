@@ -1,10 +1,21 @@
 package com.csquanta.streamline.Models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.TreeSet;
 
 public class Shop implements Serializable {
     private final TreeSet<Item> armorsList = new TreeSet<>(new ItemComparator());
+    private final ArrayList<Item> buyedArmorList = new ArrayList<>();
+    public ArrayList<Item> getBuyedArmorList(){
+        return buyedArmorList;
+    }
+    public void addArmorToBuyedList(Item item){
+        buyedArmorList.add(item);
+    }
+    public void removeArmorFromBuyedList(Item item){
+        buyedArmorList.remove(item);
+    }
     public TreeSet<Item> getArmorsList() {
         return armorsList;
     }
