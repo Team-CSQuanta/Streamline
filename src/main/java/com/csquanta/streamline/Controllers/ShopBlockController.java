@@ -59,7 +59,7 @@ public class ShopBlockController implements Initializable {
 
         }
     }
-    public void addItemToShop(TreeSet<Item> itemList, HBox tab){
+    public void addItemToShop(TreeSet<Item> itemList, HBox tab, String itemType){
         Iterator<Item> iterator = itemList.iterator();
         FXMLScene fxmlScene;
         while (iterator.hasNext()) {
@@ -78,11 +78,11 @@ public class ShopBlockController implements Initializable {
         TreeSet<Item> headWearInShop = ShopController.getShop().getHeadWearList();
         ShopController.getShop().firstInitializeHeadWear();
         headWearTabHBox.getChildren().removeAll();
-        addItemToShop(headWearInShop, headWearTabHBox);
+        addItemToShop(headWearInShop, headWearTabHBox, "Head Wear");
 
         TreeSet<Item> armorsInShop = ShopController.getShop().getArmorsList();
         ShopController.getShop().firstInitializeArmor();
-        addItemToShop(armorsInShop, armorTabHbox);
+        addItemToShop(armorsInShop, armorTabHbox, "Armor");
     }
 }
 

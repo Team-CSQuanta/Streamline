@@ -1,0 +1,1587 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="955.0" prefWidth="1900.0" spacing="8.0" style="-fx-background-radius: 0px 0px 25px 25px; -fx-border-radius: 0px 0px 25px 25px;" stylesheets="@../Styles/EishenhowerMatrix.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <padding>
+      <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+   </padding>
+   <children>
+      <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="905.0" prefWidth="1850.0" spacing="20.0">
+         <children>
+            <HBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="447.5" style="-fx-border-radius: 15px;">
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+               <children>
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="873.0" prefWidth="416.0" spacing="10.0">
+                     <children>
+                        <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="416.0" style="-fx-border-color: linear-gradient(to bottom right, #18ABD1, #8968A3, #DD3982, #DE755C, #DEA63D); -fx-border-radius: 15px; -fx-border-width: 2px;">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="92.0" prefWidth="416.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="23.0" prefWidth="416.0" styleClass="topTitle" text="Do it now" textAlignment="CENTER" />
+                                    <Label alignment="CENTER" prefHeight="52.0" prefWidth="394.0" styleClass="descriptionLabel" text="Taks with deadlines or consequences" textAlignment="CENTER" wrapText="true" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <ScrollPane hbarPolicy="NEVER" pannable="true" prefHeight="745.0" prefWidth="416.0">
+                           <content>
+                              <VBox alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="416.0" spacing="10.0">
+                                 <children>
+                                    <VBox fx:id="rootPane" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #9580FF;" stylesheets="Task.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="332.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="332.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fx:id="dueDate" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="Header" contentDisplay="CENTER" prefHeight="72.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="tag" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="priority" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox fx:id="rootPane1" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #9580FF;" stylesheets="Task.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="332.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="332.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fx:id="dueDate1" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="Header1" contentDisplay="CENTER" prefHeight="72.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="tag1" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="priority1" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox fx:id="rootPane2" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #9580FF;" stylesheets="Task.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="332.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="332.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fx:id="dueDate2" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="Header2" contentDisplay="CENTER" prefHeight="72.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="tag2" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="priority2" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox fx:id="rootPane21" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #9580FF;" stylesheets="Task.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="332.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="332.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fx:id="dueDate21" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="Header21" contentDisplay="CENTER" prefHeight="72.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="tag21" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="priority21" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox fx:id="rootPane211" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #9580FF;" stylesheets="Task.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="332.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="332.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fx:id="dueDate211" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="Header211" contentDisplay="CENTER" prefHeight="72.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="tag211" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="priority211" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox fx:id="rootPane2111" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #9580FF;" stylesheets="Task.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="332.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="332.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fx:id="dueDate2111" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="Header2111" contentDisplay="CENTER" prefHeight="72.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="tag2111" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="priority2111" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox fx:id="rootPane21111" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #9580FF;" stylesheets="Task.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="332.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="332.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fx:id="dueDate21111" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="Header21111" contentDisplay="CENTER" prefHeight="72.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="tag21111" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="priority21111" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox fx:id="rootPane211111" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #9580FF;" stylesheets="Task.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="332.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="332.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fx:id="dueDate211111" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="Header211111" contentDisplay="CENTER" prefHeight="72.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="tag211111" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="priority211111" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </VBox>
+                                 </children>
+                                 <padding>
+                                    <Insets right="15.0" />
+                                 </padding>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </VBox>
+               </children></HBox>
+            <HBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="447.5" style="-fx-border-radius: 15px;">
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+               <children>
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="873.0" prefWidth="416.0" spacing="10.0">
+                     <children>
+                        <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="416.0" style="-fx-border-color: linear-gradient(to bottom right, #18ABD1, #8968A3, #DD3982, #DE755C, #DEA63D); -fx-border-radius: 15px; -fx-border-width: 2px;">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="92.0" prefWidth="416.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="23.0" prefWidth="416.0" styleClass="topTitle" text="Schedule" textAlignment="CENTER" />
+                                    <Label alignment="CENTER" prefHeight="52.0" prefWidth="394.0" styleClass="descriptionLabel" text="Tasks with unclear" textAlignment="CENTER" wrapText="true" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <ScrollPane hbarPolicy="NEVER" pannable="true" prefHeight="745.0" prefWidth="416.0">
+                           <content>
+                              <VBox alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="416.0" spacing="10.0">
+                                 <children>
+                                    <VBox fx:id="rootPane1" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #9580FF;" stylesheets="Task.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="332.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="332.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fx:id="dueDate1" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="Header1" contentDisplay="CENTER" prefHeight="72.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="tag1" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="priority1" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox fx:id="rootPane11" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #9580FF;" stylesheets="Task.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="332.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="332.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fx:id="dueDate11" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="Header11" contentDisplay="CENTER" prefHeight="72.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="tag11" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="priority11" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox fx:id="rootPane21" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #9580FF;" stylesheets="Task.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="332.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="332.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fx:id="dueDate21" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="Header21" contentDisplay="CENTER" prefHeight="72.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="tag21" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="priority21" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox fx:id="rootPane211" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #9580FF;" stylesheets="Task.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="332.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="332.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fx:id="dueDate211" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="Header211" contentDisplay="CENTER" prefHeight="72.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="tag211" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="priority211" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox fx:id="rootPane2111" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #9580FF;" stylesheets="Task.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="332.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="332.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fx:id="dueDate2111" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="Header2111" contentDisplay="CENTER" prefHeight="72.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="tag2111" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="priority2111" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox fx:id="rootPane21111" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #9580FF;" stylesheets="Task.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="332.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="332.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fx:id="dueDate21111" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="Header21111" contentDisplay="CENTER" prefHeight="72.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="tag21111" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="priority21111" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox fx:id="rootPane211111" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #9580FF;" stylesheets="Task.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="332.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="332.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fx:id="dueDate211111" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="Header211111" contentDisplay="CENTER" prefHeight="72.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="tag211111" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="priority211111" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox fx:id="rootPane2111111" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #9580FF;" stylesheets="Task.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="332.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="332.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fx:id="dueDate2111111" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="Header2111111" contentDisplay="CENTER" prefHeight="72.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="tag2111111" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="priority2111111" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </VBox>
+                                 </children>
+                                 <padding>
+                                    <Insets right="15.0" />
+                                 </padding>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="447.5" style="-fx-border-radius: 15px;">
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+               <children>
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="873.0" prefWidth="416.0" spacing="10.0">
+                     <children>
+                        <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="416.0" style="-fx-border-color: linear-gradient(to bottom right, #18ABD1, #8968A3, #DD3982, #DE755C, #DEA63D); -fx-border-radius: 15px; -fx-border-width: 2px;">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="92.0" prefWidth="416.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="23.0" prefWidth="416.0" styleClass="topTitle" text="Do it now" textAlignment="CENTER" />
+                                    <Label alignment="CENTER" prefHeight="52.0" prefWidth="394.0" styleClass="descriptionLabel" text="Taks with deadlines or consequences" textAlignment="CENTER" wrapText="true" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <ScrollPane hbarPolicy="NEVER" pannable="true" prefHeight="745.0" prefWidth="416.0">
+                           <content>
+                              <VBox alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="416.0" spacing="10.0">
+                                 <children>
+                                    <VBox fx:id="rootPane1" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #9580FF;" stylesheets="Task.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="332.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="332.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fx:id="dueDate1" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="Header1" contentDisplay="CENTER" prefHeight="72.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="tag1" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="priority1" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox fx:id="rootPane12" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #9580FF;" stylesheets="Task.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="332.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="332.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fx:id="dueDate12" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="Header12" contentDisplay="CENTER" prefHeight="72.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="tag12" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="priority12" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox fx:id="rootPane21" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #9580FF;" stylesheets="Task.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="332.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="332.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fx:id="dueDate21" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="Header21" contentDisplay="CENTER" prefHeight="72.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="tag21" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="priority21" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox fx:id="rootPane211" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #9580FF;" stylesheets="Task.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="332.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="332.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fx:id="dueDate211" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="Header211" contentDisplay="CENTER" prefHeight="72.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="tag211" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="priority211" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox fx:id="rootPane2111" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #9580FF;" stylesheets="Task.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="332.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="332.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fx:id="dueDate2111" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="Header2111" contentDisplay="CENTER" prefHeight="72.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="tag2111" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="priority2111" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox fx:id="rootPane21111" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #9580FF;" stylesheets="Task.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="332.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="332.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fx:id="dueDate21111" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="Header21111" contentDisplay="CENTER" prefHeight="72.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="tag21111" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="priority21111" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox fx:id="rootPane211111" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #9580FF;" stylesheets="Task.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="332.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="332.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fx:id="dueDate211111" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="Header211111" contentDisplay="CENTER" prefHeight="72.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="tag211111" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="priority211111" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox fx:id="rootPane2111112" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #9580FF;" stylesheets="Task.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="332.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="332.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fx:id="dueDate2111112" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="Header2111112" contentDisplay="CENTER" prefHeight="72.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="tag2111112" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="priority2111112" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </VBox>
+                                 </children>
+                                 <padding>
+                                    <Insets right="15.0" />
+                                 </padding>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="447.5" style="-fx-border-radius: 15px;">
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+               <children>
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="873.0" prefWidth="416.0" spacing="10.0">
+                     <children>
+                        <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="416.0" style="-fx-border-color: linear-gradient(to bottom right, #18ABD1, #8968A3, #DD3982, #DE755C, #DEA63D); -fx-border-radius: 15px; -fx-border-width: 2px;">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="92.0" prefWidth="416.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="23.0" prefWidth="416.0" styleClass="topTitle" text="Do it now" textAlignment="CENTER" />
+                                    <Label alignment="CENTER" prefHeight="52.0" prefWidth="394.0" styleClass="descriptionLabel" text="Taks with deadlines or consequences" textAlignment="CENTER" wrapText="true" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <ScrollPane hbarPolicy="NEVER" pannable="true" prefHeight="745.0" prefWidth="416.0">
+                           <content>
+                              <VBox alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="416.0" spacing="10.0">
+                                 <children>
+                                    <VBox fx:id="rootPane1" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #9580FF;" stylesheets="Task.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="332.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="332.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fx:id="dueDate1" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="Header1" contentDisplay="CENTER" prefHeight="72.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="tag1" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="priority1" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox fx:id="rootPane13" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #9580FF;" stylesheets="Task.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="332.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="332.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fx:id="dueDate13" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="Header13" contentDisplay="CENTER" prefHeight="72.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="tag13" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="priority13" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox fx:id="rootPane21" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #9580FF;" stylesheets="Task.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="332.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="332.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fx:id="dueDate21" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="Header21" contentDisplay="CENTER" prefHeight="72.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="tag21" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="priority21" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox fx:id="rootPane211" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #9580FF;" stylesheets="Task.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="332.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="332.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fx:id="dueDate211" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="Header211" contentDisplay="CENTER" prefHeight="72.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="tag211" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="priority211" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox fx:id="rootPane2111" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #9580FF;" stylesheets="Task.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="332.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="332.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fx:id="dueDate2111" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="Header2111" contentDisplay="CENTER" prefHeight="72.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="tag2111" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="priority2111" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox fx:id="rootPane21111" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #9580FF;" stylesheets="Task.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="332.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="332.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fx:id="dueDate21111" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="Header21111" contentDisplay="CENTER" prefHeight="72.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="tag21111" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="priority21111" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox fx:id="rootPane211111" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #9580FF;" stylesheets="Task.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="332.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="332.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fx:id="dueDate211111" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="Header211111" contentDisplay="CENTER" prefHeight="72.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="tag211111" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="priority211111" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox fx:id="rootPane2111113" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="350.0" spacing="2.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #9580FF;" stylesheets="Task.css">
+                                       <children>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="332.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="4.0" prefWidth="332.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Text fx:id="dueDate2111113" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="date-box" text="18 Feb 2023" wrappingWidth="310.75" HBox.hgrow="ALWAYS" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="338.0" VBox.vgrow="ALWAYS">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <Label fx:id="Header2111113" contentDisplay="CENTER" prefHeight="72.0" prefWidth="334.0" styleClass="task-title" text="Introduction to Robotics path planning and perception" textOverrun="WORD_ELLIPSIS" wrapText="true" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="335.0" spacing="5.0">
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #FFF69B; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="tag2111113" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #B0EDFF; -fx-background-radius: 5px;">
+                                                   <children>
+                                                      <Label fx:id="priority2111113" text="Label" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                    </VBox>
+                                 </children>
+                                 <padding>
+                                    <Insets right="15.0" />
+                                 </padding>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

@@ -139,4 +139,42 @@ public class Shop implements Serializable {
         backgroundsList.add(new Item("/Images/backgrounds/background_vineyard.png", "Vineyard", "900"));
         return backgroundsList;
     }
+    private TreeSet<Item> petsList = new TreeSet<>(new ItemComparator());
+    public TreeSet<Item> getPetsList(){
+        return petsList;
+    }
+    public void addPet(Item item){
+        petsList.add(item);
+    }
+    public void removePet(Item item){
+        petsList.remove(item);
+    }
+    public TreeSet<Item> firstPetInitialize(){
+        petsList.add(new Item("/Images/stable/pets/Pet-BearCub-Red.png", "Bear Cub", "1500"));
+        petsList.add(new Item("/Images/stable/pets/Pet-Bunny-Base.png", "Bunny", "1500"));
+        petsList.add(new Item("/Images/stable/pets/Pet-Cow-Base.png", "Cow", "1500"));
+//        petsList.add(new Item("/Image/stable/pets/Pet-Dolphin-CottonCandyBlue.png", "Dolphin", "2000"));
+//        petsList.add(new Item("/Images/stable/pets/Pet-Falcon-Base.png", "Falcon", "1500"));
+        petsList.add(new Item("/Images/stable/pets/Pet-Fox-Red.png", "Fox", "1500"));
+        petsList.add(new Item("/Images/stable/pets/Pet-Gryphon-Base.png", "Gryphon", "1500"));
+        petsList.add(new Item("/Images/stable/pets/Pet-GuineaPig-Base.png", "Guinea Pig", "2000"));
+        petsList.add(new Item("/Images/stable/pets/Pet-Hippo-Base.png", "Hippo", "1500"));
+        petsList.add(new Item("/Images/stable/pets/Pet-Horse-Base.png", "Horse", "1500"));
+        petsList.add(new Item("/Images/stable/pets/Pet-Kangaroo-Base.png", "Kangaroo", "1500"));
+        petsList.add(new Item("/Images/stable/pets/Pet-LionCub-Base.png", "Lion cub", "1500"));
+        petsList.add(new Item("/Images/stable/pets/Pet-MagicalBee-Base.png", "Magical Bee", "1500"));
+        petsList.add(new Item("/Images/stable/pets/Pet-Mammoth-Base.png", "Mammoth", "1500"));
+        petsList.add(new Item("/Images/stable/pets/Pet-Monkey-Base.png", "Monkey", "1500"));
+        petsList.add(new Item("/Images/stable/pets/Pet-Orca-Base.png", "Orca", "2000"));
+        petsList.add(new Item("/Images/stable/pets/Pet-Owl-Base.png", "Owl", "2000"));
+        petsList.add(new Item("/Images/stable/pets/Pet-PandaCub-Base.png", "Panda cub", "1500"));
+        petsList.add(new Item("/Images/stable/pets/Pet-Parrot-Base.png", "Parrot", "2000"));
+        petsList.add(new Item("/Images/stable/pets/Pet-Penguin-Base.png", "Penguin", "2000"));
+        petsList.add(new Item("/Images/stable/pets/Pet-Rooster-Base.png", "Rooster", "2000"));
+        petsList.add(new Item("/Images/stable/pets/Pet-Squirrel-Base.png", "Squirrel", "1500"));
+        petsList.add(new Item("/Images/stable/pets/Pet-TigerCub-Red.png", "Tiger cub", "1500"));
+        petsList.add(new Item("/Images/stable/pets/Pet-Turkey-Base.png", "Turkey", "1500"));
+
+        return petsList;
+    }
 }
