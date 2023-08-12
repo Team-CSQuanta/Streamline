@@ -13,26 +13,16 @@
 @font-face {
     src: url("../Fonts/ProductSans-Bold.ttf");
 }
-.date-box{
-    -fx-font-family: "Product Sans Light";
-    -fx-font-size: 14px;
-}
-.time-box{
-    -fx-font-family: "Product Sans Light";
-    -fx-font-size: 11px;
-}
-.task-title{
+.topTitle{
     -fx-font-family: "Product Sans Medium";
-    -fx-font-size: 30px;
     -fx-text-fill: linear-gradient(to bottom right, #18ABD1, #8968A3, #DD3982, #DE755C, #DEA63D);
+    -fx-font-size: 40px;
 }
-.tagBox{
+.descriptionLabel{
     -fx-font-family: "Product Sans Medium";
-    -fx-border-color:  #9580FF;
-    -fx-border-radius: 5px;
-    -fx-font-size: 12px;
+    -fx-font-size: 18px;
 }
-.sessionTag{
+.tagLabel{
     -fx-font-family: "Product Sans Medium";
     -fx-font-size: 15px;
 }

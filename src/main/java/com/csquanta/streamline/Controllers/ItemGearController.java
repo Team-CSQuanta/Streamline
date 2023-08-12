@@ -19,7 +19,6 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class ItemGearController implements Initializable {
-
     @FXML
     private Button itemBuyButton;
 
