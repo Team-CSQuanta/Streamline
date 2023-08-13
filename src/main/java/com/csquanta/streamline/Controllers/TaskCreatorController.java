@@ -76,6 +76,8 @@ public class TaskCreatorController implements Initializable {
         FadeIn fadeInNew = new FadeIn(newTaskPage);
         fadeInNew.play();
 
+
+
     }
 
     @Override

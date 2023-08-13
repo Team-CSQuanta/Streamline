@@ -12,6 +12,7 @@ module com.csquanta.streamline {
     requires io.github.willena.sqlitejdbc;
     requires AnimateFX;
     requires atlantafx.base;
+    requires javafx.media;
 
 
 }
