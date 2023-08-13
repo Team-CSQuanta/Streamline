@@ -24,7 +24,7 @@
 .task-title{
     -fx-font-family: "Product Sans Medium";
     -fx-font-size: 30px;
-    -fx-text-fill: linear-gradient(to bottom right, #18ABD1, #8968A3, #DD3982, #DE755C, #DEA63D);
+    -fx-text-fill: #9580FF;
 }
 .tagBox{
     -fx-font-family: "Product Sans Medium";
@@ -39,7 +39,7 @@
 .createANewTask{
     -fx-font-family: "Product Sans Medium";
     -fx-font-size: 30px;
-    -fx-text-fill: linear-gradient(to bottom right, #18ABD1, #8968A3, #DD3982, #DE755C, #DEA63D);
+    -fx-text-fill: #9580FF;
 }
 .createANewTaskDescription{
     -fx-font-family: "Product Sans Medium";

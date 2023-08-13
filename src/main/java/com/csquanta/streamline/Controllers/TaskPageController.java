@@ -11,19 +11,24 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class TaskPageController implements Initializable {
-    private static int  row = 1;
-    private static int column = 0;
+    public static int row;
+    public static  int column;
     @FXML
-    private GridPane taskGridPane;
-
+    public GridPane taskGridPane;
     @FXML
     private VBox taskMainContainer;
+
+//    public GridPane getTaskGridPane() {
+//        return taskGridPane;
+//    }
 
     @FXML
     private ScrollPane taskScrollPane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+         row = 1;
+         column = 0;
         FXMLScene createATaskScene;
         try{
             createATaskScene = FXMLScene.load("/Fxml/CreateANewTask.fxml");

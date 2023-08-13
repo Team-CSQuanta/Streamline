@@ -32,24 +32,24 @@ public class TaskBlockController {
         return dueDate;
     }
 
-    public void setDueDate(Label dueDate) {
-        this.dueDate = dueDate;
+    public void setDueDate(String dueDate) {
+        this.dueDate.setText(dueDate);
     }
 
     public Label getNumOfPomodoroSession() {
         return numOfPomodoroSession;
     }
 
-    public void setNumOfPomodoroSession(Label numOfPomodoroSession) {
-        this.numOfPomodoroSession = numOfPomodoroSession;
+    public void setNumOfPomodoroSession(String sessions) {
+        this.numOfPomodoroSession.setText(sessions);
     }
 
     public Label getTaskTitle() {
         return taskTitle;
     }
 
-    public void setTaskTitle(Label taskTitle) {
-        this.taskTitle = taskTitle;
+    public void setTaskTitle(String taskTitle) {
+        this.taskTitle.setText(taskTitle);
     }
 
 
