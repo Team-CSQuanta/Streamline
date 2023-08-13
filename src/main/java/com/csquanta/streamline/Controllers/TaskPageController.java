@@ -1,5 +1,6 @@
 package com.csquanta.streamline.Controllers;
 
+import com.csquanta.streamline.Models.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ScrollPane;
@@ -42,6 +43,25 @@ public class TaskPageController implements Initializable {
             taskGridPane.add(TaskScene.root,column++, row);
         }catch (IOException e){
             System.out.println("File not found");
+        }
+        for (Task t: Task.taskObject.getTasksList()){
+            try {
+                TaskScene = FXMLScene.load("/Fxml/TaskBlock.fxml");
+                TaskBlockController taskBlockController = (TaskBlockController) TaskScene.controller;
+                taskBlockController.setTaskTitle(t.getTaskTitle());
+                taskBlockController.setDueDate(t.getDueDate().toString());
+                taskBlockController.setNumOfPomodoroSession(String.valueOf(t.getNumOfSessions()));
+                taskGridPane.add(TaskScene.root, column++, row);
+
+                if(column == 3){
+                    column = 0;
+                    row++;
+                }
+
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
         }
 
 
