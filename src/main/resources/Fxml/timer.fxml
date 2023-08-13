@@ -17,8 +17,12 @@
          <children>
             <VBox alignment="CENTER" prefHeight="99.0" prefWidth="148.0">
                <children>
-                  <ProgressBar fx:id="clockProgressBar" prefHeight="5.0" prefWidth="148.0" progress="0.0" styleClass="clock-progress-bar" />
-                  <Label fx:id="clockLabel" alignment="CENTER" prefHeight="75.0" prefWidth="169.0" text="24:59">
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ProgressBar fx:id="clockProgressBar" prefHeight="5.0" prefWidth="147.0" progress="0.0" styleClass="clock-progress-bar" />
+                     </children>
+                  </VBox>
+                  <Label fx:id="clockLabel" alignment="CENTER" prefHeight="59.0" prefWidth="148.0" text="24:59">
                      <font>
                         <Font size="52.0" />
                      </font>
