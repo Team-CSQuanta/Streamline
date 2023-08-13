@@ -28,6 +28,7 @@ public class TaskBlockController {
     @FXML
     private VBox timerContainer;
 
+
     public Label getDueDate() {
         return dueDate;
     }
@@ -56,15 +57,11 @@ public class TaskBlockController {
     @FXML
     void Start(ActionEvent event) throws IOException {
 
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/TaskBlock.fxml")));
-        timerContainer = (VBox) root.lookup("#timerContainer");
-
-
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Fxml/timer.fxml"));
-            VBox timer = fxmlLoader.load();
-            timerContainer.getChildren().clear();
-           timerContainer.getChildren().add(timer);
+            FXMLScene fxmlScene = FXMLScene.load("/Fxml/timer.fxml");
+            VBox timer = (VBox) fxmlScene.root;
+
+            timerContainer.getChildren().setAll(timer);
         } catch (IOException e) {
             e.printStackTrace();
         }
