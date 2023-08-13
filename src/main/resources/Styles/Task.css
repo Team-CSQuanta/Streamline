@@ -45,3 +45,11 @@
     -fx-font-family: "Product Sans Medium";
     -fx-font-size: 20px;
 }
+.startLabel{
+    -fx-font-family: "Product Sans Medium";
+    -fx-font-size: 55px;
+    -fx-text-fill: #FFFFFF;
+}
+.startVBox{
+    /*-fx-background-color: #EF6262;*/
+}

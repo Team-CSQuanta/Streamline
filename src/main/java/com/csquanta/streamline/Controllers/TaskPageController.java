@@ -28,6 +28,9 @@ public class TaskPageController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        if(taskGridPane.getChildren().size()>0){
+            taskGridPane.getChildren().removeAll();
+        }
          row = 1;
          column = 0;
         FXMLScene createATaskScene;

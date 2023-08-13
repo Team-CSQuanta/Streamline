@@ -25,7 +25,7 @@ import static java.util.Objects.requireNonNull;
 
 public class TaskCreatorController implements Initializable {
 
-    ObservableList<String> eishenHowerMatrix = FXCollections.observableArrayList("Urgent and Important", "Important but Not Urgent", "Urgent but Not Important", "Not Urgent and Not Important");
+    ObservableList<String> eishenHowerMatrix = FXCollections.observableArrayList("Urgent and important", "Important but not urgent", "Urgent but not important", "Not urgent and not important");
     ObservableList<String> pomodoroSession = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7", "8");
     ObservableList<String> tags = FXCollections.observableArrayList("Book Reading", "Academic Studies", "Programming");
     @FXML
@@ -62,11 +62,9 @@ public class TaskCreatorController implements Initializable {
         LocalDate localDate = dueDate.getValue();
         Task newTask = new Task(title.getText(), Integer.parseInt(pomodoroSessions.getSelectionModel().getSelectedItem()), localDate, priority.getSelectionModel().getSelectedItem(), tag.getSelectionModel().getSelectedItem(), description.getText());
         Task.taskObject.addTask(newTask);
-//        FXMLScene fxmlScene = FXMLScene.load("/Fxml/ToDoListGridPane.fxml");
-//        TaskPageController controller = (TaskPageController) fxmlScene.controller;
-//        GridPane gridPane = controller.taskGridPane;
         VBox taskPage = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/ToDoListGridPane.fxml")));
-        App.root.getChildren().remove(taskPage);
+        App.root.getChildren().removeAll();
+        App.newLoad();
         FadeOut fadeIn = new FadeOut(taskPage);
         fadeIn.play();
         VBox newTaskPage = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/ToDoListGridPane.fxml")));
