@@ -9,6 +9,7 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class TaskPageController implements Initializable {
@@ -49,7 +50,7 @@ public class TaskPageController implements Initializable {
                 TaskScene = FXMLScene.load("/Fxml/TaskBlock.fxml");
                 TaskBlockController taskBlockController = (TaskBlockController) TaskScene.controller;
                 taskBlockController.setTaskTitle(t.getTaskTitle());
-                taskBlockController.setDueDate(t.getDueDate().toString());
+                taskBlockController.setDueDate(t.getFormattedDueDate());
                 taskBlockController.setNumOfPomodoroSession(String.valueOf(t.getNumOfSessions()));
                 taskGridPane.add(TaskScene.root, column++, row);
 
@@ -66,4 +67,8 @@ public class TaskPageController implements Initializable {
 
 
     }
+
+
+
+
 }
