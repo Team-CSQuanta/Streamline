@@ -34,8 +34,8 @@ public class CreateANewTaskController implements Initializable {
 
     @FXML
     void mouseEnteredIntoHBox(MouseEvent event) {
-        Shake shake = new Shake(this.mainHbox);
-        shake.play();
+//        Bounce shake = new Bounce(this.mainHbox);
+//        shake.play();
     }
 
     @Override

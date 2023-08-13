@@ -39,7 +39,7 @@
          <children>
             <DatePicker fx:id="dueDate" editable="false" focusTraversable="false" prefHeight="45.0" prefWidth="200.0" promptText="Due date" styleClass="datePickerInput" />
             <ComboBox fx:id="tag" editable="true" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="200.0" promptText="Tag" styleClass="tagComboBox" />
-            <ComboBox fx:id="priority" editable="true" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="200.0" promptText="Priority" styleClass="tagComboBox" />
+            <ComboBox fx:id="pomodoroSessions" editable="true" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="200.0" promptText="Pomodoro Sessions" styleClass="tagComboBox" />
          </children>
          <VBox.margin>
             <Insets left="15.0" right="15.0" top="10.0" />
@@ -47,7 +47,7 @@
       </HBox>
       <HBox>
          <children>
-            <ComboBox fx:id="pomodoroSessions" editable="true" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="689.0" promptText="How many pomodro session you need.... " styleClass="tagComboBox" />
+            <ComboBox fx:id="priority" editable="true" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="688.0" promptText="Priority" styleClass="tagComboBox" />
          </children>
          <VBox.margin>
             <Insets left="15.0" right="15.0" top="10.0" />
