@@ -22,6 +22,14 @@ public class Task {
     public Task() {
     }
 
+    public TreeSet<Task> getTasksList() {
+        return tasksList;
+    }
+
+    public void setTasksList(TreeSet<Task> tasksList) {
+        this.tasksList = tasksList;
+    }
+
     public Task(String taskTitle, int numOfSessions, LocalDate dueDate, String priority, String tag, String description) {
         this.taskTitle = taskTitle;
         this.numOfSessions = numOfSessions;
