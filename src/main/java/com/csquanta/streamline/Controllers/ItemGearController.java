@@ -1,6 +1,7 @@
 package com.csquanta.streamline.Controllers;
 
-import animatefx.animation.*;
+import animatefx.animation.JackInTheBox;
+import animatefx.animation.Shake;
 import com.csquanta.streamline.Models.Item;
 import com.csquanta.streamline.Models.StaticUserInformation;
 import com.csquanta.streamline.Models.UserInformation;
@@ -17,7 +18,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
-import static java.util.Objects.requireNonNull;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 public class ItemGearController implements Initializable {
     ProfileEditController profileEditController= new ProfileEditController();
@@ -70,13 +72,14 @@ public class ItemGearController implements Initializable {
                     JackInTheBox flip = new JackInTheBox(successMsg);
                     flip.setSpeed(1);
                     flip.play();
+                    Media sound = new Media(this.getClass().getResource("/Sounds/mixkit-clinking-coins-1993.wav").toString());
+                    MediaPlayer player = new MediaPlayer(sound);
+                    player.play();
 
                     String imagePath = (String) armor.getUserData();
                     Item itemNeedToAdd = new Item(imagePath, null, null);
                     ShopController.getShop().addArmorToBuyedList(itemNeedToAdd);
-//                    Image image=  new Image(requireNonNull(getClass().getResourceAsStream(imagePath)));
-//                    ImageView purchasedItemImageView = new ImageView(image);
-//                    profileEditController.addPurchasedItemToAvatar(purchasedItemImageView, "gridPaneArmor");
+
 
                 } catch (IOException e) {
                     System.out.println(e.getMessage());
