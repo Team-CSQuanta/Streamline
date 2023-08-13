@@ -72,9 +72,7 @@ public class ItemGearController implements Initializable {
                     JackInTheBox flip = new JackInTheBox(successMsg);
                     flip.setSpeed(1);
                     flip.play();
-                    Media sound = new Media(this.getClass().getResource("/Sounds/mixkit-clinking-coins-1993.wav").toString());
-                    MediaPlayer player = new MediaPlayer(sound);
-                    player.play();
+                    soundPlayer("/Sounds/mixkit-clinking-coins-1993.wav");
 
                     String imagePath = (String) armor.getUserData();
                     Item itemNeedToAdd = new Item(imagePath, null, null);
@@ -99,6 +97,15 @@ public class ItemGearController implements Initializable {
         itemLabel.setText(item.getTitle());
         itemPrice.setText(item.getPrice());
     }
+    public void soundPlayer(String soundPath){
+        Media sound = new Media(this.getClass().getResource(soundPath).toString());
+        MediaPlayer player = new MediaPlayer(sound);
+        player.play();
+
+
+    }
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
