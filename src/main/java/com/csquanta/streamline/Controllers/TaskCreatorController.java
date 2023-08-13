@@ -62,10 +62,9 @@ public class TaskCreatorController implements Initializable {
         LocalDate localDate = dueDate.getValue();
         Task newTask = new Task(title.getText(), Integer.parseInt(pomodoroSessions.getSelectionModel().getSelectedItem()), localDate, priority.getSelectionModel().getSelectedItem(), tag.getSelectionModel().getSelectedItem(), description.getText());
         Task.taskObject.addTask(newTask);
-
-        FXMLScene fxmlScene = FXMLScene.load("/Fxml/ToDoListGridPane.fxml");
-        TaskPageController controller = (TaskPageController) fxmlScene.controller;
-        GridPane gridPane = controller.taskGridPane;
+//        FXMLScene fxmlScene = FXMLScene.load("/Fxml/ToDoListGridPane.fxml");
+//        TaskPageController controller = (TaskPageController) fxmlScene.controller;
+//        GridPane gridPane = controller.taskGridPane;
         VBox taskPage = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/ToDoListGridPane.fxml")));
         App.root.getChildren().remove(taskPage);
         FadeOut fadeIn = new FadeOut(taskPage);
@@ -75,8 +74,7 @@ public class TaskCreatorController implements Initializable {
         App.root.getChildren().add(newTaskPage);
         FadeIn fadeInNew = new FadeIn(newTaskPage);
         fadeInNew.play();
-
-
+        CreateANewTaskController.modalPaneForTaskCreator.hide(true);
 
     }
 
