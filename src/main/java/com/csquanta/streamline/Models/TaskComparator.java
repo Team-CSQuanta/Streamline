@@ -14,6 +14,8 @@ public class TaskComparator implements Comparator<Task> {
         else if(date1.isAfter(date2)){
             return 1;
         }
-        return 0;
+        else if(date1.equals(date2)){
+        }
+        return  0;
     }
 }

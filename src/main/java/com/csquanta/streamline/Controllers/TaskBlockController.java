@@ -1,10 +1,13 @@
 package com.csquanta.streamline.Controllers;
 
+import animatefx.animation.Wobble;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -27,6 +30,9 @@ public class TaskBlockController {
 
     @FXML
     private VBox timerContainer;
+
+    @FXML
+    private ImageView startImage;
 
 
     public Label getDueDate() {
@@ -53,10 +59,14 @@ public class TaskBlockController {
         this.taskTitle.setText(taskTitle);
     }
 
+    @FXML
+    void mouseEnteredinStarBox(MouseEvent event) {
+        Wobble wobble = new Wobble(this.startImage);
+        wobble.play();
+    }
 
     @FXML
-    void Start(ActionEvent event) throws IOException {
-
+    void start(MouseEvent event) {
         try {
             FXMLScene fxmlScene = FXMLScene.load("/Fxml/timer.fxml");
             VBox timer = (VBox) fxmlScene.root;
@@ -65,7 +75,5 @@ public class TaskBlockController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 }

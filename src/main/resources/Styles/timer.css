@@ -1,4 +1,18 @@
-
+@font-face {
+    src: url("../Fonts/ProductSans-Light.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Medium.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Regular.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Black.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Bold.ttf");
+}
 * {
     -fx-text-fill: #ffffff;
 }
@@ -9,7 +23,7 @@
 
 .container {
     -fx-font-family: Monaco, sans-serif;
-    -fx-background-color: #f05b56;
+    /*-fx-background-color: #f05b56;*/
 }
 
 .button {
@@ -48,7 +62,7 @@
 }
 
 .clock-progress-bar .bar {
-    -fx-background-color: #ffffff;
+    -fx-background-color: #20C997;
     -fx-background-insets: 0;
     -fx-border-radius: 0;
     -fx-padding: 1;
@@ -69,4 +83,9 @@
 .spinner .text-field {
     -fx-text-fill: #000000;
     -fx-alignment: center;
+}
+
+.timerText{
+    -fx-font-family: "Product Sans Medium";
+    -fx-font-size: 40px;
 }

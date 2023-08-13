@@ -1,11 +1,12 @@
 package com.csquanta.streamline.Models;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.TreeSet;
 
 public class Task {
     public static Task taskObject = new Task();
-    private TreeSet<Task> tasksList = new TreeSet<>(new TaskComparator());
+    private ArrayList<Task> tasksList = new ArrayList<>();
     public void addTask(Task task){
         tasksList.add(task);
     }
@@ -22,11 +23,11 @@ public class Task {
     public Task() {
     }
 
-    public TreeSet<Task> getTasksList() {
+    public ArrayList<Task> getTasksList() {
         return tasksList;
     }
 
-    public void setTasksList(TreeSet<Task> tasksList) {
+    public void setTasksList(ArrayList<Task> tasksList) {
         this.tasksList = tasksList;
     }
 
