@@ -1,14 +1,26 @@
 package com.csquanta.streamline.Models;
 
-public class Item {
+import java.io.Serializable;
+
+public class Item implements Serializable {
     private String imgSrc;
     private String title;
     private String Price;
+    private String itemType;
 
-    public Item(String imgSrc, String title, String price) {
+    public Item(String imgSrc, String title, String price, String itemType) {
         this.imgSrc = imgSrc;
         this.title = title;
+        this.itemType = itemType;
         Price = price;
+    }
+
+    public String getItemType() {
+        return itemType;
+    }
+
+    public void setItemType(String itemType) {
+        this.itemType = itemType;
     }
 
     public String getImgSrc() {

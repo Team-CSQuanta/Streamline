@@ -1,5 +1,7 @@
 package com.csquanta.streamline;
 
+import com.csquanta.streamline.Controllers.SignOutWarningPageController;
+
 import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -44,6 +46,7 @@ public final class CountDown {
         isRunning = false;
         timer.cancel();
         observer.timeIsUp();
+        System.out.println("In time is up!");
     }
 
     public void stop() {

@@ -97,14 +97,6 @@
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefWidth="539.0" spacing="5.0">
-                     <children>
-                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Images/Class/Warrior_Icon.png" />
-                           </image>
-                        </ImageView>
-                        <Label minHeight="-Infinity" prefWidth="185.0" styleClass="classSystemText" text="100 level warrior" />
-                     </children>
                      <VBox.margin>
                         <Insets left="4.0" />
                      </VBox.margin>
@@ -125,19 +117,6 @@
                                  </image>
                               </ImageView>
                               <ProgressBar prefHeight="15.0" prefWidth="325.0" progress="0.72" />
-                           </children>
-                           <VBox.margin>
-                              <Insets left="4.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="200.0" spacing="40.0">
-                           <children>
-                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../Images/Points/Experience.png" />
-                                 </image>
-                              </ImageView>
-                              <ProgressBar prefHeight="15.0" prefWidth="325.0" progress="0.27" />
                            </children>
                            <VBox.margin>
                               <Insets left="4.0" />

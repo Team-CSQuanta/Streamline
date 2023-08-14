@@ -1,16 +1,20 @@
 package com.csquanta.streamline;
+
+import com.csquanta.streamline.Controllers.BreakController;
+import com.csquanta.streamline.Controllers.PomodoroBreakController;
 import com.csquanta.streamline.Controllers.TimerController;
 import javafx.application.Platform;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
-public class PomodoroClock implements CountDownObserver {
-    private final TimerController controller;
+
+public class BreakClock implements CountDownObserver{
+
+    private final BreakController controller;
     private final Label clockLabel;
     private final ProgressBar progressBar;
     private TimeMode mode;
 
-
-    public PomodoroClock(TimerController controller,
+    public BreakClock(BreakController controller,
                          Label clockLabel,
                          ProgressBar progressBar,
                          TimeMode mode) {
@@ -30,8 +34,8 @@ public class PomodoroClock implements CountDownObserver {
 
     @Override
     public void timeIsUp() {
-     Platform.runLater(controller::timeIsUp);
-   }
+        Platform.runLater(controller::timeIsUp);
+    }
 
     private String secondsToString(int seconds) {
         int minutes = seconds / 60;

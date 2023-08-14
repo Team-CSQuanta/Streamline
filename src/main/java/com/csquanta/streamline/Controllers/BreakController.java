@@ -1,12 +1,9 @@
 package com.csquanta.streamline.Controllers;
 
-
+import com.csquanta.streamline.BreakClock;
 import com.csquanta.streamline.CountDown;
-import com.csquanta.streamline.Models.Task;
 import com.csquanta.streamline.PomodoroClock;
 import com.csquanta.streamline.TimeMode;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -14,43 +11,35 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
+
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.csquanta.streamline.Models.Task.taskObject;
-
-public class TimerController {
-    private int numPomodoroSessions;
-    @FXML private VBox container;
+public class BreakController {
+    @FXML
+    private VBox container;
     @FXML private Label clockLabel;
     @FXML private ProgressBar clockProgressBar;
     @FXML private Button toggleBtn;
-    @FXML
-    private Label sessionCount;
-
     @FXML private Button pomodoroBtn;
-    Task task = new Task();
-    private CountDown countdown;
-    private PomodoroClock clock;
-    private int pomodoroSessions;
-    private final int maxLoopsCounts = pomodoroSessions;
+    @FXML private Button shortBreakBtn;
+    @FXML private Button longBreakBtn;
+    @FXML private ImageView icon;
 
-    public int currentAutoLoop =1;
+    private CountDown countdown;
+    private BreakClock clock;
     private Map<Button, TimeMode> buttonToMode;
 
     public void initialize() {
-        clock = new PomodoroClock(
+        clock = new BreakClock(
                 this, clockLabel, clockProgressBar, TimeMode.POMODORO);
-        countdown = new CountDown(TimeMode.POMODORO, clock);
+        countdown = new CountDown(TimeMode.BREAK, clock);
         initializeButtonToMode();
-        System.out.println("max"+maxLoopsCounts);
     }
 
     private void initializeButtonToMode() {
         buttonToMode = new HashMap<>();
-        buttonToMode.put(pomodoroBtn, TimeMode.POMODORO);
+        buttonToMode.put(pomodoroBtn, TimeMode.BREAK);
 
     }
 
@@ -63,7 +52,7 @@ public class TimerController {
 
     private void stop() {
         countdown.stop();
-//        updateToggleBtn("Resume");
+        updateToggleBtn("Resume");
     }
 
     private void updateToggleBtn(String text) {
@@ -71,6 +60,8 @@ public class TimerController {
     }
 
     private void activate() {
+        if (countdown.isTimeUp())
+            reset();
         start();
     }
 
@@ -85,27 +76,36 @@ public class TimerController {
     }
 
     private void start() {
-        System.out.println("max"+maxLoopsCounts);
         countdown.start();
         updateToggleBtn("Stop");
+    }
+    public void modeBtnClicked(ActionEvent event) {
+        Button button = (Button) event.getSource();
+        TimeMode mode = buttonToMode.get(button);
+        changeMode(mode);
+        highlightModeButton(button);
+    }
+    private void changeMode(TimeMode mode) {
+        countdown.setMode(mode);
+        clock.setMode(mode);
+        removeTimeIsUpStyles();
+        start();
+    }
+
+    private void highlightModeButton(Button button) {
+        removeModeButtonHighlighting();
+        button.getStyleClass().add("highlight-btn");
+    }
+
+    private void removeModeButtonHighlighting() {
+        pomodoroBtn.getStyleClass().remove("highlight-btn");
+        shortBreakBtn.getStyleClass().remove("highlight-btn");
     }
 
     public void timeIsUp() {
         addTimeIsUpStyles();
         playSound();
-
-        if ( currentAutoLoop < maxLoopsCounts) {
-            reset();
-            currentAutoLoop++;
-            start();
-           sessionCount.setText(String.valueOf(currentAutoLoop));
-            System.out.println(currentAutoLoop);
-
-
-        } else {
-            stop();
-            updateToggleBtn("Reset");
-        }
+        updateToggleBtn("Reset");
     }
 
     private void addTimeIsUpStyles() {
@@ -114,11 +114,9 @@ public class TimerController {
     }
 
     private void playSound() {
-       Media sound = new Media(this.getClass().getResource("/Sounds/sound.wav").toString());
-      MediaPlayer player = new MediaPlayer(sound);
-
-        player.play();
+//        Media sound = new Media(this.getClass().getResource("/Sounds/sound.wav").toString());
+//        MediaPlayer player = new MediaPlayer(sound);
+//
+//        player.play();
     }
-
-
 }
