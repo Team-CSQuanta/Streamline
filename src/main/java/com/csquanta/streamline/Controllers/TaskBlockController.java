@@ -4,6 +4,7 @@ import animatefx.animation.Wobble;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -18,7 +19,7 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.Timer;
 
-public class TaskBlockController {
+public class TaskBlockController implements Initializable {
 
     @FXML
     private Label dueDate;
@@ -34,6 +35,15 @@ public class TaskBlockController {
 
     @FXML
     private VBox timerContainer;
+    private int pomodoroSession;
+
+    public int getPomodoroSession() {
+        return pomodoroSession;
+    }
+
+    public void setPomodoroSession(int pomodoroSession) {
+        this.pomodoroSession = pomodoroSession;
+    }
 
     @FXML
     private ImageView startImage;
@@ -81,7 +91,8 @@ public class TaskBlockController {
         try {
             FXMLScene fxmlScene = FXMLScene.load("/Fxml/timer.fxml");
             VBox timer = (VBox) fxmlScene.root;
-
+            TimerController controller = (TimerController) fxmlScene.controller;
+            controller.setPomodoroSessions(pomodoroSession);
             timerContainer.getChildren().setAll(timer);
         } catch (IOException e) {
             e.printStackTrace();
