@@ -1,7 +1,8 @@
 package com.csquanta.streamline;
 
 public enum TimeMode {
-    POMODORO(2);
+    POMODORO(2),
+    BREAK(1);
 
     private int seconds;
 

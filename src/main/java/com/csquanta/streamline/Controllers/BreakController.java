@@ -1,6 +1,6 @@
 package com.csquanta.streamline.Controllers;
 
-
+import com.csquanta.streamline.BreakClock;
 import com.csquanta.streamline.CountDown;
 import com.csquanta.streamline.PomodoroClock;
 import com.csquanta.streamline.TimeMode;
@@ -11,14 +11,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class TimerController {
-    @FXML private VBox container;
+public class BreakController {
+    @FXML
+    private VBox container;
     @FXML private Label clockLabel;
     @FXML private ProgressBar clockProgressBar;
     @FXML private Button toggleBtn;
@@ -28,19 +27,19 @@ public class TimerController {
     @FXML private ImageView icon;
 
     private CountDown countdown;
-    private PomodoroClock clock;
+    private BreakClock clock;
     private Map<Button, TimeMode> buttonToMode;
 
     public void initialize() {
-        clock = new PomodoroClock(
+        clock = new BreakClock(
                 this, clockLabel, clockProgressBar, TimeMode.POMODORO);
-        countdown = new CountDown(TimeMode.POMODORO, clock);
+        countdown = new CountDown(TimeMode.BREAK, clock);
         initializeButtonToMode();
     }
 
     private void initializeButtonToMode() {
         buttonToMode = new HashMap<>();
-        buttonToMode.put(pomodoroBtn, TimeMode.POMODORO);
+        buttonToMode.put(pomodoroBtn, TimeMode.BREAK);
 
     }
 
@@ -120,6 +119,4 @@ public class TimerController {
 //
 //        player.play();
     }
-
-
 }
