@@ -8,10 +8,11 @@ public class TaskComparator implements Comparator<Task> {
     public int compare(Task o1, Task o2) {
         LocalDate date1 = o1.getDueDate();
         LocalDate date2 = o2.getDueDate();
-
-        int dateComparison = date1.compareTo(date2);
-        if (dateComparison != 0) {
-            return dateComparison;
+        if(date1.isBefore(date2)){
+            return -1;
+        }
+        else if(date1.isAfter(date2)){
+            return 1;
         }
 
         return compareEisenhowerCategories(o1, o2);
