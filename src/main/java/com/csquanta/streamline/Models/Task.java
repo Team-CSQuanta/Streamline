@@ -96,5 +96,11 @@ public class Task {
         int year = dueDate.getYear();
         return String.format("%s %02d, %04d", monthAbbreviation, day, year);
     }
+    public boolean isUrgent() {
+        return priority.toLowerCase().contains("urgent") && !priority.toLowerCase().contains("not urgent");
+    }
 
+    public boolean isImportant() {
+        return priority.toLowerCase().contains("important") && !priority.toLowerCase().contains("not important");
+    }
 }
