@@ -4,6 +4,7 @@ import animatefx.animation.FadeIn;
 import animatefx.animation.FadeOut;
 import com.csquanta.streamline.App;
 import com.csquanta.streamline.Models.Task;
+import com.csquanta.streamline.Models.TaskComparator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,8 +20,10 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.ResourceBundle;
 
+import static com.csquanta.streamline.Models.Task.taskObject;
 import static java.util.Objects.requireNonNull;
 
 public class TaskCreatorController implements Initializable {
@@ -60,7 +63,9 @@ public class TaskCreatorController implements Initializable {
     @FXML
     void onSaveButtonClicked(ActionEvent event) throws IOException {
         Task newTask = new Task(title.getText(), Integer.parseInt(pomodoroSessions.getSelectionModel().getSelectedItem()), dueDate.getValue(), priority.getSelectionModel().getSelectedItem(), tag.getSelectionModel().getSelectedItem(), description.getText());
-        Task.taskObject.addTask(newTask);
+        taskObject.addTask(newTask);
+        TaskComparator taskComparator = new TaskComparator();
+        taskObject.getTasksList().sort(taskComparator);
         VBox taskPage = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/ToDoListGridPane.fxml")));
         App.root.getChildren().removeAll();
         App.newLoad();
