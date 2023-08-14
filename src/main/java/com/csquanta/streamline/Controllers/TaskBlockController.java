@@ -1,25 +1,24 @@
 package com.csquanta.streamline.Controllers;
 
-import animatefx.animation.FadeIn;
 import animatefx.animation.Wobble;
+import com.csquanta.streamline.CountDown;
+import com.csquanta.streamline.PomodoroClock;
+import com.csquanta.streamline.TimeMode;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-import java.io.IOException;
 import java.net.URL;
-import java.sql.Time;
-import java.util.Objects;
+import java.util.Map;
 import java.util.ResourceBundle;
-import java.util.Timer;
 
 public class TaskBlockController implements Initializable {
 
@@ -37,6 +36,50 @@ public class TaskBlockController implements Initializable {
 
     @FXML
     private VBox timerContainer;
+
+
+
+
+    // Timer
+
+
+    @FXML
+    private Label clockLabel;
+
+    @FXML
+    private ProgressBar clockProgressBar;
+
+    @FXML
+    private VBox container;
+
+    @FXML
+    private Label sessionCount;
+    @FXML
+    private Button toggleBtn;
+
+    @FXML
+    private Label totalSession;
+
+
+    @FXML
+    void toggleBtnClicked(ActionEvent event) {
+        if (countdown.isRunning())
+            stop();     // stops the counter if it is already running
+        else
+            activate(); // activate the counter if it is not running
+    }
+
+
+
+
+
+
+
+
+
+    public VBox getTimerContainer() {
+        return timerContainer;
+    }
 //    private int pomodoroSession;
 //
 //    public int getPomodoroSession() {
@@ -84,35 +127,129 @@ public class TaskBlockController implements Initializable {
 
     @FXML
     void mouseEnteredinStarBox(MouseEvent event) {
-        Wobble wobble = new Wobble(this.startImage);
-        wobble.play();
+//        Wobble wobble = new Wobble(this.);
+//        wobble.play();
     }
 
     @FXML
     void start(MouseEvent event) {
-        Label sessionNumber;
-        if (event.getSource() instanceof VBox button) {
-            Parent parent = button.getParent();
-            sessionNumber = (Label) parent.lookup("#numOfPomodoroSession");
-            System.out.println("Printing session number " +sessionNumber.getText());
-            try {
-                FXMLScene fxmlScene = FXMLScene.load("/Fxml/timer.fxml");
-                TimerController timerController = (TimerController) fxmlScene.controller;
-                VBox timer = (VBox) fxmlScene.root;
-                timerController.setPomodoroSessions(Integer.parseInt(sessionNumber.getText()));
-                System.out.println(timerController.getPomodoroSessions() + "   Printing the value of timer controller");
-                timerContainer.getChildren().setAll(timer);
-
-                new FadeIn(timer).play();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        if(event.getSource() instanceof  VBox container){
+            Parent parent = container.getParent();
+            Label label = (Label) parent.lookup("#numOfPomodoroSession");
+            System.out.println(label.getText());
+//            try {
+////                FXMLScene fxmlScene = FXMLScene.load("/Fxml/timer.fxml");
+////                VBox timer = (VBox) fxmlScene.root;
+////                TimerController controller = (TimerController) fxmlScene.controller;
+////                controller.setTotalSession(label.getText());
+////                controller.
+////                timerContainer.getChildren().setAll(timer);
+////                new FadeIn(timer).play();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
         }
 
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        clock = new PomodoroClock(
+                this, clockLabel, clockProgressBar, TimeMode.POMODORO);
+        countdown = new CountDown(TimeMode.POMODORO, clock);
+//        initializeButtonToMode();
+        System.out.println("max"+maxLoopsCounts);
 
     }
+
+
+
+
+
+
+//    ........
+   private CountDown countdown;
+    private PomodoroClock clock;
+
+    private int maxLoopsCounts = 0;
+
+    public int currentAutoLoop =1;
+    private Map<Button, TimeMode> buttonToMode;
+
+    public void initialize() {
+//        clock = new PomodoroClock(
+//                this, clockLabel, clockProgressBar, TimeMode.POMODORO);
+//        countdown = new CountDown(TimeMode.POMODORO, clock);
+//        initializeButtonToMode();
+//        System.out.println("max"+maxLoopsCounts);
+    }
+
+//    private void initializeButtonToMode() {
+//        buttonToMode = new HashMap<>();
+//        buttonToMode.put(pomodoroBtn, TimeMode.POMODORO);
+//
+//    }
+
+
+
+    private void stop() {
+        countdown.stop();
+//        updateToggleBtn("Resume");
+    }
+
+    private void updateToggleBtn(String text) {
+        toggleBtn.setText(text);
+    }
+
+    private void activate() {
+        start();
+    }
+
+    private void reset() {
+        removeTimeIsUpStyles();
+        countdown.reset();
+    }
+
+    private void removeTimeIsUpStyles() {
+        container.getStyleClass().remove("time-is-up-background");
+        toggleBtn.getStyleClass().remove("time-is-up-color");
+    }
+
+    private void start() {
+        System.out.println("max "+maxLoopsCounts);
+        countdown.start();
+        updateToggleBtn("Stop");
+    }
+
+    public void timeIsUp() {
+        addTimeIsUpStyles();
+        playSound();
+
+        if ( currentAutoLoop < maxLoopsCounts) {
+            reset();
+            currentAutoLoop++;
+            start();
+            sessionCount.setText(String.valueOf(currentAutoLoop));
+            System.out.println(currentAutoLoop);
+
+
+        } else {
+            stop();
+            updateToggleBtn("Reset");
+        }
+    }
+
+    private void addTimeIsUpStyles() {
+        container.getStyleClass().add("time-is-up-background");
+        toggleBtn.getStyleClass().add("time-is-up-color");
+    }
+
+    private void playSound() {
+//        Media sound = new Media(this.getClass().getResource("/Sounds/sound.wav").toString());
+//        MediaPlayer player = new MediaPlayer(sound);
+//
+//        player.play();
+    }
+
+
 }

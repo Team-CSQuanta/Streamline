@@ -1,16 +1,17 @@
 package com.csquanta.streamline;
+import com.csquanta.streamline.Controllers.TaskBlockController;
 import com.csquanta.streamline.Controllers.TimerController;
 import javafx.application.Platform;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 public class PomodoroClock implements CountDownObserver {
-    private final TimerController controller;
+    private final TaskBlockController controller;
     private final Label clockLabel;
     private final ProgressBar progressBar;
     private TimeMode mode;
 
 
-    public PomodoroClock(TimerController controller,
+    public PomodoroClock(TaskBlockController controller,
                          Label clockLabel,
                          ProgressBar progressBar,
                          TimeMode mode) {
