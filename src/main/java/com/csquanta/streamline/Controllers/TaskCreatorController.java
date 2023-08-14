@@ -59,8 +59,7 @@ public class TaskCreatorController implements Initializable {
 
     @FXML
     void onSaveButtonClicked(ActionEvent event) throws IOException {
-        LocalDate localDate = dueDate.getValue();
-        Task newTask = new Task(title.getText(), Integer.parseInt(pomodoroSessions.getSelectionModel().getSelectedItem()), localDate, priority.getSelectionModel().getSelectedItem(), tag.getSelectionModel().getSelectedItem(), description.getText());
+        Task newTask = new Task(title.getText(), Integer.parseInt(pomodoroSessions.getSelectionModel().getSelectedItem()), dueDate.getValue(), priority.getSelectionModel().getSelectedItem(), tag.getSelectionModel().getSelectedItem(), description.getText());
         Task.taskObject.addTask(newTask);
         VBox taskPage = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/ToDoListGridPane.fxml")));
         App.root.getChildren().removeAll();
