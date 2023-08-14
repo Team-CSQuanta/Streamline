@@ -59,8 +59,6 @@ public class TaskBlockController implements Initializable {
     private CountDown countdown;
     private PomodoroClock clock;
 
-    private int maxLoopsCounts = 0;
-
     public int currentAutoLoop =1;
     private Map<Button, TimeMode> buttonToMode;
     @FXML
@@ -102,8 +100,8 @@ public class TaskBlockController implements Initializable {
         return totalSession;
     }
 
-    public void setTotalSession(Label totalSession) {
-        this.totalSession = totalSession;
+    public void setTotalSession(String totalSession) {
+        this.totalSession.setText(totalSession);
     }
 
     @FXML
@@ -136,7 +134,7 @@ public class TaskBlockController implements Initializable {
                 this, clockLabel, clockProgressBar, TimeMode.POMODORO);
         countdown = new CountDown(TimeMode.POMODORO, clock);
 //        initializeButtonToMode();
-        System.out.println("max"+maxLoopsCounts);
+
 
     }
 
@@ -182,7 +180,6 @@ public class TaskBlockController implements Initializable {
     }
 
     private void start() {
-        System.out.println("max "+maxLoopsCounts);
         countdown.start();
         updateToggleBtn("Stop");
     }
@@ -196,8 +193,6 @@ public class TaskBlockController implements Initializable {
             currentAutoLoop++;
             start();
             sessionCount.setText(String.valueOf(currentAutoLoop));
-            System.out.println(currentAutoLoop);
-
 
         } else {
             stop();
