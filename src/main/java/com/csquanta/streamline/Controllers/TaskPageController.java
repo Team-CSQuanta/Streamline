@@ -75,7 +75,7 @@ public class TaskPageController implements Initializable {
                 taskBlockController.setTaskTitle(t.getTaskTitle());
                 taskBlockController.setDueDate(t.getFormattedDueDate());
                 taskBlockController.setNumOfPomodoroSession(String.valueOf(t.getNumOfSessions()));
-//                taskBlockController.setPomodoroSession(t.getNumOfSessions());
+                taskBlockController.setMaxLoopsCounts(t.getNumOfSessions());
                 taskGridPane.add(TaskScene.root, column++, row);
 
                 if(column == 3){

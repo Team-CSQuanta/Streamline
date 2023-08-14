@@ -7,7 +7,6 @@ import com.csquanta.streamline.TimeMode;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -37,10 +36,7 @@ public class TaskBlockController implements Initializable {
     @FXML
     private VBox timerContainer;
 
-
-
-
-    // Timer
+// Timer
 
 
     @FXML
@@ -58,10 +54,6 @@ public class TaskBlockController implements Initializable {
     private Button toggleBtn;
 
     @FXML
-    private Label totalSession;
-
-
-    @FXML
     void toggleBtnClicked(ActionEvent event) {
         if (countdown.isRunning())
             stop();     // stops the counter if it is already running
@@ -69,26 +61,6 @@ public class TaskBlockController implements Initializable {
             activate(); // activate the counter if it is not running
     }
 
-
-
-
-
-
-
-
-
-    public VBox getTimerContainer() {
-        return timerContainer;
-    }
-//    private int pomodoroSession;
-//
-//    public int getPomodoroSession() {
-//        return pomodoroSession;
-//    }
-//
-//    public void setPomodoroSession(int pomodoroSession) {
-//        this.pomodoroSession = pomodoroSession;
-//    }
 
     @FXML
     private ImageView startImage;
@@ -120,81 +92,36 @@ public class TaskBlockController implements Initializable {
     public Label getTaskTitle() {
         return taskTitle;
     }
-
     public void setTaskTitle(String taskTitle) {
         this.taskTitle.setText(taskTitle);
     }
 
-    @FXML
-    void mouseEnteredinStarBox(MouseEvent event) {
-//        Wobble wobble = new Wobble(this.);
-//        wobble.play();
-    }
-
-    @FXML
-    void start(MouseEvent event) {
-        if(event.getSource() instanceof  VBox container){
-            Parent parent = container.getParent();
-            Label label = (Label) parent.lookup("#numOfPomodoroSession");
-            System.out.println(label.getText());
-//            try {
-////                FXMLScene fxmlScene = FXMLScene.load("/Fxml/timer.fxml");
-////                VBox timer = (VBox) fxmlScene.root;
-////                TimerController controller = (TimerController) fxmlScene.controller;
-////                controller.setTotalSession(label.getText());
-////                controller.
-////                timerContainer.getChildren().setAll(timer);
-////                new FadeIn(timer).play();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-        }
-
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        clock = new PomodoroClock(
-                this, clockLabel, clockProgressBar, TimeMode.POMODORO);
+        clock = new PomodoroClock(this, clockLabel, clockProgressBar, TimeMode.POMODORO);
         countdown = new CountDown(TimeMode.POMODORO, clock);
 //        initializeButtonToMode();
-        System.out.println("max"+maxLoopsCounts);
 
     }
 
-
-
-
-
-
-//    ........
-   private CountDown countdown;
+    private CountDown countdown;
     private PomodoroClock clock;
+    private Map<Button, TimeMode> buttonToMode;
+    private int maxLoopsCounts;
 
-    private int maxLoopsCounts = 0;
+    public int getMaxLoopsCounts() {
+        return maxLoopsCounts;
+    }
+
+    public void setMaxLoopsCounts(int maxLoopsCounts) {
+        this.maxLoopsCounts = maxLoopsCounts;
+    }
 
     public int currentAutoLoop =1;
-    private Map<Button, TimeMode> buttonToMode;
-
-    public void initialize() {
-//        clock = new PomodoroClock(
-//                this, clockLabel, clockProgressBar, TimeMode.POMODORO);
-//        countdown = new CountDown(TimeMode.POMODORO, clock);
-//        initializeButtonToMode();
-//        System.out.println("max"+maxLoopsCounts);
-    }
-
-//    private void initializeButtonToMode() {
-//        buttonToMode = new HashMap<>();
-//        buttonToMode.put(pomodoroBtn, TimeMode.POMODORO);
-//
-//    }
-
-
 
     private void stop() {
         countdown.stop();
-//        updateToggleBtn("Resume");
+        updateToggleBtn("Resume");
     }
 
     private void updateToggleBtn(String text) {
@@ -206,23 +133,13 @@ public class TaskBlockController implements Initializable {
     }
 
     private void reset() {
-        removeTimeIsUpStyles();
         countdown.reset();
     }
-
-    private void removeTimeIsUpStyles() {
-        container.getStyleClass().remove("time-is-up-background");
-        toggleBtn.getStyleClass().remove("time-is-up-color");
-    }
-
     private void start() {
-        System.out.println("max "+maxLoopsCounts);
         countdown.start();
         updateToggleBtn("Stop");
     }
-
     public void timeIsUp() {
-        addTimeIsUpStyles();
         playSound();
 
         if ( currentAutoLoop < maxLoopsCounts) {
@@ -231,19 +148,11 @@ public class TaskBlockController implements Initializable {
             start();
             sessionCount.setText(String.valueOf(currentAutoLoop));
             System.out.println(currentAutoLoop);
-
-
         } else {
             stop();
             updateToggleBtn("Reset");
         }
     }
-
-    private void addTimeIsUpStyles() {
-        container.getStyleClass().add("time-is-up-background");
-        toggleBtn.getStyleClass().add("time-is-up-color");
-    }
-
     private void playSound() {
 //        Media sound = new Media(this.getClass().getResource("/Sounds/sound.wav").toString());
 //        MediaPlayer player = new MediaPlayer(sound);
