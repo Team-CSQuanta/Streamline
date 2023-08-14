@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -36,15 +37,15 @@ public class TaskBlockController implements Initializable {
 
     @FXML
     private VBox timerContainer;
-    private int pomodoroSession;
-
-    public int getPomodoroSession() {
-        return pomodoroSession;
-    }
-
-    public void setPomodoroSession(int pomodoroSession) {
-        this.pomodoroSession = pomodoroSession;
-    }
+//    private int pomodoroSession;
+//
+//    public int getPomodoroSession() {
+//        return pomodoroSession;
+//    }
+//
+//    public void setPomodoroSession(int pomodoroSession) {
+//        this.pomodoroSession = pomodoroSession;
+//    }
 
     @FXML
     private ImageView startImage;
@@ -89,18 +90,25 @@ public class TaskBlockController implements Initializable {
 
     @FXML
     void start(MouseEvent event) {
-        try {
-            FXMLScene fxmlScene = FXMLScene.load("/Fxml/timer.fxml");
-            TimerController timerController = (TimerController) fxmlScene.controller;
-            timerController.setNumPomodoroSessions(Integer.parseInt(numOfPomodoroSession.getText()));
-            VBox timer = (VBox) fxmlScene.root;
-           
-            timerContainer.getChildren().setAll(timer);
+        Label sessionNumber;
+        if (event.getSource() instanceof VBox button) {
+            Parent parent = button.getParent();
+            sessionNumber = (Label) parent.lookup("#numOfPomodoroSession");
+            System.out.println("Printing session number " +sessionNumber.getText());
+            try {
+                FXMLScene fxmlScene = FXMLScene.load("/Fxml/timer.fxml");
+                TimerController timerController = (TimerController) fxmlScene.controller;
+                VBox timer = (VBox) fxmlScene.root;
+                timerController.setPomodoroSessions(Integer.parseInt(sessionNumber.getText()));
+                System.out.println(timerController.getPomodoroSessions() + "   Printing the value of timer controller");
+                timerContainer.getChildren().setAll(timer);
 
-            new FadeIn(timer).play();
-        } catch (IOException e) {
-            e.printStackTrace();
+                new FadeIn(timer).play();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+
     }
 
     @Override
