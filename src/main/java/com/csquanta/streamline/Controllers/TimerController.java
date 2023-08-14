@@ -13,11 +13,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-
 import java.util.HashMap;
 import java.util.Map;
 
 public class TimerController {
+    private int numPomodoroSessions;
     @FXML private VBox container;
     @FXML private Label clockLabel;
     @FXML private ProgressBar clockProgressBar;
@@ -30,6 +30,14 @@ public class TimerController {
     private CountDown countdown;
     private PomodoroClock clock;
     private Map<Button, TimeMode> buttonToMode;
+
+    public int getNumPomodoroSessions() {
+        return numPomodoroSessions;
+    }
+
+    public void setNumPomodoroSessions(int numPomodoroSessions) {
+        this.numPomodoroSessions = numPomodoroSessions;
+    }
 
     public void initialize() {
         clock = new PomodoroClock(

@@ -22,7 +22,6 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
 public class ItemGearController implements Initializable {
-    ProfileEditController profileEditController= new ProfileEditController();
     @FXML
     private Button itemBuyButton;
 
@@ -30,14 +29,14 @@ public class ItemGearController implements Initializable {
     private VBox itemContainer;
 
     @FXML
-    private ImageView armor;
+    private ImageView itemImage;
 
     @FXML
     private Label itemLabel;
 
     @FXML
     private Label itemPrice;
-
+    private String itemType;
     public Label getItemLabel() {
         return itemLabel;
     }
@@ -65,7 +64,7 @@ public class ItemGearController implements Initializable {
                     VBox successMsg = (VBox) fxmlScene.root;
                     ItemPurchasedSuccessFullyController itemPurchasedSuccessFullyController = (ItemPurchasedSuccessFullyController) fxmlScene.controller;
                     itemPurchasedSuccessFullyController.setItemLabel(itemLabel);
-                    itemPurchasedSuccessFullyController.setItemPurchasedImg(armor);
+                    itemPurchasedSuccessFullyController.setItemPurchasedImg(itemImage);
                     itemContainer.setStyle("-fx-background-color: transparent;");
                     itemContainer.getChildren().setAll(successMsg);
                     UserInformation.userInfo.deductGoldCoins(Double.parseDouble(priceLabel.getText()));
@@ -73,10 +72,18 @@ public class ItemGearController implements Initializable {
                     flip.setSpeed(1);
                     flip.play();
                     soundPlayer("/Sounds/mixkit-clinking-coins-1993.wav");
+                    String imagePath = (String) itemImage.getUserData();
+                    if(itemType.equals("Armor")){
+                        Item itemNeedToAdd = new Item(imagePath, null, null, "Armor");
+                        ShopController.getShop().addArmorToBuyedList(itemNeedToAdd);
+                    }else if(itemType.equals("Head Wear")){
+                        Item itemNeedToAdd = new Item(imagePath, null, null, "Head Wear");
+                        ShopController.getShop().addHeadWearToBuyedList(itemNeedToAdd);
+                    }
 
-                    String imagePath = (String) armor.getUserData();
-                    Item itemNeedToAdd = new Item(imagePath, null, null);
-                    ShopController.getShop().addArmorToBuyedList(itemNeedToAdd);
+
+
+
 
 
                 } catch (IOException e) {
@@ -92,10 +99,11 @@ public class ItemGearController implements Initializable {
     }
     public void setData(Item item){
         String imagePath = item.getImgSrc();
-        armor.setImage(new Image(Objects.requireNonNull(getClass().getResource(imagePath)).toExternalForm()));
-        armor.setUserData(imagePath);
+        itemImage.setImage(new Image(Objects.requireNonNull(getClass().getResource(imagePath)).toExternalForm()));
+        itemImage.setUserData(imagePath);
         itemLabel.setText(item.getTitle());
         itemPrice.setText(item.getPrice());
+        itemType = item.getItemType();
     }
     public void soundPlayer(String soundPath){
 //        Media sound = new Media(this.getClass().getResource(soundPath).toString());

@@ -162,6 +162,10 @@ public class UserInformation implements Serializable {
                 StaticUserInformation.avatarImageBg = new Image(requireNonNull(UserInformation.class.getResourceAsStream(user.avatarImageBg)));
                 userInfo.setAvatarImageBg(user.avatarImageBg);
             }
+            if(user.avatarImageHeadGear != null){
+                StaticUserInformation.avatarImageHeadGear = new Image(requireNonNull(UserInformation.class.getResourceAsStream(user.avatarImageHeadGear)));
+                userInfo.setAvatarImageHeadGear(user.avatarImageHeadGear);
+            }
 
 
         }catch (Exception e){

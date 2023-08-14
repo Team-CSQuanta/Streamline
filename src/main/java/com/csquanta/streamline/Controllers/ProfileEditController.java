@@ -113,6 +113,9 @@ public class ProfileEditController implements Initializable {
 
     }
 
+    public ImageView getHeadGear() {
+        return headGear;
+    }
 
     public void setAvatarHair(ImageView avatarHair) {
         this.avatarHair.setImage(avatarHair.getImage());
@@ -198,7 +201,34 @@ public class ProfileEditController implements Initializable {
     @FXML
     void onHeadGearSelectionChanged(Event event) {
         if (headWearTab.isSelected()) {
-//            addShopItems("/Fxml/customizeBlock.fxml", );
+            int columnArmor = 0;
+            int rowArmor = 1;
+            for(Item item: ShopController.getShop().getBuyedHeadWearList()){
+                try {
+                    FXMLScene fxmlScene = FXMLScene.load("/Fxml/customizeBlock.fxml");
+                    CustomizeBlockController customizeBlockController = (CustomizeBlockController) fxmlScene.controller;
+                    String imagePath = item.getImgSrc();
+                    InputStream imageStream = getClass().getResourceAsStream(imagePath);
+                    if (imageStream != null) {
+                        customizeBlockController.setCustomizeBlockData(new Image(imageStream));
+                        customizeBlockController.setPath(imagePath);
+                        ImageView imageView = (ImageView) fxmlScene.root.lookup("#componentImg");
+                        imageView.getProperties().put("controller", customizeBlockController);
+                        imageView.setOnMouseClicked(this::setComponent);
+
+                    } else {
+                        System.err.println("Shirt Image not found: " + imagePath);
+                    }
+
+                    gridPaneHeadGear.add(fxmlScene.root, columnArmor++, rowArmor);
+                    if (columnArmor == 7) {
+                        columnArmor = 0;
+                        rowArmor++;
+                    }
+                } catch (IOException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
         }
     }
 
@@ -256,6 +286,15 @@ public class ProfileEditController implements Initializable {
                         UserInformation.userInfo.setAvatarImageArmor(UserInformation.userInfo.getAvatarImageArmor());
                     }
                 }
+                else if (parentGrid == gridPaneHeadGear) {
+                    setHeadGear(clickedImageView);
+                    if (clickedImageView.getImage() != null) {
+                        StaticUserInformation.avatarImageHeadGear = clickedImageView.getImage();
+                        UserInformation.userInfo.setAvatarImageHeadGear(selectedBlockController.getPath());
+                    } else {
+                        UserInformation.userInfo.setAvatarImageHeadGear(UserInformation.userInfo.getAvatarImageHeadGear());
+                    }
+                }
             }
         }
     }
@@ -294,6 +333,7 @@ public class ProfileEditController implements Initializable {
         avatarHair.setImage(StaticUserInformation.avatarImageHair);
         image_bg.setImage(StaticUserInformation.avatarImageBg);
         avatarArmor.setImage(StaticUserInformation.avatarImageArmor);
+        headGear.setImage(StaticUserInformation.avatarImageHeadGear);
         // Adding Default Backgrounds
         File bgFile = new File("src/main/resources/Images/backgrounds/Defaults");
         File[] listBGFile = bgFile.listFiles();
