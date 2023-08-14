@@ -73,3 +73,7 @@
     -fx-font-size: 50px;
     -fx-text-fill: #9580FF;
 }
+.breakBoxButton{
+    -fx-font-family: "Product Sans Medium";
+    -fx-font-size: 12px;
+}
