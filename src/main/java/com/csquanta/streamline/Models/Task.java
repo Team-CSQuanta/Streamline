@@ -2,7 +2,7 @@ package com.csquanta.streamline.Models;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.TreeSet;
+import java.util.Collections;
 
 public class Task {
     public static Task taskObject = new Task();
@@ -13,6 +13,7 @@ public class Task {
     public void removeTask(Task task){
         tasksList.remove(task);
     }
+
     private String taskTitle;
     private int numOfSessions;
     private LocalDate dueDate;
@@ -31,6 +32,8 @@ public class Task {
         this.tasksList = tasksList;
     }
 
+
+
     public Task(String taskTitle, int numOfSessions, LocalDate dueDate, String priority, String tag, String description) {
         this.taskTitle = taskTitle;
         this.numOfSessions = numOfSessions;
@@ -39,6 +42,8 @@ public class Task {
         this.tag = tag;
         this.description = description;
     }
+
+
 
     public String getTaskTitle() {
         return taskTitle;
