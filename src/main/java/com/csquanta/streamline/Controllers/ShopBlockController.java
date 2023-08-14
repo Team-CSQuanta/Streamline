@@ -76,12 +76,10 @@ public class ShopBlockController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         TreeSet<Item> headWearInShop = ShopController.getShop().getHeadWearList();
-        ShopController.getShop().firstInitializeHeadWear();
         headWearTabHBox.getChildren().removeAll();
         addItemToShop(headWearInShop, headWearTabHBox, "Head Wear");
 
         TreeSet<Item> armorsInShop = ShopController.getShop().getArmorsList();
-        ShopController.getShop().firstInitializeArmor();
         addItemToShop(armorsInShop, armorTabHbox, "Armor");
     }
 }

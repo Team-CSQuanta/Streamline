@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 import java.util.TreeSet;
 
 public class ShopController implements Initializable {
-    private static final Shop shop = new Shop();
+    public  static Shop shop = new Shop();
 
     public static Shop getShop() {
         return shop;
