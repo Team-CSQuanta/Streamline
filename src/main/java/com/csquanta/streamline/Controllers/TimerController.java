@@ -2,8 +2,11 @@ package com.csquanta.streamline.Controllers;
 
 
 import com.csquanta.streamline.CountDown;
+import com.csquanta.streamline.Models.Task;
 import com.csquanta.streamline.PomodoroClock;
 import com.csquanta.streamline.TimeMode;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -13,23 +16,39 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
+import org.w3c.dom.ls.LSOutput;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static com.csquanta.streamline.Models.Task.taskObject;
 
 public class TimerController {
     @FXML private VBox container;
     @FXML private Label clockLabel;
     @FXML private ProgressBar clockProgressBar;
     @FXML private Button toggleBtn;
-    @FXML private Button pomodoroBtn;
-    @FXML private Button shortBreakBtn;
-    @FXML private Button longBreakBtn;
-    @FXML private ImageView icon;
+    @FXML
+    private Label sessionCount;
 
+    @FXML private Button pomodoroBtn;
+    Task task = new Task();
     private CountDown countdown;
     private PomodoroClock clock;
+    private int pomodoroSessions;
+    private final int maxLoopsCounts = pomodoroSessions;
+
+    public int currentAutoLoop =1;
     private Map<Button, TimeMode> buttonToMode;
+
+    public int getPomodoroSessions() {
+        return pomodoroSessions;
+    }
+
+    public void setPomodoroSessions(int pomodoroSessions) {
+        this.pomodoroSessions = pomodoroSessions;
+    }
 
     @FXML
     public void initialize() {
@@ -37,6 +56,7 @@ public class TimerController {
                 this, clockLabel, clockProgressBar, TimeMode.POMODORO);
         countdown = new CountDown(TimeMode.POMODORO, clock);
         initializeButtonToMode();
+        System.out.println("max"+maxLoopsCounts);
     }
 
     private void initializeButtonToMode() {
@@ -54,7 +74,7 @@ public class TimerController {
 
     private void stop() {
         countdown.stop();
-        updateToggleBtn("Resume");
+//        updateToggleBtn("Resume");
     }
 
     private void updateToggleBtn(String text) {
@@ -62,8 +82,6 @@ public class TimerController {
     }
 
     private void activate() {
-        if (countdown.isTimeUp())
-            reset();
         start();
     }
 
@@ -78,38 +96,27 @@ public class TimerController {
     }
 
     private void start() {
+        System.out.println("max"+maxLoopsCounts);
         countdown.start();
         updateToggleBtn("Stop");
-    }
-
-    public void modeBtnClicked(ActionEvent event) {
-        Button button = (Button) event.getSource();
-        TimeMode mode = buttonToMode.get(button);
-        changeMode(mode);
-        highlightModeButton(button);
-    }
-
-    private void changeMode(TimeMode mode) {
-        countdown.setMode(mode);
-        clock.setMode(mode);
-        removeTimeIsUpStyles();
-        start();
-    }
-
-    private void highlightModeButton(Button button) {
-        removeModeButtonHighlighting();
-        button.getStyleClass().add("highlight-btn");
-    }
-
-    private void removeModeButtonHighlighting() {
-        pomodoroBtn.getStyleClass().remove("highlight-btn");
-        shortBreakBtn.getStyleClass().remove("highlight-btn");
     }
 
     public void timeIsUp() {
         addTimeIsUpStyles();
         playSound();
-        updateToggleBtn("Reset");
+
+        if ( currentAutoLoop < maxLoopsCounts) {
+            reset();
+            currentAutoLoop++;
+            start();
+           sessionCount.setText(String.valueOf(currentAutoLoop));
+            System.out.println(currentAutoLoop);
+
+
+        } else {
+            stop();
+            updateToggleBtn("Reset");
+        }
     }
 
     private void addTimeIsUpStyles() {
@@ -118,10 +125,10 @@ public class TimerController {
     }
 
     private void playSound() {
-//        Media sound = new Media(this.getClass().getResource("/Sounds/sound.wav").toString());
-//        MediaPlayer player = new MediaPlayer(sound);
-//
-//        player.play();
+       Media sound = new Media(this.getClass().getResource("/Sounds/sound.wav").toString());
+      MediaPlayer player = new MediaPlayer(sound);
+
+        player.play();
     }
 
 

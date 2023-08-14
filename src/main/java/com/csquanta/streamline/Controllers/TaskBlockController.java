@@ -12,7 +12,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.net.URL;
+import java.sql.Time;
 import java.util.Objects;
+import java.util.ResourceBundle;
+import java.util.Timer;
 
 public class TaskBlockController {
 
@@ -82,5 +86,10 @@ public class TaskBlockController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
     }
 }

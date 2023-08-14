@@ -55,6 +55,10 @@ public class TaskCreatorController implements Initializable {
     @FXML
     private TextField title;
 
+    public ComboBox<String> getPomodoroSessions() {
+        return pomodoroSessions;
+    }
+
     @FXML
     void onCancelButtonClicked(ActionEvent event) {
         CreateANewTaskController.modalPaneForTaskCreator.hide(true);
