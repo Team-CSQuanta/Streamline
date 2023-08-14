@@ -15,6 +15,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 import java.net.URL;
 import java.util.Map;
@@ -37,12 +39,6 @@ public class TaskBlockController implements Initializable {
     @FXML
     private VBox timerContainer;
 
-
-
-
-    // Timer
-
-
     @FXML
     private Label clockLabel;
 
@@ -60,36 +56,13 @@ public class TaskBlockController implements Initializable {
     @FXML
     private Label totalSession;
 
+    private CountDown countdown;
+    private PomodoroClock clock;
 
-    @FXML
-    void toggleBtnClicked(ActionEvent event) {
-        if (countdown.isRunning())
-            stop();     // stops the counter if it is already running
-        else
-            activate(); // activate the counter if it is not running
-    }
+    private int maxLoopsCounts = 0;
 
-
-
-
-
-
-
-
-
-    public VBox getTimerContainer() {
-        return timerContainer;
-    }
-//    private int pomodoroSession;
-//
-//    public int getPomodoroSession() {
-//        return pomodoroSession;
-//    }
-//
-//    public void setPomodoroSession(int pomodoroSession) {
-//        this.pomodoroSession = pomodoroSession;
-//    }
-
+    public int currentAutoLoop =1;
+    private Map<Button, TimeMode> buttonToMode;
     @FXML
     private ImageView startImage;
 
@@ -125,10 +98,26 @@ public class TaskBlockController implements Initializable {
         this.taskTitle.setText(taskTitle);
     }
 
+    public Label getTotalSession() {
+        return totalSession;
+    }
+
+    public void setTotalSession(Label totalSession) {
+        this.totalSession = totalSession;
+    }
+
     @FXML
     void mouseEnteredinStarBox(MouseEvent event) {
-//        Wobble wobble = new Wobble(this.);
-//        wobble.play();
+//      Wobble wobble = new Wobble(this);
+//      wobble.play();
+    }
+
+    @FXML
+    void toggleBtnClicked(ActionEvent event) {
+        if (countdown.isRunning())
+            stop();     // stops the counter if it is already running
+        else
+            activate(); // activate the counter if it is not running
     }
 
     @FXML
@@ -137,17 +126,6 @@ public class TaskBlockController implements Initializable {
             Parent parent = container.getParent();
             Label label = (Label) parent.lookup("#numOfPomodoroSession");
             System.out.println(label.getText());
-//            try {
-////                FXMLScene fxmlScene = FXMLScene.load("/Fxml/timer.fxml");
-////                VBox timer = (VBox) fxmlScene.root;
-////                TimerController controller = (TimerController) fxmlScene.controller;
-////                controller.setTotalSession(label.getText());
-////                controller.
-////                timerContainer.getChildren().setAll(timer);
-////                new FadeIn(timer).play();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
         }
 
     }
@@ -164,25 +142,13 @@ public class TaskBlockController implements Initializable {
 
 
 
-
-
-
-//    ........
-   private CountDown countdown;
-    private PomodoroClock clock;
-
-    private int maxLoopsCounts = 0;
-
-    public int currentAutoLoop =1;
-    private Map<Button, TimeMode> buttonToMode;
-
-    public void initialize() {
+//    public void initialize() {
 //        clock = new PomodoroClock(
 //                this, clockLabel, clockProgressBar, TimeMode.POMODORO);
 //        countdown = new CountDown(TimeMode.POMODORO, clock);
 //        initializeButtonToMode();
 //        System.out.println("max"+maxLoopsCounts);
-    }
+//    }
 
 //    private void initializeButtonToMode() {
 //        buttonToMode = new HashMap<>();
@@ -225,7 +191,7 @@ public class TaskBlockController implements Initializable {
         addTimeIsUpStyles();
         playSound();
 
-        if ( currentAutoLoop < maxLoopsCounts) {
+        if ( currentAutoLoop < Integer.parseInt(this.getTotalSession().getText())){
             reset();
             currentAutoLoop++;
             start();
@@ -245,10 +211,10 @@ public class TaskBlockController implements Initializable {
     }
 
     private void playSound() {
-//        Media sound = new Media(this.getClass().getResource("/Sounds/sound.wav").toString());
-//        MediaPlayer player = new MediaPlayer(sound);
-//
-//        player.play();
+        Media sound = new Media(this.getClass().getResource("/Sounds/sound.wav").toString());
+        MediaPlayer player = new MediaPlayer(sound);
+
+        player.play();
     }
 
 
