@@ -77,6 +77,8 @@ public class ProfileViewController implements Initializable {
         avatarHair.setImage(StaticUserInformation.avatarImageHair);
         image_bg.setImage(StaticUserInformation.avatarImageBg);
         avatarArmor.setImage(StaticUserInformation.avatarImageArmor);
+        headGear.setImage(StaticUserInformation.avatarImageHeadGear);
         priceLabel.setText(StaticUserInformation.totalGoldCoins.toString());
+
     }
 }

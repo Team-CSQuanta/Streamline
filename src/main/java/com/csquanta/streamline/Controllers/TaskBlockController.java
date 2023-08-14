@@ -1,5 +1,6 @@
 package com.csquanta.streamline.Controllers;
 
+import animatefx.animation.FadeIn;
 import animatefx.animation.Wobble;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -76,9 +77,12 @@ public class TaskBlockController {
     void start(MouseEvent event) {
         try {
             FXMLScene fxmlScene = FXMLScene.load("/Fxml/timer.fxml");
+            TimerController timerController = (TimerController) fxmlScene.controller;
+            timerController.setNumPomodoroSessions(Integer.parseInt(numOfPomodoroSession.getText()));
             VBox timer = (VBox) fxmlScene.root;
-
             timerContainer.getChildren().setAll(timer);
+
+            new FadeIn(timer).play();
         } catch (IOException e) {
             e.printStackTrace();
         }

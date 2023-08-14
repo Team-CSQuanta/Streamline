@@ -9,6 +9,7 @@ public class PomodoroClock implements CountDownObserver {
     private final ProgressBar progressBar;
     private TimeMode mode;
 
+
     public PomodoroClock(TimerController controller,
                          Label clockLabel,
                          ProgressBar progressBar,
