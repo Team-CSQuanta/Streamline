@@ -15,7 +15,7 @@ public class Task {
     }
     private String taskTitle;
     private int numOfSessions;
-    private static LocalDate dueDate;
+    private LocalDate dueDate;
     private String priority;
     private String tag;
     private String description;

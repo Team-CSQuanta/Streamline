@@ -1,17 +1,8 @@
 package com.csquanta.streamline;
-
-//import com.github.janbican.model.CountDownObserver;
-//import com.github.janbican.model.TimeMode;
 import com.csquanta.streamline.Controllers.TimerController;
 import javafx.application.Platform;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
-
-/*
- * Observers CountDown instance
- * Takes care of displaying progress
- * through Label and ProgressBar
- */
 public class PomodoroClock implements CountDownObserver {
     private final TimerController controller;
     private final Label clockLabel;

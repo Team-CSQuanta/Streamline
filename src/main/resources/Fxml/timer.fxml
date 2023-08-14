@@ -8,34 +8,30 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="container" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="248.0" prefWidth="230.0" styleClass="container" stylesheets="@../Styles/timer.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.TimerController">
+<VBox fx:id="container" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="248.0" prefWidth="230.0" style="-fx-background-radius: 15px 0px 0px 15px; -fx-border-radius: 15px 0px 0px 15px;" stylesheets="@../Styles/timer.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.TimerController">
    <children>
       <HBox alignment="CENTER" prefHeight="159.0" prefWidth="230.0">
          <children>
             <VBox alignment="CENTER" prefHeight="127.0" prefWidth="165.0">
                <children>
-                  <VBox alignment="CENTER" prefHeight="65.0" prefWidth="165.0">
+                  <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="165.0">
                      <children>
                         <ProgressBar fx:id="clockProgressBar" prefHeight="11.0" prefWidth="164.0" progress="0.0" styleClass="clock-progress-bar" />
                      </children>
                   </VBox>
-                  <Label fx:id="clockLabel" alignment="CENTER" prefHeight="68.0" prefWidth="165.0" styleClass="timerText" text="24:59">
+                  <Label fx:id="clockLabel" alignment="CENTER" prefHeight="73.0" prefWidth="165.0" styleClass="timerText" text="24:59">
                      <font>
                         <Font size="52.0" />
                      </font>
                   </Label>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label prefHeight="8.0" prefWidth="119.0" text="Running session:">
+                        <Label prefHeight="19.0" prefWidth="57.0" styleClass="description" text="Session">
                            <HBox.margin>
                               <Insets left="12.0" right="5.0" />
                            </HBox.margin>
                         </Label>
-                        <Label prefHeight="0.0" prefWidth="6.0" text="1">
-                           <HBox.margin>
-                              <Insets bottom="10.0" />
-                           </HBox.margin>
-                        </Label>
+                        <Label prefHeight="18.0" prefWidth="16.0" styleClass="description" text="1" />
                      </children>
                      <VBox.margin>
                         <Insets />
@@ -45,9 +41,9 @@
             </VBox>
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="230.0" spacing="5.0">
          <children>
-            <Button fx:id="toggleBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toggleBtnClicked" prefHeight="36.0" prefWidth="112.0" styleClass="toggle-btn" text="START" />
+            <Button fx:id="toggleBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#toggleBtnClicked" prefHeight="35.0" prefWidth="75.0" styleClass="toggle-btn" text="Start" textAlignment="CENTER" />
          </children>
       </HBox>
    </children>
