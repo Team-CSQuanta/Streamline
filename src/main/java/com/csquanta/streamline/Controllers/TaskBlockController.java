@@ -34,6 +34,13 @@ public class TaskBlockController {
     @FXML
     private ImageView startImage;
 
+    public HBox getLabelContainer() {
+        return labelContainer;
+    }
+
+    public void setLabelContainer(HBox labelContainer) {
+        this.labelContainer = labelContainer;
+    }
 
     public Label getDueDate() {
         return dueDate;

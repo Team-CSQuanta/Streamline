@@ -1,24 +1,19 @@
 package com.csquanta.streamline.Controllers;
 
-//import com.github.janbican.model.CountDown;
-//import com.github.janbican.model.TimeMode;
 
 import com.csquanta.streamline.CountDown;
 import com.csquanta.streamline.PomodoroClock;
 import com.csquanta.streamline.TimeMode;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -52,14 +47,14 @@ public class TimerController {
 
     public void toggleBtnClicked() {
         if (countdown.isRunning())
-            stop();
+            stop();     // stops the counter if it is already running
         else
-            activate();
+            activate(); // activate the counter if it is not running
     }
 
     private void stop() {
         countdown.stop();
-        updateToggleBtn("RESUME");
+        updateToggleBtn("Resume");
     }
 
     private void updateToggleBtn(String text) {
@@ -84,7 +79,7 @@ public class TimerController {
 
     private void start() {
         countdown.start();
-        updateToggleBtn("STOP");
+        updateToggleBtn("Stop");
     }
 
     public void modeBtnClicked(ActionEvent event) {
@@ -114,7 +109,7 @@ public class TimerController {
     public void timeIsUp() {
         addTimeIsUpStyles();
         playSound();
-        updateToggleBtn("RESET");
+        updateToggleBtn("Reset");
     }
 
     private void addTimeIsUpStyles() {
@@ -123,10 +118,10 @@ public class TimerController {
     }
 
     private void playSound() {
-        Media sound = new Media(this.getClass().getResource("/Sounds/sound.wav").toString());
-        MediaPlayer player = new MediaPlayer(sound);
-
-        player.play();
+//        Media sound = new Media(this.getClass().getResource("/Sounds/sound.wav").toString());
+//        MediaPlayer player = new MediaPlayer(sound);
+//
+//        player.play();
     }
 
 

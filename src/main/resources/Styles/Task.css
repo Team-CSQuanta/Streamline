@@ -32,6 +32,9 @@
     -fx-border-radius: 5px;
     -fx-font-size: 12px;
 }
+.tagContainer{
+    -fx-font-family: "Product Sans Medium";
+}
 .sessionTag{
     -fx-font-family: "Product Sans Medium";
     -fx-font-size: 15px;

@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox fx:id="mainHbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#createANewTaskClicked" onMouseEntered="#mouseEnteredIntoHBox" prefHeight="250.0" prefWidth="500.0" style="-fx-border-color: #9580FF; -fx-border-radius: 15px; -fx-background-radius: 15px;" stylesheets="@../Styles/Task.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.CreateANewTaskController">
+<HBox fx:id="mainHbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#createANewTaskClicked" onMouseEntered="#mouseEnteredIntoHBox" prefHeight="250.0" prefWidth="580.0" style="-fx-border-color: #9580FF; -fx-border-radius: 15px; -fx-background-radius: 15px;" stylesheets="@../Styles/Task.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.CreateANewTaskController">
    <children>
-      <VBox fx:id="timerContainer" alignment="CENTER" prefHeight="248.0" prefWidth="150.0" style="-fx-background-radius: 15px 0px 0px 15px; -fx-border-width: 0px 1px 0px 0px; -fx-border-color: #9580FF;">
+      <VBox fx:id="timerContainer" alignment="CENTER" prefHeight="248.0" prefWidth="230.0" style="-fx-background-radius: 15px 0px 0px 15px; -fx-border-width: 0px 1px 0px 0px; -fx-border-color: #9580FF;">
          <children>
             <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>

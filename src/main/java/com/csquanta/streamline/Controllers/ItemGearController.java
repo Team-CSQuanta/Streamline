@@ -98,10 +98,9 @@ public class ItemGearController implements Initializable {
         itemPrice.setText(item.getPrice());
     }
     public void soundPlayer(String soundPath){
-        Media sound = new Media(this.getClass().getResource(soundPath).toString());
-        MediaPlayer player = new MediaPlayer(sound);
-        player.play();
-
+//        Media sound = new Media(this.getClass().getResource(soundPath).toString());
+//        MediaPlayer player = new MediaPlayer(sound);
+//        player.play();
 
     }
 
