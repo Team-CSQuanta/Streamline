@@ -1,8 +1,14 @@
 package com.csquanta.streamline.Models;
 
-import java.io.Serializable;
+import com.csquanta.streamline.Controllers.ShopBlockController;
+import com.csquanta.streamline.Controllers.ShopController;
+import javafx.scene.image.Image;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.TreeSet;
+
+import static java.util.Objects.requireNonNull;
 
 public class Shop implements Serializable {
     private final TreeSet<Item> armorsList = new TreeSet<>(new ItemComparator());
@@ -14,6 +20,7 @@ public class Shop implements Serializable {
     }
     public void addHeadWearToBuyedList(Item item){
         buyedHeadWearList.add(item);
+        headWearList.remove(item);
     }
     public void removeHeadWearFromBuyedList(Item item){
         buyedHeadWearList.remove(item);
@@ -23,6 +30,7 @@ public class Shop implements Serializable {
     }
     public void addArmorToBuyedList(Item item){
         buyedArmorList.add(item);
+        armorsList.remove(item);
     }
     public void removeArmorFromBuyedList(Item item){
         buyedArmorList.remove(item);
@@ -35,6 +43,12 @@ public class Shop implements Serializable {
     }
     public void removeArmor(Item item){
         armorsList.remove(item);
+    }
+    public Shop(){
+        firstPetInitialize();
+        firstInitializeBackgrounds();
+        firstInitializeHeadWear();
+        firstInitializeHeadWear();
     }
     public TreeSet<Item> firstInitializeArmor(){
         // adding healer armor
@@ -186,5 +200,23 @@ public class Shop implements Serializable {
 //        petsList.add(new Item("/Images/stable/pets/Pet-Turkey-Base.png", "Turkey", "1500"));
 
         return petsList;
+    }
+
+    public static void serializeShop(){
+        try(ObjectOutputStream objOStream = new ObjectOutputStream(new FileOutputStream("Shop_Info"))){
+            Shop shop = ShopController.getShop();
+            objOStream.writeObject(shop);
+        }catch (Exception e){
+            System.out.println("Serialization failed");
+        }
+    }
+    public static void deserializeShop(){
+        try(ObjectInputStream objIStream = new ObjectInputStream(new FileInputStream("Shop_Info"))){
+            ShopController.shop = (Shop) objIStream.readObject();
+
+        }catch (Exception e){
+            System.out.println("Deserialization failed");
+            e.printStackTrace();
+        }
     }
 }
