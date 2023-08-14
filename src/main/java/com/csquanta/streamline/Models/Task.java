@@ -15,7 +15,7 @@ public class Task {
     }
     private String taskTitle;
     private int numOfSessions;
-    private LocalDate dueDate;
+    private static LocalDate dueDate;
     private String priority;
     private String tag;
     private String description;
@@ -57,6 +57,7 @@ public class Task {
     }
 
     public LocalDate getDueDate() {
+
         return dueDate;
     }
 
@@ -88,4 +89,18 @@ public class Task {
         this.description = description;
     }
 
+
+    public  String getFormattedDueDate() {
+        String monthAbbreviation = dueDate.getMonth().name().substring(0, 3);
+        int day = dueDate.getDayOfMonth();
+        int year = dueDate.getYear();
+        return String.format("%s %02d, %04d", monthAbbreviation, day, year);
+    }
+    public boolean isUrgent() {
+        return priority.toLowerCase().contains("urgent") && !priority.toLowerCase().contains("not urgent");
+    }
+
+    public boolean isImportant() {
+        return priority.toLowerCase().contains("important") && !priority.toLowerCase().contains("not important");
+    }
 }
