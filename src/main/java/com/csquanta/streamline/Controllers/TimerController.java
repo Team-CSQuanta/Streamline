@@ -35,6 +35,15 @@ public class TimerController {
     private CountDown countdown;
     private PomodoroClock clock;
     private int pomodoroSessions;
+
+    public int getPomodoroSessions() {
+        return pomodoroSessions;
+    }
+
+    public void setPomodoroSessions(int pomodoroSessions) {
+        this.pomodoroSessions = pomodoroSessions;
+    }
+
     private final int maxLoopsCounts = pomodoroSessions;
 
     public int currentAutoLoop =1;
