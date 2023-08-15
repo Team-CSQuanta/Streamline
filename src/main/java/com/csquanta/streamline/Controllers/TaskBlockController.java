@@ -1,5 +1,6 @@
 package com.csquanta.streamline.Controllers;
 
+import animatefx.animation.FadeIn;
 import animatefx.animation.Wobble;
 import com.csquanta.streamline.CountDown;
 import com.csquanta.streamline.PomodoroClock;
@@ -16,11 +17,22 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Map;
 import java.util.ResourceBundle;
 
 public class TaskBlockController implements Initializable {
+    public static  VBox StaticTimerContainer;
+    private VBox breakContainer;
+
+    public VBox getBreakContainer() {
+        return breakContainer;
+    }
+
+    public void setBreakContainer(VBox breakContainer) {
+        this.breakContainer = breakContainer;
+    }
 
     @FXML
     private Label dueDate;
@@ -37,10 +49,11 @@ public class TaskBlockController implements Initializable {
     @FXML
     private VBox timerContainer;
 
+    public void setTimerContainer(VBox timerContainer) {
+        this.timerContainer = timerContainer;
+    }
 
-
-
-    // Timer
+// Timer
 
 
     @FXML
@@ -52,13 +65,21 @@ public class TaskBlockController implements Initializable {
     @FXML
     private VBox container;
 
+    public VBox getContainer() {
+        return container;
+    }
+
+    public void setContainer(VBox container) {
+        this.container = container;
+    }
+
+    public static VBox mainContainerOfTimer;
+
+
     @FXML
     private Label sessionCount;
     @FXML
     private Button toggleBtn;
-
-    @FXML
-    private Label totalSession;
 
 
     @FXML
@@ -80,17 +101,8 @@ public class TaskBlockController implements Initializable {
     public VBox getTimerContainer() {
         return timerContainer;
     }
-//    private int pomodoroSession;
-//
-//    public int getPomodoroSession() {
-//        return pomodoroSession;
-//    }
-//
-//    public void setPomodoroSession(int pomodoroSession) {
-//        this.pomodoroSession = pomodoroSession;
-//    }
 
-    @FXML
+ @FXML
     private ImageView startImage;
 
     public HBox getLabelContainer() {
@@ -131,26 +143,6 @@ public class TaskBlockController implements Initializable {
 //        wobble.play();
     }
 
-    @FXML
-    void start(MouseEvent event) {
-        if(event.getSource() instanceof  VBox container){
-            Parent parent = container.getParent();
-            Label label = (Label) parent.lookup("#numOfPomodoroSession");
-            System.out.println(label.getText());
-//            try {
-////                FXMLScene fxmlScene = FXMLScene.load("/Fxml/timer.fxml");
-////                VBox timer = (VBox) fxmlScene.root;
-////                TimerController controller = (TimerController) fxmlScene.controller;
-////                controller.setTotalSession(label.getText());
-////                controller.
-////                timerContainer.getChildren().setAll(timer);
-////                new FadeIn(timer).play();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-        }
-
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -158,7 +150,6 @@ public class TaskBlockController implements Initializable {
                 this, clockLabel, clockProgressBar, TimeMode.POMODORO);
         countdown = new CountDown(TimeMode.POMODORO, clock);
 //        initializeButtonToMode();
-        System.out.println("max"+maxLoopsCounts);
 
     }
 
@@ -171,7 +162,15 @@ public class TaskBlockController implements Initializable {
    private CountDown countdown;
     private PomodoroClock clock;
 
-    private int maxLoopsCounts = 0;
+    private int maxLoopsCounts;
+
+    public int getMaxLoopsCounts() {
+        return maxLoopsCounts;
+    }
+
+    public void setMaxLoopsCounts(int maxLoopsCounts) {
+        this.maxLoopsCounts = maxLoopsCounts;
+    }
 
     public int currentAutoLoop =1;
     private Map<Button, TimeMode> buttonToMode;
@@ -206,13 +205,7 @@ public class TaskBlockController implements Initializable {
     }
 
     private void reset() {
-        removeTimeIsUpStyles();
         countdown.reset();
-    }
-
-    private void removeTimeIsUpStyles() {
-        container.getStyleClass().remove("time-is-up-background");
-        toggleBtn.getStyleClass().remove("time-is-up-color");
     }
 
     private void start() {
@@ -222,10 +215,19 @@ public class TaskBlockController implements Initializable {
     }
 
     public void timeIsUp() {
-        addTimeIsUpStyles();
         playSound();
 
         if ( currentAutoLoop < maxLoopsCounts) {
+            try {
+                FXMLScene fxmlScene = FXMLScene.load("/Fxml/PomodoroBreak.fxml");
+                VBox root = (VBox) fxmlScene.root;
+                breakContainer.getChildren().clear();
+                breakContainer.getChildren().setAll(root);
+                new FadeIn(root);
+
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
             reset();
             currentAutoLoop++;
             start();
@@ -239,10 +241,6 @@ public class TaskBlockController implements Initializable {
         }
     }
 
-    private void addTimeIsUpStyles() {
-        container.getStyleClass().add("time-is-up-background");
-        toggleBtn.getStyleClass().add("time-is-up-color");
-    }
 
     private void playSound() {
 //        Media sound = new Media(this.getClass().getResource("/Sounds/sound.wav").toString());

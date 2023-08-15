@@ -32,8 +32,6 @@
                            </HBox.margin>
                         </Label>
                         <Label fx:id="sessionCount" prefHeight="18.0" prefWidth="16.0" styleClass="description" text="1" />
-                        <Label prefHeight="18.0" prefWidth="16.0" styleClass="description" text="/" />
-                        <Label fx:id="totalSession" prefHeight="18.0" prefWidth="16.0" styleClass="description" text="3" />
                      </children>
                      <VBox.margin>
                         <Insets />

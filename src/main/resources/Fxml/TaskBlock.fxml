@@ -14,7 +14,7 @@
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="580.0" style="-fx-border-color: #9580FF; -fx-border-radius: 15px; -fx-background-radius: 15px;" stylesheets="@../Styles/Task.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.TaskBlockController">
    <children>
-      <VBox fx:id="timerContainer" alignment="CENTER" onMouseClicked="#start" onMouseEntered="#mouseEnteredinStarBox" prefHeight="248.0" prefWidth="230.0" style="-fx-border-color: #9580FF; -fx-border-radius: 15px 0px 0px 15px; -fx-border-width: 0px 1px 0px 0px;">
+      <VBox fx:id="timerContainer" alignment="CENTER" onMouseEntered="#mouseEnteredinStarBox" prefHeight="248.0" prefWidth="230.0" style="-fx-border-color: #9580FF; -fx-border-radius: 15px 0px 0px 15px; -fx-border-width: 0px 1px 0px 0px;">
          <children>
             <VBox fx:id="container" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="248.0" prefWidth="229.0" style="-fx-background-radius: 15px 0px 0px 15px; -fx-border-radius: 15px 0px 0px 15px;" stylesheets="@../Styles/timer.css">
                <children>
@@ -40,8 +40,6 @@
                                        </HBox.margin>
                                     </Label>
                                     <Label fx:id="sessionCount" prefHeight="18.0" prefWidth="16.0" styleClass="description" text="1" />
-                                    <Label prefHeight="18.0" prefWidth="16.0" styleClass="description" text="/" />
-                                    <Label fx:id="totalSession" prefHeight="18.0" prefWidth="16.0" styleClass="description" text="3" />
                                  </children>
                                  <VBox.margin>
                                     <Insets />
