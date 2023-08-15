@@ -5,7 +5,8 @@ import javafx.application.Platform;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 public class PomodoroClock implements CountDownObserver {
-    private final TaskBlockController controller;
+    private TaskBlockController controller;
+    private TimerController controller2;
     private final Label clockLabel;
     private final ProgressBar progressBar;
     private TimeMode mode;
@@ -20,7 +21,12 @@ public class PomodoroClock implements CountDownObserver {
         this.progressBar = progressBar;
         setMode(mode);
     }
-
+    public PomodoroClock(TimerController controller, Label clockLabel, ProgressBar progressBar, TimeMode mode){
+        this.controller2 = controller;
+        this.clockLabel = clockLabel;
+        this.progressBar = progressBar;
+        setMode(mode);
+    }
     @Override
     public void update(int seconds) {
         Platform.runLater(() -> {
@@ -31,7 +37,12 @@ public class PomodoroClock implements CountDownObserver {
 
     @Override
     public void timeIsUp() {
-     Platform.runLater(controller::timeIsUp);
+        if(controller2 == null){
+            Platform.runLater(controller::timeIsUp);
+        }else{
+            Platform.runLater(controller2::timeIsUp);
+        }
+
    }
 
     private String secondsToString(int seconds) {

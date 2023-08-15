@@ -20,9 +20,9 @@ public class PomodoroBreakController {
 
     @FXML
     void noBreak(ActionEvent event) {
-        TaskBlockController.StaticTimerContainer.getChildren().clear();
-        TaskBlockController.StaticTimerContainer.getChildren().add(TaskBlockController.mainContainerOfTimer);
-        new FadeIn(TaskBlockController.mainContainerOfTimer);
+//        TaskBlockController.StaticTimerContainer.getChildren().clear();
+//        TaskBlockController.StaticTimerContainer.getChildren().add(TaskBlockController.mainContainerOfTimer);
+//        new FadeIn(TaskBlockController.mainContainerOfTimer);
     }
 
     @FXML

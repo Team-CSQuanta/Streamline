@@ -1,14 +1,11 @@
 package com.csquanta.streamline.Controllers;
 
-import animatefx.animation.FadeIn;
-import animatefx.animation.Wobble;
 import com.csquanta.streamline.CountDown;
 import com.csquanta.streamline.PomodoroClock;
 import com.csquanta.streamline.TimeMode;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -23,8 +20,16 @@ import java.util.Map;
 import java.util.ResourceBundle;
 
 public class TaskBlockController implements Initializable {
-    public static  VBox StaticTimerContainer;
     private VBox breakContainer;
+    private VBox tempTimerContainer;
+
+    public VBox getTempTimerContainer() {
+        return tempTimerContainer;
+    }
+
+    public void setTempTimerContainer(VBox tempTimerContainer) {
+        this.tempTimerContainer = tempTimerContainer;
+    }
 
     public VBox getBreakContainer() {
         return breakContainer;
@@ -64,6 +69,7 @@ public class TaskBlockController implements Initializable {
 
     @FXML
     private VBox container;
+   public boolean finished;
 
     public VBox getContainer() {
         return container;
@@ -175,21 +181,6 @@ public class TaskBlockController implements Initializable {
     public int currentAutoLoop =1;
     private Map<Button, TimeMode> buttonToMode;
 
-    public void initialize() {
-//        clock = new PomodoroClock(
-//                this, clockLabel, clockProgressBar, TimeMode.POMODORO);
-//        countdown = new CountDown(TimeMode.POMODORO, clock);
-//        initializeButtonToMode();
-//        System.out.println("max"+maxLoopsCounts);
-    }
-
-//    private void initializeButtonToMode() {
-//        buttonToMode = new HashMap<>();
-//        buttonToMode.put(pomodoroBtn, TimeMode.POMODORO);
-//
-//    }
-
-
 
     private void stop() {
         countdown.stop();
@@ -206,6 +197,7 @@ public class TaskBlockController implements Initializable {
 
     private void reset() {
         countdown.reset();
+        removeTimeIsUpStyles();
     }
 
     private void start() {
@@ -215,25 +207,14 @@ public class TaskBlockController implements Initializable {
     }
 
     public void timeIsUp() {
+        addTimeIsUpStyles();
         playSound();
-
         if ( currentAutoLoop < maxLoopsCounts) {
-            try {
-                FXMLScene fxmlScene = FXMLScene.load("/Fxml/PomodoroBreak.fxml");
-                VBox root = (VBox) fxmlScene.root;
-                breakContainer.getChildren().clear();
-                breakContainer.getChildren().setAll(root);
-                new FadeIn(root);
-
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
             reset();
             currentAutoLoop++;
             start();
             sessionCount.setText(String.valueOf(currentAutoLoop));
             System.out.println(currentAutoLoop);
-
 
         } else {
             stop();
@@ -241,6 +222,35 @@ public class TaskBlockController implements Initializable {
         }
     }
 
+    private void addingBreak(){
+        FXMLScene breakScene;
+        VBox root;
+
+        {
+            try {
+                breakScene = FXMLScene.load("/Fxml/timer.fxml");
+                root = (VBox) breakScene.root;
+                TimerController timerController = (TimerController) breakScene.controller;
+                timerController.setTempContainerOne(tempTimerContainer);
+                timerController.setTempContainerTwo(breakContainer);
+                System.out.println(tempTimerContainer);
+                breakContainer.getChildren().clear();
+                breakContainer.getChildren().setAll(root);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+
+
+    private void removeTimeIsUpStyles() {
+
+
+    }
+    private void addTimeIsUpStyles() {
+        addingBreak();
+    }
 
     private void playSound() {
 //        Media sound = new Media(this.getClass().getResource("/Sounds/sound.wav").toString());
@@ -248,6 +258,7 @@ public class TaskBlockController implements Initializable {
 //
 //        player.play();
     }
+    public static void breakFinished(Boolean b){
 
-
+    }
 }
