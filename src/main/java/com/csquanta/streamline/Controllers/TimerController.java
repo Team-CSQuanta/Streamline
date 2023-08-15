@@ -133,8 +133,10 @@ public class TimerController {
     }
 
     private void addTimeIsUpStyles() {
-        container.getStyleClass().add("time-is-up-background");
-        toggleBtn.getStyleClass().add("time-is-up-color");
+        System.out.println(tempContainerOne);
+        System.out.println(tempContainerTwo);
+        tempContainerTwo.getChildren().clear();
+        tempContainerTwo.getChildren().setAll(tempContainerOne);
     }
 
     private void playSound() {
