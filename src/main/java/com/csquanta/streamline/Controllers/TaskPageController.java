@@ -76,9 +76,10 @@ public class TaskPageController implements Initializable {
                 taskBlockController.setDueDate(t.getFormattedDueDate());
                 taskBlockController.setNumOfPomodoroSession(String.valueOf(t.getNumOfSessions()));
                 taskBlockController.setBreakContainer(taskBlockController.getTimerContainer());
+                taskBlockController.setTempTimerContainer(taskBlockController.getTimerContainer());
+                System.out.println("On Task Page Controller" + taskBlockController.getTempTimerContainer());
                 taskBlockController.setMaxLoopsCounts(t.getNumOfSessions());
-                TaskBlockController.StaticTimerContainer = taskBlockController.getTimerContainer();
-                TaskBlockController.mainContainerOfTimer = taskBlockController.getContainer();
+
                 taskGridPane.add(TaskScene.root, column++, row);
 
                 if(column == 3){
