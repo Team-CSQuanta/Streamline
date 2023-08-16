@@ -25,10 +25,6 @@ public class TaskPageController implements Initializable {
     @FXML
     private VBox taskMainContainer;
 
-//    public GridPane getTaskGridPane() {
-//        return taskGridPane;
-//    }
-
     @FXML
     private ScrollPane taskScrollPane;
 
@@ -75,10 +71,6 @@ public class TaskPageController implements Initializable {
                 taskBlockController.setTaskTitle(t.getTaskTitle());
                 taskBlockController.setDueDate(t.getFormattedDueDate());
                 taskBlockController.setNumOfPomodoroSession(String.valueOf(t.getNumOfSessions()));
-                taskBlockController.setBreakContainer(taskBlockController.getTimerContainer());
-                taskBlockController.setTempTimerContainer(taskBlockController.getTimerContainer());
-                System.out.println("On Task Page Controller" + taskBlockController.getTempTimerContainer());
-                taskBlockController.setMaxLoopsCounts(t.getNumOfSessions());
 
                 taskGridPane.add(TaskScene.root, column++, row);
 
