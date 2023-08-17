@@ -1,23 +1,28 @@
 package com.csquanta.streamline.Controllers;
 
 import animatefx.animation.FadeIn;
+import animatefx.animation.FadeOut;
 import animatefx.animation.Pulse;
+import com.csquanta.streamline.App;
 import com.csquanta.streamline.Models.Task;
+import com.csquanta.streamline.Models.TaskIdGenerator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.geometry.Pos;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+
+import static java.util.Objects.requireNonNull;
 
 public class TaskViewController implements Initializable{
     @FXML
@@ -96,7 +101,7 @@ public class TaskViewController implements Initializable{
         cancel.setVisible(true);
         submit.setVisible(true);
         editImage.setVisible(false);
-        updateTask(task);
+
         new Pulse(taskViewContainer).play();
     }
 
@@ -106,12 +111,14 @@ public class TaskViewController implements Initializable{
     }
 
     @FXML
-    void onSaveButtonClicked(ActionEvent event) {
-
+    void onSaveButtonClicked(ActionEvent event) throws IOException {
+        updateTask(task);
+        reload();
     }
     @FXML
-    void deleteButtonClicked(MouseEvent event) {
-
+    void deleteButtonClicked(MouseEvent event) throws IOException {
+        deleteATask(task);
+        reload();
     }
     public void setPriority(String value){
         priority.setValue(value);
@@ -143,9 +150,31 @@ public class TaskViewController implements Initializable{
     public void updateTask(Task t){
 
         for(Task task: Task.taskObject.getTasksList()){
-            if(task.equals(t)){
-                System.out.println("Yes they are same");
+            if(task.getTaskID() == t.getTaskID()){
+                task.setDueDate(dueDate.getValue());
+                task.setDescription(description.getText());
+                task.setNumOfSessions(Integer.parseInt(pomodoroSessions.getSelectionModel().getSelectedItem()));
+                task.setPriority(priority.getSelectionModel().getSelectedItem());
+                task.setTag(tag.getSelectionModel().getSelectedItem());
+                task.setTaskTitle(title.getText());
             }
         }
+    }
+    public void deleteATask(Task t){
+        Task.taskObject.getTasksList().removeIf(task1 -> task1.getTaskID() == t.getTaskID());
+        TaskIdGenerator.taskIdGenerator.decrementId();
+    }
+    public void reload() throws IOException {
+        VBox taskPage = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/ToDoListGridPane.fxml")));
+        App.root.getChildren().removeAll();
+        App.newLoad();
+        FadeOut fadeIn = new FadeOut(taskPage);
+        fadeIn.play();
+        VBox newTaskPage = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/ToDoListGridPane.fxml")));
+        StackPane.setAlignment(newTaskPage, Pos.BOTTOM_CENTER);
+        App.root.getChildren().add(newTaskPage);
+        CreateANewTaskController.modalPaneForTaskCreator.hide(true);
+        FadeIn fadeInNew = new FadeIn(newTaskPage);
+        fadeInNew.play();
     }
 }

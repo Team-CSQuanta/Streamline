@@ -113,6 +113,7 @@ public class TaskBlockController implements Initializable {
         FXMLScene taskDescription = FXMLScene.load("/Fxml/TaskView.fxml");
         TaskViewController taskViewController = (TaskViewController) taskDescription.controller;
         CreateANewTaskController.modalPaneForTaskCreator.show(taskDescription.root);
+
         taskViewController.setTask(task);
         taskViewController.setTitle(task.getTaskTitle());
         taskViewController.setDescription(task.getDescription());
