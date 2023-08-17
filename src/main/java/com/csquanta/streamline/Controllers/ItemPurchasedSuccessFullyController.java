@@ -30,7 +30,5 @@ public class ItemPurchasedSuccessFullyController {
 
     public void setItemPurchasedImg(ImageView itemPurchasedImg) {
         this.itemPurchasedImg.setImage(itemPurchasedImg.getImage());
-
-
     }
 }
