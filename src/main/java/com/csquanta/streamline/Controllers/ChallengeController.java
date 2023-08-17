@@ -1,8 +1,8 @@
 package com.csquanta.streamline.Controllers;
 
 import animatefx.animation.FadeInUp;
+import animatefx.animation.Pulse;
 import com.csquanta.streamline.Models.EvilMonsters;
-import com.csquanta.streamline.Models.Item;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -62,11 +62,10 @@ public class ChallengeController implements Initializable {
 
     @FXML
     void takeChallenge(ActionEvent event) throws IOException {
-        bottomVbox.getChildren().remove(noChallenge);
-        createChallenge = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/CreateChallenge.fxml")));
-        bottomVbox.getChildren().add(createChallenge);
-        FadeInUp fadeInUp = new FadeInUp(createChallenge);
-        fadeInUp.play();
+        VBox challengeCreatePage = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/ChallengeCreator.fxml")));
+        CreateANewTaskController.modalPaneForTaskCreator.show(challengeCreatePage);
+        Pulse pulse = new Pulse(challengeCreatePage);
+        pulse.play();
     }
 
     @Override

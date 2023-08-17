@@ -21,7 +21,7 @@
             <Insets left="15.0" right="15.0" top="15.0" />
          </VBox.margin>
          <children>
-            <Label contentDisplay="CENTER" prefHeight="64.0" prefWidth="720.0" styleClass="taskNameLabel" text="Add task" textAlignment="JUSTIFY" textFill="#94959b">
+            <Label contentDisplay="CENTER" prefHeight="64.0" prefWidth="720.0" styleClass="taskNameLabel" text="Add a task." textAlignment="JUSTIFY" textFill="#94959b">
                <font>
                   <Font name="Arial Black" size="21.0" />
                </font></Label>
