@@ -48,6 +48,7 @@ public class TaskPageController implements Initializable {
                 TaskScene = FXMLScene.load("/Fxml/TaskBlock.fxml");
                 TaskBlockController taskBlockController = (TaskBlockController) TaskScene.controller;
                 taskBlockController.getLabelContainer().getChildren().removeAll();
+                taskBlockController.setTask(t);
                 Label tagLabel = new Label(t.getTag());
 
                 tagLabel.setMinWidth(Region.USE_PREF_SIZE + 30);

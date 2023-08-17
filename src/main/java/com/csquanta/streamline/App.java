@@ -86,6 +86,5 @@ public class App extends Application {
         });
         root.getChildren().addAll(header, MainStageController.modalPaneForExit, HeaderController.modalPaneForHeader, SidebarController.modalPaneForSignOut, CreateANewTaskController.modalPaneForTaskCreator);
     }
-
 }
 

@@ -1,6 +1,8 @@
 package com.csquanta.streamline.Controllers;
 
+import animatefx.animation.Pulse;
 import animatefx.animation.Wobble;
+import com.csquanta.streamline.Models.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -11,10 +13,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class TaskBlockController implements Initializable {
+    private Task task;
     @FXML
     private Label dueDate;
 
@@ -30,6 +34,13 @@ public class TaskBlockController implements Initializable {
     @FXML
     private VBox timerContainer;
 
+    public Task getTask() {
+        return task;
+    }
+
+    public void setTask(Task task) {
+        this.task = task;
+    }
 // Timer
 
 
@@ -97,6 +108,24 @@ public class TaskBlockController implements Initializable {
         wobble.play();
     }
 
+    @FXML
+    void showTaskDescription(MouseEvent event) throws IOException {
+        FXMLScene taskDescription = FXMLScene.load("/Fxml/TaskView.fxml");
+        TaskViewController taskViewController = (TaskViewController) taskDescription.controller;
+        CreateANewTaskController.modalPaneForTaskCreator.show(taskDescription.root);
+        taskViewController.setTask(task);
+        taskViewController.setTitle(task.getTaskTitle());
+        taskViewController.setDescription(task.getDescription());
+        taskViewController.setDueDate(task.getDueDate());
+        taskViewController.setPriority(task.getPriority());
+        taskViewController.setTag(task.getTag());
+        taskViewController.setPomodoroSessions(String.valueOf(task.getNumOfSessions()));
+        new Pulse(taskDescription.root).play();
+    }
+    @FXML
+    void showPomodoroTimer(MouseEvent event) {
+
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
