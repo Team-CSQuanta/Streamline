@@ -6,6 +6,8 @@ import com.csquanta.streamline.Controllers.HeaderController;
 import com.csquanta.streamline.Controllers.MainStageController;
 import com.csquanta.streamline.Controllers.SidebarController;
 import com.csquanta.streamline.Models.Shop;
+import com.csquanta.streamline.Models.Task;
+import com.csquanta.streamline.Models.TaskIdGenerator;
 import com.csquanta.streamline.Models.UserInformation;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -36,6 +38,8 @@ public class App extends Application {
     public void init(){
         UserInformation.deserializeUserInfo();
         Shop.deserializeShop();
+        Task.deserializeTasks();
+        TaskIdGenerator.deserializeTaskID();
     }
 
     @Override
@@ -66,6 +70,8 @@ public class App extends Application {
     public void stop() {
         UserInformation.serializeUserInfo();
         Shop.serializeShop();
+        Task.serializeTasks();
+        TaskIdGenerator.serializeTaskID();
     }
 
     public static void main(String[] args) {

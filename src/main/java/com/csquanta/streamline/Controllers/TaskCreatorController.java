@@ -5,6 +5,7 @@ import animatefx.animation.FadeOut;
 import com.csquanta.streamline.App;
 import com.csquanta.streamline.Models.Task;
 import com.csquanta.streamline.Models.TaskComparator;
+import com.csquanta.streamline.Models.TaskIdGenerator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -66,7 +67,7 @@ public class TaskCreatorController implements Initializable {
 
     @FXML
     void onSaveButtonClicked(ActionEvent event) throws IOException {
-        Task newTask = new Task(title.getText(), Integer.parseInt(pomodoroSessions.getSelectionModel().getSelectedItem()), dueDate.getValue(), priority.getSelectionModel().getSelectedItem(), tag.getSelectionModel().getSelectedItem(), description.getText());
+        Task newTask = new Task(title.getText(), Integer.parseInt(pomodoroSessions.getSelectionModel().getSelectedItem()), dueDate.getValue(), priority.getSelectionModel().getSelectedItem(), tag.getSelectionModel().getSelectedItem(), description.getText(), TaskIdGenerator.taskIdGenerator.getTaskID());
         taskObject.addTask(newTask);
         TaskComparator taskComparator = new TaskComparator();
         taskObject.getTasksList().sort(taskComparator);
