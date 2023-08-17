@@ -50,7 +50,7 @@
 }
 .taskDescription{
     -fx-font-family: "Product Sans Light";
-    -fx-font-size: 18px;
+    -fx-font-size: 15px;
 }
 .taskDone{
     -fx-font-family: "Product Sans Light";
@@ -61,3 +61,7 @@
      -fx-font-size: 15px;
     -fx-fill: #94959B1A;
  }
+.emailInputBox{
+    -fx-font-family: "Product Sans Light";
+    -fx-font-size: 15px;
+}

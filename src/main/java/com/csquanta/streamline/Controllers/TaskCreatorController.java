@@ -28,9 +28,9 @@ import static java.util.Objects.requireNonNull;
 
 public class TaskCreatorController implements Initializable {
 
-    ObservableList<String> eishenHowerMatrix = FXCollections.observableArrayList("Urgent and important", "Important but not urgent", "Urgent but not important", "Not urgent and not important");
-    ObservableList<String> pomodoroSession = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7", "8");
-    ObservableList<String> tags = FXCollections.observableArrayList("Book Reading", "Academic Studies", "Programming");
+    public static ObservableList<String> eishenHowerMatrix = FXCollections.observableArrayList("Urgent and important", "Important but not urgent", "Urgent but not important", "Not urgent and not important");
+    public static ObservableList<String> pomodoroSession = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7", "8");
+    public static ObservableList<String> tags = FXCollections.observableArrayList("Book Reading", "Academic Studies", "Programming");
     @FXML
     private Button cancel;
 

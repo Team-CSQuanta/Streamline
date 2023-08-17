@@ -1,11 +1,14 @@
 package com.csquanta.streamline.Models;
 
+import javafx.scene.control.DatePicker;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class Task {
     public static Task taskObject = new Task();
+
     private ArrayList<Task> tasksList = new ArrayList<>();
     public void addTask(Task task){
         tasksList.add(task);

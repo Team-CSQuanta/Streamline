@@ -15,7 +15,7 @@
    <children>
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1230.0">
          <children>
-            <Label fx:id="ItemBlockTitle" alignment="CENTER" prefHeight="49.0" prefWidth="547.0" styleClass="topTitle" text="Find your perfect furry friend" />
+            <Label fx:id="ItemBlockTitle" alignment="CENTER" prefHeight="49.0" prefWidth="547.0" styleClass="topTitle" text="Find your perfect friend" />
          </children>
       </HBox>
       <TabPane fx:id="itemBlockTabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="1258.0" styleClass="tabOption" stylesheets="@../Styles/AvatarAccessories.css" tabClosingPolicy="UNAVAILABLE">

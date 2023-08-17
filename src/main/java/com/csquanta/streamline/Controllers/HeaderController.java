@@ -33,7 +33,6 @@ public class HeaderController {
         modalPaneForHeader.show(loader.load());
         Pulse pulse = new Pulse();
         pulse.setNode(modalPaneForHeader);
-        pulse.setSpeed(3);
         pulse.play();
 
     }
@@ -60,7 +59,6 @@ public class HeaderController {
         modalPaneForHeader.show(loader.load());
         Pulse pulse = new Pulse();
         pulse.setNode(modalPaneForHeader);
-        pulse.setSpeed(3);
         pulse.play();
     }
 

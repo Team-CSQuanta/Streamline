@@ -28,7 +28,6 @@ public class CreateANewTaskController implements Initializable {
         modalPaneForTaskCreator.show(taskCreator);
         Pulse pulse = new Pulse();
         pulse.setNode(modalPaneForTaskCreator);
-        pulse.setSpeed(3);
         pulse.play();
     }
 
