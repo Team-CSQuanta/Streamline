@@ -1,24 +1,33 @@
 package com.csquanta.streamline.Models;
 
-import javafx.scene.image.Image;
-
-import java.io.File;
-import java.util.EventListener;
-import java.util.Objects;
 import java.util.TreeSet;
 
 public class EvilMonsters {
+    public static EvilMonsters evilMonstersStaticObject = new EvilMonsters();
     private String name;
     private String monsterImagePath;
     private int health;
     private int damagePerAttack;
     private int prizePoints;
 
-    public EvilMonsters(String name, int health, int damagePerAttack, int prizePoints) {
+    public EvilMonsters() {
+        firstInitializeEvilMonsters();
+    }
+
+    public EvilMonsters(String name, int health, int damagePerAttack, int prizePoints, String monsterImagePath) {
         this.name = name;
         this.health = health;
         this.damagePerAttack = damagePerAttack;
         this.prizePoints = prizePoints;
+        this.monsterImagePath = monsterImagePath;
+    }
+
+    public String getMonsterImagePath() {
+        return monsterImagePath;
+    }
+
+    public void setMonsterImagePath(String monsterImagePath) {
+        this.monsterImagePath = monsterImagePath;
     }
 
     public String getName() {
@@ -63,8 +72,17 @@ public class EvilMonsters {
 
     private TreeSet<EvilMonsters> evilMonstersList = new TreeSet<>(new EvilMonstersComparator());
     public void firstInitializeEvilMonsters(){
-//        evilMonstersList.add(new EvilMonsters());
+        evilMonstersList.add(new EvilMonsters("Amber", 3000, 25, 500, "/Images/bosses/quest_amber_high.png" ));
+        evilMonstersList.add(new EvilMonsters("Armadillo", 1000, 5, 100, "/Images/bosses/quest_armadillo_low.png" ));
+        evilMonstersList.add(new EvilMonsters("Axolotl", 1000, 5, 150, "/Images/bosses/quest_axolotl_low.png" ));
+        evilMonstersList.add(new EvilMonsters("Badger", 2000, 15, 300, "/Images/bosses/quest_badger_medium.png" ));
+        evilMonstersList.add(new EvilMonsters("Butterfly", 1000, 5, 150, "/Images/bosses/quest_butterfly_low.png"));
+        evilMonstersList.add(new EvilMonsters("Cheetah", 3000, 25, 500, "/Images/bosses/quest_cheetah_high.png"));
+        evilMonstersList.add(new EvilMonsters("Derby", 3000, 25, 500, "/Images/bosses/quest_dilatory_derby_high.png"));
+        evilMonstersList.add(new EvilMonsters("Dilatory", 3000, 25, 500, "/Images/bosses/quest_dilatory_high.png"));
+        evilMonstersList.add(new EvilMonsters("Dilatory Distress", 2000, 15, 300, "/Images/bosses/quest_dilatoryDistress3_medium.png"));
     }
+
 //    public void setMonsterData(Item item){
 //        monsterImagePath.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(item.getImgSrc()))));
 //        bgTitle.setText(item.getTitle());

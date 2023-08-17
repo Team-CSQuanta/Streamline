@@ -1,6 +1,8 @@
 package com.csquanta.streamline.Controllers;
 
 import animatefx.animation.FadeInUp;
+import com.csquanta.streamline.Models.EvilMonsters;
+import com.csquanta.streamline.Models.Item;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +16,9 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Iterator;
 import java.util.ResourceBundle;
+import java.util.TreeSet;
 
 import static java.util.Objects.requireNonNull;
 
@@ -73,5 +77,19 @@ public class ChallengeController implements Initializable {
             throw new RuntimeException(e);
         }
         bottomVbox.getChildren().add(noChallenge);
+
+        TreeSet<EvilMonsters> monsters = EvilMonsters.evilMonstersStaticObject.getEvilMonstersList();
+        Iterator<EvilMonsters> iterator = monsters.iterator();
+        FXMLScene fxmlScene;
+        while (iterator.hasNext()) {
+            try {
+                fxmlScene = FXMLScene.load("/Fxml/MonstersItem.fxml");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            MonsterItemController monsterItemController = (MonsterItemController) fxmlScene.controller;
+            monsterItemController.setMonsterData(iterator.next());
+            MonsterVBox.getChildren().add(fxmlScene.root);
+        }
     }
 }
