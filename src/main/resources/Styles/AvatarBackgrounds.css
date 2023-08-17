@@ -23,15 +23,19 @@
     -fx-rotate: 3;
 }
 .detailsTitle{
-    -fx-font-family: "Product Sans Light";
+    -fx-font-family: "Product Sans Medium";
     -fx-font-size: 20px;
 }
 .price{
-    -fx-font-family: "Product Sans Light";
+    -fx-font-family: "Product Sans Medium";
     -fx-font-size: 15px;
 
 }
 .buyButton{
     -fx-font-family: "Product Sans Light";
     -fx-font-size: 15px;
+}
+.informationBlock{
+    -fx-font-family: "Product Sans Medium";
+    -fx-font-size: 12px;
 }
