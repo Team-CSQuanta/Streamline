@@ -62,6 +62,7 @@ public class Shop implements Serializable {
         firstInitializeArmor();
         addDefaultBackgrounds();
     }
+
     public TreeSet<Item> firstInitializeArmor(){
         // adding healer armor
         armorsList.add(new Item("/Images/gear/armor/Healer/healer_1.png", "Healer one", "100", "Armor"));

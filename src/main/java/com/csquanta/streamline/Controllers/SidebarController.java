@@ -170,6 +170,8 @@ public class SidebarController implements Initializable {
         zoomIn.setNode(shop);
         zoomIn.setSpeed(3);
         zoomIn.play();
+
+
     }
 
     @Override
