@@ -5,7 +5,6 @@ import com.csquanta.streamline.Controllers.CreateANewTaskController;
 import com.csquanta.streamline.Controllers.HeaderController;
 import com.csquanta.streamline.Controllers.MainStageController;
 import com.csquanta.streamline.Controllers.SidebarController;
-import com.csquanta.streamline.Models.Shop;
 import com.csquanta.streamline.Models.UserInformation;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +18,9 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
 import java.io.IOException;
+
 import static java.util.Objects.requireNonNull;
 
 public class App extends Application {
@@ -33,10 +34,8 @@ public class App extends Application {
     @Override
     public void init(){
         UserInformation.deserializeUserInfo();
-        Shop.deserializeShop();
+//        Shop.deserializeShop();
     }
-
-
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -65,7 +64,7 @@ public class App extends Application {
     @Override
     public void stop() {
         UserInformation.serializeUserInfo();
-        Shop.serializeShop();
+//        Shop.serializeShop();
     }
 
     public static void main(String[] args) {

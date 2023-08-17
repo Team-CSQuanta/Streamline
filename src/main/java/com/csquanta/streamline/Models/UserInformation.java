@@ -128,7 +128,7 @@ public class UserInformation implements Serializable {
 
     public static void serializeUserInfo(){
         try(ObjectOutputStream objOStream = new ObjectOutputStream(new FileOutputStream("User_Information_file"))){
-            UserInformation userInformation = new UserInformation(userInfo.getAvatarImageBg(), userInfo.getAvatarImageHead(), userInfo.getAvatarImageHair(), userInfo.getAvatarImageHeadGear(), userInfo.getAvatarImageBody(), userInfo.getAvatarImageArmor(), userInfo.getAvatarImagePet(), 55000.0, userInfo.getUserHealth());
+            UserInformation userInformation = new UserInformation(userInfo.getAvatarImageBg(), userInfo.getAvatarImageHead(), userInfo.getAvatarImageHair(), userInfo.getAvatarImageHeadGear(), userInfo.getAvatarImageBody(), userInfo.getAvatarImageArmor(), userInfo.getAvatarImagePet(), 4000.0, userInfo.getUserHealth());
             objOStream.writeObject(userInformation);
         }catch (Exception e){
             System.out.println("Serialization failed");
@@ -165,6 +165,10 @@ public class UserInformation implements Serializable {
             if(user.avatarImageHeadGear != null){
                 StaticUserInformation.avatarImageHeadGear = new Image(requireNonNull(UserInformation.class.getResourceAsStream(user.avatarImageHeadGear)));
                 userInfo.setAvatarImageHeadGear(user.avatarImageHeadGear);
+            }
+            if(user.avatarImagePet != null){
+                StaticUserInformation.avatarImagePet = new Image(requireNonNull(UserInformation.class.getResourceAsStream(user.avatarImagePet)));
+                userInfo.setAvatarImagePet(user.avatarImagePet);
             }
 
 

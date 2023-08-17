@@ -80,6 +80,7 @@ public class ShopBlockController implements Initializable {
         addItemToShop(headWearInShop, headWearTabHBox, "Head Wear");
 
         TreeSet<Item> armorsInShop = ShopController.getShop().getArmorsList();
+        armorTabHbox.getChildren().removeAll();
         addItemToShop(armorsInShop, armorTabHbox, "Armor");
     }
 }

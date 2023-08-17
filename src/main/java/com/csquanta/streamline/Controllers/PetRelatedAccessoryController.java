@@ -21,16 +21,7 @@ public class PetRelatedAccessoryController implements Initializable {
     private ScrollPane ArmorTabScrollPane;
 
     @FXML
-    private HBox EggHatchingPotionHbox;
-
-    @FXML
     private Label ItemBlockTitle;
-
-    @FXML
-    private HBox PetEggsHbox;
-
-    @FXML
-    private HBox PetFoodsHbox;
 
     @FXML
     private HBox PetsHbox;
@@ -38,23 +29,7 @@ public class PetRelatedAccessoryController implements Initializable {
     @FXML
     private Tab itemBlockTab1;
 
-    @FXML
-    private Tab itemBlockTab1ScrollPane;
 
-    @FXML
-    private ScrollPane itemBlockTab2ScrollPane;
-
-    @FXML
-    private Tab itemBlockTab3;
-
-    @FXML
-    private ScrollPane itemBlockTab3ScrollPane;
-
-    @FXML
-    private Tab itemBlockTab4;
-
-    @FXML
-    private ScrollPane itemBlockTab4ScrollPane;
 
     @FXML
     private TabPane itemBlockTabPane;
@@ -78,7 +53,7 @@ public class PetRelatedAccessoryController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         TreeSet<Item> petsInShop = ShopController.getShop().getPetsList();
-        ShopController.getShop().firstPetInitialize();
+        PetsHbox.getChildren().removeAll();
         addItemToPetShop(petsInShop, PetsHbox, "Pet");
     }
 }

@@ -22,14 +22,14 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static com.csquanta.streamline.Controllers.HeaderController.modalPaneForHeader;
 
 public class ProfileEditController implements Initializable {
-    static int rowBackground = 1;
-    static int columnBackground = 0;
     @FXML
     private VBox mainComponent;
     @FXML
@@ -95,9 +95,10 @@ public class ProfileEditController implements Initializable {
     @FXML
     private Tab skinTab;
 
-
-    private CustomizeBlockController selectedBlockController;
-    private CustomizeBlockBgController selectedBgBlockController;
+    @FXML
+    private GridPane petGridPane;
+    @FXML
+    private Tab petTab;
 
     public void setHeadGear(ImageView headGear) {
         this.headGear.setImage(headGear.getImage());
@@ -150,10 +151,41 @@ public class ProfileEditController implements Initializable {
     }
 
     @FXML
+    void onPetTabSelected(Event event) {
+        int columnPet = 0;
+        int rowPet = 1;
+        for(Item item: ShopController.getShop().getBoughtPetList()){
+            try {
+                FXMLScene fxmlScene = FXMLScene.load("/Fxml/customizeBlockPet.fxml");
+                CustomizeBlockPetController customizeBlockPetController = (CustomizeBlockPetController) fxmlScene.controller;
+                String imagePath = item.getImgSrc();
+                InputStream imageStream = getClass().getResourceAsStream(imagePath);
+                if (imageStream != null) {
+                    customizeBlockPetController.setCustomizePetData(new Image(imageStream));
+                    customizeBlockPetController.setPetPath(imagePath);
+                    ImageView imageView = (ImageView) fxmlScene.root.lookup("#componentImg");
+                    imageView.getProperties().put("controller", customizeBlockPetController);
+                    imageView.setOnMouseClicked(this::setPetComponent);
+
+                } else {
+                    System.err.println("Pet Image not found: " + imagePath);
+                }
+
+                petGridPane.add(fxmlScene.root, columnPet++, rowPet);
+                if (columnPet == 7) {
+                    columnPet = 0;
+                    rowPet++;
+                }
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+    @FXML
     void onArmorTabSelected(Event event) {
         int columnArmor = 0;
         int rowArmor = 1;
-        for(Item item: ShopController.getShop().getBuyedArmorList()){
+        for(Item item: ShopController.getShop().getBoughtArmorList()){
             try {
                 FXMLScene fxmlScene = FXMLScene.load("/Fxml/customizeBlock.fxml");
                 CustomizeBlockController customizeBlockController = (CustomizeBlockController) fxmlScene.controller;
@@ -189,6 +221,39 @@ public class ProfileEditController implements Initializable {
 
     @FXML
     void onBGSelectionChanged(Event event) {
+        if (backgroundTab.isSelected()) {
+            int rowBackground = 1;
+            int columnBackground = 0;
+            HashSet<Item> backgrounds = ShopController.getShop().getBoughtBackgroundList();
+            Iterator<Item> backgroundsIterator = backgrounds.iterator();
+            while(backgroundsIterator.hasNext()) {
+                try {
+                    FXMLScene fxmlScene = FXMLScene.load("/Fxml/CustomizeBlockBg.fxml");
+                    CustomizeBlockBgController customizeBlockBgController = (CustomizeBlockBgController) fxmlScene.controller;
+                    String imagePath = backgroundsIterator.next().getImgSrc();
+                    InputStream imageStream = getClass().getResourceAsStream(imagePath);
+                    if (imageStream != null) {
+                        customizeBlockBgController.setCustomizeBlockBgData(new Image(imageStream));
+                        customizeBlockBgController.setBgPath(imagePath);
+                        ImageView imageView = (ImageView) fxmlScene.root.lookup("#bgImage");
+                        imageView.getProperties().put("controller", customizeBlockBgController);
+                        imageView.setOnMouseClicked(this::setBgComponent);
+
+                    } else {
+                        System.err.println("Background Image not found: " + imagePath);
+                    }
+
+                    gridPaneBg.add(fxmlScene.root, columnBackground++, rowBackground);
+                    if (columnBackground == 4) {
+                        columnBackground = 0;
+                        rowBackground++;
+                    }
+                } catch (IOException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+
     }
 
     @FXML
@@ -203,7 +268,7 @@ public class ProfileEditController implements Initializable {
         if (headWearTab.isSelected()) {
             int columnArmor = 0;
             int rowArmor = 1;
-            for(Item item: ShopController.getShop().getBuyedHeadWearList()){
+            for(Item item: ShopController.getShop().getBoughtHeadWearList()){
                 try {
                     FXMLScene fxmlScene = FXMLScene.load("/Fxml/customizeBlock.fxml");
                     CustomizeBlockController customizeBlockController = (CustomizeBlockController) fxmlScene.controller;
@@ -242,7 +307,7 @@ public class ProfileEditController implements Initializable {
 
     void setComponent(MouseEvent event) {
         if (event.getSource() instanceof ImageView clickedImageView) {
-            selectedBlockController = (CustomizeBlockController) clickedImageView.getProperties().get("controller");
+            CustomizeBlockController selectedBlockController = (CustomizeBlockController) clickedImageView.getProperties().get("controller");
 
             // Determine the source GridPane based on the parent of the parent (ImageView -> VBox -> GridPane)
             GridPane parentGrid = null;
@@ -295,13 +360,22 @@ public class ProfileEditController implements Initializable {
                         UserInformation.userInfo.setAvatarImageHeadGear(UserInformation.userInfo.getAvatarImageHeadGear());
                     }
                 }
+                else if (parentGrid == petGridPane) {
+                    setAvatarPet(clickedImageView);
+                    if (clickedImageView.getImage() != null) {
+                        StaticUserInformation.avatarImagePet = clickedImageView.getImage();
+                        UserInformation.userInfo.setAvatarImagePet(selectedBlockController.getPath());
+                    } else {
+                        UserInformation.userInfo.setAvatarImagePet(UserInformation.userInfo.getAvatarImagePet());
+                    }
+                }
             }
         }
     }
 
     private void setBgComponent(MouseEvent event) {
         if (event.getSource() instanceof ImageView clickedImageView) {
-            selectedBgBlockController = (CustomizeBlockBgController) clickedImageView.getProperties().get("controller");
+            CustomizeBlockBgController selectedBgBlockController = (CustomizeBlockBgController) clickedImageView.getProperties().get("controller");
 
             // Determine the source GridPane based on the parent of the parent (ImageView -> VBox -> GridPane)
             GridPane parentGrid = null;
@@ -325,6 +399,32 @@ public class ProfileEditController implements Initializable {
 
         }
     }
+    private void setPetComponent(MouseEvent event) {
+        if (event.getSource() instanceof ImageView clickedImageView) {
+            CustomizeBlockPetController selectedPetBlockController = (CustomizeBlockPetController) clickedImageView.getProperties().get("controller");
+
+            // Determine the source GridPane based on the parent of the parent (ImageView -> VBox -> GridPane)
+            GridPane parentGrid = null;
+
+            if (clickedImageView.getParent().getParent() instanceof GridPane) {
+                parentGrid = (GridPane) clickedImageView.getParent().getParent();
+            }
+
+            if (selectedPetBlockController != null && parentGrid != null) {
+                if (parentGrid == petGridPane) {
+                    setAvatarPet(clickedImageView);
+                    if (clickedImageView.getImage() != null) {
+                        StaticUserInformation.avatarImagePet = clickedImageView.getImage();
+                        UserInformation.userInfo.setAvatarImagePet(selectedPetBlockController.getPetPath());
+                    } else {
+                        UserInformation.userInfo.setAvatarImagePet(UserInformation.userInfo.getAvatarImagePet());
+                    }
+                }
+
+            }
+
+        }
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -334,37 +434,10 @@ public class ProfileEditController implements Initializable {
         image_bg.setImage(StaticUserInformation.avatarImageBg);
         avatarArmor.setImage(StaticUserInformation.avatarImageArmor);
         headGear.setImage(StaticUserInformation.avatarImageHeadGear);
-        // Adding Default Backgrounds
-        File bgFile = new File("src/main/resources/Images/backgrounds/Defaults");
-        File[] listBGFile = bgFile.listFiles();
+        avatarPet.setImage(StaticUserInformation.avatarImagePet);
 
-        for (int i = 0; i < listBGFile.length; i++) {
 
-            try {
-                FXMLScene fxmlScene = FXMLScene.load("/Fxml/CustomizeBlockBg.fxml");
-                CustomizeBlockBgController customizeBlockBgController = (CustomizeBlockBgController) fxmlScene.controller;
-                String imagePath = getRelativePath(listBGFile[i]);
-                InputStream imageStream = getClass().getResourceAsStream(imagePath);
-                if (imageStream != null) {
-                    customizeBlockBgController.setCustomizeBlockBgData(new Image(imageStream));
-                    customizeBlockBgController.setBgPath(imagePath);
-                    ImageView imageView = (ImageView) fxmlScene.root.lookup("#bgImage");
-                    imageView.getProperties().put("controller", customizeBlockBgController);
-                    imageView.setOnMouseClicked(this::setBgComponent);
 
-                } else {
-                    System.err.println("Shirt Image not found: " + imagePath);
-                }
-
-                gridPaneBg.add(fxmlScene.root, columnBackground++, rowBackground);
-                if (columnBackground == 4) {
-                    columnBackground = 0;
-                    rowBackground++;
-                }
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
-            }
-        }
 
     }
 
@@ -404,8 +477,6 @@ public class ProfileEditController implements Initializable {
                     System.err.println("Shirt Image not found: " + imagePath);
                 }
                 gridPane.add(fxmlScene.root, column++, row);
-                System.out.println(column);
-                System.out.println(row);
                 if (column == 7) {
                     column = 0;
                     row++;
@@ -415,77 +486,5 @@ public class ProfileEditController implements Initializable {
             }
         }
     }
-
-
-
-    //I will complete it later!
-
-//    public void addPurchasedItemToAvatar(ImageView purchasedItemImageView, String gridPaneName) {
-//
-//        FXMLScene fxmlScene;
-//        try {
-//            fxmlScene = FXMLScene.load("/Fxml/ProfileEdit.fxml");
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//        ProfileEditController controller = (ProfileEditController) fxmlScene.controller;
-//
-//        GridPane targetGridPane = null;
-//        switch (gridPaneName) {
-//            case "gridPaneArmor":
-//                targetGridPane = controller.gridPaneArmor;
-//                break;
-//
-//            case "gridPaneHeadGear":
-//                targetGridPane = gridPaneHeadGear;
-//                break;
-//        }
-//
-//
-//        int nextRow = 0;
-//        int nextCol = 0;
-//
-//        if (targetGridPane != null) {
-//
-//            int numRows = targetGridPane.getRowCount();
-//            int numCols = targetGridPane.getColumnCount();
-//            nextRow = numRows -1;
-//
-//
-//            boolean[] occupiedCols = new boolean[numCols];
-//
-//
-//            for (Node node : targetGridPane.getChildren()) {
-//                Integer colIndex = GridPane.getColumnIndex(node);
-//                Integer rowIndex = GridPane.getRowIndex(node);
-//
-//                if (colIndex != null && rowIndex != null && rowIndex == nextRow) {
-//                    occupiedCols[colIndex] = true;
-//                }
-//            }
-//
-//
-//            for (int col = 0; col < numCols; col++) {
-//                if (!occupiedCols[col]) {
-//                    nextCol = col;
-//                    break;
-//                }
-//            }
-//            VBox vbox = new VBox();
-//            vbox.setPrefSize(100, 100);
-//            vbox.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(10), null)));
-//            vbox.setBorder(new Border(new BorderStroke(Color.valueOf("#9580FF"), BorderStrokeStyle.SOLID, new CornerRadii(10), BorderWidths.DEFAULT)));
-//            vbox.getChildren().add(purchasedItemImageView);
-//
-//            targetGridPane.add(vbox, nextCol, nextRow);
-//            System.out.println("CC");
-//            purchasedItemImageView.setOnMouseClicked(this::setComponent);
-//
-//           // targetGridPane.layout();
-//
-//
-//        }
-//
-//    }
 
 }

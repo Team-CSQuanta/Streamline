@@ -18,8 +18,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 
 public class ItemGearController implements Initializable {
     @FXML
@@ -57,6 +55,7 @@ public class ItemGearController implements Initializable {
     void buyBtnClicked(ActionEvent event){
         if (event.getSource() instanceof Button buyBtn) {
             Label priceLabel = (Label) buyBtn.getParent().getParent().getParent().lookup("#itemPrice");
+            Label itemName = (Label) buyBtn.getParent().getParent().getParent().lookup("#itemLabel");
             if(StaticUserInformation.totalGoldCoins >= Double.parseDouble(priceLabel.getText())){
                 try {
                     FXMLScene fxmlScene = FXMLScene.load("/Fxml/ItemGearPurchasedSuccessFully.fxml");
@@ -74,16 +73,12 @@ public class ItemGearController implements Initializable {
                     soundPlayer("/Sounds/mixkit-clinking-coins-1993.wav");
                     String imagePath = (String) itemImage.getUserData();
                     if(itemType.equals("Armor")){
-                        Item itemNeedToAdd = new Item(imagePath, null, null, "Armor");
-                        ShopController.getShop().addArmorToBuyedList(itemNeedToAdd);
+                        Item itemNeedToAdd = new Item(imagePath, itemName.getText(), priceLabel.getText(), "Armor");
+                        ShopController.getShop().addArmorToBoughtList(itemNeedToAdd);
                     }else if(itemType.equals("Head Wear")){
-                        Item itemNeedToAdd = new Item(imagePath, null, null, "Head Wear");
-                        ShopController.getShop().addHeadWearToBuyedList(itemNeedToAdd);
+                        Item itemNeedToAdd = new Item(imagePath, itemName.getText(), itemPrice.getText(), "Head Wear");
+                        ShopController.getShop().addHeadWearToBoughtList(itemNeedToAdd);
                     }
-
-
-
-
 
 
                 } catch (IOException e) {
