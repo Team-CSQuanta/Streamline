@@ -68,7 +68,6 @@ public class ShopController implements Initializable {
 
         // Adding backgrounds
         TreeSet<Item> backgroundsInShop = shop.getBackgroundsList();
-        shop.firstInitializeBackgrounds();
         for(Item bg: backgroundsInShop){
             FXMLScene fxmlScene;
             try {
@@ -76,7 +75,7 @@ public class ShopController implements Initializable {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            AvatarBackgrounds avatarBackgrounds = (AvatarBackgrounds) fxmlScene.controller;
+            AvatarBackgroundsController avatarBackgrounds = (AvatarBackgroundsController) fxmlScene.controller;
             avatarBackgrounds.setBGData(bg);
             bgVBox.getChildren().add(fxmlScene.root);
         }

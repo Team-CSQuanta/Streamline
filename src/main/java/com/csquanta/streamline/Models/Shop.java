@@ -1,9 +1,12 @@
 package com.csquanta.streamline.Models;
 
+import com.csquanta.streamline.Controllers.ShopController;
+
+import java.io.*;
 import java.util.HashSet;
 import java.util.TreeSet;
 
-public class Shop{
+public class Shop implements Serializable {
     private final TreeSet<Item> armorsList = new TreeSet<>(new ItemComparator());
     private final HashSet<Item> boughtArmorList = new HashSet<>();
     private final HashSet<Item> boughtHeadWearList = new HashSet<>();
@@ -231,21 +234,21 @@ public class Shop{
         return petsList;
     }
 
-//    public static void serializeShop(){
-//        try(ObjectOutputStream objOStream = new ObjectOutputStream(new FileOutputStream("Shop_Info"))){
-//            Shop shop = ShopController.getShop();
-//            objOStream.writeObject(shop);
-//        }catch (Exception e){
-//            System.out.println("Serialization failed");
-//        }
-//    }
-//    public static void deserializeShop(){
-//        try(ObjectInputStream objIStream = new ObjectInputStream(new FileInputStream("Shop_Info"))){
-//            ShopController.shop = (Shop) objIStream.readObject();
-//
-//        }catch (Exception e){
-//            System.out.println("Deserialization failed");
-//            e.printStackTrace();
-//        }
-//    }
+    public static void serializeShop(){
+        try(ObjectOutputStream objOStream = new ObjectOutputStream(new FileOutputStream("Shop_Info"))){
+            Shop shop = ShopController.getShop();
+            objOStream.writeObject(shop);
+        }catch (Exception e){
+            System.out.println("Serialization failed");
+        }
+    }
+    public static void deserializeShop(){
+        try(ObjectInputStream objIStream = new ObjectInputStream(new FileInputStream("Shop_Info"))){
+            ShopController.shop = (Shop) objIStream.readObject();
+
+        }catch (Exception e){
+            System.out.println("Deserialization failed");
+            e.printStackTrace();
+        }
+    }
 }
