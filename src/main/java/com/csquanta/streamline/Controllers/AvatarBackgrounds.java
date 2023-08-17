@@ -17,7 +17,7 @@ public class AvatarBackgrounds {
     private HBox avatarBgMainContainer;
 
     @FXML
-    private Button bgBuBtn;
+    private Button bgBuyBtn;
 
     @FXML
     private ImageView bgImage;

@@ -15,7 +15,7 @@
    <children>
       <ImageView fx:id="bgImage" fitHeight="147.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true" styleClass="bgImage">
          <image>
-            <Image url="@../Images/backgrounds/background_butterfly_garden.png" />
+            <Image url="@../Images/backgrounds/background_at_the_docks.png" />
          </image>
       </ImageView>
       <VBox alignment="CENTER" spacing="5.0">
@@ -39,7 +39,7 @@
                   </VBox>
                   <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="95.0" prefWidth="135.0">
                      <children>
-                        <Button fx:id="bgBuBtn" mnemonicParsing="false" onAction="#buyBtnClicked" prefHeight="35.0" prefWidth="70.0" styleClass="buyButton" text="Buy" />
+                        <Button fx:id="bgBuyBtn" mnemonicParsing="false" onAction="#buyBtnClicked" prefHeight="35.0" prefWidth="70.0" styleClass="buyButton" text="Buy" />
                      </children>
                   </VBox>
                </children>
