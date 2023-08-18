@@ -66,6 +66,8 @@ public class ChallengeController implements Initializable {
         CreateANewTaskController.modalPaneForTaskCreator.show(challengeCreatePage);
         Pulse pulse = new Pulse(challengeCreatePage);
         pulse.play();
+
+
     }
 
     @Override
