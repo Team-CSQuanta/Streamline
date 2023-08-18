@@ -36,13 +36,15 @@ public class ChallengeCreatorController implements Initializable {
     private TextArea challengeDescription;
 
     @FXML
-    private ComboBox<?> challengeTaskPomodoroSession;
+    private ComboBox<String> challengeTaskPomodoroSession;
 
     @FXML
     private ComboBox<String> challengeTaskTag;
 
     @FXML
     private ComboBox<String> challengeType;
+    @FXML
+    private ComboBox<String> selectMonster;
 
     @FXML
     private TextField email;
@@ -50,8 +52,7 @@ public class ChallengeCreatorController implements Initializable {
     @FXML
     private Button sendReq;
 
-    @FXML
-    private ComboBox<String> selectMonster;
+
     @FXML
     private HBox dailyTaskNecessaryField;
     private NetworkUtil networkUtil;
@@ -83,11 +84,13 @@ public class ChallengeCreatorController implements Initializable {
         this.challengeDescription = challengeDescription;
     }
 
-    public ComboBox<?> getChallengeTaskPomodoroSession() {
+
+
+    public ComboBox<String> getChallengeTaskPomodoroSession() {
         return challengeTaskPomodoroSession;
     }
 
-    public void setChallengeTaskPomodoroSession(ComboBox<?> challengeTaskPomodoroSession) {
+    public void setChallengeTaskPomodoroSession(ComboBox<String> challengeTaskPomodoroSession) {
         this.challengeTaskPomodoroSession = challengeTaskPomodoroSession;
     }
 
@@ -136,15 +139,16 @@ public class ChallengeCreatorController implements Initializable {
             String challengeDescription = String.valueOf(getChallengeDescription().getText());
             String pomodoroSession = String.valueOf(getChallengeTaskPomodoroSession().getValue());
             String taskTag = String.valueOf(getChallengeTaskTag().getValue());
+            String monstersName = String.valueOf(getSelectMonster().getValue());
 
             String clientEmail = loadClientInfoFromFile();
             System.out.println(clientEmail);
 
             if ("Build consistency".equals(challengeType)) {
-                ChallengeInfo challengeInfo = new ChallengeInfo(challengeType, challengeDescription, clientEmail, receiverEmail, pomodoroSession, taskTag);
+                ChallengeInfo challengeInfo = new ChallengeInfo(challengeType, challengeDescription, clientEmail, receiverEmail, pomodoroSession, taskTag, monstersName);
                 networkUtil.write(challengeInfo);
             } else {
-                ChallengeInfo challengeInfo = new ChallengeInfo(challengeType, challengeDescription, clientEmail, receiverEmail);
+                ChallengeInfo challengeInfo = new ChallengeInfo(challengeType, challengeDescription, clientEmail, receiverEmail,monstersName);
                 networkUtil.write(challengeInfo);
                 System.out.println(challengeInfo);
             }
@@ -191,21 +195,5 @@ public class ChallengeCreatorController implements Initializable {
         }
         return email;
     }
-//    public void runClient(String serverAddress, int serverPort) {
-//        try {
-//            String clientEmail = loadClientInfoFromFile();
-//            NetworkUtil networkUtil = new NetworkUtil(serverAddress, serverPort);
-//            networkUtil.write(clientEmail);
-//
-//            ReadThreadClient readThreadClient = new ReadThreadClient(networkUtil, clientEmail);
-//            WriteThreadClient writeThreadClient = new WriteThreadClient(networkUtil, clientEmail);
-//
-//            readThreadClient.start();
-//            writeThreadClient.start();
-//
-//        } catch (Exception e) {
-//            System.out.println(e);
-//        }
-//    }
 
 }

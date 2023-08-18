@@ -19,19 +19,20 @@ public class ReadThreadServer extends Thread {
             while (true) {
                 ChallengeInfo challengeInfo;
                 ChallengeInfo receivedMessage = ( ChallengeInfo)  networkInfo.getNetworkUtil().read();
-                String pomodoroSession= receivedMessage.getChallengeType();
+                String pomodoroSession= receivedMessage.getChallengeTaskPomodoroSession();
                 String receiverEmail = receivedMessage.getReceiverEmail();
                 String challengeType = receivedMessage.getChallengeType();
                 String challengeDescription = receivedMessage.getChallengeDescription();
                 String taskTag = receivedMessage.getChallengeTaskTag();
+                String monsterNmae = receivedMessage.getMonstersName();
 
                 NetworkInformation receiverInfo = clientNetworkInformationMap.get(receiverEmail);
                 if (receiverInfo != null) {
                     if (receivedMessage.isBuildConsistency()) {
-                        challengeInfo = new ChallengeInfo(challengeType, challengeDescription, clientEmail, receiverEmail,  pomodoroSession, taskTag);
+                        challengeInfo = new ChallengeInfo(challengeType, challengeDescription, clientEmail, receiverEmail,  pomodoroSession, taskTag,monsterNmae);
                     }
                     else{
-                         challengeInfo = new ChallengeInfo(challengeType, challengeDescription, clientEmail, receiverEmail);
+                         challengeInfo = new ChallengeInfo(challengeType, challengeDescription, clientEmail, receiverEmail,monsterNmae);
                     }
                     receiverInfo.getNetworkUtil().write(challengeInfo);
                 }
