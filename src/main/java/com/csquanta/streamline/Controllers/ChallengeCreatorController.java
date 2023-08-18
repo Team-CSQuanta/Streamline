@@ -18,6 +18,8 @@ import java.util.ResourceBundle;
 public class ChallengeCreatorController implements Initializable {
 
     ObservableList<String> challenges = FXCollections.observableArrayList("Complete daily tasks", "Build consistency");
+    ObservableList<String> monster = FXCollections.observableArrayList("Amber", "Armadillo", "Axolotl", "Badger", "Butterfly", "Cheetah", "Derby", "Dilatory",
+    "Dilatory Distress");
     @FXML
     private Button cancel;
 
@@ -38,6 +40,8 @@ public class ChallengeCreatorController implements Initializable {
 
     @FXML
     private Button sendReq;
+    @FXML
+    private ComboBox<String> selectMonster;
     @FXML
     private HBox dailyTaskNecessaryField;
     @FXML
@@ -64,6 +68,7 @@ public class ChallengeCreatorController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         challengeType.setItems(challenges);
+        selectMonster.setItems(monster);
         dailyTaskNecessaryField.setVisible(false);
     }
 }
