@@ -26,6 +26,7 @@ public class PomodoroPageController implements Initializable {
         timer.t.setDaemon(true);
         timer.t.start();
 
+
     }
 
 }
