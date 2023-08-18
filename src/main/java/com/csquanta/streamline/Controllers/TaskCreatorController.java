@@ -5,6 +5,7 @@ import animatefx.animation.FadeOut;
 import com.csquanta.streamline.App;
 import com.csquanta.streamline.Models.Task;
 import com.csquanta.streamline.Models.TaskComparator;
+import com.csquanta.streamline.Models.TaskIdGenerator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -28,9 +29,9 @@ import static java.util.Objects.requireNonNull;
 
 public class TaskCreatorController implements Initializable {
 
-    ObservableList<String> eishenHowerMatrix = FXCollections.observableArrayList("Urgent and important", "Important but not urgent", "Urgent but not important", "Not urgent and not important");
-    ObservableList<String> pomodoroSession = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7", "8");
-    ObservableList<String> tags = FXCollections.observableArrayList("Book Reading", "Academic Studies", "Programming");
+    public static ObservableList<String> eishenHowerMatrix = FXCollections.observableArrayList("Urgent and important", "Important but not urgent", "Urgent but not important", "Not urgent and not important");
+    public static ObservableList<String> pomodoroSession = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7", "8");
+    public static ObservableList<String> tags = FXCollections.observableArrayList("Book Reading", "Academic Studies", "Programming");
     @FXML
     private Button cancel;
 
@@ -66,7 +67,7 @@ public class TaskCreatorController implements Initializable {
 
     @FXML
     void onSaveButtonClicked(ActionEvent event) throws IOException {
-        Task newTask = new Task(title.getText(), Integer.parseInt(pomodoroSessions.getSelectionModel().getSelectedItem()), dueDate.getValue(), priority.getSelectionModel().getSelectedItem(), tag.getSelectionModel().getSelectedItem(), description.getText());
+        Task newTask = new Task(title.getText(), Integer.parseInt(pomodoroSessions.getSelectionModel().getSelectedItem()), dueDate.getValue(), priority.getSelectionModel().getSelectedItem(), tag.getSelectionModel().getSelectedItem(), description.getText(), TaskIdGenerator.taskIdGenerator.getTaskID());
         taskObject.addTask(newTask);
         TaskComparator taskComparator = new TaskComparator();
         taskObject.getTasksList().sort(taskComparator);

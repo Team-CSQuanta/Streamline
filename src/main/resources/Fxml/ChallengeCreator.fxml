@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" spacing="35.0" style="-fx-border-color: #9580FF; -fx-background-color: #282A36FF;;" stylesheets="@../Styles/TaskCreator.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.ChallengeCreatorController">
+   <padding>
+      <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+   </padding>
+   <children>
+      <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" prefWidth="735.0">
+         <VBox.margin>
+            <Insets left="15.0" right="15.0" top="15.0" />
+         </VBox.margin>
+         <children>
+            <Label contentDisplay="CENTER" prefHeight="64.0" prefWidth="720.0" styleClass="taskNameLabel" text="Create a challenge." textAlignment="JUSTIFY" textFill="#94959b">
+               <font>
+                  <Font name="Arial Black" size="21.0" />
+               </font></Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0">
+         <VBox.margin>
+            <Insets left="15.0" right="15.0" top="10.0" />
+         </VBox.margin>
+         <children>
+            <TextField fx:id="email" focusTraversable="false" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="45.0" prefWidth="750.0" promptText="Email of another participant" styleClass="emailInputBox" />
+         </children>
+      </HBox>
+      <HBox>
+         <children>
+            <ComboBox fx:id="challengeType" editable="true" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#challengeSelection" prefHeight="45.0" prefWidth="688.0" promptText="Challenge type" styleClass="tagComboBox" />
+         </children>
+         <VBox.margin>
+            <Insets left="15.0" right="15.0" top="10.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="73.0" prefWidth="725.0">
+         <VBox.margin>
+            <Insets left="15.0" right="15.0" top="10.0" />
+         </VBox.margin>
+         <children>
+            <TextArea fx:id="challengeDescription" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="173.0" prefWidth="691.0" promptText="Challenge description" styleClass="taskDescription" wrapText="true" />
+         </children>
+      </HBox>
+      <HBox fx:id="dailyTaskNecessaryField" alignment="CENTER" prefHeight="50.0" prefWidth="200.0" spacing="50.0">
+         <children>
+            <ComboBox fx:id="challengeTaskTag" editable="true" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="319.0" promptText="Challenge task tag" styleClass="tagComboBox" />
+            <ComboBox fx:id="challengeTaskPomodoroSession" editable="true" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="319.0" promptText="Pomodoro Sessions for the challenge task" styleClass="tagComboBox" />
+         </children>
+         <VBox.margin>
+            <Insets left="15.0" right="15.0" top="10.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="725.0">
+         <VBox.margin>
+            <Insets left="15.0" right="15.0" top="10.0" />
+         </VBox.margin>
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="362.5">
+               <children>
+                  <Button fx:id="cancel" focusTraversable="false" mnemonicParsing="false" onAction="#onCancelButtonClicked" prefHeight="49.0" prefWidth="200.0" styleClass="taskCancel" text="Cancel" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="362.5">
+               <children>
+                  <Button fx:id="sendReq" focusTraversable="false" mnemonicParsing="false" onAction="#onSendReqClicked" prefHeight="49.0" prefWidth="200.0" styleClass="taskDone" text="Done" />
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

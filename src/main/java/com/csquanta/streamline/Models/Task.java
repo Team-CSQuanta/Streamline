@@ -1,11 +1,16 @@
 package com.csquanta.streamline.Models;
 
+import com.csquanta.streamline.Controllers.ShopController;
+import javafx.scene.control.DatePicker;
+
+import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Task {
+public class Task implements Serializable {
     public static Task taskObject = new Task();
+
     private ArrayList<Task> tasksList = new ArrayList<>();
     public void addTask(Task task){
         tasksList.add(task);
@@ -20,6 +25,15 @@ public class Task {
     private String priority;
     private String tag;
     private String description;
+    private int taskID;
+
+    public int getTaskID() {
+        return taskID;
+    }
+
+    public void setTaskID(int taskID) {
+        this.taskID = taskID;
+    }
 
     public Task() {
     }
@@ -34,13 +48,14 @@ public class Task {
 
 
 
-    public Task(String taskTitle, int numOfSessions, LocalDate dueDate, String priority, String tag, String description) {
+    public Task(String taskTitle, int numOfSessions, LocalDate dueDate, String priority, String tag, String description, int id) {
         this.taskTitle = taskTitle;
         this.numOfSessions = numOfSessions;
         this.dueDate = dueDate;
         this.priority = priority;
         this.tag = tag;
         this.description = description;
+        this.taskID = id;
     }
 
 
@@ -107,5 +122,22 @@ public class Task {
 
     public boolean isImportant() {
         return priority.toLowerCase().contains("important") && !priority.toLowerCase().contains("not important");
+    }
+    public static void serializeTasks(){
+        try(ObjectOutputStream objOStream = new ObjectOutputStream(new FileOutputStream("Tasks_Info"))){
+            Task task = taskObject;
+            objOStream.writeObject(task);
+        }catch (Exception e){
+            System.out.println("Serialization failed");
+        }
+    }
+    public static void deserializeTasks(){
+        try(ObjectInputStream objIStream = new ObjectInputStream(new FileInputStream("Tasks_Info"))){
+            taskObject = (Task) objIStream.readObject();
+
+        }catch (Exception e){
+            System.out.println("Deserialization failed");
+            e.printStackTrace();
+        }
     }
 }

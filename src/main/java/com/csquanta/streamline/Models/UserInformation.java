@@ -170,6 +170,10 @@ public class UserInformation implements Serializable {
                 StaticUserInformation.avatarImagePet = new Image(requireNonNull(UserInformation.class.getResourceAsStream(user.avatarImagePet)));
                 userInfo.setAvatarImagePet(user.avatarImagePet);
             }
+            if(user.avatarImageArmor != null){
+                StaticUserInformation.avatarImageArmor = new Image(requireNonNull(UserInformation.class.getResourceAsStream(user.avatarImageArmor)));
+                userInfo.setAvatarImageArmor(user.avatarImageArmor);
+            }
 
 
         }catch (Exception e){

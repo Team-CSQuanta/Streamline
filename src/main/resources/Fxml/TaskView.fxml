@@ -7,24 +7,36 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" spacing="35.0" style="-fx-border-color: #9580FF; -fx-background-color: #282A36FF;;" stylesheets="@../Styles/TaskCreator.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.TaskCreatorController">
+<VBox fx:id="taskViewContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" spacing="35.0" style="-fx-border-color: #9580FF; -fx-background-color: #282A36FF;;" stylesheets="@../Styles/TaskCreator.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.TaskViewController">
    <padding>
       <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
    </padding>
    <children>
-      <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" prefWidth="735.0">
+      <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" prefWidth="735.0" spacing="20.0">
          <VBox.margin>
             <Insets left="15.0" right="15.0" top="15.0" />
          </VBox.margin>
          <children>
-            <Label contentDisplay="CENTER" prefHeight="64.0" prefWidth="720.0" styleClass="taskNameLabel" text="Add a task." textAlignment="JUSTIFY" textFill="#94959b">
+            <Label contentDisplay="CENTER" prefHeight="60.0" prefWidth="588.0" styleClass="taskNameLabel" text="Viewing task." textAlignment="JUSTIFY" textFill="#94959b">
                <font>
                   <Font name="Arial Black" size="21.0" />
                </font></Label>
+            <ImageView fx:id="editImage" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#editTask" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/icons8-edit-50.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="deleteImage" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#deleteButtonClicked" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/icons8-delete-30.png" />
+               </image>
+            </ImageView>
          </children>
       </HBox>
       <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="50.0">
