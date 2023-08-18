@@ -41,7 +41,7 @@ public class TaskBlockController implements Initializable {
     public void setTask(Task task) {
         this.task = task;
     }
-// Timer
+// MyTimer
 
 
     @FXML
@@ -124,8 +124,11 @@ public class TaskBlockController implements Initializable {
         new Pulse(taskDescription.root).play();
     }
     @FXML
-    void showPomodoroTimer(MouseEvent event) {
+    void showPomodoroTimer(MouseEvent event) throws IOException {
+        FXMLScene pomodoroPage = FXMLScene.load("/Fxml/PomodoroPage.fxml");
+        CreateANewTaskController.modalPaneForTaskCreator.show(pomodoroPage.root);
 
+        new Pulse(pomodoroPage.root).play();
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

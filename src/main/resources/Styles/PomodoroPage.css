@@ -1,0 +1,37 @@
+@font-face {
+    src: url("../Fonts/ProductSans-Light.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Medium.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Regular.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Black.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Bold.ttf");
+}
+@font-face {
+    src: url("../Fonts/THEBOLDFONT.ttf");
+}
+
+.minutesLabel{
+    -fx-font-family: "The Bold Font";
+    -fx-font-size: 150px;
+    -fx-text-fill: linear-gradient(to bottom right, #18ABD1, #8968A3, #DD3982, #DE755C, #DEA63D);
+}
+.minuteTag{
+    -fx-font-family: "The Bold Font";
+    -fx-font-size: 30px;
+    -fx-text-fill: linear-gradient(to bottom right, #18ABD1, #8968A3, #DD3982, #DE755C, #DEA63D);
+}
+.progress-bar .bar{
+    -fx-background-color: #20C997;
+}
+.seconds{
+    -fx-font-family: "The Bold Font";
+    -fx-font-size: 70px;
+    -fx-text-fill: linear-gradient(to bottom right, #18ABD1, #8968A3, #DD3982, #DE755C, #DEA63D);
+}
