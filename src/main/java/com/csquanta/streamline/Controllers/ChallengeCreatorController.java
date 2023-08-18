@@ -4,6 +4,7 @@ import animatefx.animation.FadeIn;
 import com.csquanta.streamline.Networking.ChallengeInfo;
 import com.csquanta.streamline.Networking.NetworkUtil;
 import com.csquanta.streamline.Networking.ReadThreadClient;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -53,6 +54,7 @@ public class ChallengeCreatorController implements Initializable {
     private ComboBox<String> selectMonster;
     @FXML
     private HBox dailyTaskNecessaryField;
+    private NetworkUtil networkUtil;
     @FXML
     void challengeSelection(ActionEvent event) {
         if(challengeType.getSelectionModel().getSelectedItem().equals("Build consistency")){
@@ -136,37 +138,42 @@ public class ChallengeCreatorController implements Initializable {
             String taskTag = String.valueOf(getChallengeTaskTag().getValue());
 
             String clientEmail = loadClientInfoFromFile();
-            NetworkUtil networkUtil = new NetworkUtil("127.0.0.1", 8000);
-            networkUtil.write(clientEmail);
+            System.out.println(clientEmail);
 
-            ReadThreadClient readThreadClient = new ReadThreadClient(networkUtil, clientEmail);
-            readThreadClient.start();
-
-            while (true) {
-                if ("Build consistency".equals(challengeType)) {
-                    ChallengeInfo challengeInfo = new ChallengeInfo(challengeType, challengeDescription, clientEmail, receiverEmail,  pomodoroSession, taskTag);
-                    networkUtil.write(challengeInfo);
-                } else {
-                    ChallengeInfo challengeInfo = new ChallengeInfo(challengeType, challengeDescription, clientEmail, receiverEmail);
-                    networkUtil.write(challengeInfo);
-                }
+            if ("Build consistency".equals(challengeType)) {
+                ChallengeInfo challengeInfo = new ChallengeInfo(challengeType, challengeDescription, clientEmail, receiverEmail, pomodoroSession, taskTag);
+                networkUtil.write(challengeInfo);
+            } else {
+                ChallengeInfo challengeInfo = new ChallengeInfo(challengeType, challengeDescription, clientEmail, receiverEmail);
+                networkUtil.write(challengeInfo);
+                System.out.println(challengeInfo);
             }
         } catch (Exception e) {
             System.out.println(e);
         }
     }
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         challengeType.setItems(challenges);
         selectMonster.setItems(monster);
         dailyTaskNecessaryField.setVisible(false);
+
+        // Initialize the socket connection here
+        try {
+            String clientEmail = loadClientInfoFromFile();
+            networkUtil = new NetworkUtil("127.0.0.1", 8000);
+            networkUtil.write(clientEmail);
+
+            ReadThreadClient readThreadClient = new ReadThreadClient(networkUtil, clientEmail);
+            readThreadClient.start();
+        } catch (Exception e) {
+            System.out.println("Error initializing socket connection: " + e);
+        }
     }
 
-
     private String loadClientInfoFromFile() {
-        String email =null;
+        String email = null;
         try (BufferedReader reader = new BufferedReader(new FileReader("client_info.txt"))) {
             String line;
 
@@ -175,8 +182,6 @@ public class ChallengeCreatorController implements Initializable {
                 if (parts.length >= 2) {
                     String name = parts[0];
                     email = parts[1];
-
-
                 } else {
                     System.err.println("Invalid line format: " + line);
                 }
@@ -186,8 +191,6 @@ public class ChallengeCreatorController implements Initializable {
         }
         return email;
     }
-
-
 //    public void runClient(String serverAddress, int serverPort) {
 //        try {
 //            String clientEmail = loadClientInfoFromFile();
