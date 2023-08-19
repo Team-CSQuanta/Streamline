@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" spacing="15.0" style="-fx-border-color: #9580FF; -fx-background-color: #282A36FF;;" stylesheets="@../Styles/TaskCreator.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.ChallengeRequestController">
+    <padding>
+        <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+    </padding>
+    <children>
+        <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" prefWidth="735.0">
+            <VBox.margin>
+                <Insets left="15.0" right="15.0" top="15.0" />
+            </VBox.margin>
+            <children>
+                <Label contentDisplay="CENTER" prefHeight="64.0" prefWidth="720.0" styleClass="taskNameLabel" text="Challenge request." textAlignment="JUSTIFY" textFill="#94959b">
+                    <font>
+                        <Font name="Arial Black" size="21.0" />
+                    </font></Label>
+            </children>
+        </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="148.0" prefWidth="688.0">
+         <children>
+            <AnchorPane fx:id="profileArea" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="147.0" prefWidth="141.0" style="-fx-background-color: #B0EDFF;">
+               <children>
+                  <ImageView fx:id="image_bg" fitHeight="147.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/backgrounds/background_bamboo_forest.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="avatarHead" fitHeight="90.0" fitWidth="90.0" layoutX="26.0" layoutY="33.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/customize/skin/skin_aurora.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="avatarHair" fitHeight="90.0" fitWidth="90.0" layoutX="26.0" layoutY="29.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/customize/hair/hair_bangs_1_black.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="headGear" fitHeight="90.0" fitWidth="90.0" layoutX="26.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="avatarBody" fitHeight="90.0" fitWidth="90.0" layoutX="26.0" layoutY="33.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/customize/shirts/broad_shirt_convict.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="avatarArmor" fitHeight="90.0" fitWidth="90.0" layoutX="26.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="avatarPet" fitHeight="99.0" fitWidth="81.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/stable/pets/Pet-TigerCub-Red.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <VBox alignment="CENTER" prefHeight="208.0" prefWidth="547.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="0.0" prefWidth="517.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="19.0" prefWidth="517.0" styleClass="name" stylesheets="@../Styles/ChallengeRequest.css" text="Foyez Ahammed Naeem" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="93.0" prefWidth="517.0">
+                     <children>
+                        <Label alignment="TOP_CENTER" prefHeight="77.0" prefWidth="517.0" styleClass="description" stylesheets="@../Styles/ChallengeRequest.css" text="has sent you a challenge request. The description of challenge is given below." textAlignment="CENTER" wrapText="true" />
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets left="15.0" right="15.0" />
+               </padding>
+            </VBox>
+         </children>
+         <VBox.margin>
+            <Insets left="15.0" right="15.0" top="15.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox prefHeight="395.0" prefWidth="688.0">
+         <children>
+            <SplitPane dividerPositions="0.5" prefHeight="366.0" prefWidth="1296.0">
+               <items>
+                  <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="343.0" spacing="10.0">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="25.0" />
+                     </padding>
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="43.0" prefWidth="323.0">
+                           <children>
+                              <Label prefHeight="43.0" prefWidth="131.0" styleClass="challengeDescriptionLeft" stylesheets="@../Styles/ChallengeRequest.css" text="Challenge type:" />
+                              <Label alignment="CENTER" prefHeight="43.0" prefWidth="194.0" styleClass="challengeDescriptionRight" stylesheets="@../Styles/ChallengeRequest.css" text="Complete daily task" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="43.0" prefWidth="323.0">
+                           <children>
+                              <Label prefHeight="31.0" prefWidth="132.0" styleClass="challengeDescriptionLeft" stylesheets="@../Styles/ChallengeRequest.css" text="Monster              :" />
+                              <Label alignment="CENTER" prefHeight="31.0" prefWidth="175.0" styleClass="challengeDescriptionRight" stylesheets="@../Styles/ChallengeRequest.css" text="Amber" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="43.0" prefWidth="323.0">
+                           <children>
+                              <Label prefHeight="31.0" prefWidth="132.0" styleClass="challengeDescriptionLeft" stylesheets="@../Styles/ChallengeRequest.css" text="Task tag              :" />
+                              <Label alignment="CENTER" prefHeight="31.0" prefWidth="175.0" styleClass="challengeDescriptionRight" stylesheets="@../Styles/ChallengeRequest.css" text="Study" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                        <HBox prefHeight="147.0" prefWidth="323.0">
+                           <children>
+                              <Label prefHeight="31.0" prefWidth="132.0" styleClass="challengeDescriptionLeft" stylesheets="@../Styles/ChallengeRequest.css" text="Task title             :" />
+                              <Label alignment="TOP_LEFT" prefHeight="149.0" prefWidth="175.0" styleClass="challengeDescriptionRight" stylesheets="@../Styles/ChallengeRequest.css" text="The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog." textAlignment="CENTER" wrapText="true" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="343.0">
+                     <padding>
+                        <Insets bottom="10.0" left="15.0" right="10.0" top="10.0" />
+                     </padding>
+                     <children>
+                        <Label prefHeight="31.0" prefWidth="132.0" styleClass="challengeDescriptionLeft" stylesheets="@../Styles/ChallengeRequest.css" text="Message:" />
+                        <Label alignment="TOP_LEFT" contentDisplay="TEXT_ONLY" prefHeight="304.0" prefWidth="335.0" style="-fx-border-color: #9580FF66;" styleClass="message" stylesheets="@../Styles/ChallengeRequest.css" text="The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog" textAlignment="CENTER" wrapText="true">
+                           <padding>
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </VBox>
+               </items>
+            </SplitPane>
+         </children>
+         <VBox.margin>
+            <Insets left="15.0" right="15.0" top="10.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="725.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="362.5">
+               <children>
+                  <Button fx:id="decline" focusTraversable="false" mnemonicParsing="false" onAction="#onDeclineBtnClicked" prefHeight="49.0" prefWidth="200.0" styleClass="taskCancel" text="Decline" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="362.5">
+               <children>
+                  <Button fx:id="acceptBtn" focusTraversable="false" mnemonicParsing="false" onAction="#onAcceptBtnClicked" prefHeight="49.0" prefWidth="200.0" styleClass="taskDone" text="Accept" />
+               </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </HBox>
+         </children>
+         <VBox.margin>
+            <Insets left="15.0" right="15.0" top="10.0" />
+         </VBox.margin>
+      </HBox>
+    </children>
+</VBox>

@@ -42,6 +42,7 @@ public class MyTimer implements Runnable{
             });
 
         } while (min != 0);
+
     }
     private void timeFormatCorrection(Label label, int counter){
         if(counter == 0 || counter == 1 || counter == 2 || counter == 3 || counter == 4 || counter == 5 || counter == 6 || counter == 7 || counter == 8 || counter == 9){
