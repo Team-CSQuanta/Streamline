@@ -10,10 +10,10 @@ import javafx.scene.layout.AnchorPane;
 public class ChallengeRequestController {
 
     @FXML
-    private Label ChallengeType;
+    public Label ChallengeType;
 
     @FXML
-    private Label PomoSession;
+    public Label PomoSession;
 
     @FXML
     private Label TaskTitle;
@@ -46,19 +46,20 @@ public class ChallengeRequestController {
     private ImageView image_bg;
 
     @FXML
-    private Label monsterName;
+    public Label monsterName;
 
     @FXML
     private AnchorPane profileArea;
 
     @FXML
-    private Label taskDescription;
+    public Label taskDescription;
 
     @FXML
-    private Label taskTag;
+    public Label taskTag;
 
     @FXML
     void onAcceptBtnClicked(ActionEvent event) {
+
 
     }
 

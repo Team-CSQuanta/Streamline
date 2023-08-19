@@ -13,6 +13,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 
 import java.io.IOException;
@@ -60,7 +62,6 @@ public class ItemGearController implements Initializable {
             if(StaticUserInformation.totalGoldCoins >= Double.parseDouble(priceLabel.getText())){
                 try {
                     FXMLScene fxmlScene = FXMLScene.load("/Fxml/ItemGearPurchasedSuccessFully.fxml");
-
                     VBox successMsg = (VBox) fxmlScene.root;
                     ItemPurchasedSuccessFullyController itemPurchasedSuccessFullyController = (ItemPurchasedSuccessFullyController) fxmlScene.controller;
                     itemPurchasedSuccessFullyController.setItemLabel(itemLabel);
@@ -102,9 +103,9 @@ public class ItemGearController implements Initializable {
         itemType = item.getItemType();
     }
     public void soundPlayer(String soundPath){
-//        Media sound = new Media(this.getClass().getResource(soundPath).toString());
-//        MediaPlayer player = new MediaPlayer(sound);
-//        player.play();
+        Media sound = new Media(this.getClass().getResource(soundPath).toString());
+        MediaPlayer player = new MediaPlayer(sound);
+        player.play();
 
     }
 

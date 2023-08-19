@@ -3,6 +3,8 @@ package com.csquanta.streamline.Controllers;
 import animatefx.animation.FadeInUp;
 import animatefx.animation.Pulse;
 import com.csquanta.streamline.Models.EvilMonsters;
+import com.csquanta.streamline.Networking.NetworkUtil;
+import com.csquanta.streamline.Networking.ReadThreadClient;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +16,8 @@ import javafx.scene.control.SplitPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Iterator;
@@ -59,6 +63,7 @@ public class ChallengeController implements Initializable {
 
     @FXML
     private HBox topHbox;
+    static NetworkUtil networkUtil;
 
     @FXML
     void takeChallenge(ActionEvent event) throws IOException {
@@ -92,5 +97,39 @@ public class ChallengeController implements Initializable {
             monsterItemController.setMonsterData(iterator.next());
             MonsterVBox.getChildren().add(fxmlScene.root);
         }
+
+
+        // Initialize the socket connection here
+        try {
+            String clientEmail = loadClientInfoFromFile();
+            networkUtil = new NetworkUtil("127.0.0.1", 8000);
+            networkUtil.write(clientEmail);
+            System.out.println(clientEmail);
+
+            ReadThreadClient readThreadClient = new ReadThreadClient(networkUtil, clientEmail);
+            readThreadClient.start();
+        } catch (Exception e) {
+            System.out.println("Error initializing socket connection: " + e);
+        }
+    }
+
+    public String loadClientInfoFromFile() {
+        String email = null;
+        try (BufferedReader reader = new BufferedReader(new FileReader("client_info1.txt"))) {
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length >= 2) {
+                    String name = parts[0];
+                    email = parts[1];
+                } else {
+                    System.err.println("Invalid line format: " + line);
+                }
+            }
+        } catch (IOException e) {
+            System.err.println("Error reading client info file: " + e.getMessage());
+        }
+        return email;
     }
 }

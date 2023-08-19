@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static com.csquanta.streamline.Controllers.ChallengeController.networkUtil;
 import static com.csquanta.streamline.Controllers.HeaderController.modalPaneForHeader;
 
 public class ChallengeCreatorController implements Initializable {
@@ -29,6 +30,7 @@ public class ChallengeCreatorController implements Initializable {
     ObservableList<String> challenges = FXCollections.observableArrayList("Complete daily tasks", "Build consistency");
     ObservableList<String> monster = FXCollections.observableArrayList("Amber", "Armadillo", "Axolotl", "Badger", "Butterfly", "Cheetah", "Derby", "Dilatory",
     "Dilatory Distress");
+    ObservableList<String> PomodoroSession= FXCollections.observableArrayList("1", "2","3","4");
     @FXML
     private Button cancel;
 
@@ -55,7 +57,8 @@ public class ChallengeCreatorController implements Initializable {
 
     @FXML
     private HBox dailyTaskNecessaryField;
-    private NetworkUtil networkUtil;
+
+     ChallengeController challengeController= new ChallengeController();
     @FXML
     void challengeSelection(ActionEvent event) {
         if(challengeType.getSelectionModel().getSelectedItem().equals("Build consistency")){
@@ -86,8 +89,8 @@ public class ChallengeCreatorController implements Initializable {
 
 
 
-    public ComboBox<String> getChallengeTaskPomodoroSession() {
-        return challengeTaskPomodoroSession;
+    public ObservableList<String>getPomodoroSession() {
+        return PomodoroSession;
     }
 
     public void setChallengeTaskPomodoroSession(ComboBox<String> challengeTaskPomodoroSession) {
@@ -137,20 +140,19 @@ public class ChallengeCreatorController implements Initializable {
             String receiverEmail = email.getText();
             String challengeType = String.valueOf(getChallengeType().getValue());
             String challengeDescription = String.valueOf(getChallengeDescription().getText());
-            String pomodoroSession = String.valueOf(getChallengeTaskPomodoroSession().getValue());
+            String pomodoroSession = String.valueOf(getPomodoroSession());
             String taskTag = String.valueOf(getChallengeTaskTag().getValue());
             String monstersName = String.valueOf(getSelectMonster().getValue());
 
-            String clientEmail = loadClientInfoFromFile();
-            System.out.println(clientEmail);
+
 
             if ("Build consistency".equals(challengeType)) {
-                ChallengeInfo challengeInfo = new ChallengeInfo(challengeType, challengeDescription, clientEmail, receiverEmail, pomodoroSession, taskTag, monstersName);
+                ChallengeInfo challengeInfo = new ChallengeInfo(challengeType, challengeDescription,  challengeController.loadClientInfoFromFile(), receiverEmail, pomodoroSession, taskTag, monstersName);
                 networkUtil.write(challengeInfo);
             } else {
-                ChallengeInfo challengeInfo = new ChallengeInfo(challengeType, challengeDescription, clientEmail, receiverEmail,monstersName);
+                ChallengeInfo challengeInfo = new ChallengeInfo(challengeType, challengeDescription, challengeController.loadClientInfoFromFile(), receiverEmail,monstersName);
                 networkUtil.write(challengeInfo);
-                System.out.println(challengeInfo);
+
             }
         } catch (Exception e) {
             System.out.println(e);
@@ -163,37 +165,8 @@ public class ChallengeCreatorController implements Initializable {
         selectMonster.setItems(monster);
         dailyTaskNecessaryField.setVisible(false);
 
-        // Initialize the socket connection here
-        try {
-            String clientEmail = loadClientInfoFromFile();
-            networkUtil = new NetworkUtil("127.0.0.1", 8000);
-            networkUtil.write(clientEmail);
 
-            ReadThreadClient readThreadClient = new ReadThreadClient(networkUtil, clientEmail);
-            readThreadClient.start();
-        } catch (Exception e) {
-            System.out.println("Error initializing socket connection: " + e);
-        }
     }
 
-    private String loadClientInfoFromFile() {
-        String email = null;
-        try (BufferedReader reader = new BufferedReader(new FileReader("client_info1.txt"))) {
-            String line;
-
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
-                if (parts.length >= 2) {
-                    String name = parts[0];
-                    email = parts[1];
-                } else {
-                    System.err.println("Invalid line format: " + line);
-                }
-            }
-        } catch (IOException e) {
-            System.err.println("Error reading client info file: " + e.getMessage());
-        }
-        return email;
-    }
 
 }

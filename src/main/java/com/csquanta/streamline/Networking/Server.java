@@ -4,14 +4,15 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class Server {
 
     private ServerSocket serverSocket;
-    private HashMap<String, NetworkInformation> clientNetworkInformationMap;
+    private ConcurrentHashMap<String, NetworkInformation> clientNetworkInformationMap;
 
     Server() {
-        clientNetworkInformationMap = new HashMap<>();
+        clientNetworkInformationMap = new ConcurrentHashMap<>();
         try {
             serverSocket = new ServerSocket(8000);
             System.out.println("Server has started...");
