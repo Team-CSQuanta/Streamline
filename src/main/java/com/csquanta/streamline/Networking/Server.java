@@ -27,12 +27,12 @@ public class Server {
 
     public void serve(Socket clientSocket) throws IOException, ClassNotFoundException {
         NetworkUtil networkUtil = new NetworkUtil(clientSocket);
-        String clientName = (String) networkUtil.read();
+        String clientEmail = (String) networkUtil.read();
 
         NetworkInformation networkInfo = new NetworkInformation(networkUtil);
-        clientNetworkInformationMap.put(clientName, networkInfo);
+        clientNetworkInformationMap.put(clientEmail, networkInfo);
 
-        ReadThreadServer readThreadServer = new ReadThreadServer(clientName, networkInfo, clientNetworkInformationMap);
+        ReadThreadServer readThreadServer = new ReadThreadServer(clientEmail, networkInfo, clientNetworkInformationMap);
         readThreadServer.start();
     }
 
