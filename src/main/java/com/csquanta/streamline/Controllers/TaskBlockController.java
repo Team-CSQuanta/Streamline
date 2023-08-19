@@ -127,7 +127,8 @@ public class TaskBlockController implements Initializable {
     void showPomodoroTimer(MouseEvent event) throws IOException {
         FXMLScene pomodoroPage = FXMLScene.load("/Fxml/PomodoroPage.fxml");
         CreateANewTaskController.modalPaneForTaskCreator.show(pomodoroPage.root);
-
+        PomodoroPageController controller = (PomodoroPageController) pomodoroPage.controller;
+        controller.setTask(task);
         new Pulse(pomodoroPage.root).play();
     }
     @Override

@@ -1,6 +1,7 @@
 package com.csquanta.streamline.Controllers;
 
 import com.csquanta.streamline.Models.MyTimer;
+import com.csquanta.streamline.Models.Task;
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,6 +12,15 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class PomodoroPageController implements Initializable {
+    private Task task;
+
+    public Task getTask() {
+        return task;
+    }
+
+    public void setTask(Task task) {
+        this.task = task;
+    }
 
     @FXML
     private Label minutesLabel;
@@ -22,11 +32,15 @@ public class PomodoroPageController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        MyTimer timer = new MyTimer(2, 60, minutesLabel, secondsLabel);
-        timer.t.setDaemon(true);
-        timer.t.start();
 
+    }
+    public void pomodoroSessionRunner(Task t){
+        for(int i = 1; i <= t.getNumOfSessions(); i++){
+            MyTimer timer = new MyTimer(2, 60, minutesLabel, secondsLabel);
+            timer.t.setDaemon(true);
+            timer.t.start();
 
+        }
     }
 
 }
