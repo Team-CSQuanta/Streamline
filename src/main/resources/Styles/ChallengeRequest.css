@@ -1,0 +1,42 @@
+@font-face {
+    src: url("../Fonts/ProductSans-Light.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Medium.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Regular.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Black.ttf");
+}
+@font-face {
+    src: url("../Fonts/ProductSans-Bold.ttf");
+}
+
+.name{
+    -fx-font-family: "Product Sans Light";
+    -fx-font-size: 25px;
+}
+.description{
+    -fx-font-family: "Product Sans Light";
+    -fx-font-size: 16px;
+}
+
+
+.challengeDescription{
+    -fx-font-family: "Product Sans Light";
+    -fx-font-size: 18px;
+}
+.challengeDescriptionLeft{
+    -fx-font-family: "Product Sans Medium";
+    -fx-font-size: 17px;
+}
+.challengeDescriptionRight{
+    -fx-font-family: "Product Sans Light";
+    -fx-font-size: 16px;
+}
+.message{
+    -fx-font-family: "Product Sans Light";
+    -fx-font-size: 16px;
+}
