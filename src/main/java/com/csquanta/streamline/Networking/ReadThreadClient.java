@@ -1,23 +1,31 @@
 package com.csquanta.streamline.Networking;
 
+import animatefx.animation.ZoomIn;
+import com.csquanta.streamline.App;
 import com.csquanta.streamline.Controllers.ChallengeRequestController;
 import com.csquanta.streamline.Controllers.FXMLScene;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+
+import static java.util.Objects.requireNonNull;
 
 public class ReadThreadClient extends Thread {
     private NetworkUtil networkUtil;
     private String clientEmail;
+    ChallengeRequestController controller;
+
+
 
     public ReadThreadClient(NetworkUtil networkUtil, String clientEmail) throws IOException {
         this.networkUtil = networkUtil;
         this.clientEmail = clientEmail;
     }
-//    FXMLScene fxmlScene = FXMLScene.load("/Fxml/ChallengeRequest.fxml");
-//    ChallengeRequestController controller = (ChallengeRequestController) fxmlScene.controller;
 
 
     @Override
@@ -30,25 +38,37 @@ public class ReadThreadClient extends Thread {
                 String challengeDescription = receivedMessage.getChallengeDescription();
                 String taskTag = receivedMessage.getChallengeTaskTag();
                 String monsterName = receivedMessage.getMonstersName();
-                if ("Build consistency".equals(challengeType)) {
-                    System.out.println("Received a Brand new Challenge:");
-                    System.out.println(".......................................");
-                    System.out.println("Challenge Type: " + challengeType);
-                    System.out.println("Monster: "+ monsterName);
-                    System.out.println("Description: " + challengeDescription);
-                    System.out.println("Sessions: " + pomodoroSession);
-                    System.out.println("Task Tag: " + taskTag);
 
-                } else {
-                    System.out.println("Received a Brand new Challenge:");
-                    System.out.println(".......................................");
-                    System.out.println("Challenge Type: " + challengeType);
-                    System.out.println("Monster: "+ monsterName);
-                    System.out.println("Description: " + challengeDescription);
+                Platform.runLater(() -> {
 
+                    try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/ChallengeRequest.fxml"));
+                        VBox challenge = loader.load();
+                         controller = loader.getController();
 
-                }
+                        StackPane.setAlignment(challenge, Pos.BOTTOM_CENTER);
+                        App.root.getChildren().add(challenge);
+                        ZoomIn zoomIn = new ZoomIn();
+                        zoomIn.setNode(challenge);
+                        zoomIn.setSpeed(3);
+                        zoomIn.play();
 
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+
+                    if ("Build consistency".equals(challengeType)) {
+                        controller.ChallengeType.setText(challengeType);
+                        controller.PomoSession.setText(pomodoroSession);
+                        controller.taskDescription.setText(challengeDescription);
+                        controller.taskTag.setText(taskTag);
+                        controller.monsterName.setText(monsterName);
+                    } else {
+                        controller.ChallengeType.setText(challengeType);
+                        controller.taskDescription.setText(challengeDescription);
+                        controller.monsterName.setText(monsterName);
+                    }
+                });
             }
         } catch (Exception e) {
             e.printStackTrace();
