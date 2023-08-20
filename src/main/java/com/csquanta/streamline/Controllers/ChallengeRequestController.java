@@ -16,7 +16,7 @@ public class ChallengeRequestController {
     public Label PomoSession;
 
     @FXML
-    private Label TaskTitle;
+    public Label TaskTitle;
 
     @FXML
     private Button acceptBtn;
@@ -56,6 +56,12 @@ public class ChallengeRequestController {
 
     @FXML
     public Label taskTag;
+    @FXML
+    public Label SessionNo;
+    @FXML
+    public Label Ttag;
+
+
 
     @FXML
     void onAcceptBtnClicked(ActionEvent event) {

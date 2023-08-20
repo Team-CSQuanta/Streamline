@@ -28,14 +28,15 @@ public class ReadThreadServer extends Thread {
                 String challengeDescription = receivedMessage.getChallengeDescription();
                 String taskTag = receivedMessage.getChallengeTaskTag();
                 String monsterName = receivedMessage.getMonstersName();
+                String taskTitle= receivedMessage.getTaskTitle();
 
                 NetworkInformation receiverInfo = clientNetworkInformationMap.get(receiverEmail);
                 if (receiverInfo != null) {
                     if (receivedMessage.isBuildConsistency()) {
-                        challengeInfo = new ChallengeInfo(challengeType, challengeDescription, clientEmail, receiverEmail,  pomodoroSession, taskTag,monsterName);
+                        challengeInfo = new ChallengeInfo(challengeType, challengeDescription, clientEmail, receiverEmail,  pomodoroSession, taskTag,monsterName,taskTitle);
                     }
                     else{
-                        challengeInfo = new ChallengeInfo(challengeType, challengeDescription, clientEmail, receiverEmail,monsterName);
+                        challengeInfo = new ChallengeInfo(challengeType, challengeDescription, clientEmail, receiverEmail,monsterName,taskTitle);
                     }
                     receiverInfo.getNetworkUtil().write(challengeInfo);
                 }

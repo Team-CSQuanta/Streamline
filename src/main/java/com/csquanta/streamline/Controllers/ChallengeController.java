@@ -115,7 +115,7 @@ public class ChallengeController implements Initializable {
 
     public String loadClientInfoFromFile() {
         String email = null;
-        try (BufferedReader reader = new BufferedReader(new FileReader("client_info1.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("client_info.txt"))) {
             String line;
 
             while ((line = reader.readLine()) != null) {

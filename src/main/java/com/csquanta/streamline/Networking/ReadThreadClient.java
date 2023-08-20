@@ -38,6 +38,7 @@ public class ReadThreadClient extends Thread {
                 String challengeDescription = receivedMessage.getChallengeDescription();
                 String taskTag = receivedMessage.getChallengeTaskTag();
                 String monsterName = receivedMessage.getMonstersName();
+                String taskTitle = receivedMessage.getTaskTitle();
 
                 Platform.runLater(() -> {
 
@@ -63,10 +64,14 @@ public class ReadThreadClient extends Thread {
                         controller.taskDescription.setText(challengeDescription);
                         controller.taskTag.setText(taskTag);
                         controller.monsterName.setText(monsterName);
+                        controller.SessionNo.setText("Session               :");
+                        controller.Ttag.setText("Task tag             :");
+                        controller.TaskTitle.setText(taskTitle);
                     } else {
                         controller.ChallengeType.setText(challengeType);
                         controller.taskDescription.setText(challengeDescription);
                         controller.monsterName.setText(monsterName);
+                        controller.TaskTitle.setText(taskTitle);
                     }
                 });
             }
