@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="561.0" prefWidth="1290.0" stylesheets="@../Styles/Challenge.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <ImageView fitHeight="456.0" fitWidth="456.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+            <image>
+                <Image url="@../Images/bubble-gum-message-sent.gif" />
+            </image>
+        </ImageView>
+        <Label alignment="CENTER" opacity="0.5" prefHeight="62.0" prefWidth="655.0" styleClass="noChallenge" text="Your challenge request has been sent to the user." />
+    </children>
+</VBox>

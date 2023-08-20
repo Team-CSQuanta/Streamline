@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<HBox fx:id="topHbox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="239.0" prefWidth="1290.0" style="-fx-border-color: #9580FF; -fx-border-radius: 10px;" stylesheets="@../Styles/MonsterOnChallenge.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fxml.MonsterInChallenge">
+   <children>
+      <ImageView fx:id="monsterImage" fitHeight="219.0" fitWidth="219.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/bosses/quest_ferret_low.png" />
+         </image>
+      </ImageView>
+      <VBox prefHeight="178.0" prefWidth="496.0">
+         <children>
+            <Label fx:id="monsterName" alignment="CENTER" prefHeight="65.0" prefWidth="507.0" styleClass="nameTitle" text="Cheetah" />
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="500.0" spacing="10.0">
+               <children>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/icons8-love-48.png" />
+                     </image>
+                  </ImageView>
+                  <ProgressBar fx:id="monsterHealthRemaining" prefHeight="12.0" prefWidth="500.0" progress="0.66" />
+               </children>
+            </HBox>
+            <HBox fx:id="totalUsersHealthDamagedByTheMoster" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="500.0" spacing="10.0">
+               <children>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/icons8-electric-24.png" />
+                     </image>
+                  </ImageView>
+                  <ProgressBar fx:id="strikeProgressBar" prefHeight="12.0" prefWidth="500.0" progress="0.2" style="-fx-progress-color: #FA5252;" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</HBox>

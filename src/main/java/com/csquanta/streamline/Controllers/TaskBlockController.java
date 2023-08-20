@@ -128,7 +128,8 @@ public class TaskBlockController implements Initializable {
         FXMLScene pomodoroPage = FXMLScene.load("/Fxml/PomodoroPage.fxml");
         PomodoroPageController.modalPaneForPomodoroPage.show(pomodoroPage.root);
         PomodoroPageController.modalPaneForPomodoroPage.setPersistent(true);
-
+        PomodoroPageController controller = (PomodoroPageController) pomodoroPage.controller;
+        controller.setTask(task);
         new Pulse(pomodoroPage.root).play();
     }
     @Override
