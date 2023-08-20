@@ -1,5 +1,6 @@
 package com.csquanta.streamline.Networking;
 
+import animatefx.animation.Pulse;
 import animatefx.animation.ZoomIn;
 import com.csquanta.streamline.App;
 import com.csquanta.streamline.Controllers.ChallengeRequestController;
@@ -12,7 +13,9 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.util.Objects;
 
+import static com.csquanta.streamline.Controllers.HeaderController.modalPaneForHeader;
 import static java.util.Objects.requireNonNull;
 
 public class ReadThreadClient extends Thread {
@@ -43,16 +46,15 @@ public class ReadThreadClient extends Thread {
                 Platform.runLater(() -> {
 
                     try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/ChallengeRequest.fxml"));
-                        VBox challenge = loader.load();
-                         controller = loader.getController();
 
-                        StackPane.setAlignment(challenge, Pos.BOTTOM_CENTER);
-                        App.root.getChildren().add(challenge);
-                        ZoomIn zoomIn = new ZoomIn();
-                        zoomIn.setNode(challenge);
-                        zoomIn.setSpeed(3);
-                        zoomIn.play();
+                        FXMLScene fxmlScene = FXMLScene.load("/Fxml/ChallengeRequest.fxml");
+
+                        modalPaneForHeader.setAlignment(Pos.CENTER);
+                        modalPaneForHeader.show(fxmlScene.root);
+                        controller = (ChallengeRequestController) fxmlScene.controller;
+                        Pulse pulse = new Pulse();
+                        pulse.setNode(modalPaneForHeader);
+                        pulse.play();
 
                     } catch (IOException e) {
                         throw new RuntimeException(e);
