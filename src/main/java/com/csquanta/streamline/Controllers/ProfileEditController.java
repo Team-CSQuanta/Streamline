@@ -310,6 +310,7 @@ public class ProfileEditController implements Initializable {
             CustomizeBlockController selectedBlockController = (CustomizeBlockController) clickedImageView.getProperties().get("controller");
 
             // Determine the source GridPane based on the parent of the parent (ImageView -> VBox -> GridPane)
+
             GridPane parentGrid = null;
 
             if (clickedImageView.getParent().getParent() instanceof GridPane) {

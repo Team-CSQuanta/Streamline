@@ -10,20 +10,22 @@ public class ChallengeInfo implements Serializable {
     private String email;
     private String receiverEmail;
     private String monstersName;
+    private  String taskTitle;
 
 
 
-    public ChallengeInfo(String challengeType, String challengeDescription, String email, String receiverEmail, String monstersName) {
+    public ChallengeInfo(String challengeType, String challengeDescription, String email, String receiverEmail, String monstersName,String taskTitle) {
         this.challengeType = challengeType;
         this.challengeDescription = challengeDescription;
         this.email = email;
         this.receiverEmail = receiverEmail;
         this.monstersName = monstersName;
+        this.taskTitle=taskTitle;
 
     }
 
 
-    public ChallengeInfo(String challengeType, String challengeDescription, String email, String receiverEmail,String challengeTaskPomodoroSession, String challengeTaskTag, String monstersName ) {
+    public ChallengeInfo(String challengeType, String challengeDescription, String email, String receiverEmail,String challengeTaskPomodoroSession, String challengeTaskTag, String monstersName,String taskTitle) {
         this.challengeType = challengeType;
         this.challengeDescription = challengeDescription;
         this.challengeTaskPomodoroSession = challengeTaskPomodoroSession;
@@ -31,10 +33,18 @@ public class ChallengeInfo implements Serializable {
         this.email = email;
         this.receiverEmail = receiverEmail;
         this.monstersName = monstersName;
+        this.taskTitle = taskTitle;
 
     }
 
 
+    public String getTaskTitle() {
+        return taskTitle;
+    }
+
+    public void setTaskTitle(String taskTitle) {
+        this.taskTitle = taskTitle;
+    }
 
     public String getReceiverEmail() {
         return receiverEmail;

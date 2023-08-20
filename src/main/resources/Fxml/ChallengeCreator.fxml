@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" spacing="35.0" style="-fx-border-color: #9580FF; -fx-background-color: #282A36FF;;" stylesheets="@../Styles/TaskCreator.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.ChallengeCreatorController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" spacing="35.0" style="-fx-border-color: #9580FF; -fx-background-color: #282A36FF;;" stylesheets="@../Styles/TaskCreator.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.ChallengeCreatorController">
    <padding>
       <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
    </padding>
@@ -55,8 +55,16 @@
             <Insets left="15.0" right="15.0" top="10.0" />
          </VBox.margin>
          <children>
-            <TextArea fx:id="challengeDescription" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="126.0" prefWidth="691.0" promptText="Challenge description" styleClass="taskDescription" wrapText="true" />
+            <TextArea fx:id="challengeDescription" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="93.0" prefWidth="691.0" promptText="Challenge description" styleClass="taskDescription" wrapText="true" />
          </children>
+      </HBox>
+      <HBox prefHeight="25.0" prefWidth="688.0">
+         <children>
+            <TextField fx:id="TaskTitle" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="689.0" promptText="Task tittle" />
+         </children>
+         <padding>
+            <Insets left="15.0" right="15.0" top="10.0" />
+         </padding>
       </HBox>
       <HBox fx:id="dailyTaskNecessaryField" alignment="CENTER" prefHeight="50.0" prefWidth="200.0" spacing="50.0">
          <children>

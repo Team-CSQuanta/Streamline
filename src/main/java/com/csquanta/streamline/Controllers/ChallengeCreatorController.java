@@ -17,6 +17,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -27,6 +29,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static com.csquanta.streamline.Controllers.ChallengeController.networkUtil;
 import static com.csquanta.streamline.Controllers.HeaderController.modalPaneForHeader;
 import static java.util.Objects.requireNonNull;
 
@@ -35,11 +38,16 @@ public class ChallengeCreatorController implements Initializable {
     ObservableList<String> challenges = FXCollections.observableArrayList("Complete daily tasks", "Build consistency");
     ObservableList<String> monster = FXCollections.observableArrayList("Amber", "Armadillo", "Axolotl", "Badger", "Butterfly", "Cheetah", "Derby", "Dilatory",
     "Dilatory Distress");
+    ObservableList<String> PomodoroSession= FXCollections.observableArrayList("1", "2","3","4","5","6","7");
+    ObservableList<String> taskTag = FXCollections.observableArrayList("Programming","Study");
     @FXML
     private Button cancel;
 
     @FXML
     private TextArea challengeDescription;
+    @FXML
+    private TextField TaskTitle;
+
 
     @FXML
     private ComboBox<String> challengeTaskPomodoroSession;
@@ -61,7 +69,9 @@ public class ChallengeCreatorController implements Initializable {
 
     @FXML
     private HBox dailyTaskNecessaryField;
-    private NetworkUtil networkUtil;
+
+
+     ChallengeController challengeController= new ChallengeController();
     @FXML
     void challengeSelection(ActionEvent event) {
         if(challengeType.getSelectionModel().getSelectedItem().equals("Build consistency")){
@@ -90,7 +100,13 @@ public class ChallengeCreatorController implements Initializable {
         this.challengeDescription = challengeDescription;
     }
 
+    public TextField getTaskTitle() {
+        return TaskTitle;
+    }
 
+    public void setTaskTitle(TextField taskTitle) {
+        TaskTitle = taskTitle;
+    }
 
     public ComboBox<String> getChallengeTaskPomodoroSession() {
         return challengeTaskPomodoroSession;
@@ -146,17 +162,17 @@ public class ChallengeCreatorController implements Initializable {
             String pomodoroSession = String.valueOf(getChallengeTaskPomodoroSession().getValue());
             String taskTag = String.valueOf(getChallengeTaskTag().getValue());
             String monstersName = String.valueOf(getSelectMonster().getValue());
+            String taskTitle = TaskTitle.getText();
 
-            String clientEmail = loadClientInfoFromFile();
-            System.out.println(clientEmail);
+
 
             if ("Build consistency".equals(challengeType)) {
-                ChallengeInfo challengeInfo = new ChallengeInfo(challengeType, challengeDescription, clientEmail, receiverEmail, pomodoroSession, taskTag, monstersName);
+                ChallengeInfo challengeInfo = new ChallengeInfo(challengeType, challengeDescription,  challengeController.loadClientInfoFromFile(), receiverEmail, pomodoroSession, taskTag, monstersName,taskTitle);
                 networkUtil.write(challengeInfo);
             } else {
-                ChallengeInfo challengeInfo = new ChallengeInfo(challengeType, challengeDescription, clientEmail, receiverEmail,monstersName);
+                ChallengeInfo challengeInfo = new ChallengeInfo(challengeType, challengeDescription, challengeController.loadClientInfoFromFile(), receiverEmail,monstersName,taskTitle);
                 networkUtil.write(challengeInfo);
-                System.out.println(challengeInfo);
+
             }
         } catch (Exception e) {
             System.out.println(e);
@@ -180,39 +196,12 @@ public class ChallengeCreatorController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         challengeType.setItems(challenges);
         selectMonster.setItems(monster);
+        challengeTaskPomodoroSession.setItems(PomodoroSession);
+        challengeTaskTag.setItems(taskTag);
         dailyTaskNecessaryField.setVisible(false);
 
-        // Initialize the socket connection here
-        try {
-            String clientEmail = loadClientInfoFromFile();
-            networkUtil = new NetworkUtil("127.0.0.1", 8000);
-            networkUtil.write(clientEmail);
 
-            ReadThreadClient readThreadClient = new ReadThreadClient(networkUtil, clientEmail);
-            readThreadClient.start();
-        } catch (Exception e) {
-            System.out.println("Error initializing socket connection: " + e);
-        }
     }
 
-    private String loadClientInfoFromFile() {
-        String email = null;
-        try (BufferedReader reader = new BufferedReader(new FileReader("client_info.txt"))) {
-            String line;
-
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
-                if (parts.length >= 2) {
-                    String name = parts[0];
-                    email = parts[1];
-                } else {
-                    System.err.println("Invalid line format: " + line);
-                }
-            }
-        } catch (IOException e) {
-            System.err.println("Error reading client info file: " + e.getMessage());
-        }
-        return email;
-    }
 
 }
