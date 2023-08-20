@@ -2,17 +2,26 @@ package com.csquanta.streamline.Models;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 public class MyTimer implements Runnable{
-    int min, sec;
+    int min, sec = 60;
+    int sessionCounter;
+    int totalSession;
+    Button button;
     Label minutes, seconds;
     public Thread t;
-    public MyTimer(int min, int sec, Label minL, Label secL){
+    String session;
+    public MyTimer(int min, Label minL, Label secL, Button button, String SessionName, int sessionCounter, int totalSession){
         this.min = min;
         this.sec = sec;
         this.minutes = minL;
         this.seconds = secL;
+        this.button = button;
+        this.session = SessionName;
+        this.totalSession = totalSession;
+        this.sessionCounter = sessionCounter;
         timeFormatCorrection(minutes, min);
         secL.setText(String.valueOf(sec));
         t = new Thread(this, "Timer");
@@ -38,6 +47,14 @@ public class MyTimer implements Runnable{
                 }
                 if(min == 0){
                     seconds.setText("00");
+                }
+                if(sessionCounter == totalSession && min == 0){
+                    button.setText("Finish");
+                }
+                else if(session.equals("Session") && min == 0){
+                    button.setText("Take Break");
+                }else if (session.equals("Break") && min == 0) {
+                    button.setText("Start session");
                 }
             });
 

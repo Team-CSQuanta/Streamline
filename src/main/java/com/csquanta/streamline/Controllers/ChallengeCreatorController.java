@@ -1,6 +1,7 @@
 package com.csquanta.streamline.Controllers;
 
 import animatefx.animation.FadeIn;
+import com.csquanta.streamline.App;
 import com.csquanta.streamline.Networking.ChallengeInfo;
 import com.csquanta.streamline.Networking.NetworkUtil;
 import com.csquanta.streamline.Networking.ReadThreadClient;
@@ -9,9 +10,18 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -21,6 +31,7 @@ import java.util.ResourceBundle;
 
 import static com.csquanta.streamline.Controllers.ChallengeController.networkUtil;
 import static com.csquanta.streamline.Controllers.HeaderController.modalPaneForHeader;
+import static java.util.Objects.requireNonNull;
 
 public class ChallengeCreatorController implements Initializable {
 
@@ -166,6 +177,19 @@ public class ChallengeCreatorController implements Initializable {
         } catch (Exception e) {
             System.out.println(e);
         }
+        try {
+            FXMLScene challengeReqSent = FXMLScene.load("/Fxml/ChallengeRequestSent.fxml");
+            App.newLoad();
+            FXMLScene challengePage = FXMLScene.load("/Fxml/Challenge.fxml");
+            ChallengeController controller = (ChallengeController) challengePage.controller;
+            controller.getBottomVbox().getChildren().setAll(challengeReqSent.root);
+            StackPane.setAlignment(challengePage.root, Pos.BOTTOM_CENTER);
+            App.root.getChildren().add(challengePage.root);
+            new FadeIn(challengePage.root).play();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        CreateANewTaskController.modalPaneForTaskCreator.hide(true);
     }
 
     @Override

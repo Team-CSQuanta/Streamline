@@ -28,10 +28,26 @@
     -fx-text-fill: linear-gradient(to bottom right, #18ABD1, #8968A3, #DD3982, #DE755C, #DEA63D);
 }
 .progress-bar .bar{
-    -fx-background-color: #20C997;
+    -fx-background-color: #9580FF;
 }
 .seconds{
     -fx-font-family: "The Bold Font";
     -fx-font-size: 70px;
     -fx-text-fill: linear-gradient(to bottom right, #18ABD1, #8968A3, #DD3982, #DE755C, #DEA63D);
+}
+.taskTitle{
+    -fx-font-family: "Product Sans Medium";
+    -fx-font-size: 40px;
+    -fx-text-fill: #9580FF;
+}
+.sessionText{
+    -fx-font-family: "Product Sans Medium";
+    -fx-font-size: 20px;
+    -fx-text-fill: #9580FF;
+    -fx-border-color: #9580FF;
+}
+.btn{
+    -fx-font-family: "Product Sans Light";
+    -fx-font-size: 18px;
+
 }
