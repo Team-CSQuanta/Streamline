@@ -22,28 +22,29 @@ public class ChallengeRequestController {
     private Button acceptBtn;
 
     @FXML
-    private ImageView avatarArmor;
+    public ImageView avatarArmor;
 
     @FXML
-    private ImageView avatarBody;
+    public ImageView avatarBody;
 
     @FXML
-    private ImageView avatarHair;
+    public ImageView avatarHair;
 
     @FXML
-    private ImageView avatarHead;
+    public ImageView avatarHead;
 
     @FXML
-    private ImageView avatarPet;
+    public ImageView avatarPet;
+
+    @FXML
+    public ImageView headGear;
+
+    @FXML
+    public ImageView image_bg;
 
     @FXML
     private Button decline;
 
-    @FXML
-    private ImageView headGear;
-
-    @FXML
-    private ImageView image_bg;
 
     @FXML
     public Label monsterName;

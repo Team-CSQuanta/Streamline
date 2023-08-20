@@ -2,20 +2,17 @@ package com.csquanta.streamline.Controllers;
 
 import animatefx.animation.FadeIn;
 import com.csquanta.streamline.Networking.ChallengeInfo;
-import com.csquanta.streamline.Networking.NetworkUtil;
-import com.csquanta.streamline.Networking.ReadThreadClient;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
