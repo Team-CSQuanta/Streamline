@@ -1,6 +1,5 @@
 package com.csquanta.streamline.Controllers;
 
-import animatefx.animation.FadeInUp;
 import animatefx.animation.Pulse;
 import com.csquanta.streamline.Models.EvilMonsters;
 import com.csquanta.streamline.Networking.NetworkUtil;

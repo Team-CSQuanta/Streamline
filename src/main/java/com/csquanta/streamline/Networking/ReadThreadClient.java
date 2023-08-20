@@ -5,13 +5,18 @@ import animatefx.animation.ZoomIn;
 import com.csquanta.streamline.App;
 import com.csquanta.streamline.Controllers.ChallengeRequestController;
 import com.csquanta.streamline.Controllers.FXMLScene;
+import com.csquanta.streamline.Controllers.ProfileEditController;
+import com.csquanta.streamline.Models.UserInformation;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
+import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -22,6 +27,7 @@ public class ReadThreadClient extends Thread {
     private NetworkUtil networkUtil;
     private String clientEmail;
     ChallengeRequestController controller;
+    ProfileEditController profileEditController= new ProfileEditController();
 
 
 
@@ -43,6 +49,7 @@ public class ReadThreadClient extends Thread {
                 String monsterName = receivedMessage.getMonstersName();
                 String taskTitle = receivedMessage.getTaskTitle();
 
+
                 Platform.runLater(() -> {
 
                     try {
@@ -59,6 +66,30 @@ public class ReadThreadClient extends Thread {
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
+                    String imageBg = UserInformation.userInfo.getAvatarImageBg();
+                    String imagePet = UserInformation.userInfo.getAvatarImagePet();
+                    String imageHeadGear =UserInformation.userInfo.getAvatarImageHeadGear();
+                    String imageHead = UserInformation.userInfo.getAvatarImageHead();
+                    String imageArmor = UserInformation.userInfo.getAvatarImageArmor();
+                    String imageHair = UserInformation.userInfo.getAvatarImageHair();
+                    String imageBody = UserInformation.userInfo.getAvatarImageBody();
+
+                    Image bgImage = new Image(getClass().getResourceAsStream(imageBg));
+                    controller.image_bg.setImage(bgImage);
+
+                    Image petImage = new Image(getClass().getResourceAsStream(imagePet));
+                    controller.avatarPet.setImage(petImage);
+                    Image HeadGearImage = new Image(getClass().getResourceAsStream(imageHeadGear));
+                    controller.headGear.setImage( HeadGearImage);
+                    Image HeadImage = new Image(getClass().getResourceAsStream(imageHead));
+                    controller.avatarHead.setImage(HeadImage);
+                    Image ArmorImage = new Image(getClass().getResourceAsStream(imageArmor));
+                    controller. avatarArmor.setImage(ArmorImage);
+                    Image HairImage = new Image(getClass().getResourceAsStream(imageHair));
+                    controller.avatarHair.setImage(HairImage);
+                    Image BodyImage = new Image(getClass().getResourceAsStream(imageBody));
+                    controller.avatarBody.setImage(BodyImage);
+
 
                     if ("Build consistency".equals(challengeType)) {
                         controller.ChallengeType.setText(challengeType);
@@ -80,5 +111,10 @@ public class ReadThreadClient extends Thread {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public String modifyPath(String path){
+        return path.replace("\\", "/");
+
     }
 }
