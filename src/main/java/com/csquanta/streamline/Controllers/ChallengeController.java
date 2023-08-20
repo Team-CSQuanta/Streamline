@@ -23,7 +23,7 @@ import java.util.TreeSet;
 import static java.util.Objects.requireNonNull;
 
 public class ChallengeController implements Initializable {
-    VBox noChallenge, createChallenge;
+    VBox noChallenge;
     @FXML
     private VBox ItemBlockContainer;
 
@@ -51,6 +51,14 @@ public class ChallengeController implements Initializable {
     @FXML
     private VBox bottomVbox;
 
+    public VBox getBottomVbox() {
+        return bottomVbox;
+    }
+
+    public void setBottomVbox(VBox bottomVbox) {
+        this.bottomVbox = bottomVbox;
+    }
+
     @FXML
     private VBox shopContainerVbox;
 
@@ -72,13 +80,7 @@ public class ChallengeController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        try {
-            noChallenge = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/NotHavingAnyChallenge.fxml")));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        bottomVbox.getChildren().add(noChallenge);
-
+        NotHavingAnyChallenges(bottomVbox);
         TreeSet<EvilMonsters> monsters = EvilMonsters.evilMonstersStaticObject.getEvilMonstersList();
         Iterator<EvilMonsters> iterator = monsters.iterator();
         FXMLScene fxmlScene;
@@ -91,6 +93,17 @@ public class ChallengeController implements Initializable {
             MonsterItemController monsterItemController = (MonsterItemController) fxmlScene.controller;
             monsterItemController.setMonsterData(iterator.next());
             MonsterVBox.getChildren().add(fxmlScene.root);
+        }
+    }
+
+    public void NotHavingAnyChallenges(VBox bottomVbox){
+        if(bottomVbox.getChildren().size() == 0){
+            try {
+                noChallenge = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/NotHavingAnyChallenge.fxml")));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            bottomVbox.getChildren().add(noChallenge);
         }
     }
 }
