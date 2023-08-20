@@ -10,10 +10,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 
 import java.io.BufferedReader;
@@ -30,12 +27,16 @@ public class ChallengeCreatorController implements Initializable {
     ObservableList<String> challenges = FXCollections.observableArrayList("Complete daily tasks", "Build consistency");
     ObservableList<String> monster = FXCollections.observableArrayList("Amber", "Armadillo", "Axolotl", "Badger", "Butterfly", "Cheetah", "Derby", "Dilatory",
     "Dilatory Distress");
-    ObservableList<String> PomodoroSession= FXCollections.observableArrayList("1", "2","3","4");
+    ObservableList<String> PomodoroSession= FXCollections.observableArrayList("1", "2","3","4","5","6","7");
+    ObservableList<String> taskTag = FXCollections.observableArrayList("Programming","Study");
     @FXML
     private Button cancel;
 
     @FXML
     private TextArea challengeDescription;
+    @FXML
+    private TextField TaskTitle;
+
 
     @FXML
     private ComboBox<String> challengeTaskPomodoroSession;
@@ -57,6 +58,7 @@ public class ChallengeCreatorController implements Initializable {
 
     @FXML
     private HBox dailyTaskNecessaryField;
+
 
      ChallengeController challengeController= new ChallengeController();
     @FXML
@@ -87,10 +89,16 @@ public class ChallengeCreatorController implements Initializable {
         this.challengeDescription = challengeDescription;
     }
 
+    public TextField getTaskTitle() {
+        return TaskTitle;
+    }
 
+    public void setTaskTitle(TextField taskTitle) {
+        TaskTitle = taskTitle;
+    }
 
-    public ObservableList<String>getPomodoroSession() {
-        return PomodoroSession;
+    public ComboBox<String> getChallengeTaskPomodoroSession() {
+        return challengeTaskPomodoroSession;
     }
 
     public void setChallengeTaskPomodoroSession(ComboBox<String> challengeTaskPomodoroSession) {
@@ -140,17 +148,18 @@ public class ChallengeCreatorController implements Initializable {
             String receiverEmail = email.getText();
             String challengeType = String.valueOf(getChallengeType().getValue());
             String challengeDescription = String.valueOf(getChallengeDescription().getText());
-            String pomodoroSession = String.valueOf(getPomodoroSession());
+            String pomodoroSession = String.valueOf(getChallengeTaskPomodoroSession().getValue());
             String taskTag = String.valueOf(getChallengeTaskTag().getValue());
             String monstersName = String.valueOf(getSelectMonster().getValue());
+            String taskTitle = TaskTitle.getText();
 
 
 
             if ("Build consistency".equals(challengeType)) {
-                ChallengeInfo challengeInfo = new ChallengeInfo(challengeType, challengeDescription,  challengeController.loadClientInfoFromFile(), receiverEmail, pomodoroSession, taskTag, monstersName);
+                ChallengeInfo challengeInfo = new ChallengeInfo(challengeType, challengeDescription,  challengeController.loadClientInfoFromFile(), receiverEmail, pomodoroSession, taskTag, monstersName,taskTitle);
                 networkUtil.write(challengeInfo);
             } else {
-                ChallengeInfo challengeInfo = new ChallengeInfo(challengeType, challengeDescription, challengeController.loadClientInfoFromFile(), receiverEmail,monstersName);
+                ChallengeInfo challengeInfo = new ChallengeInfo(challengeType, challengeDescription, challengeController.loadClientInfoFromFile(), receiverEmail,monstersName,taskTitle);
                 networkUtil.write(challengeInfo);
 
             }
@@ -163,6 +172,8 @@ public class ChallengeCreatorController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         challengeType.setItems(challenges);
         selectMonster.setItems(monster);
+        challengeTaskPomodoroSession.setItems(PomodoroSession);
+        challengeTaskTag.setItems(taskTag);
         dailyTaskNecessaryField.setVisible(false);
 
 
