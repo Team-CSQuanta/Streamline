@@ -5,13 +5,17 @@ import animatefx.animation.Wobble;
 import com.csquanta.streamline.Models.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.TextAlignment;
 
 import java.io.IOException;
 import java.net.URL;
@@ -126,10 +130,18 @@ public class TaskBlockController implements Initializable {
     @FXML
     void showPomodoroTimer(MouseEvent event) throws IOException {
         FXMLScene pomodoroPage = FXMLScene.load("/Fxml/PomodoroPage.fxml");
-        PomodoroPageController.modalPaneForPomodoroPage.show(pomodoroPage.root);
-        PomodoroPageController.modalPaneForPomodoroPage.setPersistent(true);
         PomodoroPageController controller = (PomodoroPageController) pomodoroPage.controller;
         controller.setTask(task);
+        controller.setTaskTitle(task.getTaskTitle());
+
+
+
+
+
+
+        PomodoroPageController.modalPaneForPomodoroPage.show(pomodoroPage.root);
+        PomodoroPageController.modalPaneForPomodoroPage.setPersistent(true);
+
         new Pulse(pomodoroPage.root).play();
     }
     @Override
