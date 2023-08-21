@@ -12,6 +12,7 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.util.Objects;
+import com.csquanta.streamline.Controllers.FXMLScene;
 
 public class HeaderController {
     public static final ModalPane modalPaneForHeader = new ModalPane();
@@ -26,6 +27,12 @@ public class HeaderController {
 
     @FXML
     private ImageView user;
+    static ProfileViewController controller;
+
+    public static ProfileViewController getController() {
+        return controller;
+    }
+
     @FXML
     void takeBreakClicked(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/Fxml/TakeBreak.fxml")));
@@ -54,9 +61,11 @@ public class HeaderController {
 
     @FXML
     void userIconClicked(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/Fxml/Profile.fxml")));
+        FXMLScene fxmlScene =FXMLScene.load("/Fxml/Profile.fxml");
+
+        controller = (ProfileViewController) fxmlScene.controller;
         modalPaneForHeader.setAlignment(Pos.CENTER);
-        modalPaneForHeader.show(loader.load());
+        modalPaneForHeader.show(fxmlScene.root);
         Pulse pulse = new Pulse();
         pulse.setNode(modalPaneForHeader);
         pulse.play();

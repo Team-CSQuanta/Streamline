@@ -1,10 +1,6 @@
 package com.csquanta.streamline.Controllers;
 
-import atlantafx.base.controls.Notification;
-import com.csquanta.streamline.App;
-
 import animatefx.animation.ZoomIn;
-
 import com.csquanta.streamline.Models.StaticUserInformation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,17 +8,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.util.Duration;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
+import com.csquanta.streamline.Models.UserInformation;
 
 import static com.csquanta.streamline.Controllers.HeaderController.modalPaneForHeader;
 
@@ -31,6 +26,11 @@ public class ProfileViewController implements Initializable {
     private AnchorPane anchorPaneProfileImg;
     @FXML
     private ImageView avatarArmor;
+
+
+    @FXML
+    private ProgressBar HealthProgress;
+
 
     @FXML
     private ImageView avatarBody;
@@ -72,6 +72,10 @@ public class ProfileViewController implements Initializable {
         zoomIn.play();
     }
 
+    public void updateHealthProgress() {
+        double healthPercentage = (double) UserInformation.userInfo.getUserHealth() / 100;
+        HealthProgress.setProgress(healthPercentage);
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         avatarBody.setImage(StaticUserInformation.avatarImageBody);
@@ -82,6 +86,7 @@ public class ProfileViewController implements Initializable {
         headGear.setImage(StaticUserInformation.avatarImageHeadGear);
         priceLabel.setText(StaticUserInformation.totalGoldCoins.toString());
         avatarPet.setImage(StaticUserInformation.avatarImagePet);
+        updateHealthProgress();
 
     }
 }

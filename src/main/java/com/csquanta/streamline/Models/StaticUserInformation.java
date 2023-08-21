@@ -23,4 +23,12 @@ public class StaticUserInformation {
     public static int userHealth;
 
 
+
+    public static int getUserHealth() {
+        return userHealth;
+    }
+
+    public static void setUserHealth(int userHealth) {
+        StaticUserInformation.userHealth = userHealth;
+    }
 }
