@@ -2,10 +2,7 @@ package com.csquanta.streamline;
 
 import atlantafx.base.theme.Dracula;
 import com.csquanta.streamline.Controllers.*;
-import com.csquanta.streamline.Models.Shop;
-import com.csquanta.streamline.Models.Task;
-import com.csquanta.streamline.Models.TaskIdGenerator;
-import com.csquanta.streamline.Models.UserInformation;
+import com.csquanta.streamline.Models.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -27,6 +24,8 @@ public class App extends Application {
     public  static StackPane root;
     public static Stage mainStage;
     public static Dracula dracula = new Dracula();
+    TaskManager taskManager = new TaskManager();
+
     private double x, y;
     public App() {
     }
@@ -37,6 +36,7 @@ public class App extends Application {
         Shop.deserializeShop();
         Task.deserializeTasks();
         TaskIdGenerator.deserializeTaskID();
+        taskManager.startTaskChecking();
     }
 
     @Override

@@ -2,21 +2,23 @@ package com.csquanta.streamline.Controllers;
 
 import animatefx.animation.ZoomIn;
 import com.csquanta.streamline.Models.StaticUserInformation;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
+import com.csquanta.streamline.Models.UserInformation;
 
 import static com.csquanta.streamline.Controllers.HeaderController.modalPaneForHeader;
 
@@ -25,6 +27,11 @@ public class ProfileViewController implements Initializable {
     private AnchorPane anchorPaneProfileImg;
     @FXML
     private ImageView avatarArmor;
+
+
+    @FXML
+    private ProgressBar HealthProgress;
+
 
     @FXML
     private ImageView avatarBody;
@@ -66,6 +73,12 @@ public class ProfileViewController implements Initializable {
         zoomIn.play();
     }
 
+    public void updateHealthProgress(int updatedHealth) {
+        Platform.runLater(() -> {
+        double healthPercentage =  (double) updatedHealth / 100;
+        HealthProgress.setProgress(healthPercentage);
+        });
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         avatarBody.setImage(StaticUserInformation.avatarImageBody);
@@ -76,6 +89,7 @@ public class ProfileViewController implements Initializable {
         headGear.setImage(StaticUserInformation.avatarImageHeadGear);
         priceLabel.setText(String.format("%.2f", StaticUserInformation.totalGoldCoins));
         avatarPet.setImage(StaticUserInformation.avatarImagePet);
+      //  updateHealthProgress();
 
     }
 }

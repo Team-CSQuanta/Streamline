@@ -1,11 +1,16 @@
 package com.csquanta.streamline.Models;
+import com.csquanta.streamline.Controllers.HeaderController;
+import com.csquanta.streamline.Controllers.ProfileViewController;
 import javafx.scene.image.Image;
 
 import java.io.*;
+import java.util.ArrayList;
 
 import static java.util.Objects.requireNonNull;
 
 public class UserInformation implements Serializable {
+    @Serial
+    private static final long serialVersionUID = -7282062709951824673L;
     public static UserInformation userInfo = new UserInformation();
     // Avatar related Field
     private  String avatarImageBg;
@@ -53,6 +58,33 @@ public class UserInformation implements Serializable {
 
     public void setUserHealth(int userHealth) {
         this.userHealth = userHealth;
+        ProfileViewController profileViewController = HeaderController.getController();
+        if (profileViewController != null) {
+            profileViewController.updateHealthProgress(userHealth);
+        }
+    }
+
+
+    public void deductHealthPointsBasedOnTasks(ArrayList<Task> incompleteTasks) {
+        int maxDeductionPercentage = 40; // Maximum percentage of health points that can be deducted
+
+        int totalIncompleteTasks = incompleteTasks.size();
+
+
+        int deductionPercentage = Math.min(maxDeductionPercentage, totalIncompleteTasks * 10);
+
+        int deductionValue = (int) Math.round(userHealth * deductionPercentage / 100.0);
+
+
+       int Health = userHealth - deductionValue;
+
+        ProfileViewController profileViewController = HeaderController.getController();
+        if (profileViewController != null) {
+            profileViewController.updateHealthProgress(Health);
+        }
+
+
+        System.out.println("Deducted " + deductionValue + " health points due to incomplete tasks.");
     }
 
     public UserInformation() {

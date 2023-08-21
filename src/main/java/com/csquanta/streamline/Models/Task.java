@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Task implements Serializable {
+    @Serial
+    private static final long serialVersionUID =  5063899760610175925L;
     public static Task taskObject = new Task();
 
     private ArrayList<Task> tasksList = new ArrayList<>();
@@ -26,6 +28,8 @@ public class Task implements Serializable {
     private String tag;
     private String description;
     private int taskID;
+
+    private boolean completed;
 
     public int getTaskID() {
         return taskID;
@@ -122,6 +126,15 @@ public class Task implements Serializable {
 
     public boolean isImportant() {
         return priority.toLowerCase().contains("important") && !priority.toLowerCase().contains("not important");
+    }
+
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
     public static void serializeTasks(){
         try(ObjectOutputStream objOStream = new ObjectOutputStream(new FileOutputStream("Tasks_Info"))){
