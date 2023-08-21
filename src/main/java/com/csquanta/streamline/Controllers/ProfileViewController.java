@@ -1,10 +1,6 @@
 package com.csquanta.streamline.Controllers;
 
-import atlantafx.base.controls.Notification;
-import com.csquanta.streamline.App;
-
 import animatefx.animation.ZoomIn;
-
 import com.csquanta.streamline.Models.StaticUserInformation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,9 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
@@ -80,7 +74,7 @@ public class ProfileViewController implements Initializable {
         image_bg.setImage(StaticUserInformation.avatarImageBg);
         avatarArmor.setImage(StaticUserInformation.avatarImageArmor);
         headGear.setImage(StaticUserInformation.avatarImageHeadGear);
-        priceLabel.setText(StaticUserInformation.totalGoldCoins.toString());
+        priceLabel.setText(String.format("%.2f", StaticUserInformation.totalGoldCoins));
         avatarPet.setImage(StaticUserInformation.avatarImagePet);
 
     }

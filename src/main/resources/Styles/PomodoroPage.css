@@ -39,7 +39,6 @@
     -fx-font-family: "Product Sans Medium";
     -fx-font-size: 40px;
     -fx-text-fill: #9580FF;
-    -fx-border-color: #9580FF;
 }
 .sessionText{
     -fx-font-family: "Product Sans Medium";
@@ -50,8 +49,11 @@
 .btn{
     -fx-font-family: "Product Sans Medium";
     /*-fx-font-size: 14px;*/
-
 }
 .tagContainer{
     -fx-font-family: "Product Sans Medium";
+}
+.gotPointsText{
+    -fx-font-family: "Product Sans Medium";
+    -fx-font-size: 20px;
 }
