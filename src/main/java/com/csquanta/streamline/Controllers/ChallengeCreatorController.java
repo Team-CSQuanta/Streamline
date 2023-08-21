@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
@@ -19,6 +20,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -156,7 +158,6 @@ public class ChallengeCreatorController implements Initializable {
             String taskTag = String.valueOf(getChallengeTaskTag().getValue());
             String monstersName = String.valueOf(getSelectMonster().getValue());
             String taskTitle = TaskTitle.getText();
-
 
 
             if ("Build consistency".equals(challengeType)) {

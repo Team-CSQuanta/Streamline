@@ -1,11 +1,16 @@
 package com.csquanta.streamline.Controllers;
 
+import com.csquanta.streamline.Networking.ChallengeInfo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+
+import java.io.IOException;
+
+import static com.csquanta.streamline.Controllers.ChallengeController.networkUtil;
 
 public class ChallengeRequestController {
 
@@ -65,9 +70,12 @@ public class ChallengeRequestController {
 
 
     @FXML
-    void onAcceptBtnClicked(ActionEvent event) {
-
-
+    void onAcceptBtnClicked(ActionEvent event) throws IOException {
+        System.out.println("Accepted");
+        ChallengeInfo acceptedChallenge = new ChallengeInfo();
+        acceptedChallenge.setAccepted(true);
+        networkUtil.write(acceptedChallenge);
+        System.out.println(acceptedChallenge.isAccepted());
     }
 
     @FXML
