@@ -1,4 +1,6 @@
 package com.csquanta.streamline.Models;
+import com.csquanta.streamline.Controllers.HeaderController;
+import com.csquanta.streamline.Controllers.ProfileViewController;
 import javafx.scene.image.Image;
 
 import java.io.*;
@@ -53,6 +55,10 @@ public class UserInformation implements Serializable {
 
     public void setUserHealth(int userHealth) {
         this.userHealth = userHealth;
+        ProfileViewController profileViewController = HeaderController.getController();
+        if (profileViewController != null) {
+            profileViewController.updateHealthProgress();
+        }
     }
 
     public UserInformation() {
