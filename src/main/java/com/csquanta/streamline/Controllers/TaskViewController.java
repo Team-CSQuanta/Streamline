@@ -160,17 +160,17 @@ public class TaskViewController implements Initializable{
             }
         }
     }
-    public void deleteATask(Task t){
+    public static void deleteATask(Task t){
         Task.taskObject.getTasksList().removeIf(task1 -> task1.getTaskID() == t.getTaskID());
         TaskIdGenerator.taskIdGenerator.decrementId();
     }
-    public void reload() throws IOException {
-        VBox taskPage = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/ToDoListGridPane.fxml")));
+    public static void reload() throws IOException {
+        VBox taskPage = FXMLLoader.load(requireNonNull(TaskViewController.class.getResource("/Fxml/ToDoListGridPane.fxml")));
         App.root.getChildren().removeAll();
         App.newLoad();
         FadeOut fadeIn = new FadeOut(taskPage);
         fadeIn.play();
-        VBox newTaskPage = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/ToDoListGridPane.fxml")));
+        VBox newTaskPage = FXMLLoader.load(requireNonNull(TaskViewController.class.getResource("/Fxml/ToDoListGridPane.fxml")));
         StackPane.setAlignment(newTaskPage, Pos.BOTTOM_CENTER);
         App.root.getChildren().add(newTaskPage);
         CreateANewTaskController.modalPaneForTaskCreator.hide(true);

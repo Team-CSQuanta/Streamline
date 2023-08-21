@@ -1,2 +1,4 @@
-package com.csquanta.streamline.Controllers;public class GotPointsController {
+package com.csquanta.streamline.Controllers;
+
+public class GotPointsController {
 }

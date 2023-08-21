@@ -14,7 +14,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -48,26 +50,42 @@ public class PomodoroPageController implements Initializable {
 
     @FXML
     private Label sessionInfoLabel;
+    @FXML
+    private HBox labelContainer;
+
+    public HBox getLabelContainer() {
+        return labelContainer;
+    }
+
+    public void setLabelContainer(HBox labelContainer) {
+        this.labelContainer = labelContainer;
+    }
 
     @FXML
     private Label taskTitle;
+
+    public String getTaskTitle() {
+        return taskTitle.getText();
+    }
+
+    public void setTaskTitle(String taskTitle) {
+        this.taskTitle.setText(taskTitle);
+    }
+
     @FXML
-    void buttonClicked(ActionEvent event) throws InterruptedException {
+    void buttonClicked(ActionEvent event){
         if(button.getText().equals("Start session")){
             button.setText("Running");
             sessionInfoLabel.setText("Session " + (sessionCounter + 1));
-            System.out.println("Session counter before: " + sessionCounter);
-            MyTimer timer = new MyTimer(1, minutesLabel, secondsLabel, button, "Session", sessionCounter, task.getNumOfSessions());
+            MyTimer timer = new MyTimer(5, minutesLabel, secondsLabel, button, "Session", sessionCounter, task.getNumOfSessions());
             timer.t.setDaemon(true);
             timer.t.start();
             sessionCounter++;
-            System.out.println("Session counter after: " + sessionCounter);
         }
         else if(button.getText().equals("Take Break") && sessionCounter != task.getNumOfSessions()){
-            System.out.println(" In take break block");
             button.setText("Running");
             sessionInfoLabel.setText("Running break");
-            MyTimer timer = new MyTimer(1, minutesLabel, secondsLabel, button, "Break", sessionCounter, task.getNumOfSessions());
+            MyTimer timer = new MyTimer(2, minutesLabel, secondsLabel, button, "Break", sessionCounter, task.getNumOfSessions());
             timer.t.setDaemon(true);
             timer.t.start();
         }
@@ -81,15 +99,14 @@ public class PomodoroPageController implements Initializable {
     }
 
     @FXML
-    void closeBtnClicked(MouseEvent event) {
+    void closeBtnClicked(MouseEvent event) throws IOException {
+        TaskViewController.deleteATask(task);
+        TaskViewController.reload();
         PomodoroPageController.modalPaneForPomodoroPage.hide(true);
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        MyTimer timer = new MyTimer(2, minutesLabel, secondsLabel);
-//        timer.t.setDaemon(true);
-//        timer.t.start();
         closeBtnImg.setVisible(false);
 
     }
