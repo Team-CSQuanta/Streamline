@@ -1,14 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Fxml.GotPoints"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="700.0" stylesheets="@../Styles/PomodoroPage.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.GotPointsController">
+   <children>
+      <ImageView fitHeight="110.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/marginalia-right-confetti-1.gif" />
+         </image></ImageView>
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="400.0" style="-fx-border-color: #9580FF; -fx-border-radius: 15px; -fx-border-width: 2px;">
+         <padding>
+            <Insets left="15.0" right="15.0" />
+         </padding>
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/icons8-coins-50.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="31.0" prefWidth="76.0" styleClass="gotPointsText" text="You got " />
+                  <Label fx:id="rewardAward" alignment="CENTER" prefHeight="31.0" prefWidth="63.0" styleClass="gotPointsText" text="100" />
+                  <Label prefHeight="31.0" prefWidth="154.0" styleClass="gotPointsText" text=" coins as reward" />
+               </children></HBox>
+         </children></VBox>
+      <ImageView fitHeight="110.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/marginalia-colorful-confetti-1.gif" />
+         </image>
+      </ImageView>
+   </children>
+</HBox>
