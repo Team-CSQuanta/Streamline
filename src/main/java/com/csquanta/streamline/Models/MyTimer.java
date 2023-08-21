@@ -39,14 +39,23 @@ public class MyTimer implements Runnable{
                 sec--;
                 System.out.println(sec);
                 timeFormatCorrection(seconds, sec);
+                if(sec == 59){
+                    timeFormatCorrection(minutes, (min -1));
+                    System.out.println("Minutes :" + min);
+                }
                 if (sec == 0) {
+                    System.out.println("Before decrement min: "+ min);
                     min--;
-                    System.out.println(min);
+                    System.out.println("After min-- If sec = 0 Minutes :" + min);
                     timeFormatCorrection(minutes, min);
+                    if(!session.equals("Break"))
+                        sessionCounter++;
+                    System.out.println(min);
                     sec = 60;
                 }
                 if(min == 0){
                     seconds.setText("00");
+
                 }
                 if(sessionCounter == totalSession && min == 0){
                     button.setText("Finish");

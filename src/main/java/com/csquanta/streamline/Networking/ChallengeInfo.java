@@ -11,10 +11,18 @@ public class ChallengeInfo implements Serializable {
     private String receiverEmail;
     private String monstersName;
     private  String taskTitle;
+    private boolean accepted;
+    String message;
+
+    public ChallengeInfo() {
+
+    }
+    public ChallengeInfo(String message) {
+        this.message = message;
+    }
 
 
-
-    public ChallengeInfo(String challengeType, String challengeDescription, String email, String receiverEmail, String monstersName,String taskTitle) {
+    public ChallengeInfo(String challengeType, String challengeDescription, String email, String receiverEmail, String monstersName, String taskTitle) {
         this.challengeType = challengeType;
         this.challengeDescription = challengeDescription;
         this.email = email;
@@ -36,6 +44,7 @@ public class ChallengeInfo implements Serializable {
         this.taskTitle = taskTitle;
 
     }
+
 
 
     public String getTaskTitle() {
@@ -101,6 +110,14 @@ public class ChallengeInfo implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public boolean isAccepted() {
+        return accepted;
+    }
+
+    public void setAccepted(boolean accepted) {
+        this.accepted = accepted;
     }
 
     public boolean isBuildConsistency() {

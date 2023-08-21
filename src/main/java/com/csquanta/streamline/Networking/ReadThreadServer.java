@@ -2,6 +2,7 @@ package com.csquanta.streamline.Networking;
 
 import javafx.application.Platform;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -29,7 +30,7 @@ public class ReadThreadServer extends Thread {
                 String taskTag = receivedMessage.getChallengeTaskTag();
                 String monsterName = receivedMessage.getMonstersName();
                 String taskTitle= receivedMessage.getTaskTitle();
-
+                System.out.println("In read thread server1");
                 NetworkInformation receiverInfo = clientNetworkInformationMap.get(receiverEmail);
                 if (receiverInfo != null) {
                     if (receivedMessage.isBuildConsistency()) {
@@ -40,9 +41,23 @@ public class ReadThreadServer extends Thread {
                     }
                     receiverInfo.getNetworkUtil().write(challengeInfo);
                 }
+
+                if (receivedMessage.isAccepted()) {
+                    System.out.println(receivedMessage.getReceiverEmail());
+                    System.out.println(receivedMessage.getEmail());
+                    informRequester(receivedMessage.getReceiverEmail(), receivedMessage.getEmail());
+                }
+
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    private void informRequester(String acceptedClientEmail, String acceptingClientEmail) throws IOException {
+        if (acceptedClientEmail.equals(clientEmail)) {
+            String message = "Your challenge request has been accepted by " + acceptingClientEmail;
+            networkInfo.getNetworkUtil().write(new TextMessage(message));
         }
     }
 }
