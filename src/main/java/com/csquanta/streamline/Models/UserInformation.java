@@ -76,11 +76,11 @@ public class UserInformation implements Serializable {
         int deductionValue = (int) Math.round(userHealth * deductionPercentage / 100.0);
 
 
-        setUserHealth(userHealth - deductionValue);
+       int Health = userHealth - deductionValue;
 
         ProfileViewController profileViewController = HeaderController.getController();
         if (profileViewController != null) {
-            profileViewController.updateHealthProgress(userHealth);
+            profileViewController.updateHealthProgress(Health);
         }
 
 
