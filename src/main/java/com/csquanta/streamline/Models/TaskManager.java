@@ -36,7 +36,7 @@ public class TaskManager {
 
 
                 LocalTime currentTime = LocalTime.now();
-                LocalTime midnight = LocalTime.of(20, 4, 59); // 11:59:59 PM
+                LocalTime midnight = LocalTime.of(20, 47, 59); // 11:59:59 PM
 
                 if (currentTime.isAfter(midnight)) {
                     userInfo.deductHealthPointsBasedOnTasks(incompleteTasks);
