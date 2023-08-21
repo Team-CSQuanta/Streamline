@@ -2,10 +2,12 @@ package com.csquanta.streamline.Controllers;
 
 import animatefx.animation.FadeIn;
 import animatefx.animation.FadeOut;
-import animatefx.animation.SlideOutUp;
+import animatefx.animation.Pulse;
 import atlantafx.base.controls.ModalPane;
+import com.csquanta.streamline.App;
 import com.csquanta.streamline.Models.MyTimer;
 import com.csquanta.streamline.Models.Task;
+import com.csquanta.streamline.Models.UserInformation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,12 +17,21 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class PomodoroPageController implements Initializable {
+    public static ModalPane modalPaneForPointsNotification = new ModalPane();
+
+    @FXML
+    private VBox pomodoroPageContainerVBox;
+
+    @FXML
+    private StackPane stackPanePomodoroContainer;
     private Task task;
     private static int sessionCounter = 0;
     public Task getTask() {
@@ -73,11 +84,11 @@ public class PomodoroPageController implements Initializable {
     }
 
     @FXML
-    void buttonClicked(ActionEvent event){
+    void buttonClicked(ActionEvent event) throws IOException {
         if(button.getText().equals("Start session")){
             button.setText("Running");
             sessionInfoLabel.setText("Session " + (sessionCounter + 1));
-            MyTimer timer = new MyTimer(5, minutesLabel, secondsLabel, button, "Session", sessionCounter, task.getNumOfSessions());
+            MyTimer timer = new MyTimer(2, minutesLabel, secondsLabel, button, "Session", sessionCounter, task.getNumOfSessions(), stackPanePomodoroContainer);
             timer.t.setDaemon(true);
             timer.t.start();
             sessionCounter++;
@@ -85,12 +96,13 @@ public class PomodoroPageController implements Initializable {
         else if(button.getText().equals("Take Break") && sessionCounter != task.getNumOfSessions()){
             button.setText("Running");
             sessionInfoLabel.setText("Running break");
-            MyTimer timer = new MyTimer(2, minutesLabel, secondsLabel, button, "Break", sessionCounter, task.getNumOfSessions());
+            MyTimer timer = new MyTimer(1, minutesLabel, secondsLabel, button, "Break", sessionCounter, task.getNumOfSessions(), stackPanePomodoroContainer);
             timer.t.setDaemon(true);
             timer.t.start();
         }
         else if(button.getText().equals("Finish")){
             button.setVisible(false);
+            afterCompletingTaskReward();
             new FadeOut(button).play();
             sessionCounter = 0;
             closeBtnImg.setVisible(true);
@@ -108,8 +120,28 @@ public class PomodoroPageController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         closeBtnImg.setVisible(false);
+        stackPanePomodoroContainer.getChildren().add(modalPaneForPointsNotification);
 
     }
+    public static void smallRewardAfterEachSession(StackPane container) throws IOException {
+        FXMLScene fxmlScene = FXMLScene.load("/Fxml/GotPoints.fxml");
+        GotPointsController controller = (GotPointsController) fxmlScene.controller;
+        double randomPoints = Math.random()*20;
+        controller.setRewardAward(String.format("%.2f", randomPoints));
+        UserInformation.userInfo.addGoldCoins(randomPoints);
+        modalPaneForPointsNotification.show(fxmlScene.root);
+        new Pulse(fxmlScene.root).play();
+    }
+    public void afterCompletingTaskReward() throws IOException {
+        FXMLScene fxmlScene = FXMLScene.load("/Fxml/GotPoints.fxml");
+        GotPointsController controller = (GotPointsController) fxmlScene.controller;
+        double randomPoints = task.getNumOfSessions()*80;
+        controller.setRewardAward(String.format("%.2f", randomPoints));
+        UserInformation.userInfo.addGoldCoins(randomPoints);
+        modalPaneForPointsNotification.show(fxmlScene.root);
+        new Pulse(fxmlScene.root).play();
+    }
+
 }
 
 
