@@ -4,10 +4,13 @@ import com.csquanta.streamline.Controllers.ProfileViewController;
 import javafx.scene.image.Image;
 
 import java.io.*;
+import java.util.ArrayList;
 
 import static java.util.Objects.requireNonNull;
 
 public class UserInformation implements Serializable {
+    @Serial
+    private static final long serialVersionUID = -7282062709951824673L;
     public static UserInformation userInfo = new UserInformation();
     // Avatar related Field
     private  String avatarImageBg;
@@ -57,8 +60,31 @@ public class UserInformation implements Serializable {
         this.userHealth = userHealth;
         ProfileViewController profileViewController = HeaderController.getController();
         if (profileViewController != null) {
-            profileViewController.updateHealthProgress();
+            profileViewController.updateHealthProgress(userHealth);
         }
+    }
+
+
+    public void deductHealthPointsBasedOnTasks(ArrayList<Task> incompleteTasks) {
+        int maxDeductionPercentage = 40; // Maximum percentage of health points that can be deducted
+
+        int totalIncompleteTasks = incompleteTasks.size();
+
+
+        int deductionPercentage = Math.min(maxDeductionPercentage, totalIncompleteTasks * 10);
+
+        int deductionValue = (int) Math.round(userHealth * deductionPercentage / 100.0);
+
+
+        setUserHealth(userHealth - deductionValue);
+
+        ProfileViewController profileViewController = HeaderController.getController();
+        if (profileViewController != null) {
+            profileViewController.updateHealthProgress(userHealth);
+        }
+
+
+        System.out.println("Deducted " + deductionValue + " health points due to incomplete tasks.");
     }
 
     public UserInformation() {
@@ -134,7 +160,7 @@ public class UserInformation implements Serializable {
 
     public static void serializeUserInfo(){
         try(ObjectOutputStream objOStream = new ObjectOutputStream(new FileOutputStream("User_Information_file"))){
-            UserInformation userInformation = new UserInformation(userInfo.getAvatarImageBg(), userInfo.getAvatarImageHead(), userInfo.getAvatarImageHair(), userInfo.getAvatarImageHeadGear(), userInfo.getAvatarImageBody(), userInfo.getAvatarImageArmor(), userInfo.getAvatarImagePet(), 4000.0, userInfo.getUserHealth());
+            UserInformation userInformation = new UserInformation(userInfo.getAvatarImageBg(), userInfo.getAvatarImageHead(), userInfo.getAvatarImageHair(), userInfo.getAvatarImageHeadGear(), userInfo.getAvatarImageBody(), userInfo.getAvatarImageArmor(), userInfo.getAvatarImagePet(), 4000.0,100);
             objOStream.writeObject(userInformation);
         }catch (Exception e){
             System.out.println("Serialization failed");

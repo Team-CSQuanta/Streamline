@@ -2,6 +2,7 @@ package com.csquanta.streamline.Controllers;
 
 import animatefx.animation.ZoomIn;
 import com.csquanta.streamline.Models.StaticUserInformation;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -72,9 +73,11 @@ public class ProfileViewController implements Initializable {
         zoomIn.play();
     }
 
-    public void updateHealthProgress() {
-        double healthPercentage = (double) UserInformation.userInfo.getUserHealth() / 100;
+    public void updateHealthProgress(int updatedHealth) {
+        Platform.runLater(() -> {
+        double healthPercentage =  (double) updatedHealth / 100;
         HealthProgress.setProgress(healthPercentage);
+        });
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -86,7 +89,7 @@ public class ProfileViewController implements Initializable {
         headGear.setImage(StaticUserInformation.avatarImageHeadGear);
         priceLabel.setText(StaticUserInformation.totalGoldCoins.toString());
         avatarPet.setImage(StaticUserInformation.avatarImagePet);
-        updateHealthProgress();
+      //  updateHealthProgress();
 
     }
 }
