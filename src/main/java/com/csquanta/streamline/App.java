@@ -24,7 +24,7 @@ public class App extends Application {
     public  static StackPane root;
     public static Stage mainStage;
     public static Dracula dracula = new Dracula();
-    TaskManager taskManager = new TaskManager();
+    static TaskManager taskManager = new TaskManager();
 
     private double x, y;
     public App() {
@@ -85,6 +85,7 @@ public class App extends Application {
                 MainStageController.modalPaneForExit.setAlignment(Pos.BOTTOM_CENTER);
                 MainStageController.modalPaneForExit.usePredefinedTransitionFactories(Side.BOTTOM);
                 MainStageController.modalPaneForExit.show(exitOption);
+                taskManager.stopTaskChecking();
             }
         });
         root.getChildren().addAll(header, MainStageController.modalPaneForExit, HeaderController.modalPaneForHeader, SidebarController.modalPaneForSignOut, CreateANewTaskController.modalPaneForTaskCreator, PomodoroPageController.modalPaneForPomodoroPage);

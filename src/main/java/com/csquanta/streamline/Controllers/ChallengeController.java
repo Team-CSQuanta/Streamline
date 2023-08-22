@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -23,6 +24,7 @@ import java.util.Iterator;
 import java.util.ResourceBundle;
 import java.util.TreeSet;
 
+import static com.csquanta.streamline.Controllers.HeaderController.modalPaneForHeader;
 import static java.util.Objects.requireNonNull;
 
 public class ChallengeController implements Initializable {
@@ -53,6 +55,7 @@ public class ChallengeController implements Initializable {
 
     @FXML
     private VBox bottomVbox;
+    ChallengeCreatorController controller;
 
     public VBox getBottomVbox() {
         return bottomVbox;
@@ -70,16 +73,22 @@ public class ChallengeController implements Initializable {
 
     @FXML
     private HBox topHbox;
-    static NetworkUtil networkUtil;
+    public static NetworkUtil networkUtil;
+
+    public ChallengeCreatorController getController() {
+        return controller;
+    }
 
     @FXML
     void takeChallenge(ActionEvent event) throws IOException {
-        VBox challengeCreatePage = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/ChallengeCreator.fxml")));
-        CreateANewTaskController.modalPaneForTaskCreator.show(challengeCreatePage);
-        Pulse pulse = new Pulse(challengeCreatePage);
+
+        FXMLScene fxmlScene = FXMLScene.load("/Fxml/ChallengeCreator.fxml");
+        modalPaneForHeader.setAlignment(Pos.CENTER);
+        modalPaneForHeader.show(fxmlScene.root);
+         controller = (ChallengeCreatorController) fxmlScene.controller;
+        Pulse pulse = new Pulse();
+        pulse.setNode(modalPaneForHeader);
         pulse.play();
-
-
     }
 
     @Override

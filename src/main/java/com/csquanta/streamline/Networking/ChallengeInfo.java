@@ -1,8 +1,11 @@
 package com.csquanta.streamline.Networking;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class ChallengeInfo implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 62709951824673L;
     private String challengeType;
     private String challengeDescription;
     private String challengeTaskPomodoroSession;

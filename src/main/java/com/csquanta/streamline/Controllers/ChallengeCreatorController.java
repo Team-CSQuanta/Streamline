@@ -7,18 +7,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
@@ -26,7 +22,6 @@ import java.util.ResourceBundle;
 
 import static com.csquanta.streamline.Controllers.ChallengeController.networkUtil;
 import static com.csquanta.streamline.Controllers.HeaderController.modalPaneForHeader;
-import static java.util.Objects.requireNonNull;
 
 public class ChallengeCreatorController implements Initializable {
 
@@ -34,7 +29,7 @@ public class ChallengeCreatorController implements Initializable {
     ObservableList<String> monster = FXCollections.observableArrayList("Amber", "Armadillo", "Axolotl", "Badger", "Butterfly", "Cheetah", "Derby", "Dilatory",
     "Dilatory Distress");
     ObservableList<String> PomodoroSession= FXCollections.observableArrayList("1", "2","3","4","5","6","7");
-    ObservableList<String> taskTag = FXCollections.observableArrayList("Programming","Study");
+    ObservableList<String> taskTag = FXCollections.observableArrayList("Programming","Study","Academic studies");
     @FXML
     private Button cancel;
 
@@ -184,6 +179,7 @@ public class ChallengeCreatorController implements Initializable {
             throw new RuntimeException(e);
         }
         CreateANewTaskController.modalPaneForTaskCreator.hide(true);
+
     }
 
     @Override
