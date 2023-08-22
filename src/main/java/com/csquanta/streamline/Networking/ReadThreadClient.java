@@ -110,11 +110,11 @@ public class ReadThreadClient extends Thread {
                         }
                     });
                 }  else if (receivedMessage instanceof TextMessage) {
-                    Platform.runLater(() -> {
+//                    Platform.runLater(() -> {
 //                    TextMessage textMessage = (TextMessage) receivedMessage;
                     System.out.println("Received Message: " + ((TextMessage) receivedMessage).getMessage());
 
-                    });
+//                    });
                 }
             }
 
