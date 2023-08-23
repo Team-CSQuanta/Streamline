@@ -3,6 +3,7 @@ package com.csquanta.streamline.Controllers;
 import animatefx.animation.*;
 import atlantafx.base.controls.ModalPane;
 import com.csquanta.streamline.App;
+import com.csquanta.streamline.Models.ChallengeLog;
 import com.csquanta.streamline.Models.MyTimer;
 import com.csquanta.streamline.Models.Task;
 import com.csquanta.streamline.Models.UserInformation;
@@ -20,7 +21,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -120,6 +123,15 @@ public class PomodoroPageController implements Initializable {
             afterCompletingTaskReward();
             new FadeOut(button).play();
             sessionCounter = 0;
+
+            // For Challenge log
+            if(UserInformation.userInfo.getChallengeMode()){
+                String descriptionMsg = "has damaged the monster's health by completing the task titled";
+                InputStream stream = new FileInputStream("src/main/resources/com/example/javafxchatting/ProfileImage.png");
+                ChallengeLog log = new ChallengeLog("PutUserNameHere", "PutRealNameHere", descriptionMsg + "\"" + task.getTaskTitle() + "\"", new Image(stream), task.getTaskTitle());
+                ChallengeLog.staticChallengeLog.getChallengeLogs().add(log);
+            }
+
             closeBtnImg.setVisible(true);
             new FadeIn(closeBtnImg).play();
         }

@@ -12,6 +12,23 @@ public class UserInformation implements Serializable {
     @Serial
     private static final long serialVersionUID = -7282062709951824673L;
     public static UserInformation userInfo = new UserInformation();
+
+    // Challenge Related fields
+    private boolean challengeMode;
+    private boolean pendingStatus;
+    public boolean getChallengeMode(){
+        return challengeMode;
+    }
+    public void setChallengeMode(boolean mode){
+        challengeMode = mode;
+    }
+    public boolean isPending(){
+        return  pendingStatus;
+    }
+    public void setPendingStatus(boolean status){
+        pendingStatus = status;
+    }
+
     // Avatar related Field
     private  String avatarImageBg;
     private  String avatarImageHead;
@@ -204,7 +221,6 @@ public class UserInformation implements Serializable {
                 StaticUserInformation.avatarImageArmor = new Image(requireNonNull(UserInformation.class.getResourceAsStream(user.avatarImageArmor)));
                 userInfo.setAvatarImageArmor(user.avatarImageArmor);
             }
-
 
         }catch (Exception e){
             System.out.println("Deserialization failed");
