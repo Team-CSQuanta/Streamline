@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-
 <StackPane fx:id="stackPanePomodoroContainer" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.PomodoroPageController">
    <children>
       <VBox fx:id="pomodoroPageContainerVBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-border-color: #9580FF; -fx-background-color: #282A36FF; -fx-border-width: 2px;" stylesheets="@../Styles/PomodoroPage.css">
@@ -59,7 +58,7 @@
                            </padding>
                         </Label>
                         <Label fx:id="sessionInfoLabel" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="500.0" styleClass="sessionText" text="Session One" textAlignment="CENTER" />
-                        <VBox prefHeight="115.0" prefWidth="500.0" />
+                        <VBox prefHeight="92.0" prefWidth="500.0" />
                         <VBox alignment="CENTER" prefHeight="46.0" prefWidth="500.0">
                            <VBox.margin>
                               <Insets top="20.0" />
@@ -67,6 +66,18 @@
                            <children>
                               <Button fx:id="button" alignment="CENTER" mnemonicParsing="false" onAction="#buttonClicked" prefHeight="38.0" prefWidth="108.0" styleClass="btn" text="Start session" />
                            </children>
+                        </VBox>
+                        <VBox alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="500.0">
+                           <children>
+                              <ImageView fx:id="exitFromSession" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#exitBtnClicked" onMouseEntered="#onExitImageEntered" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/icons8-exit-50.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <VBox.margin>
+                              <Insets right="8.0" />
+                           </VBox.margin>
                         </VBox>
                      </children>
                      <padding>

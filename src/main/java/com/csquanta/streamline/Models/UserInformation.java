@@ -34,17 +34,15 @@ public class UserInformation implements Serializable {
     public void setTotalGoldCoins(Double totalGoldCoins) {
         this.totalGoldCoins = totalGoldCoins;
     }
-    public Double deductGoldCoins(Double amounts){
-        Double remainingGoldCoins = this.totalGoldCoins -amounts;
+    public void deductGoldCoins(Double amounts){
+        double remainingGoldCoins = this.totalGoldCoins -amounts;
         if((remainingGoldCoins)< 0){
             this.totalGoldCoins = remainingGoldCoins;
             StaticUserInformation.totalGoldCoins = 0.0;
-            return 0.0;
         }
         else{
             StaticUserInformation.totalGoldCoins = remainingGoldCoins;
             this.totalGoldCoins = remainingGoldCoins;
-            return remainingGoldCoins;
         }
     }
     public void addGoldCoins(Double amounts){

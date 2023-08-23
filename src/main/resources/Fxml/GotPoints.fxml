@@ -13,7 +13,7 @@
          <image>
             <Image url="@../Images/marginalia-right-confetti-1.gif" />
          </image></ImageView>
-      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="400.0" style="-fx-border-color: #9580FF; -fx-border-radius: 15px; -fx-border-width: 2px;">
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="400.0" style="-fx-border-color: #9580FF; -fx-border-radius: 15px; -fx-border-width: 2px; -fx-background-color: #282A36FF;">
          <padding>
             <Insets left="15.0" right="15.0" />
          </padding>
