@@ -1,34 +1,25 @@
 package com.csquanta.streamline.Networking;
 
 import animatefx.animation.Pulse;
-import animatefx.animation.ZoomIn;
-import com.csquanta.streamline.App;
+import atlantafx.base.controls.ModalPane;
 import com.csquanta.streamline.Controllers.ChallengeRequestController;
+import com.csquanta.streamline.Controllers.ChatBoxController;
 import com.csquanta.streamline.Controllers.FXMLScene;
 import com.csquanta.streamline.Controllers.ProfileEditController;
 import com.csquanta.streamline.Models.UserInformation;
 import javafx.application.Platform;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
 import javafx.scene.image.Image;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Objects;
-
-import static com.csquanta.streamline.Controllers.HeaderController.modalPaneForHeader;
-import static java.util.Objects.requireNonNull;
 
 public class ReadThreadClient extends Thread {
     private NetworkUtil networkUtil;
     private String clientEmail;
     ChallengeRequestController controller;
     ProfileEditController profileEditController= new ProfileEditController();
-
+public static final ModalPane modalPaneForChallengeRequest = new ModalPane();
+ChatBoxController chatBoxController = new ChatBoxController();
 
 
     public ReadThreadClient(NetworkUtil networkUtil, String clientEmail) throws IOException {
@@ -50,7 +41,7 @@ public class ReadThreadClient extends Thread {
                     String taskTag = ((ChallengeInfo) receivedMessage).getChallengeTaskTag();
                     String monsterName = ((ChallengeInfo) receivedMessage).getMonstersName();
                     String taskTitle = ((ChallengeInfo) receivedMessage).getTaskTitle();
-
+                    System.out.println("in read thread client");
 
                     Platform.runLater(() -> {
 
@@ -58,11 +49,11 @@ public class ReadThreadClient extends Thread {
 
                             FXMLScene fxmlScene = FXMLScene.load("/Fxml/ChallengeRequest.fxml");
 
-                            modalPaneForHeader.setAlignment(Pos.CENTER);
-                            modalPaneForHeader.show(fxmlScene.root);
+                            modalPaneForChallengeRequest.setAlignment(Pos.CENTER);
+                            modalPaneForChallengeRequest.show(fxmlScene.root);
                             controller = (ChallengeRequestController) fxmlScene.controller;
                             Pulse pulse = new Pulse();
-                            pulse.setNode(modalPaneForHeader);
+                            pulse.setNode(modalPaneForChallengeRequest);
                             pulse.play();
 
                         } catch (IOException e) {
@@ -108,13 +99,20 @@ public class ReadThreadClient extends Thread {
                             controller.monsterName.setText(monsterName);
                             controller.TaskTitle.setText(taskTitle);
                         }
+                        System.out.println("Checking");
                     });
                 }  else if (receivedMessage instanceof TextMessage) {
-//                    Platform.runLater(() -> {
-//                    TextMessage textMessage = (TextMessage) receivedMessage;
-                    System.out.println("Received Message: " + ((TextMessage) receivedMessage).getMessage());
+                    TextMessage textMessage = (TextMessage) receivedMessage;
+                    Platform.runLater(() -> chatBoxController.addChatMessage(receivedMessage));
 
-//                    });
+
+
+
+                   System.out.println("Received Message: " + ((TextMessage) receivedMessage).getMessage());
+
+
+
+
                 }
             }
 

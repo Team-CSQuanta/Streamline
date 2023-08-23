@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox fx:id="topHbox" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="239.0" prefWidth="1290.0" style="-fx-border-color: #9580FF; -fx-border-radius: 10px;" stylesheets="@../Styles/MonsterOnChallenge.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fxml.MonsterInChallenge">
+<HBox fx:id="topHbox" alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="239.0" prefWidth="1290.0" style="-fx-border-color: #9580FF; -fx-border-radius: 10px;" stylesheets="@../Styles/MonsterOnChallenge.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fx:id="monsterImage" fitHeight="219.0" fitWidth="219.0" pickOnBounds="true" preserveRatio="true">
          <image>

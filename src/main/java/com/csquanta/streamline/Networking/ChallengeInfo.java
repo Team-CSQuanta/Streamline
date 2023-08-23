@@ -15,7 +15,9 @@ public class ChallengeInfo implements Serializable {
     private String monstersName;
     private  String taskTitle;
     private boolean accepted;
+    private boolean fromServer;
     String message;
+    private String replyMessage;
 
     public ChallengeInfo() {
 
@@ -121,6 +123,23 @@ public class ChallengeInfo implements Serializable {
 
     public void setAccepted(boolean accepted) {
         this.accepted = accepted;
+    }
+
+    public boolean isFromServer() {
+        return fromServer;
+    }
+
+    public void setFromServer(boolean fromServer) {
+        this.fromServer = fromServer;
+    }
+
+
+    public String getReplyMessage() {
+        return replyMessage;
+    }
+
+    public void setReplyMessage(String replyMessage) {
+        this.replyMessage = replyMessage;
     }
 
     public boolean isBuildConsistency() {

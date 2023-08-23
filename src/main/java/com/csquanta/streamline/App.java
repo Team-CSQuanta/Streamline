@@ -3,6 +3,7 @@ package com.csquanta.streamline;
 import atlantafx.base.theme.Dracula;
 import com.csquanta.streamline.Controllers.*;
 import com.csquanta.streamline.Models.*;
+import com.csquanta.streamline.Networking.ReadThreadClient;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -85,10 +86,10 @@ public class App extends Application {
                 MainStageController.modalPaneForExit.setAlignment(Pos.BOTTOM_CENTER);
                 MainStageController.modalPaneForExit.usePredefinedTransitionFactories(Side.BOTTOM);
                 MainStageController.modalPaneForExit.show(exitOption);
-                taskManager.stopTaskChecking();
+               taskManager.stopTaskChecking();
             }
         });
-        root.getChildren().addAll(header, MainStageController.modalPaneForExit, HeaderController.modalPaneForHeader, SidebarController.modalPaneForSignOut, CreateANewTaskController.modalPaneForTaskCreator, PomodoroPageController.modalPaneForPomodoroPage);
+        root.getChildren().addAll(header, MainStageController.modalPaneForExit, HeaderController.modalPaneForHeader, SidebarController.modalPaneForSignOut, CreateANewTaskController.modalPaneForTaskCreator, PomodoroPageController.modalPaneForPomodoroPage, ReadThreadClient.modalPaneForChallengeRequest);
     }
 }
 
