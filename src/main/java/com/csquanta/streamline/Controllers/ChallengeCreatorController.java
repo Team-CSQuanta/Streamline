@@ -1,12 +1,16 @@
 package com.csquanta.streamline.Controllers;
 
 import animatefx.animation.FadeIn;
+import animatefx.animation.ZoomIn;
 import com.csquanta.streamline.App;
 import com.csquanta.streamline.Networking.ChallengeInfo;
+import javafx.animation.PauseTransition;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -15,12 +19,15 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import static com.csquanta.streamline.Controllers.ChallengeController.networkUtil;
+import static com.csquanta.streamline.Controllers.CreateANewTaskController.modalPaneForTaskCreator;
 import static com.csquanta.streamline.Controllers.HeaderController.modalPaneForHeader;
 
 public class ChallengeCreatorController implements Initializable {
@@ -59,9 +66,11 @@ public class ChallengeCreatorController implements Initializable {
 
     @FXML
     private HBox dailyTaskNecessaryField;
-
+    ChallengeController controller;
 
      ChallengeController challengeController= new ChallengeController();
+
+     ChatBoxController chatBoxController = new ChatBoxController();
     @FXML
     void challengeSelection(ActionEvent event) {
         if(challengeType.getSelectionModel().getSelectedItem().equals("Build consistency")){
@@ -145,6 +154,8 @@ public class ChallengeCreatorController implements Initializable {
 
     @FXML
     void onSendReqClicked(ActionEvent event) {
+        ChallengeInfo challengeInfo;
+
         try {
             String receiverEmail = email.getText();
             String challengeType = String.valueOf(getChallengeType().getValue());
@@ -156,29 +167,35 @@ public class ChallengeCreatorController implements Initializable {
 
 
             if ("Build consistency".equals(challengeType)) {
-                ChallengeInfo challengeInfo = new ChallengeInfo(challengeType, challengeDescription,  challengeController.loadClientInfoFromFile(), receiverEmail, pomodoroSession, taskTag, monstersName,taskTitle);
+                 challengeInfo = new ChallengeInfo(challengeType, challengeDescription,  challengeController.loadClientInfoFromFile(), receiverEmail, pomodoroSession, taskTag, monstersName,taskTitle);
+                challengeInfo.setFromServer(false);
                 networkUtil.write(challengeInfo);
+
             } else {
-                ChallengeInfo challengeInfo = new ChallengeInfo(challengeType, challengeDescription, challengeController.loadClientInfoFromFile(), receiverEmail,monstersName,taskTitle);
+                 challengeInfo = new ChallengeInfo(challengeType, challengeDescription, challengeController.loadClientInfoFromFile(), receiverEmail,monstersName,taskTitle);
+                challengeInfo.setFromServer(false);
                 networkUtil.write(challengeInfo);
 
             }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        try {
+
+
             FXMLScene challengeReqSent = FXMLScene.load("/Fxml/ChallengeRequestSent.fxml");
             App.newLoad();
             FXMLScene challengePage = FXMLScene.load("/Fxml/Challenge.fxml");
-            ChallengeController controller = (ChallengeController) challengePage.controller;
+            controller = (ChallengeController) challengePage.controller;
             controller.getBottomVbox().getChildren().setAll(challengeReqSent.root);
             StackPane.setAlignment(challengePage.root, Pos.BOTTOM_CENTER);
             App.root.getChildren().add(challengePage.root);
-            new FadeIn(challengePage.root).play();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+            FadeIn fadeIn = new FadeIn(challengePage.root);
+            fadeIn.play();
+            PauseTransition pause = new PauseTransition(Duration.seconds(1));
+            pause.setOnFinished(e -> ChangeChallengePageUI());
+            pause.play();
+            Platform.runLater(() -> chatBoxController.addChatMessage(challengeInfo));
+        } catch (Exception e) {
+            System.out.println(e);
         }
-        CreateANewTaskController.modalPaneForTaskCreator.hide(true);
+        modalPaneForHeader.hide(true);
 
     }
 
@@ -192,6 +209,28 @@ public class ChallengeCreatorController implements Initializable {
 
 
     }
+public void ChangeChallengePageUI(){
 
+        try {
+            FXMLScene  chatBox = FXMLScene.load("/Fxml/ChatBox.fxml");
+            ChatBoxController chatBoxController = (ChatBoxController) chatBox.controller;
+            controller.getBottomVbox().getChildren().setAll(chatBox.root);
+            System.out.println("creatorControl " +chatBoxController);
+
+            ZoomIn zoomIn = new ZoomIn();
+            zoomIn.setNode(chatBox.root);
+            zoomIn.setSpeed(3);
+            zoomIn.play();
+
+            FXMLScene ChallengedMonster = FXMLScene.load("/Fxml/MonsterInChallenge.fxml");
+            controller.getTopHbox().getChildren().setAll(ChallengedMonster.root);
+            zoomIn.setNode(ChallengedMonster.root);
+            zoomIn.setSpeed(3);
+            zoomIn.play();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+}
 
 }
