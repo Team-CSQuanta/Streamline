@@ -86,7 +86,7 @@ public class ChallengeRequestController {
 //        acceptedChallenge.setEmail(clientNetworkInformationMap.get(clientEmail)); // Set sender email
 //        acceptedChallenge.setReceiverEmail(challengeController.loadClientInfoFromFile()); // Set receiver email
         acceptedChallenge.setEmail("n@example.com"); // Set sender email
-        acceptedChallenge.setReceiverEmail("n@example.com"); // Set receiver email
+        acceptedChallenge.setReceiverEmail("j@example.com"); // Set receiver email
 
         try {
             System.out.println("forward"+ acceptedChallenge);

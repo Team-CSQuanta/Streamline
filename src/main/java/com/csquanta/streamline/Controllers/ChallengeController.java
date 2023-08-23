@@ -2,6 +2,7 @@ package com.csquanta.streamline.Controllers;
 
 import animatefx.animation.Pulse;
 import com.csquanta.streamline.Models.EvilMonsters;
+import com.csquanta.streamline.Models.UserInformation;
 import com.csquanta.streamline.Networking.NetworkUtil;
 import com.csquanta.streamline.Networking.ReadThreadClient;
 import javafx.event.ActionEvent;
@@ -19,7 +20,6 @@ import javafx.scene.layout.VBox;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.Serializable;
 import java.net.URL;
 import java.util.Iterator;
 import java.util.ResourceBundle;
@@ -29,7 +29,7 @@ import static com.csquanta.streamline.Controllers.HeaderController.modalPaneForH
 import static java.util.Objects.requireNonNull;
 
 public class ChallengeController implements Initializable {
-    VBox noChallenge;
+
     @FXML
     private VBox ItemBlockContainer;
 
@@ -84,10 +84,6 @@ public class ChallengeController implements Initializable {
         this.topHbox = topHbox;
     }
 
-//    public ChallengeCreatorController getController() {
-//        return controller;
-//    }
-
     @FXML
     void takeChallenge(ActionEvent event) throws IOException {
 
@@ -102,7 +98,7 @@ public class ChallengeController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        NotHavingAnyChallenges(bottomVbox);
+        challengePageStatus(bottomVbox);
         TreeSet<EvilMonsters> monsters = EvilMonsters.evilMonstersStaticObject.getEvilMonstersList();
         Iterator<EvilMonsters> iterator = monsters.iterator();
         FXMLScene fxmlScene;
@@ -152,15 +148,28 @@ public class ChallengeController implements Initializable {
         return email;
     }
 
-    public void NotHavingAnyChallenges(VBox bottomVbox){
-        if(bottomVbox.getChildren().size() == 0){
-            try {
-                noChallenge = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/NotHavingAnyChallenge.fxml")));
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+    public void challengePageStatus(VBox bottomVbox){
+        if(!bottomVbox.getChildren().isEmpty()){
+            bottomVbox.getChildren().removeAll();
+            if(!UserInformation.userInfo.getChallengeMode() && !UserInformation.userInfo.isPending()){
+                try {
+                    VBox noChallenge = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/NotHavingAnyChallenge.fxml")));
+                    bottomVbox.getChildren().add(noChallenge);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }else if(UserInformation.userInfo.isPending()){
+                try {
+                    FXMLScene challengeReqSent = FXMLScene.load("/Fxml/ChallengeRequestSent.fxml");
+                    bottomVbox.getChildren().add(challengeReqSent.root);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }else if(UserInformation.userInfo.getChallengeMode()){
+                System.out.println("In challenge mode");
             }
-            bottomVbox.getChildren().add(noChallenge);
         }
+
     }
 
 
