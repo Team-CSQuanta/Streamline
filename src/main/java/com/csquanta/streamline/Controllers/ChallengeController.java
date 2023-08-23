@@ -76,9 +76,17 @@ public class ChallengeController implements Initializable {
     private HBox topHbox;
     public static NetworkUtil networkUtil;
 
-    public ChallengeCreatorController getController() {
-        return controller;
+    public HBox getTopHbox() {
+        return topHbox;
     }
+
+    public void setTopHbox(HBox topHbox) {
+        this.topHbox = topHbox;
+    }
+
+//    public ChallengeCreatorController getController() {
+//        return controller;
+//    }
 
     @FXML
     void takeChallenge(ActionEvent event) throws IOException {
@@ -154,4 +162,7 @@ public class ChallengeController implements Initializable {
             bottomVbox.getChildren().add(noChallenge);
         }
     }
+
+
+
 }

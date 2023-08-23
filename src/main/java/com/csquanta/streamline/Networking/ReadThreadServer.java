@@ -37,11 +37,14 @@ public class ReadThreadServer extends Thread {
 
                     System.out.println("In ReadThreadServer");
                     NetworkInformation receiverInfo = clientNetworkInformationMap.get(receiverEmail);
+
                     if (receiverInfo != null) {
                         if (receivedMessage.isBuildConsistency()) {
                             challengeInfo = new ChallengeInfo(challengeType, challengeDescription, clientEmail, receiverEmail, pomodoroSession, taskTag, monsterName, taskTitle);
+                            challengeInfo.setFromServer(true);
                         } else {
                             challengeInfo = new ChallengeInfo(challengeType, challengeDescription, clientEmail, receiverEmail, monsterName, taskTitle);
+                            challengeInfo.setFromServer(true);
                         }
 
                         receiverInfo.getNetworkUtil().write(challengeInfo);
@@ -58,7 +61,7 @@ public class ReadThreadServer extends Thread {
 
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Client left the server");
         }
     }
 

@@ -1,6 +1,8 @@
 package com.csquanta.streamline.Controllers;
 
+import atlantafx.base.controls.ModalPane;
 import com.csquanta.streamline.Networking.ChallengeInfo;
+import com.csquanta.streamline.Networking.NetworkInformation;
 import com.csquanta.streamline.Networking.NetworkUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,8 +12,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+import java.util.concurrent.ConcurrentHashMap;
 
 import static com.csquanta.streamline.Controllers.ChallengeController.networkUtil;
+import static com.csquanta.streamline.Networking.ReadThreadClient.modalPaneForChallengeRequest;
+
 
 public class ChallengeRequestController {
 
@@ -67,9 +72,10 @@ public class ChallengeRequestController {
     public Label SessionNo;
     @FXML
     public Label Ttag;
+    ChallengeController challengeController = new ChallengeController();
 
 
-
+    private ConcurrentHashMap<String, NetworkInformation> clientNetworkInformationMap;
 
     @FXML
     void onAcceptBtnClicked(ActionEvent event) throws IOException {
@@ -77,7 +83,7 @@ public class ChallengeRequestController {
         ChallengeInfo acceptedChallenge = new ChallengeInfo();
         acceptedChallenge.setAccepted(true);
 
-//        acceptedChallenge.setEmail(String.valueOf(creatorController.getEmail())); // Set sender email
+//        acceptedChallenge.setEmail(clientNetworkInformationMap.get(clientEmail)); // Set sender email
 //        acceptedChallenge.setReceiverEmail(challengeController.loadClientInfoFromFile()); // Set receiver email
         acceptedChallenge.setEmail("n@example.com"); // Set sender email
         acceptedChallenge.setReceiverEmail("n@example.com"); // Set receiver email
@@ -89,6 +95,7 @@ public class ChallengeRequestController {
         } catch (Exception e){
             e.printStackTrace();
         }
+        modalPaneForChallengeRequest.hide(true);
     }
 
     @FXML
