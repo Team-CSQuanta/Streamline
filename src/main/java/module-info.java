@@ -13,7 +13,7 @@ module com.csquanta.streamline {
     requires AnimateFX;
     requires atlantafx.base;
     requires javafx.media;
-
-
+    requires javafx.swing;
+    requires transitive java.desktop;
 }
 

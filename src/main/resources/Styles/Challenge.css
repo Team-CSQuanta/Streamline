@@ -47,3 +47,15 @@
 .selectTask{
     -fx-font-family: "Product Sans Medium";
 }
+
+/*CSS for challenge block*/
+.NameInChallengeBlock{
+    -fx-font-family: "Product Sans Medium";
+    -fx-font-size: 20px;
+    -fx-text-fill: #9580FF;
+}
+.descriptionInChallengeBlock{
+    -fx-font-family: "Product Sans Medium";
+    -fx-font-size: 14px;
+    -fx-text-fill: #8AFF80;
+}

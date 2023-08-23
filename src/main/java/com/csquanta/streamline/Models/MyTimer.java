@@ -43,27 +43,21 @@ public class MyTimer implements Runnable{
             Platform.runLater(() ->{
                 if(min != 0){
                     sec--;
-                    System.out.println("Seconds : " + sec);
                     timeFormatCorrection(seconds, sec);
                     if(sec == 59){
                         timeFormatCorrection(minutes, (min -1));
                     }
                     if (sec == 0) {
                         min--;
-                        System.out.println("Minutes: " + min);
                         timeFormatCorrection(minutes, min);
                         sec = 60;
                     }
                 }else{
-
-                    System.out.println("Total Sessoin : " + totalSession);
                     seconds.setText("00");
                     if(session.equals("Session")&& sessionCounter != totalSession){
-                        System.out.println("Session counter before: " + sessionCounter);
                         sessionCounter++;
-                        System.out.println("Session counter after increment: "+ sessionCounter);
                         button.setText("Take Break");
-                        if(sessionCounter != 1){
+                        if(totalSession != 1){
                             try {
                                 PomodoroPageController.smallRewardAfterEachSession(pomodoroPage);
                             } catch (IOException e) {

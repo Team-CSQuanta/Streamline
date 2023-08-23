@@ -19,6 +19,7 @@ import javafx.scene.layout.VBox;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Serializable;
 import java.net.URL;
 import java.util.Iterator;
 import java.util.ResourceBundle;

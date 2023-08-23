@@ -33,8 +33,6 @@ public class TaskManager {
                         incompleteTasks.add(task);
                     }
                 }
-
-
                 LocalTime currentTime = LocalTime.now();
                 LocalTime midnight = LocalTime.of(20, 47, 59); // 11:59:59 PM
 

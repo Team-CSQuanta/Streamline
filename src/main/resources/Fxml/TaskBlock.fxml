@@ -11,7 +11,7 @@
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="580.0" style="-fx-border-color: #9580FF; -fx-border-radius: 15px; -fx-background-radius: 15px; -fx-border-width: 2px;" stylesheets="@../Styles/Task.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.TaskBlockController">
    <children>
-      <VBox fx:id="timerContainer" alignment="CENTER" onMouseClicked="#showPomodoroTimer" onMouseEntered="#mouseEntered" prefHeight="248.0" prefWidth="230.0" style="-fx-border-color: #9580FF; -fx-border-radius: 15px 0px 0px 15px; -fx-border-width: 0px 2px 0px 0px;">
+      <VBox fx:id="timerContainer" alignment="CENTER" onMouseClicked="#showPomodoroTimer" onMouseEntered="#mouseEntered" prefHeight="248.0" prefWidth="230.0" style="-fx-border-radius: 15px 0px 0px 15px;">
          <children>
             <ImageView fx:id="clockImage" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>

@@ -1,8 +1,6 @@
 package com.csquanta.streamline.Controllers;
 
-import animatefx.animation.FadeIn;
-import animatefx.animation.FadeOut;
-import animatefx.animation.Pulse;
+import animatefx.animation.*;
 import atlantafx.base.controls.ModalPane;
 import com.csquanta.streamline.App;
 import com.csquanta.streamline.Models.MyTimer;
@@ -14,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -26,6 +25,21 @@ import java.util.ResourceBundle;
 
 public class PomodoroPageController implements Initializable {
     public static ModalPane modalPaneForPointsNotification = new ModalPane();
+
+    @FXML
+    private ImageView exitFromSession;
+
+    @FXML
+    void exitBtnClicked(MouseEvent event) {
+        double randomPoints = Math.random()*((task.getNumOfSessions()*20));
+        UserInformation.userInfo.deductGoldCoins(randomPoints);
+        PomodoroPageController.modalPaneForPomodoroPage.hide(true);
+    }
+
+    @FXML
+    void onExitImageEntered(MouseEvent event) {
+        new Shake(this.exitFromSession).play();
+    }
 
     @FXML
     private VBox pomodoroPageContainerVBox;
@@ -88,7 +102,7 @@ public class PomodoroPageController implements Initializable {
         if(button.getText().equals("Start session")){
             button.setText("Running");
             sessionInfoLabel.setText("Session " + (sessionCounter + 1));
-            MyTimer timer = new MyTimer(2, minutesLabel, secondsLabel, button, "Session", sessionCounter, task.getNumOfSessions(), stackPanePomodoroContainer);
+            MyTimer timer = new MyTimer(25, minutesLabel, secondsLabel, button, "Session", sessionCounter, task.getNumOfSessions(), stackPanePomodoroContainer);
             timer.t.setDaemon(true);
             timer.t.start();
             sessionCounter++;
@@ -119,6 +133,7 @@ public class PomodoroPageController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Tooltip.install(exitFromSession.getParent(), new Tooltip("Will deduct your gold coins!"));
         closeBtnImg.setVisible(false);
         stackPanePomodoroContainer.getChildren().add(modalPaneForPointsNotification);
 

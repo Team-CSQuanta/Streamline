@@ -80,6 +80,7 @@ public class TaskCreatorController implements Initializable {
         StackPane.setAlignment(newTaskPage, Pos.BOTTOM_CENTER);
         App.root.getChildren().add(newTaskPage);
         FadeIn fadeInNew = new FadeIn(newTaskPage);
+        fadeInNew.setSpeed(3);
         fadeInNew.play();
         CreateANewTaskController.modalPaneForTaskCreator.hide(true);
 
