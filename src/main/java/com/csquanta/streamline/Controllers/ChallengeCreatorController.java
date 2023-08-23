@@ -70,7 +70,7 @@ public class ChallengeCreatorController implements Initializable {
 
      ChallengeController challengeController= new ChallengeController();
 
-     ChatBoxController chatBoxController = new ChatBoxController();
+    ChallengeLogController chatBoxController = new ChallengeLogController();
     @FXML
     void challengeSelection(ActionEvent event) {
         if(challengeType.getSelectionModel().getSelectedItem().equals("Build consistency")){
