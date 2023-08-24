@@ -1,6 +1,5 @@
 package com.csquanta.streamline.Networking;
 
-import java.io.IOException;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ReadThreadServer extends Thread {
@@ -57,6 +56,14 @@ public class ReadThreadServer extends Thread {
                             receiverInfo.getNetworkUtil().write(responseMessage);
 
                     }
+                        else if(receivedMessage.getMessageType() == MessageType.CHALLENGE_UPDATE){
+
+                            String title = ((ChallengeUpdate)receivedMessage).getTitle();
+                            ChallengeUpdate challengeUpdate = new ChallengeUpdate(sender, receiver, title);
+                            receiverInfo.getNetworkUtil().write(challengeUpdate);
+
+
+                        }
                    
                 }catch (Exception e){
                     System.out.println("Exception occurred in read thread server");

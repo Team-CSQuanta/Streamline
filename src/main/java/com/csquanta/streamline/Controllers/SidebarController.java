@@ -5,6 +5,7 @@ import animatefx.animation.Pulse;
 import animatefx.animation.ZoomIn;
 import atlantafx.base.controls.ModalPane;
 import com.csquanta.streamline.App;
+import com.csquanta.streamline.Models.ChallengeLog;
 import com.csquanta.streamline.Models.ChallengeUI;
 import com.csquanta.streamline.Models.UserInformation;
 import javafx.fxml.FXML;
@@ -105,19 +106,20 @@ public class SidebarController implements Initializable {
         App.newLoad();
         ChallengeController controller = ChallengeUI.challengeUI.getChallengeController();
         ZoomIn zoomIn = new ZoomIn();
-        if(!ChallengeUI.challengeUI.getChallengeMode()){
+        if(!ChallengeUI.challengeUI.getChallengeMode() && !ChallengeUI.challengeUI.isPending()){
 
+//            controller.setBottomVbox(ChallengeUI.challengeUI.getNotHavingAnyChallengePage());
             StackPane.setAlignment(ChallengeUI.challengeUI.getChallengePage(), Pos.BOTTOM_CENTER);
             App.root.getChildren().add(ChallengeUI.challengeUI.getChallengePage());
+
         }else if(ChallengeUI.challengeUI.isPending() && !ChallengeUI.challengeUI.getChallengeMode()){
-            FXMLScene challengeRequestSent = FXMLScene.load("/Fxml/ChallengeRequestSent.fxml");
-            controller.setBottomVbox((VBox) challengeRequestSent.root);
+
+            controller.setBottomVbox(ChallengeUI.challengeUI.getChallengeRequestSentPage());
             App.root.getChildren().add(ChallengeUI.challengeUI.getChallengePage());
         }else{
-            FXMLScene challengeRequestSent = FXMLScene.load("/Fxml/ChallengeLog.fxml");
-            FXMLScene monsterInChallenge = FXMLScene.load("/Fxml/MonsterInChallenge.fxml");
-            controller.setTopHbox((HBox) monsterInChallenge.root);
-            controller.setBottomVbox((VBox) challengeRequestSent.root);
+
+            controller.setTopHbox(ChallengeUI.challengeUI.getMonsterInChallengePage());
+            controller.setBottomVbox(ChallengeUI.challengeUI.getChallengeLog());
             StackPane.setAlignment(ChallengeUI.challengeUI.getChallengePage(), Pos.BOTTOM_CENTER);
             App.root.getChildren().add(ChallengeUI.challengeUI.getChallengePage());
         }
