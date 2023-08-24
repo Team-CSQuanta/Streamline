@@ -4,12 +4,13 @@ import java.io.IOException;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ReadThreadServer extends Thread {
+
     private String clientEmail;
     private NetworkInformation networkInfo;
     private ConcurrentHashMap<String, NetworkInformation> clientNetworkInformationMap;
-    ChallengeInfo receivedMessage;
-    public ReadThreadServer(String email, NetworkInformation networkInfo, ConcurrentHashMap<String, NetworkInformation> clientNetworkInformationMap) {
-        this.clientEmail = email;
+
+    public ReadThreadServer(String ClientEmail, NetworkInformation networkInfo, ConcurrentHashMap<String, NetworkInformation> clientNetworkInformationMap) {
+        this.clientEmail = ClientEmail;
         this.networkInfo = networkInfo;
         this.clientNetworkInformationMap = clientNetworkInformationMap;
     }
@@ -19,42 +20,44 @@ public class ReadThreadServer extends Thread {
 
             while (true) {
                 try{
-                    ChallengeInfo challengeInfo;
-                     receivedMessage = (ChallengeInfo) networkInfo.getNetworkUtil().read();
-                    if(receivedMessage.getServerRequestCode().equals("ChallengeRequest")){
-                        if(!(receivedMessage.isAccepted())) {
-                            String pomodoroSession = receivedMessage.getChallengeTaskPomodoroSession();
-                            String receiverEmail = receivedMessage.getReceiverEmail();
-                            String challengeType = receivedMessage.getChallengeType();
-                            String challengeDescription = receivedMessage.getChallengeDescription();
-                            String taskTag = receivedMessage.getChallengeTaskTag();
-                            String monsterName = receivedMessage.getMonstersName();
-                            String taskTitle = receivedMessage.getTaskTitle();
+
+                    Message receivedMessage = (Message) networkInfo.getNetworkUtil().read();
+                    String sender = receivedMessage.getFrom();
+                    String receiver = receivedMessage.getTo();
+                    NetworkInformation receiverInfo = clientNetworkInformationMap.get(receiver);
+
+                        if(receivedMessage.getMessageType() == MessageType.CHALLENGE) {
+                            String pomodoroSession = ((ChallengeMessage)receivedMessage).getChallengeTaskPomodoroSession();
+                            String challengeType = ((ChallengeMessage)receivedMessage).getChallengeType();
+                            String challengeDescription = ((ChallengeMessage)receivedMessage).getChallengeDescription();
+                            String taskTag = ((ChallengeMessage)receivedMessage).getChallengeTaskTag();
+                            String monsterName =((ChallengeMessage)receivedMessage).getMonstersName();
+                            String taskTitle = ((ChallengeMessage)receivedMessage).getTaskTitle();
 
 
-                            System.out.println("In ReadThreadServer");
-                            NetworkInformation receiverInfo = clientNetworkInformationMap.get(receiverEmail);
+                            ChallengeMessage challengeMessage;
 
                             if (receiverInfo != null) {
-                                if (receivedMessage.isBuildConsistency()) {
-                                    challengeInfo = new ChallengeInfo("ChallengeRequest",challengeType, challengeDescription, clientEmail, receiverEmail, pomodoroSession, taskTag, monsterName, taskTitle);
+                                if (((ChallengeMessage) receivedMessage).isBuildConsistency()) {
+                                    challengeMessage = new ChallengeMessage(challengeType, challengeDescription, sender, receiver, pomodoroSession, taskTag, monsterName, taskTitle);
 
                                 } else {
-                                    challengeInfo = new ChallengeInfo("ChallengeRequest",challengeType, challengeDescription, clientEmail, receiverEmail, monsterName, taskTitle);
+                                    challengeMessage = new ChallengeMessage(challengeType, challengeDescription, sender, receiver, monsterName, taskTitle);
 
                                 }
-                                receiverInfo.getNetworkUtil().write(challengeInfo);
+                                receiverInfo.getNetworkUtil().write(challengeMessage);
 
                             }
 
                         }
+                        else if(receivedMessage.getMessageType() == MessageType.CHALLENGE_RESPONSE) {
+
+                           String response = ((ChallengeResponse)receivedMessage).getResponseMessage();
+                          ChallengeResponse responseMessage = new ChallengeResponse(sender,receiver,response);
+                            receiverInfo.getNetworkUtil().write(responseMessage);
 
                     }
-                    else  {
-                        System.out.println("Email2 " + receivedMessage.getReceiverEmail());
-                        System.out.println("Email3 " + receivedMessage.getEmail());
-                        informRequester(receivedMessage.getReceiverEmail(), receivedMessage.getEmail());
-                    }
+                   
                 }catch (Exception e){
                     System.out.println("Exception occurred in read thread server");
                 }
@@ -63,14 +66,5 @@ public class ReadThreadServer extends Thread {
 
     }
 
-    private void informRequester(String receiverEmail, String senderClientEmail) throws IOException {
-        System.out.println("hello1");
-        if (receiverEmail.equals(receivedMessage.getEmail())) {
-            System.out.println("hello");
-            String message = "Your challenge request has been accepted by " + senderClientEmail;
-           networkInfo.getNetworkUtil().write(new TextMessage(message));
 
-
-        }
-    }
 }
