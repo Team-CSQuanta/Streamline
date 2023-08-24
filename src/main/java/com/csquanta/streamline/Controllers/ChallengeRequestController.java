@@ -86,6 +86,7 @@ public class ChallengeRequestController {
         acceptedChallenge.setAccepted(true);
 
         acceptedChallenge.setEmail(challengeController.loadClientInfoFromFile()); // Set sender email
+        System.out.println("After accept button clicked :" +challengeController.loadClientInfoFromFile());
 
         String receiverEmail = UserInformation.userInfo.getRequestSenderEmaill();
         System.out.println("in Challenge Request sender "+ receiverEmail) ;

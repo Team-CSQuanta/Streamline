@@ -9,8 +9,6 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -44,12 +42,7 @@
                                  <children>
                                     <HBox alignment="CENTER" prefHeight="40.0" prefWidth="696.0" styleClass="hBoxContainer">
                                        <children>
-                                          <Label prefHeight="32.0" prefWidth="660.0" styleClass="settingsFieldTitle" text="User name" />
-                                          <ImageView fitHeight="24.0" fitWidth="24.0" onMouseClicked="#editUserName" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../Images/icons8-edit-50.png" />
-                                             </image>
-                                          </ImageView>
+                                          <Label prefHeight="32.0" prefWidth="696.0" styleClass="settingsFieldTitle" text="User name" />
                                        </children>
                                     </HBox>
                                     <TextField fx:id="userName" prefHeight="50.0" prefWidth="696.0" styleClass="textFieldFont" text="foyez">
@@ -63,12 +56,7 @@
                                  <children>
                                     <HBox alignment="CENTER" prefHeight="40.0" prefWidth="696.0" styleClass="hBoxContainer">
                                        <children>
-                                          <Label prefHeight="32.0" prefWidth="660.0" styleClass="settingsFieldTitle" text="Display name" />
-                                          <ImageView fitHeight="24.0" fitWidth="24.0" onMouseClicked="#editDisplayName" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../Images/icons8-edit-50.png" />
-                                             </image>
-                                          </ImageView>
+                                          <Label prefHeight="32.0" prefWidth="696.0" styleClass="settingsFieldTitle" text="Display name" />
                                        </children>
                                     </HBox>
                                     <TextField fx:id="displayName" prefHeight="50.0" prefWidth="696.0" styleClass="textFieldFont" text="Foyez Ahammed Naeem">
@@ -82,12 +70,7 @@
                                  <children>
                                     <HBox alignment="CENTER" prefHeight="40.0" prefWidth="696.0" styleClass="hBoxContainer">
                                        <children>
-                                          <Label prefHeight="32.0" prefWidth="660.0" styleClass="settingsFieldTitle" text="Email" />
-                                          <ImageView fitHeight="24.0" fitWidth="24.0" onMouseClicked="#editEmail" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../Images/icons8-edit-50.png" />
-                                             </image>
-                                          </ImageView>
+                                          <Label prefHeight="32.0" prefWidth="696.0" styleClass="settingsFieldTitle" text="Email" />
                                        </children>
                                     </HBox>
                                     <TextField fx:id="email" prefHeight="50.0" prefWidth="696.0" styleClass="textFieldFont" text="foyez4m@gmail.com">
@@ -101,12 +84,7 @@
                                  <children>
                                     <HBox alignment="CENTER" prefHeight="40.0" prefWidth="696.0" styleClass="hBoxContainer">
                                        <children>
-                                          <Label prefHeight="32.0" prefWidth="660.0" styleClass="settingsFieldTitle" text="Password" />
-                                          <ImageView fitHeight="24.0" fitWidth="24.0" onMouseClicked="#editPassword" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../Images/icons8-edit-50.png" />
-                                             </image>
-                                          </ImageView>
+                                          <Label prefHeight="32.0" prefWidth="696.0" styleClass="settingsFieldTitle" text="Password" />
                                        </children>
                                     </HBox>
                                     <PasswordField fx:id="password" prefHeight="50.0" prefWidth="696.0">
@@ -134,11 +112,6 @@
                               <HBox alignment="CENTER" prefHeight="40.0" prefWidth="696.0" styleClass="hBoxContainer">
                                  <children>
                                     <Label prefHeight="32.0" prefWidth="696.0" styleClass="settingsFieldTitle" text="Pomodoro session time" />
-                                    <ImageView fitHeight="24.0" fitWidth="24.0" onMouseClicked="#editPomodoroSessionTime" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../Images/icons8-edit-50.png" />
-                                       </image>
-                                    </ImageView>
                                  </children>
                               </HBox>
                               <ComboBox fx:id="pomodoroSessionTime" prefHeight="50.0" prefWidth="696.0">
@@ -153,11 +126,6 @@
                               <HBox alignment="CENTER" prefHeight="40.0" prefWidth="696.0" styleClass="hBoxContainer">
                                  <children>
                                     <Label prefHeight="32.0" prefWidth="696.0" styleClass="settingsFieldTitle" text="Session break time" />
-                                    <ImageView fitHeight="24.0" fitWidth="24.0" onMouseClicked="#editSessionBreakTime" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../Images/icons8-edit-50.png" />
-                                       </image>
-                                    </ImageView>
                                  </children>
                               </HBox>
                               <ComboBox fx:id="sessionBreakTime" prefHeight="50.0" prefWidth="696.0">

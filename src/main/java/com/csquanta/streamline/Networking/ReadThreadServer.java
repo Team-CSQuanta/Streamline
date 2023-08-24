@@ -51,7 +51,6 @@ public class ReadThreadServer extends Thread {
 
                     }
                     else  {
-
                         System.out.println("Email2 " + receivedMessage.getReceiverEmail());
                         System.out.println("Email3 " + receivedMessage.getEmail());
                         informRequester(receivedMessage.getReceiverEmail(), receivedMessage.getEmail());

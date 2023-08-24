@@ -125,7 +125,10 @@ public class TaskBlockController implements Initializable {
         taskViewController.setPriority(task.getPriority());
         taskViewController.setTag(task.getTag());
         taskViewController.setPomodoroSessions(String.valueOf(task.getNumOfSessions()));
-        new Pulse(taskDescription.root).play();
+        Pulse pulse = new Pulse();
+        pulse.setNode(taskDescription.root);
+        pulse.setSpeed(3);
+        pulse.play();
     }
     @FXML
     void showPomodoroTimer(MouseEvent event) throws IOException {
@@ -141,8 +144,10 @@ public class TaskBlockController implements Initializable {
 
         PomodoroPageController.modalPaneForPomodoroPage.show(pomodoroPage.root);
         PomodoroPageController.modalPaneForPomodoroPage.setPersistent(true);
-
-        new Pulse(pomodoroPage.root).play();
+        Pulse pulse = new Pulse();
+        pulse.setNode(pomodoroPage.root);
+        pulse.setSpeed(3);
+        pulse.play();
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
