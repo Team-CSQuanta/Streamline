@@ -77,7 +77,9 @@ public class ProfileViewController implements Initializable {
         Platform.runLater(() -> {
         double healthPercentage =  (double) updatedHealth / 100;
         HealthProgress.setProgress(healthPercentage);
+
         });
+
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -89,7 +91,7 @@ public class ProfileViewController implements Initializable {
         headGear.setImage(StaticUserInformation.avatarImageHeadGear);
         priceLabel.setText(String.format("%.2f", StaticUserInformation.totalGoldCoins));
         avatarPet.setImage(StaticUserInformation.avatarImagePet);
-      //  updateHealthProgress();
+
 
     }
 }
