@@ -39,8 +39,6 @@ public class App extends Application {
         TaskIdGenerator.deserializeTaskID();
         taskManager.startTaskChecking();
 
-
-        System.out.println("The challenge mode is now: " + UserInformation.userInfo.getChallengeMode());
     }
 
     @Override

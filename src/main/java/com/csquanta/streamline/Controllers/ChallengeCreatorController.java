@@ -3,6 +3,7 @@ package com.csquanta.streamline.Controllers;
 import animatefx.animation.FadeIn;
 import animatefx.animation.ZoomIn;
 import com.csquanta.streamline.App;
+import com.csquanta.streamline.Models.ChallengeUI;
 import com.csquanta.streamline.Models.UserInformation;
 import com.csquanta.streamline.Networking.ChallengeMessage;
 import javafx.animation.PauseTransition;
@@ -178,7 +179,7 @@ public class ChallengeCreatorController implements Initializable {
             }
 
             FXMLScene challengeReqSent = FXMLScene.load("/Fxml/ChallengeRequestSent.fxml");
-            UserInformation.userInfo.setPendingStatus(true);
+            ChallengeUI.challengeUI.setPendingStatus(true);
             App.newLoad();
             FXMLScene challengePage = FXMLScene.load("/Fxml/Challenge.fxml");
             controller = (ChallengeController) challengePage.controller;
