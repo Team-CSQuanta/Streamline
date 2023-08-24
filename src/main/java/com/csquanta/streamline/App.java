@@ -73,6 +73,7 @@ public class App extends Application {
         Shop.serializeShop();
         Task.serializeTasks();
         TaskIdGenerator.serializeTaskID();
+        taskManager.stopTaskChecking();
     }
 
     public static void main(String[] args) {
@@ -89,7 +90,7 @@ public class App extends Application {
                 MainStageController.modalPaneForExit.setAlignment(Pos.BOTTOM_CENTER);
                 MainStageController.modalPaneForExit.usePredefinedTransitionFactories(Side.BOTTOM);
                 MainStageController.modalPaneForExit.show(exitOption);
-               taskManager.stopTaskChecking();
+
             }
         });
         root.getChildren().addAll(header, MainStageController.modalPaneForExit, HeaderController.modalPaneForHeader, SidebarController.modalPaneForSignOut, CreateANewTaskController.modalPaneForTaskCreator, PomodoroPageController.modalPaneForPomodoroPage, ReadThreadClient.modalPaneForChallengeRequest);
