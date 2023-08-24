@@ -2,6 +2,7 @@ package com.csquanta.streamline.Controllers;
 
 import animatefx.animation.FadeIn;
 import animatefx.animation.FadeOut;
+import atlantafx.base.controls.Notification;
 import com.csquanta.streamline.App;
 import com.csquanta.streamline.Models.Task;
 import com.csquanta.streamline.Models.TaskComparator;
@@ -12,9 +13,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
@@ -67,6 +70,34 @@ public class TaskCreatorController implements Initializable {
 
     @FXML
     void onSaveButtonClicked(ActionEvent event) throws IOException {
+        String taskTitle = title.getText();
+        String selectedPomodoroSession = pomodoroSessions.getSelectionModel().getSelectedItem();
+        LocalDate selectedDueDate = dueDate.getValue();
+        String selectedPriority = priority.getSelectionModel().getSelectedItem();
+        String selectedTag = tag.getSelectionModel().getSelectedItem();
+        String taskDescription = description.getText();
+
+        if (taskTitle.isEmpty() || selectedPomodoroSession == null || selectedDueDate == null || selectedPriority == null || selectedTag == null || taskDescription.isEmpty()) {
+
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Missing Fields");
+            alert.setHeaderText(null);
+            alert.setContentText("Please fill in all fields.");
+            alert.showAndWait();
+            return;
+        }
+
+        // Check if the due date is in the future or today
+        LocalDate currentDate = LocalDate.now();
+        if (selectedDueDate.isBefore(currentDate)) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Invalid Due Date");
+            alert.setHeaderText(null);
+            alert.setContentText("Due date must be today or in the future.");
+            alert.showAndWait();
+            return;
+        }
+
         Task newTask = new Task(title.getText(), Integer.parseInt(pomodoroSessions.getSelectionModel().getSelectedItem()), dueDate.getValue(), priority.getSelectionModel().getSelectedItem(), tag.getSelectionModel().getSelectedItem(), description.getText(), TaskIdGenerator.taskIdGenerator.getTaskID());
         taskObject.addTask(newTask);
         TaskComparator taskComparator = new TaskComparator();
