@@ -14,16 +14,29 @@ public class ReadThreadClient extends Thread {
     private NetworkUtil networkUtil;
     private String clientEmail;
     ChallengeRequestController controller;
-    ProfileEditController profileEditController= new ProfileEditController();
-public static final ModalPane modalPaneForChallengeRequest = new ModalPane();
+    private static String Email;
+
+//    public static ReadThreadClient readThreadClient = new ReadThreadClient();
+    public static final ModalPane modalPaneForChallengeRequest = new ModalPane();
     ChallengeLogController chatBoxController = new ChallengeLogController();
 
 
-    public ReadThreadClient(NetworkUtil networkUtil, String clientEmail) throws IOException {
+    public ReadThreadClient(NetworkUtil networkUtil, String clientEmail) {
         this.networkUtil = networkUtil;
         this.clientEmail = clientEmail;
     }
 
+    public ReadThreadClient() {
+
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
+    }
 
     @Override
     public void run() {
@@ -38,7 +51,10 @@ public static final ModalPane modalPaneForChallengeRequest = new ModalPane();
                     String taskTag = ((ChallengeInfo) receivedMessage).getChallengeTaskTag();
                     String monsterName = ((ChallengeInfo) receivedMessage).getMonstersName();
                     String taskTitle = ((ChallengeInfo) receivedMessage).getTaskTitle();
-                    System.out.println("in read thread client");
+
+                    UserInformation.userInfo.setRequestSenderEmaill(((ChallengeInfo) receivedMessage).getEmail());
+                    System.out.println("in read thread client "+ UserInformation.userInfo.getRequestSenderEmaill());
+
 
                     Platform.runLater(() -> {
 

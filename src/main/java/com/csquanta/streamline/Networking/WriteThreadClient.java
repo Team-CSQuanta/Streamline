@@ -1,9 +1,6 @@
 //package com.csquanta.streamline.Networking;
 //
-//import com.csquanta.streamline.Controllers.ChallengeCreatorController;
-//
 //import java.io.IOException;
-//import java.util.Scanner;
 //
 //public class WriteThreadClient extends Thread {
 //    private NetworkUtil networkUtil;

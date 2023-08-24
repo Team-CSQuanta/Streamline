@@ -1,9 +1,8 @@
 package com.csquanta.streamline.Controllers;
 
-import atlantafx.base.controls.ModalPane;
+import com.csquanta.streamline.Models.UserInformation;
 import com.csquanta.streamline.Networking.ChallengeInfo;
 import com.csquanta.streamline.Networking.NetworkInformation;
-import com.csquanta.streamline.Networking.NetworkUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -77,19 +76,26 @@ public class ChallengeRequestController {
 
     private ConcurrentHashMap<String, NetworkInformation> clientNetworkInformationMap;
 
+    public ChallengeRequestController() throws IOException {
+    }
+
     @FXML
     void onAcceptBtnClicked(ActionEvent event) throws IOException {
 
         ChallengeInfo acceptedChallenge = new ChallengeInfo();
         acceptedChallenge.setAccepted(true);
 
-//        acceptedChallenge.setEmail(clientNetworkInformationMap.get(clientEmail)); // Set sender email
-//        acceptedChallenge.setReceiverEmail(challengeController.loadClientInfoFromFile()); // Set receiver email
-        acceptedChallenge.setEmail("n@example.com"); // Set sender email
-        acceptedChallenge.setReceiverEmail("j@example.com"); // Set receiver email
+        acceptedChallenge.setEmail(challengeController.loadClientInfoFromFile()); // Set sender email
+
+        String receiverEmail = UserInformation.userInfo.getRequestSenderEmaill();
+        System.out.println("in Challenge Request sender "+ receiverEmail) ;
+
+        acceptedChallenge.setReceiverEmail(receiverEmail); // Set receiver email
+
+
 
         try {
-            System.out.println("forward"+ acceptedChallenge);
+            System.out.println("forward "+ acceptedChallenge);
             networkUtil.write(acceptedChallenge);
 
         } catch (Exception e){

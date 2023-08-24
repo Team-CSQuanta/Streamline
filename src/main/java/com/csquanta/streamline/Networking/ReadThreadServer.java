@@ -12,7 +12,7 @@ public class ReadThreadServer extends Thread {
     private String clientEmail;
     private NetworkInformation networkInfo;
     private ConcurrentHashMap<String, NetworkInformation> clientNetworkInformationMap;
-
+    ChallengeInfo receivedMessage;
     public ReadThreadServer(String email, NetworkInformation networkInfo, ConcurrentHashMap<String, NetworkInformation> clientNetworkInformationMap) {
         this.clientEmail = email;
         this.networkInfo = networkInfo;
@@ -60,13 +60,13 @@ public class ReadThreadServer extends Thread {
                 }
 
             }
-        } catch (Exception e) {
-            System.out.println("Client left the server");
-        }
+
     }
 
     private void informRequester(String receiverEmail, String senderClientEmail) throws IOException {
-        if (receiverEmail.equals(clientEmail)) {
+        System.out.println("hello1");
+        if (receiverEmail.equals(receivedMessage.getEmail())) {
+            System.out.println("hello");
             String message = "Your challenge request has been accepted by " + senderClientEmail;
            networkInfo.getNetworkUtil().write(new TextMessage(message));
 

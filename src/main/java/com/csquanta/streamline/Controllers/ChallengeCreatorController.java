@@ -168,13 +168,13 @@ public class ChallengeCreatorController implements Initializable {
 
 
             if ("Build consistency".equals(challengeType)) {
-                 challengeInfo = new ChallengeInfo(challengeType, challengeDescription,  challengeController.loadClientInfoFromFile(), receiverEmail, pomodoroSession, taskTag, monstersName,taskTitle);
-                challengeInfo.setFromServer(false);
+                 challengeInfo = new ChallengeInfo("ChallengeRequest", challengeController.loadClientInfoFromFile(), receiverEmail, pomodoroSession, taskTag, monstersName,taskTitle);
+//                challengeInfo.setFromServer(false);
                 networkUtil.write(challengeInfo);
 
             } else {
-                 challengeInfo = new ChallengeInfo(challengeType, challengeDescription, challengeController.loadClientInfoFromFile(), receiverEmail,monstersName,taskTitle);
-                challengeInfo.setFromServer(false);
+                challengeInfo = new ChallengeInfo( "ChallengeRequest",challengeType, challengeDescription, challengeController.loadClientInfoFromFile(), receiverEmail,monstersName,taskTitle);
+//                challengeInfo.setFromServer(false);
                 networkUtil.write(challengeInfo);
 
             }

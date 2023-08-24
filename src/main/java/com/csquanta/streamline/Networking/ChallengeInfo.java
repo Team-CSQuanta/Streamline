@@ -6,6 +6,10 @@ import java.io.Serializable;
 public class ChallengeInfo implements Serializable {
     @Serial
     private static final long serialVersionUID = 62709951824673L;
+    // Type of request
+    private String serverRequestCode;
+
+    // Challenge request related fields
     private String challengeType;
     private String challengeDescription;
     private String challengeTaskPomodoroSession;
@@ -34,6 +38,7 @@ public class ChallengeInfo implements Serializable {
         this.receiverEmail = receiverEmail;
         this.monstersName = monstersName;
         this.taskTitle=taskTitle;
+        this.serverRequestCode = requestCode;
 
     }
 
@@ -47,10 +52,16 @@ public class ChallengeInfo implements Serializable {
         this.receiverEmail = receiverEmail;
         this.monstersName = monstersName;
         this.taskTitle = taskTitle;
-
+        this.serverRequestCode = requestCode;
     }
 
+    public String getServerRequestCode() {
+        return serverRequestCode;
+    }
 
+    public void setServerRequestCode(String serverRequestCode) {
+        this.serverRequestCode = serverRequestCode;
+    }
 
     public String getTaskTitle() {
         return taskTitle;
