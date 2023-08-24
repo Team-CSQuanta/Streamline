@@ -228,9 +228,9 @@ public void ChangeChallengePageUI(){
 //            zoomIn.setSpeed(3);
 //            zoomIn.play();
 
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
 }
 
 }

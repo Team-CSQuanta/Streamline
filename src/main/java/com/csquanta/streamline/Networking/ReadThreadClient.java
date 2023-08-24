@@ -49,9 +49,7 @@ public class ReadThreadClient extends Thread {
                     Platform.runLater(() -> {
 
                         try {
-
                             FXMLScene fxmlScene = FXMLScene.load("/Fxml/ChallengeRequest.fxml");
-
                             modalPaneForChallengeRequest.setAlignment(Pos.CENTER);
                             modalPaneForChallengeRequest.show(fxmlScene.root);
                             controller = (ChallengeRequestController) fxmlScene.controller;

@@ -1,5 +1,6 @@
 package com.csquanta.streamline.Controllers;
 
+import animatefx.animation.ZoomIn;
 import com.csquanta.streamline.Models.UserInformation;
 import com.csquanta.streamline.Networking.ChallengeResponse;
 import com.csquanta.streamline.Networking.NetworkInformation;
@@ -81,10 +82,28 @@ public class ChallengeRequestController {
 
     @FXML
     void onAcceptBtnClicked(ActionEvent event) throws IOException {
+        // need to change topHbox and bottom vBox
 
+        FXMLScene scene = FXMLScene.load("/Fxml/Challenge.fxml");
+        ChallengeController controller = (ChallengeController) scene.controller;
+
+
+        FXMLScene  challengeLog = FXMLScene.load("/Fxml/ChallengeLog.fxml");
+        ChallengeLogController challengeLogController = (ChallengeLogController) challengeLog.controller;
+        controller.getBottomVbox().getChildren().setAll(challengeLog.root);
+
+        ZoomIn zoomIn = new ZoomIn();
+        zoomIn.setNode(challengeLog.root);
+        zoomIn.setSpeed(3);
+        zoomIn.play();
+
+        FXMLScene ChallengedMonster = FXMLScene.load("/Fxml/MonsterInChallenge.fxml");
+        controller.getTopHbox().getChildren().setAll(ChallengedMonster.root);
+        zoomIn.setNode(ChallengedMonster.root);
+        zoomIn.setSpeed(3);
+        zoomIn.play();
 
         String receiverEmail = UserInformation.userInfo.getRequestSenderEmaill();
-
         String responseMessage = "Your Challenge has been accepted!";
 
         ChallengeResponse challengeResponse = new ChallengeResponse(challengeController.loadClientInfoFromFile(),receiverEmail,responseMessage);
