@@ -5,6 +5,7 @@ import animatefx.animation.Pulse;
 import animatefx.animation.ZoomIn;
 import atlantafx.base.controls.ModalPane;
 import com.csquanta.streamline.App;
+import com.csquanta.streamline.Models.UserInformation;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -100,11 +101,14 @@ public class SidebarController implements Initializable {
     @FXML
     void onChallengesBtnClicked(MouseEvent event) throws IOException {
         App.newLoad();
-        VBox challengePage = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/Challenge.fxml")));
-        StackPane.setAlignment(challengePage, Pos.BOTTOM_CENTER);
-        App.root.getChildren().add(challengePage);
+        FXMLScene challengePage = FXMLScene.load("/Fxml/Challenge.fxml");
+//        VBox challengePage = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/Challenge.fxml")));
+        VBox challenge = (VBox) challengePage.root;
+        UserInformation.userInfo.setChallengeController((ChallengeController) challengePage.controller);
+        StackPane.setAlignment(challenge, Pos.BOTTOM_CENTER);
+        App.root.getChildren().add(challenge);
         ZoomIn zoomIn = new ZoomIn();
-        zoomIn.setNode(challengePage);
+        zoomIn.setNode(challenge);
         zoomIn.setSpeed(3);
         zoomIn.play();
     }

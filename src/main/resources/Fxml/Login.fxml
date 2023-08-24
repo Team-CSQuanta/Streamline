@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1900.0" style="-fx-border-radius: 25px; -fx-background-radius: 25px;" stylesheets="@../Styles/LoginPage.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER" prefHeight="1000.0" prefWidth="1900.0">
+         <children>
+            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="960.0" prefWidth="930.0">
+               <children>
+                  <ImageView fitHeight="303.0" fitWidth="594.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/home-main@3x.23eeafe4.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" prefHeight="110.0" prefWidth="744.0" styleClass="letBoxTitle" text="Gamify Your Life" />
+               </children></VBox>
+            <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="900.0" style="-fx-border-color: linear-gradient(to bottom right, #673AB7, #512DA8); -fx-border-width: 2px; -fx-border-radius: 25px; -fx-background-radius: 25px;">
+               <HBox.margin>
+                  <Insets right="30.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</VBox>

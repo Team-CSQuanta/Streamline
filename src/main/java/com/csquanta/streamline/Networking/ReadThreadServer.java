@@ -56,8 +56,8 @@ public class ReadThreadServer extends Thread {
                           ChallengeResponse responseMessage = new ChallengeResponse(sender,receiver,response);
                             receiverInfo.getNetworkUtil().write(responseMessage);
 
-                        }
-
+                    }
+                   
                 }catch (Exception e){
                     System.out.println("Exception occurred in read thread server");
                 }

@@ -6,8 +6,11 @@ import animatefx.animation.ZoomIn;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
@@ -34,6 +37,7 @@ public class StartingAnimationController implements Initializable {
         bounceIn.setOnFinished(event -> {
             try {
                 root = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/MainStage.fxml")));
+
                 Scene dashboard = new Scene(root);
                 root.setOnMousePressed(MouseMovementEvent -> {
                     x = MouseMovementEvent.getSceneX();

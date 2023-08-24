@@ -10,9 +10,11 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static java.util.Objects.requireNonNull;
@@ -25,9 +27,12 @@ public class MainStageController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         HBox header, exitOption;
+        VBox tasksPage;
         try {
             header = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/Header.fxml")));
             exitOption = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/ExitOption.fxml")));
+            tasksPage = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/ToDoListGridPane.fxml")));
+            StackPane.setAlignment(tasksPage, Pos.BOTTOM_CENTER);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -38,14 +43,7 @@ public class MainStageController implements Initializable {
                 modalPaneForExit.show(exitOption);
             }
         });
-        try {
-            FXMLScene tasks = FXMLScene.load("/Fxml/ToDoListGridPane.fxml");
-            StackPane.setAlignment(tasks.root, Pos.BOTTOM_CENTER);
-            StackPane.setAlignment(header, Pos.TOP_CENTER);
-            mainStageStackPane.getChildren().addAll(tasks.root, header, HeaderController.modalPaneForHeader,modalPaneForExit, SidebarController.modalPaneForSignOut);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
+        StackPane.setAlignment(header, Pos.TOP_CENTER);
+        mainStageStackPane.getChildren().addAll(tasksPage, header, HeaderController.modalPaneForHeader,modalPaneForExit, SidebarController.modalPaneForSignOut, CreateANewTaskController.modalPaneForTaskCreator, PomodoroPageController.modalPaneForPomodoroPage);
     }
 }

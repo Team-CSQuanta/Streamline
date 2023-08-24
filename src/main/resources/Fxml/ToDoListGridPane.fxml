@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
+
 <VBox fx:id="taskMainContainer" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="955.0" prefWidth="1900.0" style="-fx-background-radius: 0px 0px 25px 25px; -fx-border-radius: 0px 0px 25px 25px;" stylesheets="@../Styles/EishenhowerMatrix.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.TaskPageController">
    <padding>
       <Insets bottom="50.0" left="50.0" right="50.0" />
