@@ -121,7 +121,6 @@ public class ChallengeController implements Initializable {
             networkUtil = new NetworkUtil("127.0.0.1", 8000);
             networkUtil.write(clientEmail);
             System.out.println(clientEmail);
-
             ReadThreadClient readThreadClient = new ReadThreadClient(networkUtil, clientEmail);
             readThreadClient.start();
         } catch (Exception e) {

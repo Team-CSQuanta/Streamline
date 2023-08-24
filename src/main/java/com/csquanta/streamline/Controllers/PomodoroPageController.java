@@ -1,12 +1,16 @@
 package com.csquanta.streamline.Controllers;
 
-import animatefx.animation.*;
+import animatefx.animation.FadeIn;
+import animatefx.animation.FadeOut;
+import animatefx.animation.Pulse;
+import animatefx.animation.Shake;
 import atlantafx.base.controls.ModalPane;
-import com.csquanta.streamline.App;
-import com.csquanta.streamline.Models.ChallengeLog;
+import com.csquanta.streamline.Models.ChallengeUI;
 import com.csquanta.streamline.Models.MyTimer;
 import com.csquanta.streamline.Models.Task;
 import com.csquanta.streamline.Models.UserInformation;
+import com.csquanta.streamline.Networking.ChallengeParticipantsInfo;
+import com.csquanta.streamline.Networking.ChallengeUpdate;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,18 +18,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Tooltip;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static com.csquanta.streamline.Controllers.ChallengeController.networkUtil;
 
 public class PomodoroPageController implements Initializable {
     public static ModalPane modalPaneForPointsNotification = new ModalPane();
@@ -61,7 +64,6 @@ public class PomodoroPageController implements Initializable {
     }
 
     public static ModalPane modalPaneForPomodoroPage = new ModalPane();
-
     @FXML
     private Button button;
 
@@ -89,7 +91,7 @@ public class PomodoroPageController implements Initializable {
     public void setLabelContainer(HBox labelContainer) {
         this.labelContainer = labelContainer;
     }
-
+ChallengeCreatorController challengeCreatorController= new ChallengeCreatorController();
     @FXML
     private Label taskTitle;
 
@@ -106,7 +108,7 @@ public class PomodoroPageController implements Initializable {
         if(button.getText().equals("Start session")){
             button.setText("Running");
             sessionInfoLabel.setText("Session " + (sessionCounter + 1));
-            MyTimer timer = new MyTimer(25, minutesLabel, secondsLabel, button, "Session", sessionCounter, task.getNumOfSessions(), stackPanePomodoroContainer);
+            MyTimer timer = new MyTimer(1, minutesLabel, secondsLabel, button, "Session", sessionCounter, task.getNumOfSessions(), stackPanePomodoroContainer);
             timer.t.setDaemon(true);
             timer.t.start();
             sessionCounter++;
@@ -126,13 +128,14 @@ public class PomodoroPageController implements Initializable {
             task.setCompleted(true);
 
             // For Challenge log
-//            if(UserInformation.userInfo.getChallengeMode()){
+            if(ChallengeUI.challengeUI.getChallengeMode()){
 //                String descriptionMsg = "has damaged the monster's health by completing the task titled";
 //                InputStream stream = new FileInputStream("src/main/resources/com/example/javafxchatting/ProfileImage.png");
 //                ChallengeLog log = new ChallengeLog("PutUserNameHere", "PutRealNameHere", descriptionMsg + "\"" + task.getTaskTitle() + "\"", new Image(stream), task.getTaskTitle());
 //                ChallengeLog.staticChallengeLog.getChallengeLogs().add(log);
-//            }
-
+                ChallengeUpdate challengeUpdate = new ChallengeUpdate(ChallengeUI.challengeUI.getChallengeController().loadClientInfoFromFile(), ChallengeParticipantsInfo.participantsEmail,task.getTaskTitle());
+                networkUtil.write(challengeUpdate);
+            }
             closeBtnImg.setVisible(true);
             new FadeIn(closeBtnImg).play();
         }
