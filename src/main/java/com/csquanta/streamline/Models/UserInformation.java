@@ -16,6 +16,16 @@ public class UserInformation implements Serializable {
     // Challenge Related fields
     private boolean challengeMode;
     private boolean pendingStatus;
+    private String requestSenderEmaill;
+
+    public String getRequestSenderEmaill() {
+        return requestSenderEmaill;
+    }
+
+    public void setRequestSenderEmaill(String requestSenderEmaill) {
+        this.requestSenderEmaill = requestSenderEmaill;
+    }
+
     public boolean getChallengeMode(){
         return challengeMode;
     }
