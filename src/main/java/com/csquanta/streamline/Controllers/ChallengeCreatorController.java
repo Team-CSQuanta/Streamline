@@ -177,7 +177,6 @@ public class ChallengeCreatorController implements Initializable {
 
             }
 
-
             FXMLScene challengeReqSent = FXMLScene.load("/Fxml/ChallengeRequestSent.fxml");
             UserInformation.userInfo.setPendingStatus(true);
             App.newLoad();

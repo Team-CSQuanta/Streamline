@@ -1,15 +1,18 @@
 package com.csquanta.streamline.Controllers;
 
 import animatefx.animation.ZoomIn;
+import com.csquanta.streamline.App;
 import com.csquanta.streamline.Models.UserInformation;
 import com.csquanta.streamline.Networking.ChallengeResponse;
 import com.csquanta.streamline.Networking.NetworkInformation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
 import java.util.concurrent.ConcurrentHashMap;
@@ -84,10 +87,27 @@ public class ChallengeRequestController {
     void onAcceptBtnClicked(ActionEvent event) throws IOException {
         // need to change topHbox and bottom vBox
 
-        FXMLScene scene = FXMLScene.load("/Fxml/Challenge.fxml");
-        ChallengeController controller = (ChallengeController) scene.controller;
+//        ChallengeController controller = UserInformation.userInfo.getChallengeController();
+
+//        FXMLScene  challengeLog = FXMLScene.load("/Fxml/ChallengeLog.fxml");
+//        ChallengeLogController challengeLogController = (ChallengeLogController) challengeLog.controller;
+//        controller.getBottomVbox().getChildren().setAll(challengeLog.root);
+//
+//        ZoomIn zoomIn = new ZoomIn();
+//        zoomIn.setNode(challengeLog.root);
+//        zoomIn.setSpeed(3);
+//        zoomIn.play();
+//
+//        FXMLScene ChallengedMonster = FXMLScene.load("/Fxml/MonsterInChallenge.fxml");
+//        controller.getTopHbox().getChildren().setAll(ChallengedMonster.root);
+//        zoomIn.setNode(ChallengedMonster.root);
+//        zoomIn.setSpeed(3);
+//        zoomIn.play();
 
 
+        App.newLoad();
+        FXMLScene challengePage = FXMLScene.load("/Fxml/Challenge.fxml");
+        ChallengeController controller = (ChallengeController) challengePage.controller;
         FXMLScene  challengeLog = FXMLScene.load("/Fxml/ChallengeLog.fxml");
         ChallengeLogController challengeLogController = (ChallengeLogController) challengeLog.controller;
         controller.getBottomVbox().getChildren().setAll(challengeLog.root);
@@ -103,7 +123,14 @@ public class ChallengeRequestController {
         zoomIn.setSpeed(3);
         zoomIn.play();
 
-  
+        StackPane.setAlignment(challengePage.root, Pos.BOTTOM_CENTER);
+        App.root.getChildren().add(challengePage.root);
+        zoomIn.setNode(challengePage.root);
+        zoomIn.setSpeed(3);
+        zoomIn.play();
+
+
+
         String receiverEmail = UserInformation.userInfo.getRequestSenderEmaill();
         String responseMessage = "Your Challenge has been accepted!";
 

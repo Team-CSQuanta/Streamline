@@ -1,4 +1,5 @@
 package com.csquanta.streamline.Models;
+import com.csquanta.streamline.Controllers.ChallengeController;
 import com.csquanta.streamline.Controllers.HeaderController;
 import com.csquanta.streamline.Controllers.ProfileViewController;
 import javafx.scene.image.Image;
@@ -17,6 +18,17 @@ public class UserInformation implements Serializable {
     private boolean challengeMode;
     private boolean pendingStatus;
     private String requestSenderEmaill;
+
+
+    private ChallengeController challengeController;
+
+    public ChallengeController getChallengeController() {
+        return challengeController;
+    }
+
+    public void setChallengeController(ChallengeController challengeController) {
+        this.challengeController = challengeController;
+    }
 
     public String getRequestSenderEmaill() {
         return requestSenderEmaill;
