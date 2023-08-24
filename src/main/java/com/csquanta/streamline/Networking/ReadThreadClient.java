@@ -1,12 +1,16 @@
 package com.csquanta.streamline.Networking;
 
 import animatefx.animation.Pulse;
+import animatefx.animation.ZoomIn;
 import atlantafx.base.controls.ModalPane;
+import com.csquanta.streamline.App;
 import com.csquanta.streamline.Controllers.*;
+import com.csquanta.streamline.Models.ChallengeUI;
 import com.csquanta.streamline.Models.UserInformation;
 import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
+import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
 
@@ -42,8 +46,8 @@ public class ReadThreadClient extends Thread {
                     String monsterName = ((ChallengeMessage) receivedMessage).getMonstersName();
                     String taskTitle = ((ChallengeMessage) receivedMessage).getTaskTitle();
 
-                    UserInformation.userInfo.setRequestSenderEmaill(sender);
-                    System.out.println("in read thread client "+ UserInformation.userInfo.getRequestSenderEmaill());
+                    ChallengeUI.challengeUI.setRequestSenderEmail(sender);
+                    System.out.println("in read thread client "+ ChallengeUI.challengeUI.getRequestSenderEmail());
 
 
                     Platform.runLater(() -> {
@@ -102,7 +106,37 @@ public class ReadThreadClient extends Thread {
                         }
 
                     });
+
+
+
+                    // responsjdlfjsdlfjsdlkjflsdjfldsajfjdslkafji
                 }  else if (receivedMessage.getMessageType() == MessageType.CHALLENGE_RESPONSE ) {
+                    ChallengeUI.challengeUI.setPendingStatus(false);
+                    ChallengeUI.challengeUI.setChallengeMode(true);
+
+
+                    App.newLoad();
+                    ChallengeUI.challengeUI.setChallengeMode(true);
+                    ChallengeUI.challengeUI.setPendingStatus(false);
+                    ChallengeController controller = ChallengeUI.challengeUI.getChallengeController();
+
+                    // ChallengeLog Bottom Vbox;
+                    FXMLScene  challengeLog = FXMLScene.load("/Fxml/ChallengeLog.fxml");
+                    ChallengeLogController challengeLogController = (ChallengeLogController) challengeLog.controller;
+                    controller.getBottomVbox().getChildren().setAll(challengeLog.root);
+
+
+                    FXMLScene ChallengedMonster = FXMLScene.load("/Fxml/MonsterInChallenge.fxml");
+                    controller.getTopHbox().getChildren().setAll(ChallengedMonster.root);
+
+                    StackPane.setAlignment(ChallengeUI.challengeUI.getChallengePage(), Pos.BOTTOM_CENTER);
+                    App.root.getChildren().add(ChallengeUI.challengeUI.getChallengePage());
+                    ZoomIn zoomIn = new ZoomIn();
+                    zoomIn.setNode(ChallengeUI.challengeUI.getChallengePage());
+                    zoomIn.setSpeed(3);
+                    zoomIn.play();
+
+
                     String challengeResponse = ((ChallengeResponse) receivedMessage).getResponseMessage();
 
 

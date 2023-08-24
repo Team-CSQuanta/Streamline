@@ -2,6 +2,7 @@ package com.csquanta.streamline.Controllers;
 
 import animatefx.animation.ZoomIn;
 import com.csquanta.streamline.App;
+import com.csquanta.streamline.Models.ChallengeUI;
 import com.csquanta.streamline.Models.UserInformation;
 import com.csquanta.streamline.Networking.ChallengeResponse;
 import com.csquanta.streamline.Networking.NetworkInformation;
@@ -106,32 +107,30 @@ public class ChallengeRequestController {
 
 
         App.newLoad();
-        FXMLScene challengePage = FXMLScene.load("/Fxml/Challenge.fxml");
-        ChallengeController controller = (ChallengeController) challengePage.controller;
+        ChallengeUI.challengeUI.setChallengeMode(true);
+        ChallengeUI.challengeUI.setPendingStatus(false);
+        ChallengeController controller = ChallengeUI.challengeUI.getChallengeController();
+
+        // ChallengeLog Bottom Vbox;
         FXMLScene  challengeLog = FXMLScene.load("/Fxml/ChallengeLog.fxml");
         ChallengeLogController challengeLogController = (ChallengeLogController) challengeLog.controller;
         controller.getBottomVbox().getChildren().setAll(challengeLog.root);
 
-        ZoomIn zoomIn = new ZoomIn();
-        zoomIn.setNode(challengeLog.root);
-        zoomIn.setSpeed(3);
-        zoomIn.play();
 
         FXMLScene ChallengedMonster = FXMLScene.load("/Fxml/MonsterInChallenge.fxml");
         controller.getTopHbox().getChildren().setAll(ChallengedMonster.root);
-        zoomIn.setNode(ChallengedMonster.root);
+
+        StackPane.setAlignment(ChallengeUI.challengeUI.getChallengePage(), Pos.BOTTOM_CENTER);
+        App.root.getChildren().add(ChallengeUI.challengeUI.getChallengePage());
+        ZoomIn zoomIn = new ZoomIn();
+        zoomIn.setNode(ChallengeUI.challengeUI.getChallengePage());
         zoomIn.setSpeed(3);
         zoomIn.play();
 
-        StackPane.setAlignment(challengePage.root, Pos.BOTTOM_CENTER);
-        App.root.getChildren().add(challengePage.root);
-        zoomIn.setNode(challengePage.root);
-        zoomIn.setSpeed(3);
-        zoomIn.play();
 
 
+        String receiverEmail = ChallengeUI.challengeUI.getRequestSenderEmail();
 
-        String receiverEmail = UserInformation.userInfo.getRequestSenderEmaill();
         String responseMessage = "Your Challenge has been accepted!";
 
         ChallengeResponse challengeResponse = new ChallengeResponse(challengeController.loadClientInfoFromFile(),receiverEmail,responseMessage);

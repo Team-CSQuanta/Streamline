@@ -15,41 +15,7 @@ public class UserInformation implements Serializable {
     public static UserInformation userInfo = new UserInformation();
 
     // Challenge Related fields
-    private boolean challengeMode;
-    private boolean pendingStatus;
-    private String requestSenderEmaill;
 
-
-    private ChallengeController challengeController;
-
-    public ChallengeController getChallengeController() {
-        return challengeController;
-    }
-
-    public void setChallengeController(ChallengeController challengeController) {
-        this.challengeController = challengeController;
-    }
-
-    public String getRequestSenderEmaill() {
-        return requestSenderEmaill;
-    }
-
-    public void setRequestSenderEmaill(String requestSenderEmaill) {
-        this.requestSenderEmaill = requestSenderEmaill;
-    }
-
-    public boolean getChallengeMode(){
-        return challengeMode;
-    }
-    public void setChallengeMode(boolean mode){
-        challengeMode = mode;
-    }
-    public boolean isPending(){
-        return  pendingStatus;
-    }
-    public void setPendingStatus(boolean status){
-        pendingStatus = status;
-    }
 
     // Avatar related Field
     private  String avatarImageBg;

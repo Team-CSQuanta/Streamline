@@ -1,6 +1,7 @@
 package com.csquanta.streamline.Controllers;
 
 import animatefx.animation.Pulse;
+import com.csquanta.streamline.Models.ChallengeUI;
 import com.csquanta.streamline.Models.EvilMonsters;
 import com.csquanta.streamline.Models.UserInformation;
 import com.csquanta.streamline.Networking.NetworkUtil;
@@ -151,21 +152,21 @@ public class ChallengeController implements Initializable {
     public void challengePageStatus(VBox bottomVbox){
         if(!bottomVbox.getChildren().isEmpty()){
             bottomVbox.getChildren().removeAll();
-            if(!UserInformation.userInfo.getChallengeMode() && !UserInformation.userInfo.isPending()){
+            if(!ChallengeUI.challengeUI.getChallengeMode() && !ChallengeUI.challengeUI.isPending()){
                 try {
                     VBox noChallenge = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/NotHavingAnyChallenge.fxml")));
                     bottomVbox.getChildren().add(noChallenge);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-            }else if(UserInformation.userInfo.isPending()){
+            }else if(ChallengeUI.challengeUI.isPending()){
                 try {
                     FXMLScene challengeReqSent = FXMLScene.load("/Fxml/ChallengeRequestSent.fxml");
                     bottomVbox.getChildren().add(challengeReqSent.root);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-            }else if(UserInformation.userInfo.getChallengeMode()){
+            }else if(ChallengeUI.challengeUI.getChallengeMode()){
                 System.out.println("In challenge mode");
             }
         }

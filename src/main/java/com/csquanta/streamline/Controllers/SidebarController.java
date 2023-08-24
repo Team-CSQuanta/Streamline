@@ -5,6 +5,7 @@ import animatefx.animation.Pulse;
 import animatefx.animation.ZoomIn;
 import atlantafx.base.controls.ModalPane;
 import com.csquanta.streamline.App;
+import com.csquanta.streamline.Models.ChallengeUI;
 import com.csquanta.streamline.Models.UserInformation;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +14,7 @@ import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
@@ -101,16 +103,35 @@ public class SidebarController implements Initializable {
     @FXML
     void onChallengesBtnClicked(MouseEvent event) throws IOException {
         App.newLoad();
-        FXMLScene challengePage = FXMLScene.load("/Fxml/Challenge.fxml");
-//        VBox challengePage = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/Challenge.fxml")));
-        VBox challenge = (VBox) challengePage.root;
-        UserInformation.userInfo.setChallengeController((ChallengeController) challengePage.controller);
-        StackPane.setAlignment(challenge, Pos.BOTTOM_CENTER);
-        App.root.getChildren().add(challenge);
+        ChallengeController controller = ChallengeUI.challengeUI.getChallengeController();
         ZoomIn zoomIn = new ZoomIn();
-        zoomIn.setNode(challenge);
+        if(!ChallengeUI.challengeUI.getChallengeMode()){
+
+            StackPane.setAlignment(ChallengeUI.challengeUI.getChallengePage(), Pos.BOTTOM_CENTER);
+            App.root.getChildren().add(ChallengeUI.challengeUI.getChallengePage());
+        }else if(ChallengeUI.challengeUI.isPending() && !ChallengeUI.challengeUI.getChallengeMode()){
+            FXMLScene challengeRequestSent = FXMLScene.load("/Fxml/ChallengeRequestSent.fxml");
+            controller.setBottomVbox((VBox) challengeRequestSent.root);
+            App.root.getChildren().add(ChallengeUI.challengeUI.getChallengePage());
+        }else{
+            FXMLScene challengeRequestSent = FXMLScene.load("/Fxml/ChallengeLog.fxml");
+            FXMLScene monsterInChallenge = FXMLScene.load("/Fxml/MonsterInChallenge.fxml");
+            controller.setTopHbox((HBox) monsterInChallenge.root);
+            controller.setBottomVbox((VBox) challengeRequestSent.root);
+            StackPane.setAlignment(ChallengeUI.challengeUI.getChallengePage(), Pos.BOTTOM_CENTER);
+            App.root.getChildren().add(ChallengeUI.challengeUI.getChallengePage());
+        }
+        zoomIn.setNode(ChallengeUI.challengeUI.getChallengePage());
         zoomIn.setSpeed(3);
         zoomIn.play();
+//        FXMLScene challengePage = FXMLScene.load("/Fxml/Challenge.fxml");
+////        VBox challengePage = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/Challenge.fxml")));
+//        VBox challenge = (VBox) challengePage.root;
+////        UserInformation.userInfo.setChallengeController((ChallengeController) challengePage.controller);
+//        StackPane.setAlignment(challenge, Pos.BOTTOM_CENTER);
+//        App.root.getChildren().add(challenge);
+
+
     }
     @FXML
     void onSettingsBtnClicked(MouseEvent event) throws IOException {
