@@ -67,7 +67,7 @@ public class ChallengeCreatorController implements Initializable {
 
      ChallengeController challengeController= new ChallengeController();
 
-    ChallengeLogController chatBoxController = new ChallengeLogController();
+//    ChallengeLogController chatBoxController = new ChallengeLogController();
     @FXML
     void challengeSelection(ActionEvent event) {
         if(challengeType.getSelectionModel().getSelectedItem().equals("Build consistency")){
@@ -211,22 +211,22 @@ public class ChallengeCreatorController implements Initializable {
     }
 public void ChangeChallengePageUI(){
 
-        try {
-            FXMLScene  chatBox = FXMLScene.load("/Fxml/ChatBox.fxml");
-            ChatBoxController chatBoxController = (ChatBoxController) chatBox.controller;
-            controller.getBottomVbox().getChildren().setAll(chatBox.root);
-            System.out.println("creatorControl " +chatBoxController);
+//        try {
+//            FXMLScene  chatBox = FXMLScene.load("/Fxml/ChatBox.fxml");
+//            ChatBoxController chatBoxController = (ChatBoxController) chatBox.controller;
+//            controller.getBottomVbox().getChildren().setAll(chatBox.root);
+//            System.out.println("creatorControl " +chatBoxController);
+//
+//            ZoomIn zoomIn = new ZoomIn();
+//            zoomIn.setNode(chatBox.root);
+//            zoomIn.setSpeed(3);
+//            zoomIn.play();
 
-            ZoomIn zoomIn = new ZoomIn();
-            zoomIn.setNode(chatBox.root);
-            zoomIn.setSpeed(3);
-            zoomIn.play();
-
-            FXMLScene ChallengedMonster = FXMLScene.load("/Fxml/MonsterInChallenge.fxml");
-            controller.getTopHbox().getChildren().setAll(ChallengedMonster.root);
-            zoomIn.setNode(ChallengedMonster.root);
-            zoomIn.setSpeed(3);
-            zoomIn.play();
+//            FXMLScene ChallengedMonster = FXMLScene.load("/Fxml/MonsterInChallenge.fxml");
+//            controller.getTopHbox().getChildren().setAll(ChallengedMonster.root);
+//            zoomIn.setNode(ChallengedMonster.root);
+//            zoomIn.setSpeed(3);
+//            zoomIn.play();
 
         } catch (IOException e) {
             throw new RuntimeException(e);

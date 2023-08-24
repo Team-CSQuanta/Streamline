@@ -92,8 +92,6 @@ public class ChallengeRequestController {
         System.out.println("in Challenge Request sender "+ receiverEmail) ;
 
 
-
-
         try {
 
             networkUtil.write(challengeResponse);

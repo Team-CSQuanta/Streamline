@@ -1,5 +1,6 @@
 package com.csquanta.streamline.Controllers;
 
+import com.csquanta.streamline.Networking.ChallengeMessage;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.layout.GridPane;
@@ -27,7 +28,7 @@ public class ChallengeLogController {
                 System.out.println("creatorControl " +challengeLogController);
                 System.out.println("Shouting1");
 
-                if (message instanceof ChallengeInfo) {
+                if (message instanceof ChallengeMessage) {
                     FXMLScene scene1 = FXMLScene.load("/Fxml/ChallengeBlockForReceiver.fxml");
                     ChallengeBlockController receiverController = (ChallengeBlockController) scene1.controller;
                     challengeLogController.logGridPane.add(scene1.root, 0, currentRow);

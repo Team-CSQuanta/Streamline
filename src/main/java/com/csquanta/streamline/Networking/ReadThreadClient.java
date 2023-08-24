@@ -102,10 +102,12 @@ public class ReadThreadClient extends Thread {
                             controller.monsterName.setText(monsterName);
                             controller.TaskTitle.setText(taskTitle);
                         }
-                        System.out.println("Checking");
+
                     });
                 }  else if (receivedMessage.getMessageType() == MessageType.CHALLENGE_RESPONSE ) {
                     String challengeResponse = ((ChallengeResponse) receivedMessage).getResponseMessage();
+
+
                     Platform.runLater(() -> chatBoxController.addChatMessage(receivedMessage));
 
 
