@@ -6,12 +6,10 @@ import java.io.Serializable;
 public class ChallengeInfo implements Serializable {
     @Serial
     private static final long serialVersionUID = 62709951824673L;
-
-
+    // Type of request
     private String serverRequestCode;
 
-
-    // Send challenge request
+    // Challenge request related fields
     private String challengeType;
     private String challengeDescription;
     private String challengeTaskPomodoroSession;
@@ -33,18 +31,19 @@ public class ChallengeInfo implements Serializable {
     }
 
 
-    public ChallengeInfo(String challengeType, String challengeDescription, String email, String receiverEmail, String monstersName, String taskTitle) {
+    public ChallengeInfo(String requestCode, String challengeType, String challengeDescription, String email, String receiverEmail, String monstersName, String taskTitle) {
         this.challengeType = challengeType;
         this.challengeDescription = challengeDescription;
         this.email = email;
         this.receiverEmail = receiverEmail;
         this.monstersName = monstersName;
         this.taskTitle=taskTitle;
+        this.serverRequestCode = requestCode;
 
     }
 
 
-    public ChallengeInfo(String challengeType, String challengeDescription, String email, String receiverEmail,String challengeTaskPomodoroSession, String challengeTaskTag, String monstersName,String taskTitle) {
+    public ChallengeInfo(String requestCode, String challengeType, String challengeDescription, String email, String receiverEmail,String challengeTaskPomodoroSession, String challengeTaskTag, String monstersName,String taskTitle) {
         this.challengeType = challengeType;
         this.challengeDescription = challengeDescription;
         this.challengeTaskPomodoroSession = challengeTaskPomodoroSession;
@@ -53,10 +52,16 @@ public class ChallengeInfo implements Serializable {
         this.receiverEmail = receiverEmail;
         this.monstersName = monstersName;
         this.taskTitle = taskTitle;
-
+        this.serverRequestCode = requestCode;
     }
 
+    public String getServerRequestCode() {
+        return serverRequestCode;
+    }
 
+    public void setServerRequestCode(String serverRequestCode) {
+        this.serverRequestCode = serverRequestCode;
+    }
 
     public String getTaskTitle() {
         return taskTitle;

@@ -51,8 +51,6 @@ public class HeaderController {
 
     }
 
-
-
     @FXML
     void userIconClicked(MouseEvent event) throws IOException {
         FXMLScene fxmlScene =FXMLScene.load("/Fxml/Profile.fxml");

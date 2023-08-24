@@ -16,6 +16,16 @@ public class UserInformation implements Serializable {
     // Challenge Related fields
     private boolean challengeMode;
     private boolean pendingStatus;
+    private String requestSenderEmaill;
+
+    public String getRequestSenderEmaill() {
+        return requestSenderEmaill;
+    }
+
+    public void setRequestSenderEmaill(String requestSenderEmaill) {
+        this.requestSenderEmaill = requestSenderEmaill;
+    }
+
     public boolean getChallengeMode(){
         return challengeMode;
     }
@@ -41,6 +51,7 @@ public class UserInformation implements Serializable {
     // Users points, health points related
     private Double totalGoldCoins;
     private int userHealth;
+
 
     // User points health points related getter & Setter
 
@@ -175,7 +186,7 @@ public class UserInformation implements Serializable {
 
     public static void serializeUserInfo(){
         try(ObjectOutputStream objOStream = new ObjectOutputStream(new FileOutputStream("User_Information_file"))){
-            UserInformation userInformation = new UserInformation(userInfo.getAvatarImageBg(), userInfo.getAvatarImageHead(), userInfo.getAvatarImageHair(), userInfo.getAvatarImageHeadGear(), userInfo.getAvatarImageBody(), userInfo.getAvatarImageArmor(), userInfo.getAvatarImagePet(), userInfo.totalGoldCoins, userInfo.getUserHealth());
+            UserInformation userInformation = new UserInformation(userInfo.getAvatarImageBg(), userInfo.getAvatarImageHead(), userInfo.getAvatarImageHair(), userInfo.getAvatarImageHeadGear(), userInfo.getAvatarImageBody(), userInfo.getAvatarImageArmor(), userInfo.getAvatarImagePet(), userInfo.totalGoldCoins, 100);
             objOStream.writeObject(userInformation);
         }catch (Exception e){
             System.out.println("Serialization failed");
