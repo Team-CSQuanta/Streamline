@@ -1,5 +1,6 @@
 package com.csquanta.streamline.Controllers;
 
+import com.csquanta.streamline.Models.UserInformation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -71,24 +72,23 @@ public class SettingsController implements Initializable {
 
     @FXML
     void saveAccountsInfo(MouseEvent event) {
-
     }
 
     @FXML
     void saveTimeInfo(MouseEvent event) {
-
+        if(saveButtonTime.getText().equals("Edit")){
+            sessionBreakTime.setDisable(true);
+            pomodoroSessionTime.setDisable(true);
+        }else{
+            System.out.println("Saved");
+        }
     }
     ObservableList<String> sessionTime = FXCollections.observableArrayList("25", "50", "75", "100", "125");
     ObservableList<String> breakTime = FXCollections.observableArrayList("1", "5", "10", "15", "30");
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        displayName.setEditable(false);
-        email.setEditable(false);
-        password.setEditable(false);
-        userName.setEditable(false);
-        sessionBreakTime.setDisable(true);
-        pomodoroSessionTime.setDisable(true);
         sessionBreakTime.setItems(breakTime);
         pomodoroSessionTime.setItems(sessionTime);
+
     }
 }

@@ -6,6 +6,8 @@ import animatefx.animation.Pulse;
 import com.csquanta.streamline.App;
 import com.csquanta.streamline.Models.Task;
 import com.csquanta.streamline.Models.TaskIdGenerator;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,11 +27,11 @@ import java.util.ResourceBundle;
 import static java.util.Objects.requireNonNull;
 
 public class TaskViewController implements Initializable{
+    public static ObservableList<String> eishenHowerMatrix = FXCollections.observableArrayList("Urgent and important", "Important but not urgent", "Urgent but not important", "Not urgent and not important");
+    public static ObservableList<String> pomodoroSession = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7", "8");
+    public static ObservableList<String> tags = FXCollections.observableArrayList("Book Reading", "Academic Studies", "Programming");
     @FXML
     private VBox taskViewContainer;
-
-    @FXML
-    private ImageView editImage;
     @FXML
     private ImageView deleteImage;
     private Task task;
@@ -90,22 +92,6 @@ public class TaskViewController implements Initializable{
     }
 
     @FXML
-    void editTask(MouseEvent event) {
-        description.setDisable(false);
-        dueDate.setDisable(false);
-        pomodoroSessions.setDisable(false);
-        priority.setDisable(false);
-        tag.setDisable(false);
-        title.setDisable(false);;
-        // making not visible (Button)
-        cancel.setVisible(true);
-        submit.setVisible(true);
-        editImage.setVisible(false);
-
-        new Pulse(taskViewContainer).play();
-    }
-
-    @FXML
     void onCancelButtonClicked(ActionEvent event) {
         CreateANewTaskController.modalPaneForTaskCreator.hide(true);
     }
@@ -131,20 +117,10 @@ public class TaskViewController implements Initializable{
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        priority.setItems(TaskCreatorController.eishenHowerMatrix);
-        pomodoroSessions.setItems(TaskCreatorController.pomodoroSession);
-        tag.setItems(TaskCreatorController.tags);
+        priority.setItems(eishenHowerMatrix);
+        tag.setItems(tags);
+        pomodoroSessions.setItems(pomodoroSession);
 
-        // making not editable
-        description.setDisable(true);
-        dueDate.setDisable(true);
-        pomodoroSessions.setDisable(true);
-        priority.setDisable(true);
-        tag.setDisable(true);
-        title.setDisable(true);;
-        // making not visible (Button)
-        cancel.setVisible(false);
-        submit.setVisible(false);
     }
 
     public void updateTask(Task t){
@@ -176,5 +152,6 @@ public class TaskViewController implements Initializable{
         CreateANewTaskController.modalPaneForTaskCreator.hide(true);
         FadeIn fadeInNew = new FadeIn(newTaskPage);
         fadeInNew.play();
+
     }
 }

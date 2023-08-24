@@ -83,6 +83,7 @@ public class ChallengeRequestController {
     void onAcceptBtnClicked(ActionEvent event) throws IOException {
 
 
+  
         String receiverEmail = UserInformation.userInfo.getRequestSenderEmaill();
 
         String responseMessage = "Your Challenge has been accepted!";
