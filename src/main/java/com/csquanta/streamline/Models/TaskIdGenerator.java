@@ -1,7 +1,5 @@
 package com.csquanta.streamline.Models;
 
-import com.csquanta.streamline.Controllers.ShopController;
-
 import java.io.*;
 
 public class TaskIdGenerator implements Serializable {
@@ -9,7 +7,6 @@ public class TaskIdGenerator implements Serializable {
     private int taskID;
 
     public int getTaskID(){
-        System.out.println(taskID);
         return ++taskID;
     }
     public void TaskIdGenerator(){

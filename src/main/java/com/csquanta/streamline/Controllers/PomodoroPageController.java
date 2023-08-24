@@ -123,14 +123,15 @@ public class PomodoroPageController implements Initializable {
             afterCompletingTaskReward();
             new FadeOut(button).play();
             sessionCounter = 0;
+            task.setCompleted(true);
 
             // For Challenge log
-            if(UserInformation.userInfo.getChallengeMode()){
-                String descriptionMsg = "has damaged the monster's health by completing the task titled";
-                InputStream stream = new FileInputStream("src/main/resources/com/example/javafxchatting/ProfileImage.png");
-                ChallengeLog log = new ChallengeLog("PutUserNameHere", "PutRealNameHere", descriptionMsg + "\"" + task.getTaskTitle() + "\"", new Image(stream), task.getTaskTitle());
-                ChallengeLog.staticChallengeLog.getChallengeLogs().add(log);
-            }
+//            if(UserInformation.userInfo.getChallengeMode()){
+//                String descriptionMsg = "has damaged the monster's health by completing the task titled";
+//                InputStream stream = new FileInputStream("src/main/resources/com/example/javafxchatting/ProfileImage.png");
+//                ChallengeLog log = new ChallengeLog("PutUserNameHere", "PutRealNameHere", descriptionMsg + "\"" + task.getTaskTitle() + "\"", new Image(stream), task.getTaskTitle());
+//                ChallengeLog.staticChallengeLog.getChallengeLogs().add(log);
+//            }
 
             closeBtnImg.setVisible(true);
             new FadeIn(closeBtnImg).play();
