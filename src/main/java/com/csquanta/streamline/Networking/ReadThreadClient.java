@@ -14,9 +14,9 @@ public class ReadThreadClient extends Thread {
     private NetworkUtil networkUtil;
     private String clientEmail;
     ChallengeRequestController controller;
-    private static String Email;
 
-//    public static ReadThreadClient readThreadClient = new ReadThreadClient();
+
+
     public static final ModalPane modalPaneForChallengeRequest = new ModalPane();
     ChallengeLogController chatBoxController = new ChallengeLogController();
 
@@ -26,33 +26,23 @@ public class ReadThreadClient extends Thread {
         this.clientEmail = clientEmail;
     }
 
-    public ReadThreadClient() {
-
-    }
-
-    public String getEmail() {
-        return Email;
-    }
-
-    public void setEmail(String email) {
-        Email = email;
-    }
 
     @Override
     public void run() {
         try {
             while (true) {
-                Object receivedMessage = networkUtil.read();
-                if (receivedMessage instanceof ChallengeInfo) {
-//                    ChallengeInfo receivedMessage = (ChallengeInfo) networkUtil.read();
-                    String pomodoroSession = ((ChallengeInfo) receivedMessage).getChallengeTaskPomodoroSession();
-                    String challengeType = ((ChallengeInfo) receivedMessage).getChallengeType();
-                    String challengeDescription = ((ChallengeInfo) receivedMessage).getChallengeDescription();
-                    String taskTag = ((ChallengeInfo) receivedMessage).getChallengeTaskTag();
-                    String monsterName = ((ChallengeInfo) receivedMessage).getMonstersName();
-                    String taskTitle = ((ChallengeInfo) receivedMessage).getTaskTitle();
+                Message receivedMessage = (Message) networkUtil.read();
+                String sender = receivedMessage.getFrom();
+                if (receivedMessage.getMessageType() == MessageType.CHALLENGE) {
 
-                    UserInformation.userInfo.setRequestSenderEmaill(((ChallengeInfo) receivedMessage).getEmail());
+                    String pomodoroSession = ((ChallengeMessage) receivedMessage).getChallengeTaskPomodoroSession();
+                    String challengeType = ((ChallengeMessage) receivedMessage).getChallengeType();
+                    String challengeDescription = ((ChallengeMessage) receivedMessage).getChallengeDescription();
+                    String taskTag = ((ChallengeMessage) receivedMessage).getChallengeTaskTag();
+                    String monsterName = ((ChallengeMessage) receivedMessage).getMonstersName();
+                    String taskTitle = ((ChallengeMessage) receivedMessage).getTaskTitle();
+
+                    UserInformation.userInfo.setRequestSenderEmaill(sender);
                     System.out.println("in read thread client "+ UserInformation.userInfo.getRequestSenderEmaill());
 
 
@@ -114,16 +104,15 @@ public class ReadThreadClient extends Thread {
                         }
                         System.out.println("Checking");
                     });
-                }  else if (receivedMessage instanceof TextMessage) {
-                    TextMessage textMessage = (TextMessage) receivedMessage;
+                }  else if (receivedMessage.getMessageType() == MessageType.CHALLENGE_RESPONSE ) {
+                    String challengeResponse = ((ChallengeResponse) receivedMessage).getResponseMessage();
                     Platform.runLater(() -> chatBoxController.addChatMessage(receivedMessage));
 
 
-                   System.out.println("Received Message: " + ((TextMessage) receivedMessage).getMessage());
+                   System.out.println("Received Message: " + challengeResponse);
 
                 }
             }
-
 
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);

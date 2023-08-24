@@ -1,7 +1,7 @@
 package com.csquanta.streamline.Controllers;
 
 import com.csquanta.streamline.Models.UserInformation;
-import com.csquanta.streamline.Networking.ChallengeInfo;
+import com.csquanta.streamline.Networking.ChallengeResponse;
 import com.csquanta.streamline.Networking.NetworkInformation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -82,21 +82,21 @@ public class ChallengeRequestController {
     @FXML
     void onAcceptBtnClicked(ActionEvent event) throws IOException {
 
-        ChallengeInfo acceptedChallenge = new ChallengeInfo();
-        acceptedChallenge.setAccepted(true);
-
-        acceptedChallenge.setEmail(challengeController.loadClientInfoFromFile()); // Set sender email
 
         String receiverEmail = UserInformation.userInfo.getRequestSenderEmaill();
+
+        String responseMessage = "Your Challenge has been accepted!";
+
+        ChallengeResponse challengeResponse = new ChallengeResponse(challengeController.loadClientInfoFromFile(),receiverEmail,responseMessage);
+
         System.out.println("in Challenge Request sender "+ receiverEmail) ;
 
-        acceptedChallenge.setReceiverEmail(receiverEmail); // Set receiver email
 
 
 
         try {
-            System.out.println("forward "+ acceptedChallenge);
-            networkUtil.write(acceptedChallenge);
+
+            networkUtil.write(challengeResponse);
 
         } catch (Exception e){
             e.printStackTrace();

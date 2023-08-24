@@ -10,7 +10,6 @@ public class NetworkInformation {
         this.networkUtil = networkUtil;
 
     }
-
     public NetworkUtil getNetworkUtil() {
         return networkUtil;
     }
