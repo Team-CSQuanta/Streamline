@@ -49,9 +49,7 @@ public class ReadThreadClient extends Thread {
                     Platform.runLater(() -> {
 
                         try {
-
                             FXMLScene fxmlScene = FXMLScene.load("/Fxml/ChallengeRequest.fxml");
-
                             modalPaneForChallengeRequest.setAlignment(Pos.CENTER);
                             modalPaneForChallengeRequest.show(fxmlScene.root);
                             controller = (ChallengeRequestController) fxmlScene.controller;
@@ -102,10 +100,12 @@ public class ReadThreadClient extends Thread {
                             controller.monsterName.setText(monsterName);
                             controller.TaskTitle.setText(taskTitle);
                         }
-                        System.out.println("Checking");
+
                     });
                 }  else if (receivedMessage.getMessageType() == MessageType.CHALLENGE_RESPONSE ) {
                     String challengeResponse = ((ChallengeResponse) receivedMessage).getResponseMessage();
+
+
                     Platform.runLater(() -> chatBoxController.addChatMessage(receivedMessage));
 
 
