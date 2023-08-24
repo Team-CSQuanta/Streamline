@@ -38,7 +38,14 @@ public class MainStageController implements Initializable {
                 modalPaneForExit.show(exitOption);
             }
         });
-        StackPane.setAlignment(header, Pos.TOP_CENTER);
-        mainStageStackPane.getChildren().addAll(header, HeaderController.modalPaneForHeader,modalPaneForExit, SidebarController.modalPaneForSignOut);
+        try {
+            FXMLScene tasks = FXMLScene.load("/Fxml/ToDoListGridPane.fxml");
+            StackPane.setAlignment(tasks.root, Pos.BOTTOM_CENTER);
+            StackPane.setAlignment(header, Pos.TOP_CENTER);
+            mainStageStackPane.getChildren().addAll(tasks.root, header, HeaderController.modalPaneForHeader,modalPaneForExit, SidebarController.modalPaneForSignOut);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }

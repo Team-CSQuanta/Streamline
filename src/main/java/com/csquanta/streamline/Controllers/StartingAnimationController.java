@@ -43,6 +43,10 @@ public class StartingAnimationController implements Initializable {
                     mainStage.setX(MouseMovementEvent.getScreenX() - x);
                     mainStage.setY(MouseMovementEvent.getScreenY() - y);
                 });
+
+
+
+
                 dashboard.setFill(Color.TRANSPARENT);
                 mainStage.setScene(dashboard);
                 ZoomIn zoomIn = new ZoomIn();

@@ -13,28 +13,7 @@
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="1000.0" prefWidth="190.0" style="-fx-background-radius: 25px; -fx-border-color: #9580FF; -fx-border-width: 1; -fx-border-radius: 25px; -fx-background-color: #282A36;">
          <children>
-            <HBox minHeight="-Infinity" prefHeight="285.5" prefWidth="183.0" />
-            <HBox alignment="CENTER_LEFT" minHeight="40.0" minWidth="-Infinity" onMouseClicked="#onOverviewBtnClicked" onMouseEntered="#overviewEntered" onMouseExited="#overviewExited" prefHeight="60.0" prefWidth="183.0" spacing="8.0" styleClass="DashboardleftHBox" stylesheets="@../Styles/Sidebar.css">
-               <children>
-                  <VBox prefHeight="60.0" prefWidth="12.0" />
-                  <ImageView fx:id="overviewImg" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Images/icons8-dashboard-layout-24.png" />
-                     </image>
-                  </ImageView>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="DashboardleftText" text="Overview">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Text>
-               </children>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </HBox>
+            <HBox minHeight="-Infinity" prefHeight="314.0" prefWidth="183.0" />
             <HBox alignment="CENTER_LEFT" minHeight="40.0" minWidth="-Infinity" onMouseClicked="#tasksBtnClicked" onMouseEntered="#taskEntered" onMouseExited="#taskExited" prefHeight="60.0" prefWidth="183.0" spacing="8.0" styleClass="DashboardleftHBox" stylesheets="@../Styles/Sidebar.css">
                <children>
                   <VBox prefHeight="60.0" prefWidth="10.0" />

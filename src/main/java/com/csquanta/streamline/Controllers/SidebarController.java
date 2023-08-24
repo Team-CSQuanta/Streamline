@@ -29,10 +29,6 @@ public class SidebarController implements Initializable {
 
     @FXML
     private ImageView challengeImg;
-
-    @FXML
-    private ImageView overviewImg;
-
     @FXML
     private ImageView settingsImg;
 
@@ -44,17 +40,6 @@ public class SidebarController implements Initializable {
 
     @FXML
     private ImageView taskImg;
-    @FXML
-    void overviewEntered(MouseEvent event) throws FileNotFoundException {
-        InputStream stream = new FileInputStream("src/main/resources/Images/icons8-dashboard-layout-24v2.png");
-        overviewImg.setImage(new Image(stream));
-    }
-
-    @FXML
-    void overviewExited(MouseEvent event) throws FileNotFoundException {
-        InputStream stream = new FileInputStream("src/main/resources/Images/icons8-dashboard-layout-24.png");
-        overviewImg.setImage(new Image(stream));
-    }
     @FXML
     void taskEntered(MouseEvent event) throws FileNotFoundException {
         InputStream stream = new FileInputStream("src/main/resources/Images/icons8-microsoft-to-do-app-24v2.png");
@@ -123,16 +108,16 @@ public class SidebarController implements Initializable {
         zoomIn.setSpeed(3);
         zoomIn.play();
     }
-
     @FXML
-    void onOverviewBtnClicked(MouseEvent event) {
-
-
-    }
-
-    @FXML
-    void onSettingsBtnClicked(MouseEvent event) {
-
+    void onSettingsBtnClicked(MouseEvent event) throws IOException {
+        VBox settings = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/Settings.fxml")));
+        HeaderController.modalPaneForHeader.hide(true);
+        modalPaneForSignOut.setAlignment(Pos.CENTER);
+        modalPaneForSignOut.show(settings);
+        Pulse pulse = new Pulse();
+        pulse.setNode(settings);
+        pulse.setSpeed(3);
+        pulse.play();
     }
 
     @FXML

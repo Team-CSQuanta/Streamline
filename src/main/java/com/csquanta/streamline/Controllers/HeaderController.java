@@ -17,9 +17,6 @@ import com.csquanta.streamline.Controllers.FXMLScene;
 public class HeaderController {
     public static final ModalPane modalPaneForHeader = new ModalPane();
     @FXML
-    private ImageView inbox;
-
-    @FXML
     private Label logo;
 
     @FXML
@@ -40,11 +37,8 @@ public class HeaderController {
         modalPaneForHeader.show(loader.load());
         Pulse pulse = new Pulse();
         pulse.setNode(modalPaneForHeader);
+        pulse.setSpeed(3);
         pulse.play();
-
-    }
-    @FXML
-    void inboxClicked(MouseEvent event) {
 
     }
 
@@ -66,6 +60,7 @@ public class HeaderController {
         modalPaneForHeader.show(fxmlScene.root);
         Pulse pulse = new Pulse();
         pulse.setNode(modalPaneForHeader);
+        pulse.setSpeed(3);
         pulse.play();
     }
 
