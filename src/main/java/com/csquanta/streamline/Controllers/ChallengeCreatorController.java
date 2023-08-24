@@ -4,14 +4,12 @@ import animatefx.animation.FadeIn;
 import animatefx.animation.ZoomIn;
 import com.csquanta.streamline.App;
 import com.csquanta.streamline.Models.UserInformation;
-import com.csquanta.streamline.Networking.ChallengeInfo;
+import com.csquanta.streamline.Networking.ChallengeMessage;
 import javafx.animation.PauseTransition;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -20,7 +18,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -28,7 +25,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static com.csquanta.streamline.Controllers.ChallengeController.networkUtil;
-import static com.csquanta.streamline.Controllers.CreateANewTaskController.modalPaneForTaskCreator;
 import static com.csquanta.streamline.Controllers.HeaderController.modalPaneForHeader;
 
 public class ChallengeCreatorController implements Initializable {
@@ -153,9 +149,12 @@ public class ChallengeCreatorController implements Initializable {
         modalPaneForHeader.hide(true);
     }
 
+
+
+
     @FXML
     void onSendReqClicked(ActionEvent event) {
-        ChallengeInfo challengeInfo;
+
 
         try {
             String receiverEmail = email.getText();
@@ -168,14 +167,13 @@ public class ChallengeCreatorController implements Initializable {
 
 
             if ("Build consistency".equals(challengeType)) {
-                 challengeInfo = new ChallengeInfo(challengeType, challengeDescription,  challengeController.loadClientInfoFromFile(), receiverEmail, pomodoroSession, taskTag, monstersName,taskTitle);
-                challengeInfo.setFromServer(false);
-                networkUtil.write(challengeInfo);
+                ChallengeMessage challengeMessage = new ChallengeMessage( challengeType,challengeDescription,challengeController.loadClientInfoFromFile(), receiverEmail, pomodoroSession, taskTag, monstersName,taskTitle);
+
+                networkUtil.write(challengeMessage);
 
             } else {
-                 challengeInfo = new ChallengeInfo(challengeType, challengeDescription, challengeController.loadClientInfoFromFile(), receiverEmail,monstersName,taskTitle);
-                challengeInfo.setFromServer(false);
-                networkUtil.write(challengeInfo);
+                ChallengeMessage challengeMessage= new ChallengeMessage( challengeType, challengeDescription, challengeController.loadClientInfoFromFile(), receiverEmail,monstersName,taskTitle);
+                networkUtil.write(challengeMessage);
 
             }
 
@@ -193,7 +191,7 @@ public class ChallengeCreatorController implements Initializable {
             PauseTransition pause = new PauseTransition(Duration.seconds(1));
             pause.setOnFinished(e -> ChangeChallengePageUI());
             pause.play();
-            Platform.runLater(() -> chatBoxController.addChatMessage(challengeInfo));
+           // Platform.runLater(() -> chatBoxController.addChatMessage(challengeInfo));
         } catch (Exception e) {
             System.out.println(e);
         }
