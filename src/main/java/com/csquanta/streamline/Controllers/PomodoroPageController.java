@@ -32,7 +32,9 @@ import java.util.ResourceBundle;
 import static com.csquanta.streamline.Controllers.ChallengeController.networkUtil;
 import static com.csquanta.streamline.Models.UserInformation.userInfo;
 
+
 public class PomodoroPageController implements Initializable {
+    static ItemGearController itemGearController = new ItemGearController();
     public static ModalPane modalPaneForPointsNotification = new ModalPane();
 
     @FXML
@@ -43,6 +45,8 @@ public class PomodoroPageController implements Initializable {
         double randomPoints = Math.random()*((task.getNumOfSessions()*20));
         userInfo.deductGoldCoins(randomPoints);
         PomodoroPageController.modalPaneForPomodoroPage.hide(true);
+        itemGearController.soundPlayer("/Sounds/pop-94319.mp3");
+
     }
 
     @FXML
@@ -76,9 +80,6 @@ public class PomodoroPageController implements Initializable {
     private Label minutesLabel;
 
     @FXML
-    private ProgressBar progressBar;
-
-    @FXML
     private Label secondsLabel;
 
     @FXML
@@ -94,6 +95,7 @@ public class PomodoroPageController implements Initializable {
         this.labelContainer = labelContainer;
     }
 ChallengeCreatorController challengeCreatorController= new ChallengeCreatorController();
+
     @FXML
     private Label taskTitle;
 
@@ -114,6 +116,7 @@ ChallengeCreatorController challengeCreatorController= new ChallengeCreatorContr
             timer.t.setDaemon(true);
             timer.t.start();
             sessionCounter++;
+
         }
         else if(button.getText().equals("Take Break") && sessionCounter != task.getNumOfSessions()){
             button.setText("Running");
@@ -167,6 +170,8 @@ ChallengeCreatorController challengeCreatorController= new ChallengeCreatorContr
         userInfo.addGoldCoins(randomPoints);
         modalPaneForPointsNotification.show(fxmlScene.root);
         new Pulse(fxmlScene.root).play();
+        itemGearController.soundPlayer("/Sounds/mixkit-achievement-completed-2068.wav");
+
     }
     public void afterCompletingTaskReward() throws IOException {
         FXMLScene fxmlScene = FXMLScene.load("/Fxml/GotPoints.fxml");
@@ -176,6 +181,8 @@ ChallengeCreatorController challengeCreatorController= new ChallengeCreatorContr
         userInfo.addGoldCoins(randomPoints);
         modalPaneForPointsNotification.show(fxmlScene.root);
         new Pulse(fxmlScene.root).play();
+        itemGearController.soundPlayer("/Sounds/gold-coin-prize.wav");
+
     }
 
 }
