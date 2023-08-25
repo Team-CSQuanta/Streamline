@@ -100,8 +100,7 @@ public class ChallengeRequestController {
         ChallengeUI.challengeUI.newLoadForChallengeUI();
         // Participants user information storing
         ChallengeParticipantsInfo.challengeParticipantsInfo.setParticipantsName(participantsName.getText());
-
-
+        System.out.println("In accept button (Participant name): " + participantsName.getText());
 
         // Participants avatar image saving
         WritableImage image = profileArea.snapshot(new SnapshotParameters(), null);
