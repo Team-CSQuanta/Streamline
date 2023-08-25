@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import static com.csquanta.streamline.Controllers.TakeBreakController.restMode;
 import static com.csquanta.streamline.Models.UserInformation.userInfo;
 
 public class TaskManager {
@@ -13,8 +14,8 @@ public class TaskManager {
 
     public void startTaskChecking() {
         timer = new Timer();
-        long delay = 0;
-        //long period = 24 * 60 * 60 * 1000;
+        long delay = 60000;
+       // long period = 24 * 60 * 60 * 1000;
         long period = 60 * 1000;
 
 
@@ -25,20 +26,22 @@ public class TaskManager {
                 LocalDate today = LocalDate.now();
                 ArrayList<Task> incompleteTasks = new ArrayList<>();
 
-                for (Task task : Task.taskObject.getTasksList())
+                for (Task Todotask : Task.taskObject.getTasksList())
                 {
-                    if (task.getDueDate().isEqual(today) && task.isCompleted()) {
-                        System.out.println("Task for today is completed: " + task.getTaskTitle());
+                    if (Todotask.getDueDate().isEqual(today) && Todotask.isCompleted()) {
+                        System.out.println("Task for today is completed: " + Todotask.getTaskTitle());
 
-                    } else if (task.getDueDate().isEqual(today)) {
-                        incompleteTasks.add(task);
+                    } else if (Todotask.getDueDate().isEqual(today)) {
+                        incompleteTasks.add(Todotask);
                     }
                 }
                 LocalTime currentTime = LocalTime.now();
-                LocalTime midnight = LocalTime.of(17, 44, 59); // 11:59:59 PM
+                LocalTime midnight = LocalTime.of(8, 0, 59); // 11:59:59 PM
 
                 if (currentTime.isAfter(midnight)) {
-                    userInfo.deductHealthPointsBasedOnTasks(incompleteTasks);
+                    if (!restMode) {
+                        userInfo.deductHealthPointsBasedOnTasks(incompleteTasks);
+                    }
                 }
             }
         };
