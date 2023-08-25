@@ -67,6 +67,7 @@ public class ReadThreadServer extends Thread {
                    
                 }catch (Exception e){
                     System.out.println("Exception occurred in read thread server");
+                    return;
                 }
 
             }
