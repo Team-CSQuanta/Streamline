@@ -10,6 +10,7 @@ import com.csquanta.streamline.Models.MyTimer;
 import com.csquanta.streamline.Models.Task;
 import com.csquanta.streamline.Models.UserInformation;
 import com.csquanta.streamline.Networking.ChallengeParticipantsInfo;
+import com.csquanta.streamline.Networking.ChallengeTaskLog;
 import com.csquanta.streamline.Networking.ChallengeUpdate;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -129,11 +130,10 @@ ChallengeCreatorController challengeCreatorController= new ChallengeCreatorContr
 
             // For Challenge log
             if(ChallengeUI.challengeUI.getChallengeMode()){
-//                String descriptionMsg = "has damaged the monster's health by completing the task titled";
-//                InputStream stream = new FileInputStream("src/main/resources/com/example/javafxchatting/ProfileImage.png");
-//                ChallengeLog log = new ChallengeLog("PutUserNameHere", "PutRealNameHere", descriptionMsg + "\"" + task.getTaskTitle() + "\"", new Image(stream), task.getTaskTitle());
-//                ChallengeLog.staticChallengeLog.getChallengeLogs().add(log);
                 ChallengeUpdate challengeUpdate = new ChallengeUpdate(ChallengeUI.challengeUI.getChallengeController().loadClientInfoFromFile(), ChallengeParticipantsInfo.participantsEmail,task.getTaskTitle());
+                System.out.println("Particiant email: " + ChallengeParticipantsInfo.participantsEmail);
+                ChallengeTaskLog challengeTask = new ChallengeTaskLog("Foyez", ChallengeUI.challengeUI.getChallengeController().loadClientInfoFromFile(), task.getTaskTitle());
+                ChallengeTaskLog.taskLog.getChallengeTaskLogs().add(challengeTask);
                 networkUtil.write(challengeUpdate);
             }
             closeBtnImg.setVisible(true);

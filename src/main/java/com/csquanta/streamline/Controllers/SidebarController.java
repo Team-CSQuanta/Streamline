@@ -8,6 +8,7 @@ import com.csquanta.streamline.App;
 import com.csquanta.streamline.Models.ChallengeLog;
 import com.csquanta.streamline.Models.ChallengeUI;
 import com.csquanta.streamline.Models.UserInformation;
+import com.csquanta.streamline.Networking.ChallengeTaskLog;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -103,6 +104,8 @@ public class SidebarController implements Initializable {
 
     @FXML
     void onChallengesBtnClicked(MouseEvent event) throws IOException {
+        System.out.println("Size of challengeLog " + ChallengeTaskLog.taskLog.getChallengeTaskLogs().size());
+
         App.newLoad();
         ChallengeController controller = ChallengeUI.challengeUI.getChallengeController();
         ZoomIn zoomIn = new ZoomIn();
@@ -120,6 +123,7 @@ public class SidebarController implements Initializable {
 
             controller.setTopHbox(ChallengeUI.challengeUI.getMonsterInChallengePage());
             controller.setBottomVbox(ChallengeUI.challengeUI.getChallengeLog());
+            ChallengeUI.challengeUI.addChallengeTaskLog();
             StackPane.setAlignment(ChallengeUI.challengeUI.getChallengePage(), Pos.BOTTOM_CENTER);
             App.root.getChildren().add(ChallengeUI.challengeUI.getChallengePage());
         }
