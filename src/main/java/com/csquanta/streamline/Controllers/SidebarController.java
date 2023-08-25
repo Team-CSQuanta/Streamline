@@ -105,7 +105,6 @@ public class SidebarController implements Initializable {
     @FXML
     void onChallengesBtnClicked(MouseEvent event) throws IOException {
         System.out.println("Size of challengeLog " + ChallengeTaskLog.taskLog.getChallengeTaskLogs().size());
-
         App.newLoad();
         ChallengeController controller = ChallengeUI.challengeUI.getChallengeController();
         ZoomIn zoomIn = new ZoomIn();
@@ -130,14 +129,6 @@ public class SidebarController implements Initializable {
         zoomIn.setNode(ChallengeUI.challengeUI.getChallengePage());
         zoomIn.setSpeed(3);
         zoomIn.play();
-//        FXMLScene challengePage = FXMLScene.load("/Fxml/Challenge.fxml");
-////        VBox challengePage = FXMLLoader.load(requireNonNull(getClass().getResource("/Fxml/Challenge.fxml")));
-//        VBox challenge = (VBox) challengePage.root;
-////        UserInformation.userInfo.setChallengeController((ChallengeController) challengePage.controller);
-//        StackPane.setAlignment(challenge, Pos.BOTTOM_CENTER);
-//        App.root.getChildren().add(challenge);
-
-
     }
     @FXML
     void onSettingsBtnClicked(MouseEvent event) throws IOException {
