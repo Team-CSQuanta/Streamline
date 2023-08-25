@@ -4,17 +4,23 @@ import animatefx.animation.ZoomIn;
 import com.csquanta.streamline.App;
 import com.csquanta.streamline.Models.ChallengeUI;
 import com.csquanta.streamline.Models.UserInformation;
+import com.csquanta.streamline.Networking.ChallengeParticipantsInfo;
 import com.csquanta.streamline.Networking.ChallengeResponse;
 import com.csquanta.streamline.Networking.NetworkInformation;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 
+import javax.imageio.ImageIO;
+import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -77,6 +83,8 @@ public class ChallengeRequestController {
     public Label SessionNo;
     @FXML
     public Label Ttag;
+    @FXML
+    private Label participantsName;
     ChallengeController challengeController = new ChallengeController();
 
 
@@ -90,6 +98,19 @@ public class ChallengeRequestController {
         // need to change topHbox and bottom vBox
         ChallengeUI.challengeUI.setChallengeMode(true);
         ChallengeUI.challengeUI.newLoadForChallengeUI();
+        // Participants user information storing
+        ChallengeParticipantsInfo.challengeParticipantsInfo.setParticipantsName(participantsName.getText());
+
+
+
+        // Participants avatar image saving
+        WritableImage image = profileArea.snapshot(new SnapshotParameters(), null);
+        ChallengeParticipantsInfo.challengeParticipantsInfo.setParticipantsImageFile(new File(participantsName.getText() + "ChallengeImage.png"));
+        try {
+            ImageIO.write(SwingFXUtils.fromFXImage(image, null), "png", ChallengeParticipantsInfo.challengeParticipantsInfo.getParticipantsImageFile());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         String receiverEmail = ChallengeUI.challengeUI.getRequestSenderEmail();
         String responseMessage = "Your Challenge has been accepted!";

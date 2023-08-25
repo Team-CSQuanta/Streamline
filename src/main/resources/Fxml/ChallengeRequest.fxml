@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" spacing="15.0" style="-fx-border-color: #9580FF; -fx-background-color: #282A36FF;;" stylesheets="@../Styles/TaskCreator.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.ChallengeRequestController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" spacing="15.0" style="-fx-border-color: #9580FF; -fx-background-color: #282A36FF;;" stylesheets="@../Styles/TaskCreator.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.ChallengeRequestController">
     <padding>
         <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
     </padding>
@@ -74,7 +74,7 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="0.0" prefWidth="517.0">
                      <children>
-                        <Label alignment="CENTER" prefHeight="19.0" prefWidth="517.0" styleClass="name" stylesheets="@../Styles/ChallengeRequest.css" text="Jubair Ahmed">
+                        <Label fx:id="participantsName" alignment="CENTER" prefHeight="19.0" prefWidth="517.0" styleClass="name" stylesheets="@../Styles/ChallengeRequest.css" text="Jubair Ahmed">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font></Label>

@@ -3,13 +3,18 @@ package com.csquanta.streamline.Models;
 import animatefx.animation.ZoomIn;
 import com.csquanta.streamline.App;
 import com.csquanta.streamline.Controllers.*;
+import com.csquanta.streamline.Networking.ChallengeParticipantsInfo;
 import com.csquanta.streamline.Networking.ChallengeTaskLog;
 import javafx.geometry.Pos;
+import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 import static com.csquanta.streamline.Models.UserInformation.userInfo;
 
@@ -134,6 +139,10 @@ public class ChallengeUI {
     public void addChallengeTaskLog(){
         int currentRow = 0;
         FXMLScene block;
+        // Removing existing children as it will cause some problem
+        if(ChallengeUI.challengeUI.getChallengeLogController().getLogGridPane().getChildren().size() > 0){
+            ChallengeUI.challengeUI.getChallengeLogController().getLogGridPane().getChildren().removeAll();
+        }
         System.out.println(ChallengeTaskLog.taskLog.getChallengeTaskLogs().size() + " Challenge task log size");
         for(ChallengeTaskLog t: ChallengeTaskLog.taskLog.getChallengeTaskLogs()){
 
@@ -142,8 +151,11 @@ public class ChallengeUI {
                 try {
                     block = FXMLScene.load("/Fxml/ChallengeBlockForSender.fxml");
                     ChallengeBlockController receiverController = (ChallengeBlockController) block.controller;
-
-
+                    receiverController.setDescriptionMsg("has damaged the monster's health by completing the task titled " + "\"" + t.getTaskTitle()+ "\"");
+                    receiverController.setUserName(userInfo.getDisplayName());
+                    InputStream stream = new FileInputStream("ProfileImage.png");
+                    Image im = new Image(stream);
+                    receiverController.getImageCircle().setFill(new ImagePattern(im));
                     ChallengeUI.challengeUI.getChallengeLogController().getLogGridPane().add(block.root, 0, currentRow++);
 
                 } catch (IOException e) {
@@ -153,6 +165,12 @@ public class ChallengeUI {
                 try {
                     block = FXMLScene.load("/Fxml/ChallengeBlockForReceiver.fxml");
                     ChallengeBlockController receiverController = (ChallengeBlockController) block.controller;
+                    receiverController.setDescriptionMsg("has damaged the monster's health by completing the task titled " + "\"" + t.getTaskTitle() + "\"");
+                    receiverController.setUserName(ChallengeParticipantsInfo.challengeParticipantsInfo.getParticipantsName());
+
+//                    InputStream stream = new FileInputStream(ChallengeParticipantsInfo.challengeParticipantsInfo.getParticipantsImageFile().getPath());
+//                    Image im = new Image(stream);
+//                    receiverController.getImageCircle().setFill(new ImagePattern(im));
 
 
                     ChallengeUI.challengeUI.getChallengeLogController().getLogGridPane().add(block.root, 1, currentRow++);

@@ -23,6 +23,30 @@ public class ChallengeBlockController {
     @FXML
     private Label nameLabel;
 
+    public Label getDescriptionMsg() {
+        return descriptionMsg;
+    }
+
+    public void setDescriptionMsg(Label descriptionMsg) {
+        this.descriptionMsg = descriptionMsg;
+    }
+
+    public Circle getImageCircle() {
+        return imageCircle;
+    }
+
+    public void setImageCircle(Circle imageCircle) {
+        this.imageCircle = imageCircle;
+    }
+
+    public Label getNameLabel() {
+        return nameLabel;
+    }
+
+    public void setNameLabel(Label nameLabel) {
+        this.nameLabel = nameLabel;
+    }
+
     @FXML
     void dragOverTheChatBlock(MouseEvent event) {
 
