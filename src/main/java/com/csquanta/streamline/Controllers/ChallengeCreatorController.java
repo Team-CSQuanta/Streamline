@@ -177,23 +177,13 @@ public class ChallengeCreatorController implements Initializable {
                 networkUtil.write(challengeMessage);
 
             }
-
-            FXMLScene challengeReqSent = FXMLScene.load("/Fxml/ChallengeRequestSent.fxml");
             ChallengeUI.challengeUI.setPendingStatus(true);
-            App.newLoad();
-            FXMLScene challengePage = FXMLScene.load("/Fxml/Challenge.fxml");
-            controller = (ChallengeController) challengePage.controller;
-            controller.getBottomVbox().getChildren().setAll(challengeReqSent.root);
-            StackPane.setAlignment(challengePage.root, Pos.BOTTOM_CENTER);
-            App.root.getChildren().add(challengePage.root);
-            FadeIn fadeIn = new FadeIn(challengePage.root);
-            fadeIn.play();
+            ChallengeUI.challengeUI.newLoadForChallengeUI();
             PauseTransition pause = new PauseTransition(Duration.seconds(1));
-            pause.setOnFinished(e -> ChangeChallengePageUI());
-            pause.play();
-           // Platform.runLater(() -> chatBoxController.addChatMessage(challengeInfo));
+//            pause.setOnFinished(e -> ChangeChallengePageUI());
+//            pause.play();
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
         }
         modalPaneForHeader.hide(true);
 

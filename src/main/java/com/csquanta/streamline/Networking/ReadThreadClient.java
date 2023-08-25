@@ -108,10 +108,6 @@ public class ReadThreadClient extends Thread {
                         }
 
                     });
-
-
-
-                    // responsjdlfjsdlfjsdlkjflsdjfldsajfjdslkafji
                 }  else if (receivedMessage.getMessageType() == MessageType.CHALLENGE_RESPONSE ) {
                     ChallengeUI.challengeUI.setPendingStatus(false);
                     ChallengeUI.challengeUI.setChallengeMode(true);
@@ -119,21 +115,7 @@ public class ReadThreadClient extends Thread {
 
                     Platform.runLater(() ->{
                         try {
-                            App.newLoad();
-
-                            ChallengeUI.challengeUI.setChallengeMode(true);
-                            ChallengeUI.challengeUI.setPendingStatus(false);
-                            ChallengeController controller = ChallengeUI.challengeUI.getChallengeController();
-
-                            // ChallengeLog Bottom Vbox;
-                            controller.getBottomVbox().getChildren().setAll(ChallengeUI.challengeUI.getChallengeLog());
-                            controller.getTopHbox().getChildren().setAll(ChallengeUI.challengeUI.getMonsterInChallengePage());
-                            StackPane.setAlignment(ChallengeUI.challengeUI.getChallengePage(), Pos.BOTTOM_CENTER);
-                            App.root.getChildren().add(ChallengeUI.challengeUI.getChallengePage());
-                            ZoomIn zoomIn = new ZoomIn();
-                            zoomIn.setNode(ChallengeUI.challengeUI.getChallengePage());
-                            zoomIn.setSpeed(3);
-                            zoomIn.play();
+                            ChallengeUI.challengeUI.newLoadForChallengeUI();
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
@@ -149,21 +131,11 @@ public class ReadThreadClient extends Thread {
                         ChallengeTaskLog task = new ChallengeTaskLog("Jubair", sender, title);
                         ChallengeTaskLog.taskLog.getChallengeTaskLogs().add(task);
                         try {
-                            App.newLoad();
+                            ChallengeUI.challengeUI.newLoadForChallengeUI();
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
-                        ChallengeController controller = ChallengeUI.challengeUI.getChallengeController();
-                        ZoomIn zoomIn = new ZoomIn();
-                        controller.setTopHbox(ChallengeUI.challengeUI.getMonsterInChallengePage());
-                        controller.setBottomVbox(ChallengeUI.challengeUI.getChallengeLog());
-                        ChallengeUI.challengeUI.addChallengeTaskLog();
-                        System.out.println("Task log size in challenge Log after adding from readThreadClient: " + ChallengeUI.challengeUI.getChallengeLog().getChildren().size());
-                        StackPane.setAlignment(ChallengeUI.challengeUI.getChallengePage(), Pos.BOTTOM_CENTER);
-                        App.root.getChildren().add(ChallengeUI.challengeUI.getChallengePage());
-                        zoomIn.setNode(ChallengeUI.challengeUI.getChallengePage());
-                        zoomIn.setSpeed(3);
-                        zoomIn.play();
+
                     });
 
                 }

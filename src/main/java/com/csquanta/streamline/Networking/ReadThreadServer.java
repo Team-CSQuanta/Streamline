@@ -74,4 +74,3 @@ public class ReadThreadServer extends Thread {
         }
 
     }
-}
