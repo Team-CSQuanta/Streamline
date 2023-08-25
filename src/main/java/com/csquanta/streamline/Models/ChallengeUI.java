@@ -1,9 +1,7 @@
 package com.csquanta.streamline.Models;
 
-import com.csquanta.streamline.Controllers.ChallengeController;
-import com.csquanta.streamline.Controllers.ChallengeLogController;
-import com.csquanta.streamline.Controllers.FXMLScene;
-import com.csquanta.streamline.Controllers.MonsterInChallengeController;
+import com.csquanta.streamline.Controllers.*;
+import com.csquanta.streamline.Networking.ChallengeTaskLog;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -126,5 +124,33 @@ public class ChallengeUI {
     }
     public void setPendingStatus(boolean status){
         pendingStatus = status;
+    }
+    public void addChallengeTaskLog(){
+        int currentRow = 0;
+        System.out.println(ChallengeTaskLog.taskLog.getChallengeTaskLogs().size() + " Challenge task log size");
+        for(ChallengeTaskLog t: ChallengeTaskLog.taskLog.getChallengeTaskLogs()){
+            if(t.getUserEmail().equals(ChallengeUI.challengeUI.getChallengeController().loadClientInfoFromFile())){
+                FXMLScene block = null;
+                try {
+                    block = FXMLScene.load("/Fxml/ChallengeBlockForSender.fxml");
+                    ChallengeBlockController receiverController = (ChallengeBlockController) block.controller;
+                    ChallengeUI.challengeUI.getChallengeLogController().getLogGridPane().add(block.root, 0, currentRow++);
+
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }else {
+                FXMLScene block = null;
+                try {
+                    block = FXMLScene.load("/Fxml/ChallengeBlockForReceiver.fxml");
+                    ChallengeBlockController receiverController = (ChallengeBlockController) block.controller;
+                    ChallengeUI.challengeUI.getChallengeLogController().getLogGridPane().add(block.root, 1, currentRow++);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+            }
+
+        }
     }
 }
