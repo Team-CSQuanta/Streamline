@@ -27,6 +27,7 @@ import java.util.ResourceBundle;
 
 import static com.csquanta.streamline.Controllers.ChallengeController.networkUtil;
 import static com.csquanta.streamline.Controllers.HeaderController.modalPaneForHeader;
+import static com.csquanta.streamline.Models.UserInformation.userInfo;
 
 public class ChallengeCreatorController implements Initializable {
 
@@ -168,12 +169,12 @@ public class ChallengeCreatorController implements Initializable {
 
 
             if ("Build consistency".equals(challengeType)) {
-                ChallengeMessage challengeMessage = new ChallengeMessage( challengeType,challengeDescription,challengeController.loadClientInfoFromFile(), receiverEmail, pomodoroSession, taskTag, monstersName,taskTitle);
+                ChallengeMessage challengeMessage = new ChallengeMessage( challengeType,challengeDescription,userInfo.getEmail(), receiverEmail, pomodoroSession, taskTag, monstersName,taskTitle);
 
                 networkUtil.write(challengeMessage);
 
             } else {
-                ChallengeMessage challengeMessage= new ChallengeMessage( challengeType, challengeDescription, challengeController.loadClientInfoFromFile(), receiverEmail,monstersName,taskTitle);
+                ChallengeMessage challengeMessage= new ChallengeMessage( challengeType, challengeDescription,userInfo.getEmail(), receiverEmail,monstersName,taskTitle);
                 networkUtil.write(challengeMessage);
 
             }

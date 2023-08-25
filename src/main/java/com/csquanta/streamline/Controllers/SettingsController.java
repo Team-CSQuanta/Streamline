@@ -11,10 +11,14 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
+import java.io.Serializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class SettingsController implements Initializable {
+import static com.csquanta.streamline.Controllers.SidebarController.modalPaneForSignOut;
+import static com.csquanta.streamline.Models.UserInformation.userInfo;
+
+public class SettingsController implements Initializable , Serializable {
 
     @FXML
     private TextField displayName;
@@ -72,6 +76,18 @@ public class SettingsController implements Initializable {
 
     @FXML
     void saveAccountsInfo(MouseEvent event) {
+        userInfo.setUserName(userName.getText());
+        userInfo.setDisplayName(displayName.getText());
+        userInfo.setEmail(email.getText());
+        userInfo.setPassword(password.getText());
+
+
+        displayName.setText(userInfo.getDisplayName());
+        userName.setText(userInfo.getUserName());
+        email.setText(userInfo.getEmail());
+        password.setText(userInfo.getPassword());
+
+        modalPaneForSignOut.hide(true);
     }
 
     @FXML
@@ -82,13 +98,26 @@ public class SettingsController implements Initializable {
         }else{
             System.out.println("Saved");
         }
+        userInfo.setPomodoroSessionTime(pomodoroSessionTime.getValue());
+        userInfo.setBreakTime(sessionBreakTime.getValue());
+        pomodoroSessionTime.setValue(userInfo.getPomodoroSessionTime());
+        sessionBreakTime.setValue(userInfo.getBreakTime());
+        modalPaneForSignOut.hide(true);
     }
-    ObservableList<String> sessionTime = FXCollections.observableArrayList("25", "50", "75", "100", "125");
+    ObservableList<String> sessionTime = FXCollections.observableArrayList("1","25", "50", "75", "100", "125");
     ObservableList<String> breakTime = FXCollections.observableArrayList("1", "5", "10", "15", "30");
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         sessionBreakTime.setItems(breakTime);
         pomodoroSessionTime.setItems(sessionTime);
+
+        displayName.setText(userInfo.getDisplayName());
+        userName.setText(userInfo.getUserName());
+        email.setText(userInfo.getEmail());
+        password.setText(userInfo.getPassword());
+        pomodoroSessionTime.setValue(userInfo.getPomodoroSessionTime());
+        sessionBreakTime.setValue(userInfo.getBreakTime());
+
 
     }
 }

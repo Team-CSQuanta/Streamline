@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.util.concurrent.ConcurrentHashMap;
 
 import static com.csquanta.streamline.Controllers.ChallengeController.networkUtil;
+import static com.csquanta.streamline.Models.UserInformation.userInfo;
 import static com.csquanta.streamline.Networking.ReadThreadClient.modalPaneForChallengeRequest;
 
 
@@ -92,7 +93,10 @@ public class ChallengeRequestController {
 
         String receiverEmail = ChallengeUI.challengeUI.getRequestSenderEmail();
         String responseMessage = "Your Challenge has been accepted!";
-        ChallengeResponse challengeResponse = new ChallengeResponse(challengeController.loadClientInfoFromFile(),receiverEmail,responseMessage);
+
+
+        ChallengeResponse challengeResponse = new ChallengeResponse(userInfo.getEmail(),receiverEmail,responseMessage);
+
         System.out.println("in Challenge Request sender "+ receiverEmail) ;
         try {
             networkUtil.write(challengeResponse);
