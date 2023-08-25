@@ -140,12 +140,32 @@ public class ReadThreadClient extends Thread {
                     });
 
                     String challengeResponse = ((ChallengeResponse) receivedMessage).getResponseMessage();
+                    System.out.println(challengeResponse);
 
                 }else if(receivedMessage.getMessageType() == MessageType.CHALLENGE_UPDATE){
 
                     String title = ((ChallengeUpdate) receivedMessage).getTitle();
-                    ChallengeTaskLog task = new ChallengeTaskLog("Alisha", sender, title);
-                    ChallengeTaskLog.taskLog.getChallengeTaskLogs().add(task);
+                    Platform.runLater(() ->{
+                        ChallengeTaskLog task = new ChallengeTaskLog("Jubair", sender, title);
+                        ChallengeTaskLog.taskLog.getChallengeTaskLogs().add(task);
+                        try {
+                            App.newLoad();
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                        ChallengeController controller = ChallengeUI.challengeUI.getChallengeController();
+                        ZoomIn zoomIn = new ZoomIn();
+                        controller.setTopHbox(ChallengeUI.challengeUI.getMonsterInChallengePage());
+                        controller.setBottomVbox(ChallengeUI.challengeUI.getChallengeLog());
+                        ChallengeUI.challengeUI.addChallengeTaskLog();
+                        System.out.println("Task log size in challenge Log after adding from readThreadClient: " + ChallengeUI.challengeUI.getChallengeLog().getChildren().size());
+                        StackPane.setAlignment(ChallengeUI.challengeUI.getChallengePage(), Pos.BOTTOM_CENTER);
+                        App.root.getChildren().add(ChallengeUI.challengeUI.getChallengePage());
+                        zoomIn.setNode(ChallengeUI.challengeUI.getChallengePage());
+                        zoomIn.setSpeed(3);
+                        zoomIn.play();
+                    });
+
                 }
             }
 
