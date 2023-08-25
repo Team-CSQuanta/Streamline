@@ -104,31 +104,7 @@ public class SidebarController implements Initializable {
 
     @FXML
     void onChallengesBtnClicked(MouseEvent event) throws IOException {
-        System.out.println("Size of challengeLog " + ChallengeTaskLog.taskLog.getChallengeTaskLogs().size());
-        App.newLoad();
-        ChallengeController controller = ChallengeUI.challengeUI.getChallengeController();
-        ZoomIn zoomIn = new ZoomIn();
-        if(!ChallengeUI.challengeUI.getChallengeMode() && !ChallengeUI.challengeUI.isPending()){
-
-//            controller.setBottomVbox(ChallengeUI.challengeUI.getNotHavingAnyChallengePage());
-            StackPane.setAlignment(ChallengeUI.challengeUI.getChallengePage(), Pos.BOTTOM_CENTER);
-            App.root.getChildren().add(ChallengeUI.challengeUI.getChallengePage());
-
-        }else if(ChallengeUI.challengeUI.isPending() && !ChallengeUI.challengeUI.getChallengeMode()){
-
-            controller.setBottomVbox(ChallengeUI.challengeUI.getChallengeRequestSentPage());
-            App.root.getChildren().add(ChallengeUI.challengeUI.getChallengePage());
-        }else{
-
-            controller.setTopHbox(ChallengeUI.challengeUI.getMonsterInChallengePage());
-            controller.setBottomVbox(ChallengeUI.challengeUI.getChallengeLog());
-            ChallengeUI.challengeUI.addChallengeTaskLog();
-            StackPane.setAlignment(ChallengeUI.challengeUI.getChallengePage(), Pos.BOTTOM_CENTER);
-            App.root.getChildren().add(ChallengeUI.challengeUI.getChallengePage());
-        }
-        zoomIn.setNode(ChallengeUI.challengeUI.getChallengePage());
-        zoomIn.setSpeed(3);
-        zoomIn.play();
+        ChallengeUI.challengeUI.newLoadForChallengeUI();
     }
     @FXML
     void onSettingsBtnClicked(MouseEvent event) throws IOException {

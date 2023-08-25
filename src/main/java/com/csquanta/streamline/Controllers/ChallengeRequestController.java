@@ -88,59 +88,17 @@ public class ChallengeRequestController {
     @FXML
     void onAcceptBtnClicked(ActionEvent event) throws IOException {
         // need to change topHbox and bottom vBox
-
-//        ChallengeController controller = UserInformation.userInfo.getChallengeController();
-
-//        FXMLScene  challengeLog = FXMLScene.load("/Fxml/ChallengeLog.fxml");
-//        ChallengeLogController challengeLogController = (ChallengeLogController) challengeLog.controller;
-//        controller.getBottomVbox().getChildren().setAll(challengeLog.root);
-//
-//        ZoomIn zoomIn = new ZoomIn();
-//        zoomIn.setNode(challengeLog.root);
-//        zoomIn.setSpeed(3);
-//        zoomIn.play();
-//
-//        FXMLScene ChallengedMonster = FXMLScene.load("/Fxml/MonsterInChallenge.fxml");
-//        controller.getTopHbox().getChildren().setAll(ChallengedMonster.root);
-//        zoomIn.setNode(ChallengedMonster.root);
-//        zoomIn.setSpeed(3);
-//        zoomIn.play();
-
-
-        App.newLoad();
         ChallengeUI.challengeUI.setChallengeMode(true);
-        ChallengeUI.challengeUI.setPendingStatus(false);
-        ChallengeController controller = ChallengeUI.challengeUI.getChallengeController();
-
-        // ChallengeLog Bottom Vbox;
-        FXMLScene  challengeLog = FXMLScene.load("/Fxml/ChallengeLog.fxml");
-        ChallengeLogController challengeLogController = (ChallengeLogController) challengeLog.controller;
-        controller.getBottomVbox().getChildren().setAll(challengeLog.root);
-
-
-        FXMLScene ChallengedMonster = FXMLScene.load("/Fxml/MonsterInChallenge.fxml");
-        controller.getTopHbox().getChildren().setAll(ChallengedMonster.root);
-
-        StackPane.setAlignment(ChallengeUI.challengeUI.getChallengePage(), Pos.BOTTOM_CENTER);
-        App.root.getChildren().add(ChallengeUI.challengeUI.getChallengePage());
-        ZoomIn zoomIn = new ZoomIn();
-        zoomIn.setNode(ChallengeUI.challengeUI.getChallengePage());
-        zoomIn.setSpeed(3);
-        zoomIn.play();
-
-
+        ChallengeUI.challengeUI.newLoadForChallengeUI();
 
         String receiverEmail = ChallengeUI.challengeUI.getRequestSenderEmail();
-
         String responseMessage = "Your Challenge has been accepted!";
+
 
         ChallengeResponse challengeResponse = new ChallengeResponse(userInfo.getEmail(),receiverEmail,responseMessage);
 
         System.out.println("in Challenge Request sender "+ receiverEmail) ;
-
-
         try {
-
             networkUtil.write(challengeResponse);
 
         } catch (Exception e){
