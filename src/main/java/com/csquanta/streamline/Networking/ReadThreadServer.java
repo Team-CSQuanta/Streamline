@@ -61,11 +61,14 @@ public class ReadThreadServer extends Thread {
                     receiverInfo.getNetworkUtil().write(challengeUpdate);
 
 
+
+                        }
+                   
+                }catch (Exception e){
+                    System.out.println("Exception occurred in read thread server");
+                    return;
                 }
 
-            } catch (Exception e) {
-                System.out.println("Exception occurred in read thread" +
-                        "");
             }
 
         }

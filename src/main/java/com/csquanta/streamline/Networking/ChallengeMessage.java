@@ -24,9 +24,7 @@ public class ChallengeMessage extends Message implements Serializable {
         this.monstersName = monstersName;
         this.taskTitle=taskTitle;
 
-
     }
-
 
     public ChallengeMessage( String challengeType, String challengeDescription, String from, String to,String challengeTaskPomodoroSession, String challengeTaskTag, String monstersName,String taskTitle) {
         super(MessageType.CHALLENGE, from, to);
