@@ -1,6 +1,5 @@
 package com.csquanta.streamline.Controllers;
 
-
 import atlantafx.base.controls.ToggleSwitch;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

@@ -11,6 +11,8 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
+import static com.csquanta.streamline.Models.UserInformation.userInfo;
+
 public class ChallengeUI {
     public static ChallengeUI challengeUI= new ChallengeUI();
     private ChallengeLogController challengeLogController;
@@ -134,7 +136,11 @@ public class ChallengeUI {
         FXMLScene block;
         System.out.println(ChallengeTaskLog.taskLog.getChallengeTaskLogs().size() + " Challenge task log size");
         for(ChallengeTaskLog t: ChallengeTaskLog.taskLog.getChallengeTaskLogs()){
-            if(t.getUserEmail().equals(ChallengeUI.challengeUI.getChallengeController().loadClientInfoFromFile())){
+
+            if(t.getUserEmail().equals(userInfo.getEmail())){
+                FXMLScene block = null;
+
+           
                 try {
                     block = FXMLScene.load("/Fxml/ChallengeBlockForSender.fxml");
                     ChallengeBlockController receiverController = (ChallengeBlockController) block.controller;

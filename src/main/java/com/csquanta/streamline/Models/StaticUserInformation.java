@@ -22,7 +22,12 @@ public class StaticUserInformation {
     public static Double totalGoldCoins;
     public static int userHealth;
 
-
+    public static String userName;
+    public static String displayName;
+    public static String email;
+    public static String password;
+    public static String pomodoroSessionTime;
+    public static String BreakTime;
 
     public static int getUserHealth() {
         return userHealth;
