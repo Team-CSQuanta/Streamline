@@ -138,9 +138,7 @@ public class ChallengeUI {
         for(ChallengeTaskLog t: ChallengeTaskLog.taskLog.getChallengeTaskLogs()){
 
             if(t.getUserEmail().equals(userInfo.getEmail())){
-                FXMLScene block = null;
 
-           
                 try {
                     block = FXMLScene.load("/Fxml/ChallengeBlockForSender.fxml");
                     ChallengeBlockController receiverController = (ChallengeBlockController) block.controller;

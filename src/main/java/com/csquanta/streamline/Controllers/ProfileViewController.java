@@ -21,6 +21,7 @@ import java.util.ResourceBundle;
 import com.csquanta.streamline.Models.UserInformation;
 
 import static com.csquanta.streamline.Controllers.HeaderController.modalPaneForHeader;
+import static com.csquanta.streamline.Models.UserInformation.userInfo;
 
 public class ProfileViewController implements Initializable {
     @FXML
@@ -91,6 +92,7 @@ public class ProfileViewController implements Initializable {
         headGear.setImage(StaticUserInformation.avatarImageHeadGear);
         priceLabel.setText(String.format("%.2f", StaticUserInformation.totalGoldCoins));
         avatarPet.setImage(StaticUserInformation.avatarImagePet);
+        userName.setText(userInfo.getDisplayName());
 
 
     }
