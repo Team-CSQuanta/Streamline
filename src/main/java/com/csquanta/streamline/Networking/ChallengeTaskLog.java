@@ -52,4 +52,5 @@ public class ChallengeTaskLog implements Serializable {
     public void setTaskTitle(String taskTitle) {
         this.taskTitle = taskTitle;
     }
+
 }

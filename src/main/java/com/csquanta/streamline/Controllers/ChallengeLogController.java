@@ -21,6 +21,13 @@ public class ChallengeLogController implements Initializable {
     @FXML
     private GridPane logGridPane;
 
+    public GridPane getLogGridPane() {
+        return logGridPane;
+    }
+
+    public void setLogGridPane(GridPane logGridPane) {
+        this.logGridPane = logGridPane;
+    }
 
 //    public void addChatMessage(Object message) {
 //
@@ -57,30 +64,5 @@ public class ChallengeLogController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        int currentRow = 0;
-        for(ChallengeTaskLog t: ChallengeTaskLog.taskLog.getChallengeTaskLogs()){
-            if(t.getUserEmail().equals(ChallengeUI.challengeUI.getChallengeController().loadClientInfoFromFile())){
-                FXMLScene block = null;
-                try {
-                    block = FXMLScene.load("/Fxml/ChallengeBlockForSender.fxml");
-                    ChallengeBlockController receiverController = (ChallengeBlockController) block.controller;
-                    ChallengeUI.challengeUI.getChallengeLogController().logGridPane.add(block.root, 0, currentRow++);
-
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            }else {
-                FXMLScene block = null;
-                try {
-                    block = FXMLScene.load("/Fxml/ChallengeBlockForReceiver.fxml");
-                    ChallengeBlockController receiverController = (ChallengeBlockController) block.controller;
-                    ChallengeUI.challengeUI.getChallengeLogController().logGridPane.add(block.root, 1, currentRow++);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-
-            }
-
-        }
     }
 }
