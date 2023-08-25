@@ -30,6 +30,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static com.csquanta.streamline.Controllers.ChallengeController.networkUtil;
+import static com.csquanta.streamline.Models.UserInformation.userInfo;
 
 public class PomodoroPageController implements Initializable {
     public static ModalPane modalPaneForPointsNotification = new ModalPane();
@@ -40,7 +41,7 @@ public class PomodoroPageController implements Initializable {
     @FXML
     void exitBtnClicked(MouseEvent event) {
         double randomPoints = Math.random()*((task.getNumOfSessions()*20));
-        UserInformation.userInfo.deductGoldCoins(randomPoints);
+        userInfo.deductGoldCoins(randomPoints);
         PomodoroPageController.modalPaneForPomodoroPage.hide(true);
     }
 
@@ -109,7 +110,7 @@ ChallengeCreatorController challengeCreatorController= new ChallengeCreatorContr
         if(button.getText().equals("Start session")){
             button.setText("Running");
             sessionInfoLabel.setText("Session " + (sessionCounter + 1));
-            MyTimer timer = new MyTimer(1, minutesLabel, secondsLabel, button, "Session", sessionCounter, task.getNumOfSessions(), stackPanePomodoroContainer);
+            MyTimer timer = new MyTimer(Integer.parseInt(userInfo.getPomodoroSessionTime()), minutesLabel, secondsLabel, button, "Session", sessionCounter, task.getNumOfSessions(), stackPanePomodoroContainer);
             timer.t.setDaemon(true);
             timer.t.start();
             sessionCounter++;
@@ -117,7 +118,7 @@ ChallengeCreatorController challengeCreatorController= new ChallengeCreatorContr
         else if(button.getText().equals("Take Break") && sessionCounter != task.getNumOfSessions()){
             button.setText("Running");
             sessionInfoLabel.setText("Running break");
-            MyTimer timer = new MyTimer(1, minutesLabel, secondsLabel, button, "Break", sessionCounter, task.getNumOfSessions(), stackPanePomodoroContainer);
+            MyTimer timer = new MyTimer(Integer.parseInt(userInfo.getBreakTime()), minutesLabel, secondsLabel, button, "Break", sessionCounter, task.getNumOfSessions(), stackPanePomodoroContainer);
             timer.t.setDaemon(true);
             timer.t.start();
         }
@@ -130,9 +131,9 @@ ChallengeCreatorController challengeCreatorController= new ChallengeCreatorContr
 
             // For Challenge log
             if(ChallengeUI.challengeUI.getChallengeMode()){
-                ChallengeUpdate challengeUpdate = new ChallengeUpdate(ChallengeUI.challengeUI.getChallengeController().loadClientInfoFromFile(), ChallengeParticipantsInfo.participantsEmail,task.getTaskTitle());
-                System.out.println("Particint email: " + ChallengeParticipantsInfo.participantsEmail);
-                ChallengeTaskLog challengeTask = new ChallengeTaskLog("Foyez", ChallengeUI.challengeUI.getChallengeController().loadClientInfoFromFile(), task.getTaskTitle());
+                ChallengeUpdate challengeUpdate = new ChallengeUpdate(userInfo.getEmail(), ChallengeParticipantsInfo.participantsEmail,task.getTaskTitle());
+                System.out.println("Participant email: " + ChallengeParticipantsInfo.participantsEmail);
+                ChallengeTaskLog challengeTask = new ChallengeTaskLog(userInfo.getDisplayName(), userInfo.getEmail(), task.getTaskTitle());
                 ChallengeTaskLog.taskLog.getChallengeTaskLogs().add(challengeTask);
                 networkUtil.write(challengeUpdate);
             }
@@ -160,7 +161,7 @@ ChallengeCreatorController challengeCreatorController= new ChallengeCreatorContr
         GotPointsController controller = (GotPointsController) fxmlScene.controller;
         double randomPoints = Math.random()*20;
         controller.setRewardAward(String.format("%.2f", randomPoints));
-        UserInformation.userInfo.addGoldCoins(randomPoints);
+        userInfo.addGoldCoins(randomPoints);
         modalPaneForPointsNotification.show(fxmlScene.root);
         new Pulse(fxmlScene.root).play();
     }
@@ -169,7 +170,7 @@ ChallengeCreatorController challengeCreatorController= new ChallengeCreatorContr
         GotPointsController controller = (GotPointsController) fxmlScene.controller;
         double randomPoints = task.getNumOfSessions()*80;
         controller.setRewardAward(String.format("%.2f", randomPoints));
-        UserInformation.userInfo.addGoldCoins(randomPoints);
+        userInfo.addGoldCoins(randomPoints);
         modalPaneForPointsNotification.show(fxmlScene.root);
         new Pulse(fxmlScene.root).play();
     }

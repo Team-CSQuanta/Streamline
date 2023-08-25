@@ -39,6 +39,7 @@ public class UserInformation implements Serializable {
     private String email;
     private String password;
 
+
     public String getUserName() {
         return userName;
     }
@@ -69,6 +70,27 @@ public class UserInformation implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+
+    //time
+    private  String pomodoroSessionTime;
+    private String BreakTime;
+
+    public String getPomodoroSessionTime() {
+        return pomodoroSessionTime;
+    }
+
+    public void setPomodoroSessionTime(String pomodoroSessionTime) {
+        this.pomodoroSessionTime = pomodoroSessionTime;
+    }
+
+    public String getBreakTime() {
+        return BreakTime;
+    }
+
+    public void setBreakTime(String breakTime) {
+        BreakTime = breakTime;
     }
 
 // User points health points related getter & Setter
@@ -134,7 +156,7 @@ public class UserInformation implements Serializable {
     public UserInformation() {
     }
 
-    public UserInformation(String avatarImageBg, String avatarImageHead, String avatarImageHair, String avatarImageHeadGear, String avatarImageBody, String avatarImageArmor, String avatarImagePet, Double totalGoldCoins, int userHealth) {
+    public UserInformation(String avatarImageBg, String avatarImageHead, String avatarImageHair, String avatarImageHeadGear, String avatarImageBody, String avatarImageArmor, String avatarImagePet, Double totalGoldCoins, Integer userHealth, String userName, String displayName,String email, String password,String pomodoroSessionTime,String breakTime) {
         this.avatarImageBg = avatarImageBg;
         this.avatarImageHead = avatarImageHead;
         this.avatarImageHair = avatarImageHair;
@@ -144,6 +166,12 @@ public class UserInformation implements Serializable {
         this.avatarImagePet = avatarImagePet;
         this.totalGoldCoins = totalGoldCoins;
         this.userHealth = userHealth;
+        this.userName = userName;
+        this.displayName = displayName;
+        this.email = email;
+        this.password = password;
+        this.pomodoroSessionTime = pomodoroSessionTime;
+        this.BreakTime = breakTime;
     }
     // Avatar related getter & setter
     public String getAvatarImageBg() {
@@ -204,7 +232,7 @@ public class UserInformation implements Serializable {
 
     public static void serializeUserInfo(){
         try(ObjectOutputStream objOStream = new ObjectOutputStream(new FileOutputStream("User_Information_file"))){
-            UserInformation userInformation = new UserInformation(userInfo.getAvatarImageBg(), userInfo.getAvatarImageHead(), userInfo.getAvatarImageHair(), userInfo.getAvatarImageHeadGear(), userInfo.getAvatarImageBody(), userInfo.getAvatarImageArmor(), userInfo.getAvatarImagePet(), userInfo.totalGoldCoins, userInfo.getUserHealth());
+            UserInformation userInformation = new UserInformation(userInfo.getAvatarImageBg(), userInfo.getAvatarImageHead(), userInfo.getAvatarImageHair(), userInfo.getAvatarImageHeadGear(), userInfo.getAvatarImageBody(), userInfo.getAvatarImageArmor(), userInfo.getAvatarImagePet(), userInfo.totalGoldCoins, userInfo.getUserHealth(),userInfo.getUserName(), userInfo.getDisplayName(), userInfo.getEmail(), userInfo.getPassword(),userInfo.getPomodoroSessionTime(),userInfo.getBreakTime());
             objOStream.writeObject(userInformation);
         }catch (Exception e){
             System.out.println("Serialization failed");
@@ -220,6 +248,30 @@ public class UserInformation implements Serializable {
             // Total points
             StaticUserInformation.totalGoldCoins = user.getTotalGoldCoins();
             userInfo.setTotalGoldCoins(user.getTotalGoldCoins());
+
+            // Account related information
+            StaticUserInformation.userName = user.getUserName();
+            userInfo.setUserName(user.getUserName());
+
+            StaticUserInformation.displayName = user.getDisplayName();
+            userInfo.setDisplayName(user.getDisplayName());
+
+            StaticUserInformation.email = user.getEmail();
+            userInfo.setEmail(user.getEmail());
+
+            StaticUserInformation.password = user.getPassword();
+            userInfo.setPassword(user.getPassword());
+
+
+            //time
+
+            StaticUserInformation.pomodoroSessionTime = user.getPomodoroSessionTime();
+            userInfo.setPomodoroSessionTime(user.getPomodoroSessionTime());
+            StaticUserInformation.BreakTime = user.getBreakTime();
+            userInfo.setBreakTime(user.getBreakTime());
+
+            //avatar
+
             if(user.avatarImageBody != null)
             {
                 StaticUserInformation.avatarImageBody = new Image(requireNonNull(UserInformation.class.getResourceAsStream(user.avatarImageBody)));

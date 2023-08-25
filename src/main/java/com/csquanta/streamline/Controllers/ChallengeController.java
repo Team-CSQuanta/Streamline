@@ -27,6 +27,7 @@ import java.util.ResourceBundle;
 import java.util.TreeSet;
 
 import static com.csquanta.streamline.Controllers.HeaderController.modalPaneForHeader;
+import static com.csquanta.streamline.Models.UserInformation.userInfo;
 import static java.util.Objects.requireNonNull;
 
 public class ChallengeController implements Initializable {
@@ -77,6 +78,7 @@ public class ChallengeController implements Initializable {
     private HBox topHbox;
     public static NetworkUtil networkUtil;
 
+
     public HBox getTopHbox() {
         return topHbox;
     }
@@ -117,7 +119,7 @@ public class ChallengeController implements Initializable {
 
         // Initialize the socket connection here
         try {
-            String clientEmail = loadClientInfoFromFile();
+            String clientEmail = userInfo.getEmail();
             networkUtil = new NetworkUtil("127.0.0.1", 8000);
             networkUtil.write(clientEmail);
             System.out.println(clientEmail);
@@ -128,25 +130,25 @@ public class ChallengeController implements Initializable {
         }
     }
 
-    public String loadClientInfoFromFile() {
-        String email = null;
-        try (BufferedReader reader = new BufferedReader(new FileReader("client_info.txt"))) {
-            String line;
-
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
-                if (parts.length >= 2) {
-                    String name = parts[0];
-                    email = parts[1];
-                } else {
-                    System.err.println("Invalid line format: " + line);
-                }
-            }
-        } catch (IOException e) {
-            System.err.println("Error reading client info file: " + e.getMessage());
-        }
-        return email;
-    }
+//    public String loadClientInfoFromFile() {
+//        String email = null;
+//        try (BufferedReader reader = new BufferedReader(new FileReader("client_info.txt"))) {
+//            String line;
+//
+//            while ((line = reader.readLine()) != null) {
+//                String[] parts = line.split(",");
+//                if (parts.length >= 2) {
+//                    String name = parts[0];
+//                    email = parts[1];
+//                } else {
+//                    System.err.println("Invalid line format: " + line);
+//                }
+//            }
+//        } catch (IOException e) {
+//            System.err.println("Error reading client info file: " + e.getMessage());
+//        }
+//        return email;
+//    }
 
     public void challengePageStatus(VBox bottomVbox){
         if(!bottomVbox.getChildren().isEmpty()){
