@@ -66,29 +66,29 @@ public class ReadThreadClient extends Thread {
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
-                        String imageBg = UserInformation.userInfo.getAvatarImageBg();
-                        String imagePet = UserInformation.userInfo.getAvatarImagePet();
-                        String imageHeadGear = UserInformation.userInfo.getAvatarImageHeadGear();
-                        String imageHead = UserInformation.userInfo.getAvatarImageHead();
-                        String imageArmor = UserInformation.userInfo.getAvatarImageArmor();
-                        String imageHair = UserInformation.userInfo.getAvatarImageHair();
-                        String imageBody = UserInformation.userInfo.getAvatarImageBody();
-
-                        Image bgImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imageBg)));
-                        controller.image_bg.setImage(bgImage);
-
-                        Image petImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imagePet)));
-                        controller.avatarPet.setImage(petImage);
-//                        Image HeadGearImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imageHeadGear)));
-//                        controller.headGear.setImage(HeadGearImage);
-                        Image HeadImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imageHead)));
-                        controller.avatarHead.setImage(HeadImage);
-                        Image ArmorImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imageArmor)));
-                        controller.avatarArmor.setImage(ArmorImage);
-                        Image HairImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imageHair)));
-                        controller.avatarHair.setImage(HairImage);
-                        Image BodyImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imageBody)));
-                        controller.avatarBody.setImage(BodyImage);
+//                        String imageBg = UserInformation.userInfo.getAvatarImageBg();
+//                        String imagePet = UserInformation.userInfo.getAvatarImagePet();
+//                        String imageHeadGear = UserInformation.userInfo.getAvatarImageHeadGear();
+//                        String imageHead = UserInformation.userInfo.getAvatarImageHead();
+//                        String imageArmor = UserInformation.userInfo.getAvatarImageArmor();
+//                        String imageHair = UserInformation.userInfo.getAvatarImageHair();
+//                        String imageBody = UserInformation.userInfo.getAvatarImageBody();
+//
+//                        Image bgImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imageBg)));
+//                        controller.image_bg.setImage(bgImage);
+//
+//                        Image petImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imagePet)));
+//                        controller.avatarPet.setImage(petImage);
+////                        Image HeadGearImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imageHeadGear)));
+////                        controller.headGear.setImage(HeadGearImage);
+//                        Image HeadImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imageHead)));
+//                        controller.avatarHead.setImage(HeadImage);
+//                        Image ArmorImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imageArmor)));
+//                        controller.avatarArmor.setImage(ArmorImage);
+//                        Image HairImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imageHair)));
+//                        controller.avatarHair.setImage(HairImage);
+//                        Image BodyImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imageBody)));
+//                        controller.avatarBody.setImage(BodyImage);
 
 
                         if ("Build consistency".equals(challengeType)) {
@@ -145,6 +145,7 @@ public class ReadThreadClient extends Thread {
 
                     String title = ((ChallengeUpdate) receivedMessage).getTitle();
                     ChallengeTaskLog task = new ChallengeTaskLog("Alisha", sender, title);
+                    ChallengeTaskLog.taskLog.getChallengeTaskLogs().add(task);
                 }
             }
 
