@@ -38,7 +38,7 @@ public class ReadThreadClient extends Thread {
             while (true) {
                 Message receivedMessage = (Message) networkUtil.read();
                 String sender = receivedMessage.getFrom();  // Challenge sender email
-                ChallengeParticipantsInfo.participantsEmail = sender;
+                ChallengeParticipantsInfo.challengeParticipantsInfo.setParticipantsEmail(sender);
                 if (receivedMessage.getMessageType() == MessageType.CHALLENGE) {
 
                     String pomodoroSession = ((ChallengeMessage) receivedMessage).getChallengeTaskPomodoroSession();

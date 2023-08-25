@@ -132,8 +132,7 @@ ChallengeCreatorController challengeCreatorController= new ChallengeCreatorContr
             // For Challenge log
             if(ChallengeUI.challengeUI.getChallengeMode()){
 
-                ChallengeUpdate challengeUpdate = new ChallengeUpdate(userInfo.getEmail(), ChallengeParticipantsInfo.participantsEmail,task.getTaskTitle());
-                System.out.println("Participant email: " + ChallengeParticipantsInfo.participantsEmail);
+                ChallengeUpdate challengeUpdate = new ChallengeUpdate(userInfo.getEmail(), ChallengeParticipantsInfo.challengeParticipantsInfo.getParticipantsEmail(),task.getTaskTitle());
                 ChallengeTaskLog challengeTask = new ChallengeTaskLog(userInfo.getDisplayName(), userInfo.getEmail(), task.getTaskTitle());
 
               
