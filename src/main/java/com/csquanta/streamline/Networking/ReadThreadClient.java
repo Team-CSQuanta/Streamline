@@ -13,6 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class ReadThreadClient extends Thread {
     private NetworkUtil networkUtil;
@@ -36,7 +37,8 @@ public class ReadThreadClient extends Thread {
         try {
             while (true) {
                 Message receivedMessage = (Message) networkUtil.read();
-                String sender = receivedMessage.getFrom();
+                String sender = receivedMessage.getFrom();  // Challenge sender email
+                ChallengeParticipantsInfo.participantsEmail = sender;
                 if (receivedMessage.getMessageType() == MessageType.CHALLENGE) {
 
                     String pomodoroSession = ((ChallengeMessage) receivedMessage).getChallengeTaskPomodoroSession();
@@ -64,29 +66,29 @@ public class ReadThreadClient extends Thread {
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
-//                        String imageBg = UserInformation.userInfo.getAvatarImageBg();
-//                        String imagePet = UserInformation.userInfo.getAvatarImagePet();
-//                        String imageHeadGear = UserInformation.userInfo.getAvatarImageHeadGear();
-//                        String imageHead = UserInformation.userInfo.getAvatarImageHead();
-//                        String imageArmor = UserInformation.userInfo.getAvatarImageArmor();
-//                        String imageHair = UserInformation.userInfo.getAvatarImageHair();
-//                        String imageBody = UserInformation.userInfo.getAvatarImageBody();
-//
-//                        Image bgImage = new Image(getClass().getResourceAsStream(imageBg));
-//                        controller.image_bg.setImage(bgImage);
-//
-//                        Image petImage = new Image(getClass().getResourceAsStream(imagePet));
-//                        controller.avatarPet.setImage(petImage);
-//                        Image HeadGearImage = new Image(getClass().getResourceAsStream(imageHeadGear));
+                        String imageBg = UserInformation.userInfo.getAvatarImageBg();
+                        String imagePet = UserInformation.userInfo.getAvatarImagePet();
+                        String imageHeadGear = UserInformation.userInfo.getAvatarImageHeadGear();
+                        String imageHead = UserInformation.userInfo.getAvatarImageHead();
+                        String imageArmor = UserInformation.userInfo.getAvatarImageArmor();
+                        String imageHair = UserInformation.userInfo.getAvatarImageHair();
+                        String imageBody = UserInformation.userInfo.getAvatarImageBody();
+
+                        Image bgImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imageBg)));
+                        controller.image_bg.setImage(bgImage);
+
+                        Image petImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imagePet)));
+                        controller.avatarPet.setImage(petImage);
+//                        Image HeadGearImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imageHeadGear)));
 //                        controller.headGear.setImage(HeadGearImage);
-//                        Image HeadImage = new Image(getClass().getResourceAsStream(imageHead));
-//                        controller.avatarHead.setImage(HeadImage);
-//                        Image ArmorImage = new Image(getClass().getResourceAsStream(imageArmor));
-//                        controller.avatarArmor.setImage(ArmorImage);
-//                        Image HairImage = new Image(getClass().getResourceAsStream(imageHair));
-//                        controller.avatarHair.setImage(HairImage);
-//                        Image BodyImage = new Image(getClass().getResourceAsStream(imageBody));
-//                        controller.avatarBody.setImage(BodyImage);
+                        Image HeadImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imageHead)));
+                        controller.avatarHead.setImage(HeadImage);
+                        Image ArmorImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imageArmor)));
+                        controller.avatarArmor.setImage(ArmorImage);
+                        Image HairImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imageHair)));
+                        controller.avatarHair.setImage(HairImage);
+                        Image BodyImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imageBody)));
+                        controller.avatarBody.setImage(BodyImage);
 
 
                         if ("Build consistency".equals(challengeType)) {
@@ -115,43 +117,40 @@ public class ReadThreadClient extends Thread {
                     ChallengeUI.challengeUI.setChallengeMode(true);
 
 
-                    App.newLoad();
-                    ChallengeUI.challengeUI.setChallengeMode(true);
-                    ChallengeUI.challengeUI.setPendingStatus(false);
-                    ChallengeController controller = ChallengeUI.challengeUI.getChallengeController();
+                    Platform.runLater(() ->{
+                        try {
+                            App.newLoad();
 
-                    // ChallengeLog Bottom Vbox;
-                    FXMLScene  challengeLog = FXMLScene.load("/Fxml/ChallengeLog.fxml");
-                    ChallengeLogController challengeLogController = (ChallengeLogController) challengeLog.controller;
-                    controller.getBottomVbox().getChildren().setAll(challengeLog.root);
+                            ChallengeUI.challengeUI.setChallengeMode(true);
+                            ChallengeUI.challengeUI.setPendingStatus(false);
+                            ChallengeController controller = ChallengeUI.challengeUI.getChallengeController();
 
-
-                    FXMLScene ChallengedMonster = FXMLScene.load("/Fxml/MonsterInChallenge.fxml");
-                    controller.getTopHbox().getChildren().setAll(ChallengedMonster.root);
-
-                    StackPane.setAlignment(ChallengeUI.challengeUI.getChallengePage(), Pos.BOTTOM_CENTER);
-                    App.root.getChildren().add(ChallengeUI.challengeUI.getChallengePage());
-                    ZoomIn zoomIn = new ZoomIn();
-                    zoomIn.setNode(ChallengeUI.challengeUI.getChallengePage());
-                    zoomIn.setSpeed(3);
-                    zoomIn.play();
-
+                            // ChallengeLog Bottom Vbox;
+                            controller.getBottomVbox().getChildren().setAll(ChallengeUI.challengeUI.getChallengeLog());
+                            controller.getTopHbox().getChildren().setAll(ChallengeUI.challengeUI.getMonsterInChallengePage());
+                            StackPane.setAlignment(ChallengeUI.challengeUI.getChallengePage(), Pos.BOTTOM_CENTER);
+                            App.root.getChildren().add(ChallengeUI.challengeUI.getChallengePage());
+                            ZoomIn zoomIn = new ZoomIn();
+                            zoomIn.setNode(ChallengeUI.challengeUI.getChallengePage());
+                            zoomIn.setSpeed(3);
+                            zoomIn.play();
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    });
 
                     String challengeResponse = ((ChallengeResponse) receivedMessage).getResponseMessage();
 
+                }else if(receivedMessage.getMessageType() == MessageType.CHALLENGE_UPDATE){
 
-                    Platform.runLater(() -> chatBoxController.addChatMessage(receivedMessage));
-
-
-                   System.out.println("Received Message: " + challengeResponse);
-
+                    String title = ((ChallengeUpdate) receivedMessage).getTitle();
+                    ChallengeTaskLog task = new ChallengeTaskLog("Alisha", sender, title);
                 }
             }
 
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-
 
     }
 

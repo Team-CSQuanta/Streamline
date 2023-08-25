@@ -1,26 +1,94 @@
 package com.csquanta.streamline.Models;
 
 import com.csquanta.streamline.Controllers.ChallengeController;
+import com.csquanta.streamline.Controllers.ChallengeLogController;
 import com.csquanta.streamline.Controllers.FXMLScene;
+import com.csquanta.streamline.Controllers.MonsterInChallengeController;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
 public class ChallengeUI {
     public static ChallengeUI challengeUI= new ChallengeUI();
+    private ChallengeLogController challengeLogController;
+    private VBox challengeLog;
     private boolean challengeMode;
     private boolean pendingStatus;
     private String requestSenderEmail;
     private ChallengeController challengeController;
     private VBox challengePage;
+    private MonsterInChallengeController monsterInChallengeController;
+    private HBox monsterInChallengePage;
+    private VBox notHavingAnyChallengePage;
+
+    private VBox challengeRequestSentPage;
     public ChallengeUI(){
         try {
             FXMLScene scene = FXMLScene.load("/Fxml/Challenge.fxml");
+            FXMLScene  challengeLogPage = FXMLScene.load("/Fxml/ChallengeLog.fxml");
+            FXMLScene challengeMonster = FXMLScene.load("/Fxml/MonsterInChallenge.fxml");
+            FXMLScene noChallengeScene = FXMLScene.load("/Fxml/NotHavingAnyChallenge.fxml");
+            FXMLScene challengeRequestSent = FXMLScene.load("/Fxml/ChallengeRequestSent.fxml");
+            challengeRequestSentPage = (VBox) challengeLogPage.root;
+            notHavingAnyChallengePage = (VBox) noChallengeScene.root;
+            monsterInChallengePage = (HBox) challengeMonster.root;
+            monsterInChallengeController = (MonsterInChallengeController) challengeMonster.controller;
+            challengeLog = (VBox) challengeLogPage.root;
+            challengeLogController = (ChallengeLogController) challengeLogPage.controller;
             challengeController = (ChallengeController) scene.controller;
             challengePage = (VBox) scene.root;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public VBox getChallengeRequestSentPage() {
+        return challengeRequestSentPage;
+    }
+
+    public void setChallengeRequestSentPage(VBox challengeRequestSentPage) {
+        this.challengeRequestSentPage = challengeRequestSentPage;
+    }
+
+    public MonsterInChallengeController getMonsterInChallengeController() {
+        return monsterInChallengeController;
+    }
+
+    public void setMonsterInChallengeController(MonsterInChallengeController monsterInChallengeController) {
+        this.monsterInChallengeController = monsterInChallengeController;
+    }
+
+    public HBox getMonsterInChallengePage() {
+        return monsterInChallengePage;
+    }
+
+    public void setMonsterInChallengePage(HBox monsterInChallengePage) {
+        this.monsterInChallengePage = monsterInChallengePage;
+    }
+
+    public VBox getNotHavingAnyChallengePage() {
+        return notHavingAnyChallengePage;
+    }
+
+    public void setNotHavingAnyChallengePage(VBox notHavingAnyChallengePage) {
+        this.notHavingAnyChallengePage = notHavingAnyChallengePage;
+    }
+
+    public VBox getChallengeLog() {
+        return challengeLog;
+    }
+
+    public void setChallengeLog(VBox challengeLog) {
+        this.challengeLog = challengeLog;
+    }
+
+    public ChallengeLogController getChallengeLogController() {
+        return challengeLogController;
+    }
+
+    public void setChallengeLogController(ChallengeLogController challengeLogController) {
+        this.challengeLogController = challengeLogController;
     }
 
     public VBox getChallengePage() {
