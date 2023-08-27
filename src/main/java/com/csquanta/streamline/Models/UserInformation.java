@@ -266,7 +266,6 @@ public class UserInformation implements Serializable {
 
 
             //time
-
             StaticUserInformation.pomodoroSessionTime = user.getPomodoroSessionTime();
             userInfo.setPomodoroSessionTime(user.getPomodoroSessionTime());
             StaticUserInformation.BreakTime = user.getBreakTime();
