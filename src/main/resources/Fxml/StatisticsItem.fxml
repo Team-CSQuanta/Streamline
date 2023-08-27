@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" style="-fx-border-radius: 20px; -fx-background-radius: 20px; -fx-border-color: linear-gradient(to bottom right, #18ABD1, #8968A3, #DD3982, #DE755C, #DEA63D);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" />
