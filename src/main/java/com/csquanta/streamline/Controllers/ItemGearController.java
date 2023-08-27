@@ -103,9 +103,9 @@ public class ItemGearController implements Initializable {
         itemType = item.getItemType();
     }
     public void soundPlayer(String soundPath){
-//        Media sound = new Media(this.getClass().getResource(soundPath).toString());
-//        MediaPlayer player = new MediaPlayer(sound);
-//        player.play();
+        Media sound = new Media(this.getClass().getResource(soundPath).toString());
+        MediaPlayer player = new MediaPlayer(sound);
+        player.play();
 
     }
 
