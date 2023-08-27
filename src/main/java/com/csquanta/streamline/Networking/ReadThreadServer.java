@@ -32,12 +32,37 @@ public class ReadThreadServer extends Thread {
                     String taskTag = ((ChallengeMessage) receivedMessage).getChallengeTaskTag();
                     String monsterName = ((ChallengeMessage) receivedMessage).getMonstersName();
                     String taskTitle = ((ChallengeMessage) receivedMessage).getTaskTitle();
+
+                   // String challengeSenderName = ((ChallengeMessage) receivedMessage).getChallengeRequestSenderName();
+
                     byte[]  imageData= ((ChallengeMessage) receivedMessage).getImageData();
+
 
 
                     ChallengeMessage challengeMessage;
 
-                    if (receiverInfo != null) {
+//                     if (receiverInfo != null) {
+//                         if (((ChallengeMessage) receivedMessage).isBuildConsistency()) {
+
+//                             challengeMessage = new ChallengeMessage(challengeSenderName, challengeType, challengeDescription, sender, receiver, pomodoroSession, taskTag, monsterName, taskTitle);
+
+//                         //} else {
+//                            // challengeMessage = new ChallengeMessage(challengeSenderName, challengeType, challengeDescription, sender, receiver, monsterName, taskTitle);
+
+//                             challengeMessage = new ChallengeMessage(challengeType, challengeDescription, sender, receiver, pomodoroSession, taskTag, monsterName, taskTitle,imageData);
+
+//                         } else {
+//                             challengeMessage = new ChallengeMessage(challengeType, challengeDescription, sender, receiver, monsterName, taskTitle,imageData);
+
+
+//                         }
+//                         receiverInfo.getNetworkUtil().write(challengeMessage);
+
+//                     }
+
+//                 } 
+                  
+                  if (receiverInfo != null) {
                         if (((ChallengeMessage) receivedMessage).isBuildConsistency()) {
                             challengeMessage = new ChallengeMessage(challengeType, challengeDescription, sender, receiver, pomodoroSession, taskTag, monsterName, taskTitle,imageData);
 
@@ -49,7 +74,8 @@ public class ReadThreadServer extends Thread {
 
                     }
 
-                } else if (receivedMessage.getMessageType() == MessageType.CHALLENGE_RESPONSE) {
+                }
+                  else if (receivedMessage.getMessageType() == MessageType.CHALLENGE_RESPONSE) {
 
                     String response = ((ChallengeResponse) receivedMessage).getResponseMessage();
                     ChallengeResponse responseMessage = new ChallengeResponse(sender, receiver, response);

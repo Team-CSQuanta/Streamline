@@ -8,13 +8,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox fx:id="topHbox" alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="239.0" prefWidth="1290.0" style="-fx-border-color: #9580FF; -fx-border-radius: 10px;" stylesheets="@../Styles/MonsterOnChallenge.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<HBox fx:id="topHbox" alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="239.0" prefWidth="1290.0" style="-fx-border-color: #9580FF; -fx-border-radius: 10px;" stylesheets="@../Styles/MonsterOnChallenge.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.MonsterInChallengeController">
    <children>
-      <ImageView fx:id="monsterImage" fitHeight="219.0" fitWidth="219.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Images/bosses/quest_ferret_low.png" />
-         </image>
-      </ImageView>
+      <ImageView fx:id="monsterImage" fitHeight="150.0" fitWidth="150.0" onDragDetected="#onMonsterImageDragDetected" pickOnBounds="true" preserveRatio="true" />
+      <HBox prefHeight="217.0" prefWidth="85.0" />
       <VBox prefHeight="178.0" prefWidth="496.0">
          <children>
             <Label fx:id="monsterName" alignment="CENTER" prefHeight="65.0" prefWidth="507.0" styleClass="nameTitle" />
@@ -28,7 +25,7 @@
                   <ProgressBar fx:id="monsterHealthRemaining" prefHeight="12.0" prefWidth="500.0" progress="0.66" />
                </children>
             </HBox>
-            <HBox fx:id="totalUsersHealthDamagedByTheMoster" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="500.0" spacing="10.0">
+            <HBox fx:id="totalUsersHealthDamagedByTheMonster" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="500.0" spacing="10.0">
                <children>
                   <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>

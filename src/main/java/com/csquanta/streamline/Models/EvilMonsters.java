@@ -9,6 +9,15 @@ public class EvilMonsters {
     private int health;
     private int damagePerAttack;
     private int prizePoints;
+    private double remainingHealth;
+
+    public double getRemainingHealth() {
+        return remainingHealth;
+    }
+
+    public void setRemainingHealth(double remainingHealth) {
+        this.remainingHealth = remainingHealth;
+    }
 
     public EvilMonsters() {
         firstInitializeEvilMonsters();

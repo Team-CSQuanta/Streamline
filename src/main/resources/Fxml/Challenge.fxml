@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="shopContainerVbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="955.0" prefWidth="1900.0" style="-fx-background-radius: 0px 0px 25px 25px; -fx-border-radius: 0px 0px 25px 25px; -fx-background-color: #282A36;" stylesheets="@../Styles/Challenge.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.ChallengeController">
+<VBox fx:id="shopContainerVbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="955.0" prefWidth="1900.0" style="-fx-background-radius: 0px 0px 25px 25px; -fx-border-radius: 0px 0px 25px 25px; -fx-background-color: #282A36;" stylesheets="@../Styles/Challenge.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.ChallengeController">
    <children>
       <SplitPane fx:id="ShopSpiltPane" dividerPositions="0.6" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="955.0" prefWidth="1900.0" style="-fx-border-radius: 0px 0px 25px 25px; -fx-background-radius: 0px 0px 25px 25px;">
          <items>
@@ -43,7 +43,7 @@
                   </HBox>
                   <VBox fx:id="bottomVbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="561.0" prefWidth="1290.0">
                      <VBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        <Insets />
                      </VBox.margin></VBox>
                </children>
             </VBox>

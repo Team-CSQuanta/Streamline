@@ -2,12 +2,22 @@ package com.csquanta.streamline.Networking;
 
 import java.io.File;
 
-public class ChallengeParticipantsInfo {
-    public static ChallengeParticipantsInfo challengeParticipantsInfo = new ChallengeParticipantsInfo();
+public class ChallengeInfoWhenParticipated {
+    public static ChallengeInfoWhenParticipated challengeInfoWhenParticipated = new ChallengeInfoWhenParticipated();
     private String participantsEmail;
     private String participantsName;
 
     private File participantsImageFile;
+    private String selectedMonsterName;
+
+    public String getSelectedMonsterName() {
+        return selectedMonsterName;
+    }
+
+    public void setSelectedMonsterName(String selectedMonsterName) {
+        this.selectedMonsterName = selectedMonsterName;
+    }
+
     public String getParticipantsEmail() {
         return participantsEmail;
     }

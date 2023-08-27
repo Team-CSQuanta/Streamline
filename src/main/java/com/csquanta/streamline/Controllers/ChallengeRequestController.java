@@ -1,23 +1,18 @@
 package com.csquanta.streamline.Controllers;
 
-import animatefx.animation.ZoomIn;
-import com.csquanta.streamline.App;
 import com.csquanta.streamline.Models.ChallengeUI;
-import com.csquanta.streamline.Models.UserInformation;
-import com.csquanta.streamline.Networking.ChallengeParticipantsInfo;
+import com.csquanta.streamline.Networking.ChallengeInfoWhenParticipated;
 import com.csquanta.streamline.Networking.ChallengeResponse;
 import com.csquanta.streamline.Networking.NetworkInformation;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
 
 import javax.imageio.ImageIO;
 import java.io.BufferedInputStream;
@@ -66,6 +61,7 @@ public class ChallengeRequestController {
     @FXML
     public ImageView image_bg;
 
+
     @FXML
     private Button decline;
 
@@ -87,6 +83,15 @@ public class ChallengeRequestController {
     public Label Ttag;
     @FXML
     private Label participantsName;
+
+    public Label getParticipantsName() {
+        return participantsName;
+    }
+
+    public void setParticipantsName(String participantsName) {
+        this.participantsName.setText(participantsName);
+    }
+
     ChallengeController challengeController = new ChallengeController();
 
 
@@ -97,18 +102,18 @@ public class ChallengeRequestController {
 
     @FXML
     void onAcceptBtnClicked(ActionEvent event) throws IOException {
-        // need to change topHbox and bottom vBox
         ChallengeUI.challengeUI.setChallengeMode(true);
         ChallengeUI.challengeUI.newLoadForChallengeUI();
-        // Participants user information storing
-        ChallengeParticipantsInfo.challengeParticipantsInfo.setParticipantsName(participantsName.getText());
+        ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.setParticipantsName(participantsName.getText());
         System.out.println("In accept button (Participant name): " + participantsName.getText());
 
+        ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.setSelectedMonsterName(monsterName.getText());
         // Participants avatar image saving
         WritableImage image = profileArea.snapshot(new SnapshotParameters(), null);
-        ChallengeParticipantsInfo.challengeParticipantsInfo.setParticipantsImageFile(new File(participantsName.getText() + "ChallengeImage.png"));
+        ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.setParticipantsImageFile(new File(participantsName.getText() + "ChallengeImage.png"));
+
         try {
-            ImageIO.write(SwingFXUtils.fromFXImage(image, null), "png", ChallengeParticipantsInfo.challengeParticipantsInfo.getParticipantsImageFile());
+            ImageIO.write(SwingFXUtils.fromFXImage(image, null), "png", ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.getParticipantsImageFile());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -116,7 +121,6 @@ public class ChallengeRequestController {
 
         String receiverEmail = ChallengeUI.challengeUI.getRequestSenderEmail();
         String responseMessage = "Your Challenge has been accepted!";
-
 
         ChallengeResponse challengeResponse = new ChallengeResponse(userInfo.getEmail(),receiverEmail,responseMessage);
 
