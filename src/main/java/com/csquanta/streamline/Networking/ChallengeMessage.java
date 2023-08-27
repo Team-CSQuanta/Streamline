@@ -19,7 +19,7 @@ public class ChallengeMessage extends Message implements Serializable {
 
    // public ChallengeMessage(String challengeRequestSenderName,String challengeType, String challengeDescription, String from, String to, String monstersName, String taskTitle)
 
-    public ChallengeMessage( String challengeType, String challengeDescription, String from, String to, String monstersName, String taskTitle,byte[] imageData)
+    public ChallengeMessage(String challengeRequestSenderName, String challengeType, String challengeDescription, String from, String to, String monstersName, String taskTitle,byte[] imageData)
 
     {
         super(MessageType.CHALLENGE, from, to);
@@ -30,8 +30,7 @@ public class ChallengeMessage extends Message implements Serializable {
         this.monstersName = monstersName;
         this.taskTitle=taskTitle;
         this.imageData = imageData;
-
-       // this.challengeRequestSenderName = challengeRequestSenderName;
+        this.challengeRequestSenderName = challengeRequestSenderName;
 
     }
 
@@ -41,7 +40,7 @@ public class ChallengeMessage extends Message implements Serializable {
 
    // }
 
-    public ChallengeMessage( String challengeType, String challengeDescription, String from, String to,String challengeTaskPomodoroSession, String challengeTaskTag, String monstersName,String taskTitle,byte[] imageData) {
+    public ChallengeMessage(String challengeRequestSenderName, String challengeType, String challengeDescription, String from, String to,String challengeTaskPomodoroSession, String challengeTaskTag, String monstersName,String taskTitle,byte[] imageData) {
 
         super(MessageType.CHALLENGE, from, to);
         this.challengeType = challengeType;
@@ -52,8 +51,7 @@ public class ChallengeMessage extends Message implements Serializable {
         this.to = to;
         this.monstersName = monstersName;
         this.taskTitle = taskTitle;
-
-        //this.challengeRequestSenderName = challengeRequestSenderName;
+        this.challengeRequestSenderName = challengeRequestSenderName;
 
        // this.imageData = imageData;
 

@@ -180,7 +180,7 @@ public class ChallengeCreatorController implements Initializable {
                 try (FileInputStream fileInputStream = new FileInputStream(imageFile)) {
                     int bytesRead = fileInputStream.read(imageBytes);
                     if (bytesRead != -1) {
-                        ChallengeMessage challengeMessage = new ChallengeMessage( challengeType,challengeDescription,userInfo.getEmail(), receiverEmail, pomodoroSession, taskTag, monstersName,taskTitle,imageBytes);
+                        ChallengeMessage challengeMessage = new ChallengeMessage(userInfo.getDisplayName(), challengeType,challengeDescription,userInfo.getEmail(), receiverEmail, pomodoroSession, taskTag, monstersName,taskTitle,imageBytes);
 
                         networkUtil.write(challengeMessage);
                     }
@@ -202,7 +202,7 @@ public class ChallengeCreatorController implements Initializable {
                 try (FileInputStream fileInputStream = new FileInputStream(imageFile)) {
                     int bytesRead = fileInputStream.read(imageBytes);
                     if (bytesRead != -1) {
-                        ChallengeMessage challengeMessage= new ChallengeMessage( challengeType, challengeDescription,userInfo.getEmail(), receiverEmail,monstersName,taskTitle,imageBytes);
+                        ChallengeMessage challengeMessage= new ChallengeMessage(userInfo.getDisplayName(), challengeType, challengeDescription,userInfo.getEmail(), receiverEmail,monstersName,taskTitle,imageBytes);
                         networkUtil.write(challengeMessage);
 
                     }
