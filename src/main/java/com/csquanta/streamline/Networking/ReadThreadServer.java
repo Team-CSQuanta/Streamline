@@ -32,8 +32,7 @@ public class ReadThreadServer extends Thread {
                     String taskTag = ((ChallengeMessage) receivedMessage).getChallengeTaskTag();
                     String monsterName = ((ChallengeMessage) receivedMessage).getMonstersName();
                     String taskTitle = ((ChallengeMessage) receivedMessage).getTaskTitle();
-
-                   // String challengeSenderName = ((ChallengeMessage) receivedMessage).getChallengeRequestSenderName();
+                    String challengeSenderName = ((ChallengeMessage) receivedMessage).getChallengeRequestSenderName();
 
                     byte[]  imageData= ((ChallengeMessage) receivedMessage).getImageData();
 
@@ -64,10 +63,10 @@ public class ReadThreadServer extends Thread {
                   
                   if (receiverInfo != null) {
                         if (((ChallengeMessage) receivedMessage).isBuildConsistency()) {
-                            challengeMessage = new ChallengeMessage(challengeType, challengeDescription, sender, receiver, pomodoroSession, taskTag, monsterName, taskTitle,imageData);
+                            challengeMessage = new ChallengeMessage(challengeSenderName, challengeType, challengeDescription, sender, receiver, pomodoroSession, taskTag, monsterName, taskTitle,imageData);
 
                         } else {
-                            challengeMessage = new ChallengeMessage(challengeType, challengeDescription, sender, receiver, monsterName, taskTitle,imageData);
+                            challengeMessage = new ChallengeMessage(challengeSenderName, challengeType, challengeDescription, sender, receiver, monsterName, taskTitle,imageData);
 
                         }
                         receiverInfo.getNetworkUtil().write(challengeMessage);
