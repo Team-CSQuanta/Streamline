@@ -269,24 +269,32 @@ public class ChallengeUI {
         switch (randomChoice.nextInt(4)) {
             case 0 -> {
                 int armorBoughtListSize = ShopController.shop.getBoughtArmorList().size();
+                if(armorBoughtListSize == 0)
+                    break;
                 ArrayList<Item> armorBoughtList = new ArrayList<>(ShopController.shop.getBoughtArmorList());
                 ShopController.shop.removeArmorFromBoughtList(armorBoughtList.get(randomItemPicker.nextInt(armorBoughtListSize)));
                 System.out.println("Armor item removed");
             }
             case 1 -> {
                 int headWearBoughtSize = ShopController.shop.getBoughtHeadWearList().size();
+                if(headWearBoughtSize == 0)
+                    break;
                 ArrayList<Item> headWearBoughtList = new ArrayList<>(ShopController.shop.getBoughtHeadWearList());
                 ShopController.shop.removeHeadWearFromBoughtList(headWearBoughtList.get(randomItemPicker.nextInt(headWearBoughtSize)));
                 System.out.println("Head Wear item removed");
             }
             case 2 -> {
                 int petListSize = ShopController.shop.getBoughtPetList().size();
+                if(petListSize == 0)
+                    break;
                 ArrayList<Item> petBoughtList = new ArrayList<>(ShopController.shop.getBoughtPetList());
                 ShopController.shop.removePetFromBoughtList(petBoughtList.get(randomItemPicker.nextInt(petListSize)));
                 System.out.println("Pet item removed");
             }
             case 3 -> {
                 int bgListSize = ShopController.shop.getBoughtBackgroundList().size();
+                if(bgListSize == 0)
+                    break;
                 ArrayList<Item> bgBoughtList = new ArrayList<>(ShopController.shop.getBoughtBackgroundList());
                 ShopController.shop.removeBackgroundFrommBoughtList(bgBoughtList.get(randomItemPicker.nextInt(bgListSize)));
                 System.out.println("Background Item removed");
