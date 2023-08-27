@@ -4,12 +4,13 @@ import java.io.Serializable;
 
 public class ChallengeUpdate extends Message implements Serializable {
 
-    String title;
+    private String title;
+    private int numOfSession;
 
-
-    public ChallengeUpdate( String from, String to, String title) {
+    public ChallengeUpdate( String from, String to, String title, int numOfNumSession) {
         super(MessageType.CHALLENGE_UPDATE, from, to);
         this.title = title;
+        this.numOfSession = numOfNumSession;
 
     }
 
@@ -21,5 +22,11 @@ public class ChallengeUpdate extends Message implements Serializable {
         this.title = title;
     }
 
+    public int getNumOfSession() {
+        return numOfSession;
+    }
 
+    public void setNumOfSession(int numOfSession) {
+        this.numOfSession = numOfSession;
+    }
 }

@@ -3,6 +3,7 @@ package com.csquanta.streamline.Controllers;
 import com.csquanta.streamline.Models.UserInformation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -43,6 +44,8 @@ public class SettingsController implements Initializable , Serializable {
 
     @FXML
     private TextField userName;
+    @FXML
+    private PasswordField taskTagCreator;
 
     @FXML
     void editDisplayName(MouseEvent event) {
@@ -74,6 +77,11 @@ public class SettingsController implements Initializable , Serializable {
         userName.setEditable(true);
     }
 
+
+    @FXML
+    void OnMiscellaneousSaveClicked(ActionEvent event) {
+
+    }
     @FXML
     void saveAccountsInfo(MouseEvent event) {
         userInfo.setUserName(userName.getText());

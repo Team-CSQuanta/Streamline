@@ -136,6 +136,8 @@ public class ReadThreadClient extends Thread {
                 }else if(receivedMessage.getMessageType() == MessageType.CHALLENGE_UPDATE){
 
                     String title = ((ChallengeUpdate) receivedMessage).getTitle();
+                    int numberOfSession = ((ChallengeUpdate) receivedMessage).getNumOfSession();
+                    ChallengeUI.challengeUI.deductMonsterHealth(numberOfSession);
                     Platform.runLater(() ->{
                         ChallengeTaskLog task = new ChallengeTaskLog(userInfo.getDisplayName(), sender, title);
                         ChallengeTaskLog.taskLog.getChallengeTaskLogs().add(task);

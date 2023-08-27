@@ -86,7 +86,8 @@ public class ReadThreadServer extends Thread {
                 } else if (receivedMessage.getMessageType() == MessageType.CHALLENGE_UPDATE) {
 
                     String title = ((ChallengeUpdate) receivedMessage).getTitle();
-                    ChallengeUpdate challengeUpdate = new ChallengeUpdate(sender, receiver, title);
+                    int numberOfSession = ((ChallengeUpdate) receivedMessage).getNumOfSession();
+                    ChallengeUpdate challengeUpdate = new ChallengeUpdate(sender, receiver, title, numberOfSession);
                     receiverInfo.getNetworkUtil().write(challengeUpdate);
 
 
