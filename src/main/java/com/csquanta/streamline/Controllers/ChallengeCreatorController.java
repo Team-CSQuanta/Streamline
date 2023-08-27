@@ -1,24 +1,29 @@
 package com.csquanta.streamline.Controllers;
 
 import animatefx.animation.FadeIn;
-import animatefx.animation.ZoomIn;
-import com.csquanta.streamline.App;
 import com.csquanta.streamline.Models.ChallengeUI;
-import com.csquanta.streamline.Models.UserInformation;
+import com.csquanta.streamline.Networking.ChallengeInfoWhenParticipated;
 import com.csquanta.streamline.Networking.ChallengeMessage;
-import javafx.animation.PauseTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.util.Duration;
 
-import java.io.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+
+import javafx.scene.layout.HBox;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -164,6 +169,8 @@ public class ChallengeCreatorController implements Initializable {
             String taskTag = String.valueOf(getChallengeTaskTag().getValue());
             String monstersName = getSelectMonster().getSelectionModel().getSelectedItem();
             String taskTitle = TaskTitle.getText();
+            ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.setMonsterNameForChallengeSender(selectMonster.getSelectionModel().getSelectedItem());
+            ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.setChallengeSenderStatus(true);
             if ("Build consistency".equals(challengeType)) {
 
                 File imageFile = new File(imagePath);
@@ -231,6 +238,5 @@ public class ChallengeCreatorController implements Initializable {
         TaskTitle.setVisible(false);
 
     }
-
 
 }
