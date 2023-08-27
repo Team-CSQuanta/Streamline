@@ -271,6 +271,7 @@ public class ChallengeUI {
                 int armorBoughtListSize = ShopController.shop.getBoughtArmorList().size();
                 ArrayList<Item> armorBoughtList = new ArrayList<>(ShopController.shop.getBoughtArmorList());
                 ShopController.shop.removeArmorFromBoughtList(armorBoughtList.get(randomItemPicker.nextInt(armorBoughtListSize)));
+                System.out.println("Armor item removed");
             }
             case 1 -> {
                 int headWearBoughtSize = ShopController.shop.getBoughtHeadWearList().size();

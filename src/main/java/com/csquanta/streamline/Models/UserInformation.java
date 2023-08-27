@@ -270,7 +270,7 @@ public class UserInformation implements Serializable {
             UserInformation user = (UserInformation) objIStream.readObject();
             // User health point
             StaticUserInformation.userHealth = user.getUserHealth();
-            userInfo.setUserHealth(user.getUserHealth());
+            userInfo.setUserHealth(10);
 
             // Total points
             StaticUserInformation.totalGoldCoins = user.getTotalGoldCoins();
