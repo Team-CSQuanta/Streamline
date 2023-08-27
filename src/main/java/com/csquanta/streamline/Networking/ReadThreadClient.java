@@ -149,6 +149,14 @@ public class ReadThreadClient extends Thread {
 
                     });
 
+                }else if(receivedMessage.getMessageType() == MessageType.MONSTER_ATTACK){
+                    boolean status = ((MrMonsterWinner) receivedMessage).isSignal();
+                    String attackType = ((MrMonsterWinner) receivedMessage).getAttackType();
+                    if(status && attackType.equals("userHealthZero")){
+                        ChallengeUI.challengeUI.monsterAcquisition();
+                    }else{
+                        ChallengeUI.challengeUI.deductHealthPointsBasedOnMonsterDamagePerAttack();
+                    }
                 }
             }
 

@@ -4,17 +4,28 @@ import java.io.Serializable;
 
 public class MrMonsterWinner extends Message implements Serializable {
 
-    int UserHealth;
-    public MrMonsterWinner( String from, String to,int UserHealth) {
+    private boolean signal ;
+    private String attackType;
+    public MrMonsterWinner( String from, String to,boolean signal, String attackType) {
         super(MessageType.MONSTER_ATTACK, from, to);
-        this.UserHealth = UserHealth;
+        this.signal = signal;
+        this.attackType = attackType;
+
     }
 
-    public int getUserHealth() {
-        return UserHealth;
+    public String getAttackType() {
+        return attackType;
     }
 
-    public void setUserHealth(int userHealth) {
-        UserHealth = userHealth;
+    public void setAttackType(String attackType) {
+        this.attackType = attackType;
+    }
+
+    public boolean isSignal() {
+        return signal;
+    }
+
+    public void setSignal(boolean signal) {
+        this.signal = signal;
     }
 }

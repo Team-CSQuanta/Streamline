@@ -130,25 +130,6 @@ public class ChallengeController implements Initializable {
         }
     }
 
-//    public String loadClientInfoFromFile() {
-//        String email = null;
-//        try (BufferedReader reader = new BufferedReader(new FileReader("client_info.txt"))) {
-//            String line;
-//
-//            while ((line = reader.readLine()) != null) {
-//                String[] parts = line.split(",");
-//                if (parts.length >= 2) {
-//                    String name = parts[0];
-//                    email = parts[1];
-//                } else {
-//                    System.err.println("Invalid line format: " + line);
-//                }
-//            }
-//        } catch (IOException e) {
-//            System.err.println("Error reading client info file: " + e.getMessage());
-//        }
-//        return email;
-//    }
 
     public void challengePageStatus(VBox bottomVbox){
         if(!bottomVbox.getChildren().isEmpty()){

@@ -304,4 +304,56 @@ public class ChallengeUI {
     }
 
 
+    public ConsistenceInformation consistencyChecker(){
+        ArrayList<Integer> list = userInfo.getConsistencyTracker();
+        int consistencyStreak = 0;
+        boolean isConsistence = false;
+        for(int i = 0; i <(list.size() -1); i++){
+            if(list.get(i) == 1 && list.get(i + 1) == 1){
+                consistencyStreak++;
+                isConsistence = true;
+            }else {
+                isConsistence = false;
+                break;
+            }
+        }
+        return new ConsistenceInformation(consistencyStreak, isConsistence);
+    }
+
+    public void  deductHealthPointsBasedOnMonsterDamagePerAttack(){
+        if(ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.isChallengeSenderStatus()){
+            String monsterName = ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.getMonsterNameForChallengeSender();
+            for(EvilMonsters e: EvilMonsters.evilMonstersStaticObject.getEvilMonstersList()){
+                if(e.getName().equals(monsterName)){
+                    int damagePerAttack = e.getDamagePerAttack();
+                    if(userInfo.getUserHealth() -damagePerAttack > 0)
+                        userInfo.setUserHealth(userInfo.getUserHealth() - damagePerAttack);
+                    else
+                        userInfo.setUserHealth(0);
+                    double previousValue = monsterInChallengeController.getStrikeProgressBar().getProgress()* 100;
+                    System.out.println("Previous value of strike progress bar is : " + previousValue);
+                    monsterInChallengeController.getStrikeProgressBar().setProgress((previousValue + damagePerAttack)/100);
+                    System.out.println("Monster attacked as there is no future task scheduled");
+                    break;
+                }
+            }
+        }else {
+            String monsterName = ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.getSelectedMonsterName();
+            for(EvilMonsters e: EvilMonsters.evilMonstersStaticObject.getEvilMonstersList()){
+                if(e.getName().equals(monsterName)){
+                    int damagePerAttack = e.getDamagePerAttack();
+                    if(userInfo.getUserHealth() -damagePerAttack > 0)
+                        userInfo.setUserHealth(userInfo.getUserHealth() - damagePerAttack);
+                    else
+                        userInfo.setUserHealth(0);
+                    double previousValue = monsterInChallengeController.getStrikeProgressBar().getProgress()* 100;
+                    System.out.println("Previous value of strike progress bar is : " + previousValue);
+                    monsterInChallengeController.getStrikeProgressBar().setProgress((previousValue + damagePerAttack)/100);
+                    System.out.println("Monster attacked as there is no future task scheduled");
+                    break;
+                }
+            }
+        }
+
+    }
 }

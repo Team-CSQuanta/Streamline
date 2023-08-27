@@ -39,28 +39,6 @@ public class ReadThreadServer extends Thread {
 
 
                     ChallengeMessage challengeMessage;
-
-//                     if (receiverInfo != null) {
-//                         if (((ChallengeMessage) receivedMessage).isBuildConsistency()) {
-
-//                             challengeMessage = new ChallengeMessage(challengeSenderName, challengeType, challengeDescription, sender, receiver, pomodoroSession, taskTag, monsterName, taskTitle);
-
-//                         //} else {
-//                            // challengeMessage = new ChallengeMessage(challengeSenderName, challengeType, challengeDescription, sender, receiver, monsterName, taskTitle);
-
-//                             challengeMessage = new ChallengeMessage(challengeType, challengeDescription, sender, receiver, pomodoroSession, taskTag, monsterName, taskTitle,imageData);
-
-//                         } else {
-//                             challengeMessage = new ChallengeMessage(challengeType, challengeDescription, sender, receiver, monsterName, taskTitle,imageData);
-
-
-//                         }
-//                         receiverInfo.getNetworkUtil().write(challengeMessage);
-
-//                     }
-
-//                 } 
-                  
                   if (receiverInfo != null) {
                         if (((ChallengeMessage) receivedMessage).isBuildConsistency()) {
                             challengeMessage = new ChallengeMessage(challengeSenderName, challengeType, challengeDescription, sender, receiver, pomodoroSession, taskTag, monsterName, taskTitle,imageData);
@@ -92,7 +70,12 @@ public class ReadThreadServer extends Thread {
 
 
 
-                        }
+                  } else if (receivedMessage.getMessageType() == MessageType.MONSTER_ATTACK){
+                      boolean status = ((MrMonsterWinner) receivedMessage).isSignal();
+                      String attackType = ((MrMonsterWinner) receivedMessage).getAttackType();
+                      MrMonsterWinner mrMonsterWinner = new MrMonsterWinner(sender, receiver, status, attackType);
+                      receiverInfo.getNetworkUtil().write(mrMonsterWinner);
+                }
                    
                 }catch (Exception e){
                     System.out.println("Exception occurred in read thread server");
