@@ -145,8 +145,8 @@ public class PomodoroPageController implements Initializable {
             // For Challenge log
             if(ChallengeUI.challengeUI.getChallengeMode()){
 
-                ChallengeUI.challengeUI.deductMonsterHealth(task);
-                ChallengeUpdate challengeUpdate = new ChallengeUpdate(userInfo.getEmail(), ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.getParticipantsEmail(),task.getTaskTitle());
+                ChallengeUI.challengeUI.deductMonsterHealth(task.getNumOfSessions());
+                ChallengeUpdate challengeUpdate = new ChallengeUpdate(userInfo.getEmail(), ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.getParticipantsEmail(),task.getTaskTitle(), task.getNumOfSessions());
 
 
 

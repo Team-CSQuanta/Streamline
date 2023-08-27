@@ -248,9 +248,9 @@ public class ChallengeUI {
         zoomIn.play();
     }
 
-    public void deductMonsterHealth(Task task){
+    public void deductMonsterHealth(int numOfSession){
         System.out.println("Selected monster health: " + selectedMonsterForChallenge.getHealth());
-        double remainingHealthOfMonster = selectedMonsterForChallenge.getRemainingHealth() - (task.getNumOfSessions()* 100);
+        double remainingHealthOfMonster = selectedMonsterForChallenge.getRemainingHealth() - (numOfSession* 100);
         selectedMonsterForChallenge.setRemainingHealth(remainingHealthOfMonster);
         System.out.println("Deductible Health per session: " + remainingHealthOfMonster);
         double deductibleHealth = ((selectedMonsterForChallenge.getHealth() -remainingHealthOfMonster) / selectedMonsterForChallenge.getHealth());
