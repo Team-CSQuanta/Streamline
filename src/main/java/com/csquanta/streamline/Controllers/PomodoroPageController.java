@@ -136,6 +136,7 @@ ChallengeCreatorController challengeCreatorController= new ChallengeCreatorContr
                 if (profileViewController != null) {
                     profileViewController.updateHealthProgress(userHealth);
                 }
+                System.out.println("User health incremented to "+userHealth);
             }
             button.setVisible(false);
             afterCompletingTaskReward();
