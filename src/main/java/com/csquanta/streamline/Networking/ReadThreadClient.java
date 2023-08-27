@@ -152,6 +152,14 @@ public class ReadThreadClient extends Thread {
                     });
 
                     String challengeResponse = ((ChallengeResponse) receivedMessage).getResponseMessage();
+                    byte[] imageData = ((ChallengeResponse) receivedMessage).getImageData();
+                    String imagePath = "received_profile_image" + ".png";
+                    try (FileOutputStream imageOutputStream = new FileOutputStream(imagePath)) {
+                        imageOutputStream.write(imageData);
+                        System.out.println("Image received and saved as " + imagePath);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                     System.out.println(challengeResponse);
 
                 }else if(receivedMessage.getMessageType() == MessageType.CHALLENGE_UPDATE){
