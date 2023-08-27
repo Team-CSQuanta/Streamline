@@ -10,8 +10,7 @@ import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 
 public class ReadThreadClient extends Thread {
     private NetworkUtil networkUtil;
@@ -72,8 +71,13 @@ public class ReadThreadClient extends Thread {
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
+                        try {
+                            InputStream stream = new FileInputStream("received_profile_image.png");
+                            controller.setSenderImage(new Image(stream));
+                        } catch (FileNotFoundException e) {
+                            throw new RuntimeException(e);
+                        }
 
-                      controller.setSenderImage(new Image("received_profile_image.png"));
 
                         if ("Build consistency".equals(challengeType)) {
                             controller.ChallengeType.setText(challengeType);
