@@ -9,14 +9,14 @@ import java.util.TimerTask;
 import static com.csquanta.streamline.Controllers.TakeBreakController.restMode;
 import static com.csquanta.streamline.Models.UserInformation.userInfo;
 
-public class TaskManager {
+public class MrDaemon {
     private Timer timer;
 
     public void startTaskChecking() {
         timer = new Timer();
-        long delay = 0;
-        long period = 24 * 60 * 60 * 1000;
-        //long period = 60 * 1000;
+        long delay = 2000;
+        //long period = 24 * 60 * 60 * 1000;
+        long period = 60 * 1000;
 
 
         TimerTask task = new TimerTask() {
@@ -43,6 +43,14 @@ public class TaskManager {
                         userInfo.deductHealthPointsBasedOnTasks(incompleteTasks);
                     }
                 }
+
+                // Checking whether user's health is Zero or not
+                if (userInfo.getUserHealth()==0){
+
+
+                }
+
+
             }
         };
 

@@ -25,7 +25,7 @@ public class App extends Application {
     public  static StackPane root;
     public static Stage mainStage;
     public static Dracula dracula = new Dracula();
-    static TaskManager taskManager = new TaskManager();
+    static MrDaemon taskManager = new MrDaemon();
 
     private double x, y;
     public App() {
