@@ -14,9 +14,9 @@ public class TaskManager {
 
     public void startTaskChecking() {
         timer = new Timer();
-        long delay = 60000;
-       // long period = 24 * 60 * 60 * 1000;
-        long period = 60 * 1000;
+        long delay = 0;
+        long period = 24 * 60 * 60 * 1000;
+        //long period = 60 * 1000;
 
 
         TimerTask task = new TimerTask() {
