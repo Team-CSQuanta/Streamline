@@ -120,6 +120,8 @@ public class ReadThreadClient extends Thread {
                     });
 
                     String challengeResponse = ((ChallengeResponse) receivedMessage).getResponseMessage();
+                    String recipient_name =  ((ChallengeResponse) receivedMessage).getRecipient_name();
+                    ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.setParticipantsName(recipient_name);
                     byte[] imageData = ((ChallengeResponse) receivedMessage).getImageData();
                     String imagePath = "received_profile_image" + ".png";
                     try (FileOutputStream imageOutputStream = new FileOutputStream(imagePath)) {

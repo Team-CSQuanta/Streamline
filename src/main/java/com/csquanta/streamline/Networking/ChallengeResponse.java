@@ -9,10 +9,11 @@ public class ChallengeResponse extends Message implements Serializable{
     private String recipient_name;
 
 
-    public ChallengeResponse(String from, String to,String responseMessage,byte[] imageData) {
+    public ChallengeResponse(String recipient_name,String from, String to,String responseMessage,byte[] imageData) {
         super(MessageType.CHALLENGE_RESPONSE, from, to);
         this.responseMessage = responseMessage;
         this.imageData = imageData;
+        this.recipient_name = recipient_name;
 
     }
 
@@ -37,5 +38,13 @@ public class ChallengeResponse extends Message implements Serializable{
 
     public void setImageData(byte[] imageData) {
         this.imageData = imageData;
+    }
+
+    public String getRecipient_name() {
+        return recipient_name;
+    }
+
+    public void setRecipient_name(String recipient_name) {
+        this.recipient_name = recipient_name;
     }
 }
