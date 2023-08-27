@@ -78,8 +78,9 @@ public class ReadThreadServer extends Thread {
 
                     String response = ((ChallengeResponse) receivedMessage).getResponseMessage();
                     byte[]  imageData= ((ChallengeResponse) receivedMessage).getImageData();
+                    String recipient_name = ((ChallengeResponse) receivedMessage).getRecipient_name();
 
-                    ChallengeResponse responseMessage = new ChallengeResponse(sender, receiver, response,imageData);
+                    ChallengeResponse responseMessage = new ChallengeResponse(recipient_name,sender, receiver, response,imageData);
                     receiverInfo.getNetworkUtil().write(responseMessage);
 
                 } else if (receivedMessage.getMessageType() == MessageType.CHALLENGE_UPDATE) {

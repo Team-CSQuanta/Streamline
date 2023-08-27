@@ -96,7 +96,7 @@ public class ChallengeRequestController {
             try (FileInputStream fileInputStream = new FileInputStream(imageFile)) {
                 int bytesRead = fileInputStream.read(imageBytes);
                 if (bytesRead != -1) {
-                    ChallengeResponse challengeResponse = new ChallengeResponse(userInfo.getEmail(),receiverEmail,responseMessage,imageBytes);
+                    ChallengeResponse challengeResponse = new ChallengeResponse(userInfo.getDisplayName(),userInfo.getEmail(),receiverEmail,responseMessage,imageBytes);
                     networkUtil.write(challengeResponse);
                 }
             } catch (IOException e) {
