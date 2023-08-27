@@ -133,11 +133,8 @@ public class PomodoroPageController implements Initializable {
             int userHealth = userInfo.getUserHealth();
             if (userHealth!=100){
                 userHealth = userHealth+2;
-                ProfileViewController profileViewController = HeaderController.getController();
-                if (profileViewController != null) {
-                    profileViewController.updateHealthProgress(userHealth);
-                }
-                System.out.println("User health incremented to "+userHealth);
+                userInfo.setUserHealth(userHealth);
+                System.out.println("User health incremented to "+ userInfo.getUserHealth());
             }
             button.setVisible(false);
             afterCompletingTaskReward();
