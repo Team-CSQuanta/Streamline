@@ -169,7 +169,7 @@ public class ChallengeCreatorController implements Initializable {
             String challengeDescription = String.valueOf(getChallengeDescription().getText());
             String pomodoroSession = String.valueOf(getChallengeTaskPomodoroSession().getValue());
             String taskTag = String.valueOf(getChallengeTaskTag().getValue());
-            String monstersName = String.valueOf(getSelectMonster().getValue());
+            String monstersName = getSelectMonster().getSelectionModel().getSelectedItem();
             String taskTitle = TaskTitle.getText();
             if ("Build consistency".equals(challengeType)) {
 

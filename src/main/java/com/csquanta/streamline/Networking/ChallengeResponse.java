@@ -23,8 +23,7 @@ public class ChallengeResponse extends Message implements Serializable{
         this.accepted = accepted;
     }
 
-    public String getResponseMessage() {
-        return responseMessage;
+    public String getResponseMessage() {return responseMessage;
     }
 
     public void setResponseMessage(String responseMessage) {
