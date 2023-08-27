@@ -30,6 +30,7 @@ import java.util.ResourceBundle;
 
 import static com.csquanta.streamline.Controllers.ChallengeController.networkUtil;
 import static com.csquanta.streamline.Controllers.HeaderController.modalPaneForHeader;
+import static com.csquanta.streamline.Controllers.TaskCreatorController.tags;
 import static com.csquanta.streamline.Models.UserInformation.userInfo;
 
 public class ChallengeCreatorController implements Initializable {
@@ -38,7 +39,7 @@ public class ChallengeCreatorController implements Initializable {
     ObservableList<String> monster = FXCollections.observableArrayList("Amber", "Armadillo", "Axolotl", "Badger", "Butterfly", "Cheetah", "Derby", "Dilatory",
     "Dilatory Distress");
     ObservableList<String> PomodoroSession= FXCollections.observableArrayList("1", "2","3","4","5","6","7");
-    ObservableList<String> taskTag = FXCollections.observableArrayList("Programming","Study","Academic studies");
+
     @FXML
     private Button cancel;
 
@@ -233,10 +234,9 @@ public class ChallengeCreatorController implements Initializable {
         challengeType.setItems(challenges);
         selectMonster.setItems(monster);
         challengeTaskPomodoroSession.setItems(PomodoroSession);
-        challengeTaskTag.setItems(taskTag);
         dailyTaskNecessaryField.setVisible(false);
         TaskTitle.setVisible(false);
-
+        challengeTaskTag.setItems(tags);
     }
 
 }

@@ -39,15 +39,14 @@ public class MrDaemon {
                 LocalTime midnight = LocalTime.of(8, 0, 59); // 11:59:59 PM
 
                 if (currentTime.isAfter(midnight)) {
-                    if (!restMode) {
+                    if (!userInfo.isRestMode()) {
                         userInfo.deductHealthPointsBasedOnTasks(incompleteTasks);
                     }
                 }
 
                 // Checking whether user's health is Zero or not
-                if (userInfo.getUserHealth()==0){
-
-
+                if (userInfo.getUserHealth()==0 && ChallengeUI.challengeUI.getChallengeMode()){
+                    
                 }
 
 
