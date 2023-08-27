@@ -82,7 +82,7 @@ public class TaskCreatorController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Missing Fields");
             alert.setHeaderText(null);
-            alert.setContentText("Please fill in all fields.");
+            alert.setContentText("Please fill up all fields.");
             alert.showAndWait();
             return;
         }
