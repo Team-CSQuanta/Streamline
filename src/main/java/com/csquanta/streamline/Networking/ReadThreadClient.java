@@ -12,6 +12,8 @@ import javafx.scene.image.Image;
 
 import java.io.*;
 
+import static com.csquanta.streamline.Models.UserInformation.userInfo;
+
 public class ReadThreadClient extends Thread {
     private NetworkUtil networkUtil;
     private String clientEmail;
@@ -136,7 +138,7 @@ public class ReadThreadClient extends Thread {
 
                     String title = ((ChallengeUpdate) receivedMessage).getTitle();
                     Platform.runLater(() ->{
-                        ChallengeTaskLog task = new ChallengeTaskLog("Jubair", sender, title);
+                        ChallengeTaskLog task = new ChallengeTaskLog(userInfo.getDisplayName(), sender, title);
                         ChallengeTaskLog.taskLog.getChallengeTaskLogs().add(task);
                         try {
                             ChallengeUI.challengeUI.newLoadForChallengeUI();
