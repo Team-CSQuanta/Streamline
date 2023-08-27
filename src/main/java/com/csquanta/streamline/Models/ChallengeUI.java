@@ -212,7 +212,7 @@ public class ChallengeUI {
             App.root.getChildren().add(challengeUI.getChallengePage());
         }else{
             for(EvilMonsters monster: EvilMonsters.evilMonstersStaticObject.getEvilMonstersList()){
-                if(monster.getName().equals(ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.getSelectedMonsterName()) && (monsterInChallengeController.getMonsterImage().getImage() == null && ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.isChallengeSenderStatus())){
+                if(monster.getName().equals(ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.getSelectedMonsterName()) && (monsterInChallengeController.getMonsterImage().getImage() == null && !ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.isChallengeSenderStatus())){
                     // Setting monster initial health
 
                     setSelectedMonsterForChallenge(monster);
