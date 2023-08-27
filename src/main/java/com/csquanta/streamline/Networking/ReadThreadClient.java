@@ -111,6 +111,8 @@ public class ReadThreadClient extends Thread {
 //                        Image BodyImage = new Image(getClass().getResourceAsStream(imageBody));
 //                        controller.avatarBody.setImage(BodyImage);
 
+
+
                         if ("Build consistency".equals(challengeType)) {
                             controller.ChallengeType.setText(challengeType);
                             controller.PomoSession.setText(pomodoroSession);
