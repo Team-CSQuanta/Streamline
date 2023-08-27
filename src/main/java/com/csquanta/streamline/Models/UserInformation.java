@@ -165,7 +165,11 @@ public class UserInformation implements Serializable {
 
         int deductionPercentage = Math.min(maxDeductionPercentage, totalIncompleteTasks * 10);
 
-        int randomFactor = random.nextInt(11); // Generates a random number between 0 and 10
+        int randomFactor = 0;
+
+        if (totalIncompleteTasks > 0) {
+            randomFactor = random.nextInt(11);
+        }
         deductionPercentage = deductionPercentage + randomFactor;
 
         int deductionValue = (int) Math.round(userInfo.userHealth * deductionPercentage / 100.0);
@@ -273,7 +277,7 @@ public class UserInformation implements Serializable {
             UserInformation user = (UserInformation) objIStream.readObject();
             // User health point
             StaticUserInformation.userHealth = user.getUserHealth();
-            userInfo.setUserHealth(10);
+            userInfo.setUserHealth(userInfo.getUserHealth());
 
             // Total points
             StaticUserInformation.totalGoldCoins = user.getTotalGoldCoins();
