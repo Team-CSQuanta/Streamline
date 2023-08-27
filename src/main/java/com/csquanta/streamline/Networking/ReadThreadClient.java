@@ -112,7 +112,6 @@ public class ReadThreadClient extends Thread {
                     ChallengeUI.challengeUI.setPendingStatus(false);
                     ChallengeUI.challengeUI.setChallengeMode(true);
 
-
                     Platform.runLater(() ->{
                         try {
                             ChallengeUI.challengeUI.newLoadForChallengeUI();

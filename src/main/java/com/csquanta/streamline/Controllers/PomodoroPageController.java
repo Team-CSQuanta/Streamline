@@ -45,6 +45,7 @@ public class PomodoroPageController implements Initializable {
     @FXML
     void exitBtnClicked(MouseEvent event) {
         double randomPoints = Math.random()*((task.getNumOfSessions()*20));
+        sessionCounter = 0;
         userInfo.deductGoldCoins(randomPoints);
         PomodoroPageController.modalPaneForPomodoroPage.hide(true);
         itemGearController.soundPlayer("/Sounds/pop-94319.mp3");
@@ -96,7 +97,7 @@ public class PomodoroPageController implements Initializable {
     public void setLabelContainer(HBox labelContainer) {
         this.labelContainer = labelContainer;
     }
-ChallengeCreatorController challengeCreatorController= new ChallengeCreatorController();
+    ChallengeCreatorController challengeCreatorController= new ChallengeCreatorController();
 
     @FXML
     private Label taskTitle;
@@ -147,7 +148,7 @@ ChallengeCreatorController challengeCreatorController= new ChallengeCreatorContr
             // For Challenge log
             if(ChallengeUI.challengeUI.getChallengeMode()){
 
-//                ChallengeUI.challengeUI.deductMonsterHealth(task);
+                ChallengeUI.challengeUI.deductMonsterHealth(task);
                 ChallengeUpdate challengeUpdate = new ChallengeUpdate(userInfo.getEmail(), ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.getParticipantsEmail(),task.getTaskTitle());
 
 

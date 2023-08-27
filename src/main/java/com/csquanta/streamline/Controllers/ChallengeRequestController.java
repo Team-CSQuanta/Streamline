@@ -75,14 +75,12 @@ public class ChallengeRequestController {
     @FXML
     void onAcceptBtnClicked(ActionEvent event) throws IOException {
         ChallengeUI.challengeUI.setChallengeMode(true);
-        ChallengeUI.challengeUI.newLoadForChallengeUI();
+        ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.setChallengeSenderStatus(false);
         ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.setParticipantsName(participantsName.getText());
+        ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.setSelectedMonsterName(monsterName.getText());
         System.out.println("In accept button (Participant name): " + participantsName.getText());
 
-        ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.setSelectedMonsterName(monsterName.getText());
-
         String imagePath = "ProfileImage.png";
-
         String receiverEmail = ChallengeUI.challengeUI.getRequestSenderEmail();
         String responseMessage = "Your Challenge has been accepted!";
 
@@ -102,13 +100,10 @@ public class ChallengeRequestController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-
-
-
         } catch (Exception e){
             e.printStackTrace();
         }
+        ChallengeUI.challengeUI.newLoadForChallengeUI();
         modalPaneForChallengeRequest.hide(true);
     }
 
