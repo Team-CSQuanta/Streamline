@@ -12,6 +12,8 @@ import javafx.scene.image.Image;
 
 import java.io.*;
 
+import static com.csquanta.streamline.Models.UserInformation.userInfo;
+
 public class ReadThreadClient extends Thread {
     private NetworkUtil networkUtil;
     private String clientEmail;
@@ -119,6 +121,8 @@ public class ReadThreadClient extends Thread {
                     });
 
                     String challengeResponse = ((ChallengeResponse) receivedMessage).getResponseMessage();
+                    String recipient_name =  ((ChallengeResponse) receivedMessage).getRecipient_name();
+                    ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.setParticipantsName(recipient_name);
                     byte[] imageData = ((ChallengeResponse) receivedMessage).getImageData();
                     String imagePath = "received_profile_image" + ".png";
                     try (FileOutputStream imageOutputStream = new FileOutputStream(imagePath)) {
@@ -133,7 +137,7 @@ public class ReadThreadClient extends Thread {
 
                     String title = ((ChallengeUpdate) receivedMessage).getTitle();
                     Platform.runLater(() ->{
-                        ChallengeTaskLog task = new ChallengeTaskLog("Jubair", sender, title);
+                        ChallengeTaskLog task = new ChallengeTaskLog(userInfo.getDisplayName(), sender, title);
                         ChallengeTaskLog.taskLog.getChallengeTaskLogs().add(task);
                         try {
                             ChallengeUI.challengeUI.newLoadForChallengeUI();

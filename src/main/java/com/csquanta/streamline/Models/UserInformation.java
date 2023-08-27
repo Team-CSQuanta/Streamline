@@ -6,6 +6,7 @@ import javafx.scene.image.Image;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 import static java.util.Objects.requireNonNull;
 
@@ -135,22 +136,23 @@ public class UserInformation implements Serializable {
         int maxDeductionPercentage = 40; // Maximum percentage of health points that can be deducted
 
         int totalIncompleteTasks = incompleteTasks.size();
-
+        Random random = new Random();
 
         int deductionPercentage = Math.min(maxDeductionPercentage, totalIncompleteTasks * 10);
 
+        int randomFactor = random.nextInt(11); // Generates a random number between 0 and 10
+        deductionPercentage = deductionPercentage + randomFactor;
+
         int deductionValue = (int) Math.round(userHealth * deductionPercentage / 100.0);
-
-
-       int Health = userHealth - deductionValue;
+        int healthAfterDeduction = userHealth - deductionValue;
 
         ProfileViewController profileViewController = HeaderController.getController();
         if (profileViewController != null) {
-            profileViewController.updateHealthProgress(Health);
+            profileViewController.updateHealthProgress(healthAfterDeduction);
         }
 
-
         System.out.println("Deducted " + deductionValue + " health points due to incomplete tasks.");
+        System.out.println("Health After Deduction: " + healthAfterDeduction);
     }
 
     public UserInformation() {

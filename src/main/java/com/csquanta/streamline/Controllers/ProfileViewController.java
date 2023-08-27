@@ -93,6 +93,7 @@ public class ProfileViewController implements Initializable {
         priceLabel.setText(String.format("%.2f", StaticUserInformation.totalGoldCoins));
         avatarPet.setImage(StaticUserInformation.avatarImagePet);
         userName.setText(userInfo.getDisplayName());
+        HealthProgress.setProgress(userInfo.getUserHealth()/100.0);
 
 
     }
