@@ -2,17 +2,15 @@ package com.csquanta.streamline.Networking;
 
 import animatefx.animation.Pulse;
 import atlantafx.base.controls.ModalPane;
-import com.csquanta.streamline.Controllers.*;
+import com.csquanta.streamline.Controllers.ChallengeLogController;
+import com.csquanta.streamline.Controllers.ChallengeRequestController;
+import com.csquanta.streamline.Controllers.FXMLScene;
 import com.csquanta.streamline.Models.ChallengeUI;
-import com.csquanta.streamline.Models.StaticUserInformation;
-import com.csquanta.streamline.Models.UserInformation;
 import javafx.application.Platform;
 import javafx.geometry.Pos;
-import javafx.scene.image.Image;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Objects;
 
 public class ReadThreadClient extends Thread {
     private NetworkUtil networkUtil;
@@ -73,43 +71,6 @@ public class ReadThreadClient extends Thread {
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
-//                        String imageBg = UserInformation.userInfo.getAvatarImageBg();
-//                        String imagePet = UserInformation.userInfo.getAvatarImagePet();
-//                        String imageHeadGear = UserInformation.userInfo.getAvatarImageHeadGear();
-//                        String imageHead = UserInformation.userInfo.getAvatarImageHead();
-//                        String imageArmor = UserInformation.userInfo.getAvatarImageArmor();
-//                        String imageHair = UserInformation.userInfo.getAvatarImageHair();
-//                        String imageBody = UserInformation.userInfo.getAvatarImageBody();
-//
-//                        Image bgImage = new Image(getClass().getResourceAsStream(imageBg));
-//                        if(UserInformation.userInfo.getAvatarImageArmor() != null)
-//                                controller.avatarArmor.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(UserInformation.userInfo.getAvatarImageArmor()))));
-//                        if(UserInformation.userInfo.getAvatarImageBody() != null)
-//                            controller.avatarBody.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(UserInformation.userInfo.getAvatarImageBody()))));
-//                        if(UserInformation.userInfo.getAvatarImageBg() != null)
-//                            controller.image_bg.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(UserInformation.userInfo.getAvatarImageBg()))));
-//                        if(UserInformation.userInfo.getAvatarImagePet() != null)
-//                            controller.avatarPet.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(UserInformation.userInfo.getAvatarImagePet()))));
-//                        if(UserInformation.userInfo.getAvatarImageHead()!= null)
-//                            controller.avatarHead.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(UserInformation.userInfo.getAvatarImageHead()))));
-//                        if(UserInformation.userInfo.getAvatarImageHeadGear() != null)
-//                            controller.headGear.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(UserInformation.userInfo.getAvatarImageHeadGear()))));
-//                        if(UserInformation.userInfo.getAvatarImageHair() != null)
-//                            controller.avatarHair.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(UserInformation.userInfo.getAvatarImageHair()))));
-
-//                        controller.image_bg.setImage(UserInformation.userInfo.getAvatarImageBg());
-//                        Image petImage = new Image(getClass().getResourceAsStream(imagePet));
-//                        controller.avatarPet.setImage(petImage);
-//                        Image HeadGearImage = new Image(getClass().getResourceAsStream(imageHeadGear));
-//                        controller.headGear.setImage(HeadGearImage);
-//                        Image HeadImage = new Image(getClass().getResourceAsStream(imageHead));
-//                        controller.avatarHead.setImage(HeadImage);
-//                        Image ArmorImage = new Image(getClass().getResourceAsStream(imageArmor));
-//                        controller.avatarArmor.setImage(ArmorImage);
-//                        Image HairImage = new Image(getClass().getResourceAsStream(imageHair));
-//                        controller.avatarHair.setImage(HairImage);
-//                        Image BodyImage = new Image(getClass().getResourceAsStream(imageBody));
-//                        controller.avatarBody.setImage(BodyImage);
 
 
 
