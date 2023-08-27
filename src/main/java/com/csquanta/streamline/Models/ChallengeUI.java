@@ -182,9 +182,9 @@ public class ChallengeUI {
                     receiverController.setDescriptionMsg("has damaged the monster's health by completing the task titled " + "\"" + t.getTaskTitle() + "\"");
                     receiverController.setUserName(ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.getParticipantsName());
 
-//                    InputStream stream = new FileInputStream(ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.getParticipantsImageFile().getPath());
-//                    Image im = new Image(stream);
-//                    receiverController.getImageCircle().setFill(new ImagePattern(im));
+                    InputStream stream = new FileInputStream("received_profile_image.png");
+                    Image im = new Image(stream);
+                    receiverController.getImageCircle().setFill(new ImagePattern(im));
 
 
                     ChallengeUI.challengeUI.getChallengeLogController().getLogGridPane().add(block.root, 1, currentRow++);
