@@ -5,11 +5,13 @@ import java.io.Serializable;
 public class ChallengeResponse extends Message implements Serializable{
     private  String responseMessage;
     private boolean accepted;
+    private byte[] imageData;
 
 
-    public ChallengeResponse(String from, String to,String responseMessage) {
+    public ChallengeResponse(String from, String to,String responseMessage,byte[] imageData) {
         super(MessageType.CHALLENGE_RESPONSE, from, to);
         this.responseMessage = responseMessage;
+        this.imageData = imageData;
 
     }
 
@@ -28,5 +30,11 @@ public class ChallengeResponse extends Message implements Serializable{
         this.responseMessage = responseMessage;
     }
 
+    public byte[] getImageData() {
+        return imageData;
+    }
 
+    public void setImageData(byte[] imageData) {
+        this.imageData = imageData;
+    }
 }
