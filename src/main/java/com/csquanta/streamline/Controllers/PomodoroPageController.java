@@ -8,8 +8,7 @@ import atlantafx.base.controls.ModalPane;
 import com.csquanta.streamline.Models.ChallengeUI;
 import com.csquanta.streamline.Models.MyTimer;
 import com.csquanta.streamline.Models.Task;
-import com.csquanta.streamline.Models.UserInformation;
-import com.csquanta.streamline.Networking.ChallengeParticipantsInfo;
+import com.csquanta.streamline.Networking.ChallengeInfoWhenParticipated;
 import com.csquanta.streamline.Networking.ChallengeTaskLog;
 import com.csquanta.streamline.Networking.ChallengeUpdate;
 import javafx.event.ActionEvent;
@@ -134,11 +133,10 @@ ChallengeCreatorController challengeCreatorController= new ChallengeCreatorContr
 
             // For Challenge log
             if(ChallengeUI.challengeUI.getChallengeMode()){
-
-                ChallengeUpdate challengeUpdate = new ChallengeUpdate(userInfo.getEmail(), ChallengeParticipantsInfo.challengeParticipantsInfo.getParticipantsEmail(),task.getTaskTitle());
+                ChallengeUI.challengeUI.deductMonsterHealth(task);
+                ChallengeUpdate challengeUpdate = new ChallengeUpdate(userInfo.getEmail(), ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.getParticipantsEmail(),task.getTaskTitle());
                 ChallengeTaskLog challengeTask = new ChallengeTaskLog(userInfo.getDisplayName(), userInfo.getEmail(), task.getTaskTitle());
 
-              
                 ChallengeTaskLog.taskLog.getChallengeTaskLogs().add(challengeTask);
                 networkUtil.write(challengeUpdate);
             }

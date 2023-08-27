@@ -3,8 +3,9 @@ package com.csquanta.streamline.Models;
 import animatefx.animation.ZoomIn;
 import com.csquanta.streamline.App;
 import com.csquanta.streamline.Controllers.*;
-import com.csquanta.streamline.Networking.ChallengeParticipantsInfo;
+import com.csquanta.streamline.Networking.ChallengeInfoWhenParticipated;
 import com.csquanta.streamline.Networking.ChallengeTaskLog;
+import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
@@ -15,6 +16,7 @@ import javafx.scene.paint.ImagePattern;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Objects;
 
 import static com.csquanta.streamline.Models.UserInformation.userInfo;
 
@@ -32,6 +34,16 @@ public class ChallengeUI {
     private VBox notHavingAnyChallengePage;
 
     private VBox challengeRequestSentPage;
+
+    private EvilMonsters selectedMonsterForChallenge;
+    public EvilMonsters getSelectedMonsterForChallenge() {
+        return selectedMonsterForChallenge;
+    }
+
+    public void setSelectedMonsterForChallenge(EvilMonsters selectedMonsterForChallenge) {
+        this.selectedMonsterForChallenge = selectedMonsterForChallenge;
+    }
+
     public ChallengeUI(){
         try {
             FXMLScene scene = FXMLScene.load("/Fxml/Challenge.fxml");
@@ -39,6 +51,8 @@ public class ChallengeUI {
             FXMLScene challengeMonster = FXMLScene.load("/Fxml/MonsterInChallenge.fxml");
             FXMLScene noChallengeScene = FXMLScene.load("/Fxml/NotHavingAnyChallenge.fxml");
             FXMLScene challengeRequestSent = FXMLScene.load("/Fxml/ChallengeRequestSent.fxml");
+
+
             challengeRequestSentPage = (VBox) challengeRequestSent.root;
             notHavingAnyChallengePage = (VBox) noChallengeScene.root;
             monsterInChallengePage = (HBox) challengeMonster.root;
@@ -140,8 +154,8 @@ public class ChallengeUI {
         int currentRow = 0;
         FXMLScene block;
         // Removing existing children as it will cause some problem
-        if(ChallengeUI.challengeUI.getChallengeLogController().getLogGridPane().getChildren().size() > 0){
-            ChallengeUI.challengeUI.getChallengeLogController().getLogGridPane().getChildren().removeAll();
+        if(!ChallengeUI.challengeUI.getChallengeLogController().getLogGridPane().getChildren().isEmpty()){
+            ChallengeUI.challengeUI.getChallengeLogController().getLogGridPane().getChildren().clear();
         }
         System.out.println(ChallengeTaskLog.taskLog.getChallengeTaskLogs().size() + " Challenge task log size");
         for(ChallengeTaskLog t: ChallengeTaskLog.taskLog.getChallengeTaskLogs()){
@@ -166,9 +180,9 @@ public class ChallengeUI {
                     block = FXMLScene.load("/Fxml/ChallengeBlockForReceiver.fxml");
                     ChallengeBlockController receiverController = (ChallengeBlockController) block.controller;
                     receiverController.setDescriptionMsg("has damaged the monster's health by completing the task titled " + "\"" + t.getTaskTitle() + "\"");
-                    receiverController.setUserName(ChallengeParticipantsInfo.challengeParticipantsInfo.getParticipantsName());
+                    receiverController.setUserName(ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.getParticipantsName());
 
-//                    InputStream stream = new FileInputStream(ChallengeParticipantsInfo.challengeParticipantsInfo.getParticipantsImageFile().getPath());
+//                    InputStream stream = new FileInputStream(ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.getParticipantsImageFile().getPath());
 //                    Image im = new Image(stream);
 //                    receiverController.getImageCircle().setFill(new ImagePattern(im));
 
@@ -197,7 +211,22 @@ public class ChallengeUI {
             StackPane.setAlignment(challengeUI.getChallengePage(), Pos.BOTTOM_CENTER);
             App.root.getChildren().add(challengeUI.getChallengePage());
         }else{
+            for(EvilMonsters monster: EvilMonsters.evilMonstersStaticObject.getEvilMonstersList()){
+                if(monster.getName().equals(ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.getSelectedMonsterName()) && (monsterInChallengeController.getMonsterImage().getImage() == null)){
+                    // Setting monster initial health
+
+                    setSelectedMonsterForChallenge(monster);
+                    System.out.println("(Accessing the monster health by monster.getHealth())Setting monster initial Health " + monster.getHealth());
+                    monsterInChallengeController.setMonsterName(monster.getName());
+                    selectedMonsterForChallenge.setRemainingHealth(monster.getHealth());
+                    monsterInChallengeController.setStrikeProgressBar(0.0);
+                    monsterInChallengeController.setMonsterHealthRemaining(1.0);
+                    monsterInChallengeController.setMonsterImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(monster.getMonsterImagePath()))));
+                }
+            }
             controller.getTopHbox().getChildren().setAll(challengeUI.getMonsterInChallengePage());
+
+
             controller.getBottomVbox().getChildren().setAll(challengeUI.getChallengeLog());
             if(ChallengeTaskLog.taskLog.getChallengeTaskLogs().size() > 0){
                 challengeUI.addChallengeTaskLog();
@@ -211,5 +240,19 @@ public class ChallengeUI {
         zoomIn.setSpeed(3);
         zoomIn.play();
     }
+
+    public void deductMonsterHealth(Task task){
+        System.out.println("Selected monster health: " + selectedMonsterForChallenge.getHealth());
+        double remainingHealthOfMonster = selectedMonsterForChallenge.getRemainingHealth() - (task.getNumOfSessions()* 100);
+        selectedMonsterForChallenge.setRemainingHealth(remainingHealthOfMonster);
+        System.out.println("Deductible Health per session: " + remainingHealthOfMonster);
+        double deductibleHealth = ((selectedMonsterForChallenge.getHealth() -remainingHealthOfMonster) / selectedMonsterForChallenge.getHealth());
+        System.out.println("Deductible health: " + deductibleHealth);
+        Platform.runLater(() ->{
+            monsterInChallengeController.setMonsterHealthRemaining(1.0  -deductibleHealth);
+        });
+
+    }
+
 
 }

@@ -1,16 +1,14 @@
 package com.csquanta.streamline.Networking;
 
 import animatefx.animation.Pulse;
-import animatefx.animation.ZoomIn;
 import atlantafx.base.controls.ModalPane;
-import com.csquanta.streamline.App;
 import com.csquanta.streamline.Controllers.*;
 import com.csquanta.streamline.Models.ChallengeUI;
+import com.csquanta.streamline.Models.StaticUserInformation;
 import com.csquanta.streamline.Models.UserInformation;
 import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
-import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -38,7 +36,7 @@ public class ReadThreadClient extends Thread {
             while (true) {
                 Message receivedMessage = (Message) networkUtil.read();
                 String sender = receivedMessage.getFrom();  // Challenge sender email
-                ChallengeParticipantsInfo.challengeParticipantsInfo.setParticipantsEmail(sender);
+                ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.setParticipantsEmail(sender);
                 if (receivedMessage.getMessageType() == MessageType.CHALLENGE) {
 
                     String pomodoroSession = ((ChallengeMessage) receivedMessage).getChallengeTaskPomodoroSession();
@@ -47,7 +45,7 @@ public class ReadThreadClient extends Thread {
                     String taskTag = ((ChallengeMessage) receivedMessage).getChallengeTaskTag();
                     String monsterName = ((ChallengeMessage) receivedMessage).getMonstersName();
                     String taskTitle = ((ChallengeMessage) receivedMessage).getTaskTitle();
-
+                    String challengeSenderName = ((ChallengeMessage) receivedMessage).getChallengeRequestSenderName();
                     ChallengeUI.challengeUI.setRequestSenderEmail(sender);
                     System.out.println("in read thread client "+ ChallengeUI.challengeUI.getRequestSenderEmail());
 
@@ -74,22 +72,35 @@ public class ReadThreadClient extends Thread {
 //                        String imageHair = UserInformation.userInfo.getAvatarImageHair();
 //                        String imageBody = UserInformation.userInfo.getAvatarImageBody();
 //
-//                        Image bgImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imageBg)));
-//                        controller.image_bg.setImage(bgImage);
-//
-//                        Image petImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imagePet)));
-//                        controller.avatarPet.setImage(petImage);
-////                        Image HeadGearImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imageHeadGear)));
-////                        controller.headGear.setImage(HeadGearImage);
-//                        Image HeadImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imageHead)));
-//                        controller.avatarHead.setImage(HeadImage);
-//                        Image ArmorImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imageArmor)));
-//                        controller.avatarArmor.setImage(ArmorImage);
-//                        Image HairImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imageHair)));
-//                        controller.avatarHair.setImage(HairImage);
-//                        Image BodyImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imageBody)));
-//                        controller.avatarBody.setImage(BodyImage);
+//                        Image bgImage = new Image(getClass().getResourceAsStream(imageBg));
+//                        if(UserInformation.userInfo.getAvatarImageArmor() != null)
+//                                controller.avatarArmor.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(UserInformation.userInfo.getAvatarImageArmor()))));
+//                        if(UserInformation.userInfo.getAvatarImageBody() != null)
+//                            controller.avatarBody.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(UserInformation.userInfo.getAvatarImageBody()))));
+//                        if(UserInformation.userInfo.getAvatarImageBg() != null)
+//                            controller.image_bg.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(UserInformation.userInfo.getAvatarImageBg()))));
+//                        if(UserInformation.userInfo.getAvatarImagePet() != null)
+//                            controller.avatarPet.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(UserInformation.userInfo.getAvatarImagePet()))));
+//                        if(UserInformation.userInfo.getAvatarImageHead()!= null)
+//                            controller.avatarHead.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(UserInformation.userInfo.getAvatarImageHead()))));
+//                        if(UserInformation.userInfo.getAvatarImageHeadGear() != null)
+//                            controller.headGear.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(UserInformation.userInfo.getAvatarImageHeadGear()))));
+//                        if(UserInformation.userInfo.getAvatarImageHair() != null)
+//                            controller.avatarHair.setImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(UserInformation.userInfo.getAvatarImageHair()))));
 
+//                        controller.image_bg.setImage(UserInformation.userInfo.getAvatarImageBg());
+//                        Image petImage = new Image(getClass().getResourceAsStream(imagePet));
+//                        controller.avatarPet.setImage(petImage);
+//                        Image HeadGearImage = new Image(getClass().getResourceAsStream(imageHeadGear));
+//                        controller.headGear.setImage(HeadGearImage);
+//                        Image HeadImage = new Image(getClass().getResourceAsStream(imageHead));
+//                        controller.avatarHead.setImage(HeadImage);
+//                        Image ArmorImage = new Image(getClass().getResourceAsStream(imageArmor));
+//                        controller.avatarArmor.setImage(ArmorImage);
+//                        Image HairImage = new Image(getClass().getResourceAsStream(imageHair));
+//                        controller.avatarHair.setImage(HairImage);
+//                        Image BodyImage = new Image(getClass().getResourceAsStream(imageBody));
+//                        controller.avatarBody.setImage(BodyImage);
 
                         if ("Build consistency".equals(challengeType)) {
                             controller.ChallengeType.setText(challengeType);
@@ -100,11 +111,13 @@ public class ReadThreadClient extends Thread {
                             controller.SessionNo.setText("Session               :");
                             controller.Ttag.setText("Task tag             :");
                             controller.TaskTitle.setText(taskTitle);
+                            controller.setParticipantsName(challengeSenderName);
                         } else {
                             controller.ChallengeType.setText(challengeType);
                             controller.taskDescription.setText(challengeDescription);
                             controller.monsterName.setText(monsterName);
                             controller.TaskTitle.setText(taskTitle);
+                            controller.setParticipantsName(challengeSenderName);
                         }
 
                     });

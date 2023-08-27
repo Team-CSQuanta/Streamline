@@ -3,6 +3,7 @@ package com.csquanta.streamline.Networking;
 import java.io.Serializable;
 
 public class ChallengeMessage extends Message implements Serializable {
+    private String challengeRequestSenderName;
     private String challengeType;
     private String challengeDescription;
     private String challengeTaskPomodoroSession;
@@ -14,7 +15,7 @@ public class ChallengeMessage extends Message implements Serializable {
 
 
 
-    public ChallengeMessage( String challengeType, String challengeDescription, String from, String to, String monstersName, String taskTitle)
+    public ChallengeMessage(String challengeRequestSenderName,String challengeType, String challengeDescription, String from, String to, String monstersName, String taskTitle)
     {
         super(MessageType.CHALLENGE, from, to);
         this.challengeType = challengeType;
@@ -23,10 +24,11 @@ public class ChallengeMessage extends Message implements Serializable {
         this.to = to;
         this.monstersName = monstersName;
         this.taskTitle=taskTitle;
+        this.challengeRequestSenderName = challengeRequestSenderName;
 
     }
 
-    public ChallengeMessage( String challengeType, String challengeDescription, String from, String to,String challengeTaskPomodoroSession, String challengeTaskTag, String monstersName,String taskTitle) {
+    public ChallengeMessage(String challengeRequestSenderName, String challengeType, String challengeDescription, String from, String to,String challengeTaskPomodoroSession, String challengeTaskTag, String monstersName,String taskTitle) {
         super(MessageType.CHALLENGE, from, to);
         this.challengeType = challengeType;
         this.challengeDescription = challengeDescription;
@@ -36,7 +38,16 @@ public class ChallengeMessage extends Message implements Serializable {
         this.to = to;
         this.monstersName = monstersName;
         this.taskTitle = taskTitle;
+        this.challengeRequestSenderName = challengeRequestSenderName;
 
+    }
+
+    public String getChallengeRequestSenderName() {
+        return challengeRequestSenderName;
+    }
+
+    public void setChallengeRequestSenderName(String challengeRequestSenderName) {
+        this.challengeRequestSenderName = challengeRequestSenderName;
     }
 
     public String getChallengeType() {

@@ -74,10 +74,12 @@ public class ChallengeCreatorController implements Initializable {
     void challengeSelection(ActionEvent event) {
         if(challengeType.getSelectionModel().getSelectedItem().equals("Build consistency")){
             dailyTaskNecessaryField.setVisible(true);
+            TaskTitle.setVisible(true);
             new FadeIn(dailyTaskNecessaryField).play();
         }
         else{
             dailyTaskNecessaryField.setVisible(false);
+            TaskTitle.setVisible(false);
             new FadeIn(dailyTaskNecessaryField).play();
         }
     }
@@ -166,23 +168,18 @@ public class ChallengeCreatorController implements Initializable {
             String taskTag = String.valueOf(getChallengeTaskTag().getValue());
             String monstersName = String.valueOf(getSelectMonster().getValue());
             String taskTitle = TaskTitle.getText();
-
-
             if ("Build consistency".equals(challengeType)) {
-                ChallengeMessage challengeMessage = new ChallengeMessage( challengeType,challengeDescription,userInfo.getEmail(), receiverEmail, pomodoroSession, taskTag, monstersName,taskTitle);
+                ChallengeMessage challengeMessage = new ChallengeMessage(userInfo.getDisplayName(), challengeType,challengeDescription,userInfo.getEmail(), receiverEmail, pomodoroSession, taskTag, monstersName,taskTitle);
 
                 networkUtil.write(challengeMessage);
 
             } else {
-                ChallengeMessage challengeMessage= new ChallengeMessage( challengeType, challengeDescription,userInfo.getEmail(), receiverEmail,monstersName,taskTitle);
+                ChallengeMessage challengeMessage= new ChallengeMessage(userInfo.getDisplayName(), challengeType, challengeDescription,userInfo.getEmail(), receiverEmail,monstersName,taskTitle);
                 networkUtil.write(challengeMessage);
 
             }
             ChallengeUI.challengeUI.setPendingStatus(true);
             ChallengeUI.challengeUI.newLoadForChallengeUI();
-            PauseTransition pause = new PauseTransition(Duration.seconds(1));
-//            pause.setOnFinished(e -> ChangeChallengePageUI());
-//            pause.play();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -197,7 +194,7 @@ public class ChallengeCreatorController implements Initializable {
         challengeTaskPomodoroSession.setItems(PomodoroSession);
         challengeTaskTag.setItems(taskTag);
         dailyTaskNecessaryField.setVisible(false);
-
+        TaskTitle.setVisible(false);
 
     }
 public void ChangeChallengePageUI(){
