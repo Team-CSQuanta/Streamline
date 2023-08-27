@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" spacing="30.0" style="-fx-border-color: #9580FF; -fx-background-color: #282A36FF; -fx-border-width: 2px;" stylesheets="@../Styles/Settings.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.SettingsController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" spacing="30.0" style="-fx-border-color: #9580FF; -fx-background-color: #282A36FF; -fx-border-width: 2px;" stylesheets="@../Styles/Settings.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.csquanta.streamline.Controllers.SettingsController">
    <padding>
       <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
    </padding>
@@ -157,11 +157,7 @@
                                     <Label prefHeight="32.0" prefWidth="696.0" styleClass="settingsFieldTitle" text="Task tag creator" />
                                  </children>
                               </HBox>
-                              <PasswordField fx:id="taskTagCreator" prefHeight="50.0" prefWidth="696.0">
-                                 <VBox.margin>
-                                    <Insets top="10.0" />
-                                 </VBox.margin>
-                              </PasswordField>
+                              <TextField fx:id="taskTagCreator" prefHeight="36.0" prefWidth="696.0" promptText="Add task tag's separated by comma" />
                            </children>
                         </VBox>
                         <VBox>

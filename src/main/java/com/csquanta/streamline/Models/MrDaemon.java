@@ -39,7 +39,7 @@ public class MrDaemon {
                 LocalTime midnight = LocalTime.of(8, 0, 59); // 11:59:59 PM
 
                 if (currentTime.isAfter(midnight)) {
-                    if (!restMode) {
+                    if (!userInfo.isRestMode()) {
                         userInfo.deductHealthPointsBasedOnTasks(incompleteTasks);
                     }
                 }

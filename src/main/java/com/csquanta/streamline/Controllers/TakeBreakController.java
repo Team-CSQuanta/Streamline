@@ -44,4 +44,8 @@ public class TakeBreakController {
      }
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ToggleButton.setSelected(UserInformation.userInfo.isRestMode());
+    }
 }

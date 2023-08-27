@@ -32,7 +32,6 @@ public class UserInformation implements Serializable {
     private int userHealth;
 
 
-
     // Account related information
 
     private String userName;

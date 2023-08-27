@@ -12,5 +12,6 @@ module com.csquanta.streamline {
     requires javafx.media;
     requires javafx.swing;
     requires transitive java.desktop;
+    requires com.google.gson;
 }
 

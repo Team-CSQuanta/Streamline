@@ -28,13 +28,14 @@ import java.util.Collections;
 import java.util.ResourceBundle;
 
 import static com.csquanta.streamline.Models.Task.taskObject;
+import static com.csquanta.streamline.Models.UserInformation.userInfo;
 import static java.util.Objects.requireNonNull;
 
 public class TaskCreatorController implements Initializable {
 
     public static ObservableList<String> eishenHowerMatrix = FXCollections.observableArrayList("Urgent and important", "Important but not urgent", "Urgent but not important", "Not urgent and not important");
-    public static ObservableList<String> pomodoroSession = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7", "8");
-    public static ObservableList<String> tags = FXCollections.observableArrayList("Book Reading", "Academic Studies", "Programming");
+    public static ObservableList<String> pomodoroSession = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7", "8","9","10");
+    public static ObservableList<String> tags = FXCollections.observableList(userInfo.getTaskTag());
     @FXML
     private Button cancel;
 

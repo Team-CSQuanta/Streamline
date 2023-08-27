@@ -1,6 +1,7 @@
 package com.csquanta.streamline.Controllers;
 
 import com.csquanta.streamline.Models.UserInformation;
+import com.google.gson.Gson;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,9 +15,11 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.Serializable;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 import static com.csquanta.streamline.Controllers.SidebarController.modalPaneForSignOut;
+import static com.csquanta.streamline.Controllers.TaskCreatorController.tags;
 import static com.csquanta.streamline.Models.UserInformation.userInfo;
 
 public class SettingsController implements Initializable , Serializable {
@@ -45,7 +48,9 @@ public class SettingsController implements Initializable , Serializable {
     @FXML
     private TextField userName;
     @FXML
-    private PasswordField taskTagCreator;
+    private TextField taskTagCreator;
+
+
 
     @FXML
     void editDisplayName(MouseEvent event) {
@@ -77,9 +82,16 @@ public class SettingsController implements Initializable , Serializable {
         userName.setEditable(true);
     }
 
-
+    String serializedTags;
     @FXML
     void OnMiscellaneousSaveClicked(ActionEvent event) {
+    String taskTags = taskTagCreator.getText();
+        String[] newTags = taskTags.split(",");
+        for (String item : newTags) {
+            if (!userInfo.getTaskTag().contains(item.trim())) {
+                userInfo.getTaskTag().add(item.trim());
+            }
+        }
 
     }
     @FXML
@@ -94,7 +106,6 @@ public class SettingsController implements Initializable , Serializable {
         userName.setText(userInfo.getUserName());
         email.setText(userInfo.getEmail());
         password.setText(userInfo.getPassword());
-
         modalPaneForSignOut.hide(true);
     }
 
