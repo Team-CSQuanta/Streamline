@@ -18,6 +18,30 @@ public class UserInformation implements Serializable {
     // Challenge Related fields
 
 
+    // Take break related field
+
+    private boolean restMode;
+
+    public boolean isRestMode() {
+        return restMode;
+    }
+
+    public void setRestMode(boolean restMode) {
+        this.restMode = restMode;
+    }
+    // Task related field
+
+    private ArrayList<String> taskTag = new ArrayList<>();
+
+
+    public ArrayList<String> getTaskTag() {
+        return taskTag;
+    }
+
+    public void setTaskTag(ArrayList<String> taskTag) {
+        this.taskTag = taskTag;
+    }
+
     // Avatar related Field
     private  String avatarImageBg;
     private  String avatarImageHead;
@@ -157,7 +181,7 @@ public class UserInformation implements Serializable {
     public UserInformation() {
     }
 
-    public UserInformation(String avatarImageBg, String avatarImageHead, String avatarImageHair, String avatarImageHeadGear, String avatarImageBody, String avatarImageArmor, String avatarImagePet, Double totalGoldCoins, Integer userHealth, String userName, String displayName,String email, String password,String pomodoroSessionTime,String breakTime) {
+    public UserInformation(String avatarImageBg, String avatarImageHead, String avatarImageHair, String avatarImageHeadGear, String avatarImageBody, String avatarImageArmor, String avatarImagePet, Double totalGoldCoins, Integer userHealth, String userName, String displayName,String email, String password,String pomodoroSessionTime,String breakTime, ArrayList<String> tags,boolean mode) {
         this.avatarImageBg = avatarImageBg;
         this.avatarImageHead = avatarImageHead;
         this.avatarImageHair = avatarImageHair;
@@ -173,6 +197,8 @@ public class UserInformation implements Serializable {
         this.password = password;
         this.pomodoroSessionTime = pomodoroSessionTime;
         this.BreakTime = breakTime;
+        this.taskTag = tags;
+        this.restMode = mode;
     }
     // Avatar related getter & setter
     public String getAvatarImageBg() {
@@ -233,7 +259,7 @@ public class UserInformation implements Serializable {
 
     public static void serializeUserInfo(){
         try(ObjectOutputStream objOStream = new ObjectOutputStream(new FileOutputStream("User_Information_file"))){
-            UserInformation userInformation = new UserInformation(userInfo.getAvatarImageBg(), userInfo.getAvatarImageHead(), userInfo.getAvatarImageHair(), userInfo.getAvatarImageHeadGear(), userInfo.getAvatarImageBody(), userInfo.getAvatarImageArmor(), userInfo.getAvatarImagePet(), userInfo.totalGoldCoins, userInfo.getUserHealth(),userInfo.getUserName(), userInfo.getDisplayName(), userInfo.getEmail(), userInfo.getPassword(),userInfo.getPomodoroSessionTime(),userInfo.getBreakTime());
+            UserInformation userInformation = new UserInformation(userInfo.getAvatarImageBg(), userInfo.getAvatarImageHead(), userInfo.getAvatarImageHair(), userInfo.getAvatarImageHeadGear(), userInfo.getAvatarImageBody(), userInfo.getAvatarImageArmor(), userInfo.getAvatarImagePet(), userInfo.totalGoldCoins, userInfo.getUserHealth(),userInfo.getUserName(), userInfo.getDisplayName(), userInfo.getEmail(), userInfo.getPassword(),userInfo.getPomodoroSessionTime(),userInfo.getBreakTime(), userInfo.taskTag, userInfo.restMode);
             objOStream.writeObject(userInformation);
         }catch (Exception e){
             System.out.println("Serialization failed");
@@ -262,7 +288,8 @@ public class UserInformation implements Serializable {
 
             StaticUserInformation.password = user.getPassword();
             userInfo.setPassword(user.getPassword());
-
+            // Tag related field
+            userInfo.setTaskTag(user.getTaskTag());
 
             //time
             StaticUserInformation.pomodoroSessionTime = user.getPomodoroSessionTime();

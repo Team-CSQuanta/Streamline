@@ -7,6 +7,7 @@ import com.csquanta.streamline.App;
 import com.csquanta.streamline.Models.Task;
 import com.csquanta.streamline.Models.TaskComparator;
 import com.csquanta.streamline.Models.TaskIdGenerator;
+import com.csquanta.streamline.Models.UserInformation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

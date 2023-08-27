@@ -45,9 +45,8 @@ public class MrDaemon {
                 }
 
                 // Checking whether user's health is Zero or not
-                if (userInfo.getUserHealth()==0){
-
-
+                if (userInfo.getUserHealth()==0 && ChallengeUI.challengeUI.getChallengeMode()){
+                    
                 }
 
 
