@@ -212,11 +212,18 @@ public class ChallengeUI {
             App.root.getChildren().add(challengeUI.getChallengePage());
         }else{
             for(EvilMonsters monster: EvilMonsters.evilMonstersStaticObject.getEvilMonstersList()){
-                if(monster.getName().equals(ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.getSelectedMonsterName()) && (monsterInChallengeController.getMonsterImage().getImage() == null)){
+                if(monster.getName().equals(ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.getSelectedMonsterName()) && (monsterInChallengeController.getMonsterImage().getImage() == null && ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.isChallengeSenderStatus())){
                     // Setting monster initial health
 
                     setSelectedMonsterForChallenge(monster);
                     System.out.println("(Accessing the monster health by monster.getHealth())Setting monster initial Health " + monster.getHealth());
+                    monsterInChallengeController.setMonsterName(monster.getName());
+                    selectedMonsterForChallenge.setRemainingHealth(monster.getHealth());
+                    monsterInChallengeController.setStrikeProgressBar(0.0);
+                    monsterInChallengeController.setMonsterHealthRemaining(1.0);
+                    monsterInChallengeController.setMonsterImage(new Image(Objects.requireNonNull(getClass().getResourceAsStream(monster.getMonsterImagePath()))));
+                }else if(monster.getName().equals(ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.getMonsterNameForChallengeSender()) && (monsterInChallengeController.getMonsterImage().getImage() == null) && ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.isChallengeSenderStatus()){
+                    setSelectedMonsterForChallenge(monster);
                     monsterInChallengeController.setMonsterName(monster.getName());
                     selectedMonsterForChallenge.setRemainingHealth(monster.getHealth());
                     monsterInChallengeController.setStrikeProgressBar(0.0);

@@ -9,6 +9,24 @@ public class ChallengeInfoWhenParticipated {
 
     private File participantsImageFile;
     private String selectedMonsterName;
+    private String monsterNameForChallengeSender;
+    private boolean challengeSenderStatus;
+
+    public boolean isChallengeSenderStatus() {
+        return challengeSenderStatus;
+    }
+
+    public void setChallengeSenderStatus(boolean challengeSenderStatus) {
+        this.challengeSenderStatus = challengeSenderStatus;
+    }
+
+    public String getMonsterNameForChallengeSender() {
+        return monsterNameForChallengeSender;
+    }
+
+    public void setMonsterNameForChallengeSender(String monsterNameForChallengeSender) {
+        this.monsterNameForChallengeSender = monsterNameForChallengeSender;
+    }
 
     public String getSelectedMonsterName() {
         return selectedMonsterName;
