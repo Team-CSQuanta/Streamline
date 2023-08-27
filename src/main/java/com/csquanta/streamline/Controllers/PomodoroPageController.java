@@ -142,9 +142,9 @@ ChallengeCreatorController challengeCreatorController= new ChallengeCreatorContr
 
 
 
-                ChallengeUpdate challengeUpdate = new ChallengeUpdate(userInfo.getEmail(), ChallengeParticipantsInfo.challengeParticipantsInfo.getParticipantsEmail(),task.getTaskTitle());
+                //ChallengeUpdate challengeUpdate = new ChallengeUpdate(userInfo.getEmail(), ChallengeParticipantsInfo.challengeParticipantsInfo.getParticipantsEmail(),task.getTaskTitle());
 
-                //ChallengeTaskLog challengeTask = new ChallengeTaskLog(userInfo.getDisplayName(), userInfo.getEmail(), task.getTaskTitle());
+                ChallengeTaskLog challengeTask = new ChallengeTaskLog(userInfo.getDisplayName(), userInfo.getEmail(), task.getTaskTitle());
 
                 ChallengeTaskLog.taskLog.getChallengeTaskLogs().add(challengeTask);
                 networkUtil.write(challengeUpdate);

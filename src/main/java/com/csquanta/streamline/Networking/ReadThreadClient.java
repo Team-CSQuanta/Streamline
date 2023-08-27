@@ -40,8 +40,6 @@ public class ReadThreadClient extends Thread {
 
                 ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.setParticipantsEmail(sender);
 
-              //  ChallengeParticipantsInfo.challengeParticipantsInfo.setParticipantsEmail(sender);
-
 
                 if (receivedMessage.getMessageType() == MessageType.CHALLENGE) {
 
@@ -52,7 +50,7 @@ public class ReadThreadClient extends Thread {
                     String monsterName = ((ChallengeMessage) receivedMessage).getMonstersName();
                     String taskTitle = ((ChallengeMessage) receivedMessage).getTaskTitle();
 
-                   // String challengeSenderName = ((ChallengeMessage) receivedMessage).getChallengeRequestSenderName();
+                    String challengeSenderName = ((ChallengeMessage) receivedMessage).getChallengeRequestSenderName();
 
                     byte[] imageData = ((ChallengeMessage) receivedMessage).getImageData();
 
