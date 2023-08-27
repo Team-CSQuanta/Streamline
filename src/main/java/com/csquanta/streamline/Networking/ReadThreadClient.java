@@ -8,6 +8,7 @@ import com.csquanta.streamline.Controllers.FXMLScene;
 import com.csquanta.streamline.Models.ChallengeUI;
 import javafx.application.Platform;
 import javafx.geometry.Pos;
+import javafx.scene.image.Image;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -40,7 +41,7 @@ public class ReadThreadClient extends Thread {
 
 
                 if (receivedMessage.getMessageType() == MessageType.CHALLENGE) {
-
+                    byte[] imageData = ((ChallengeMessage) receivedMessage).getImageData();
                     String pomodoroSession = ((ChallengeMessage) receivedMessage).getChallengeTaskPomodoroSession();
                     String challengeType = ((ChallengeMessage) receivedMessage).getChallengeType();
                     String challengeDescription = ((ChallengeMessage) receivedMessage).getChallengeDescription();
@@ -50,7 +51,7 @@ public class ReadThreadClient extends Thread {
 
                     String challengeSenderName = ((ChallengeMessage) receivedMessage).getChallengeRequestSenderName();
 
-                    byte[] imageData = ((ChallengeMessage) receivedMessage).getImageData();
+
 
 
                     ChallengeUI.challengeUI.setRequestSenderEmail(sender);
@@ -72,7 +73,7 @@ public class ReadThreadClient extends Thread {
                             throw new RuntimeException(e);
                         }
 
-
+                      controller.setSenderImage(new Image("received_profile_image.png"));
 
                         if ("Build consistency".equals(challengeType)) {
                             controller.ChallengeType.setText(challengeType);

@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.io.File;
@@ -116,4 +117,11 @@ public class ChallengeRequestController {
 
     }
 
+    public ImageView getSenderImage() {
+        return senderImage;
+    }
+
+    public void setSenderImage(Image senderImage) {
+        this.senderImage.setImage(senderImage);
+    }
 }
