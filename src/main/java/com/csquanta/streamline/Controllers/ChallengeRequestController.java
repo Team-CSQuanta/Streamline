@@ -2,6 +2,7 @@ package com.csquanta.streamline.Controllers;
 
 import com.csquanta.streamline.Models.ChallengeUI;
 import com.csquanta.streamline.Networking.ChallengeInfoWhenParticipated;
+import com.csquanta.streamline.Networking.ChallengeMessage;
 import com.csquanta.streamline.Networking.ChallengeResponse;
 import com.csquanta.streamline.Networking.NetworkInformation;
 import javafx.embed.swing.SwingFXUtils;
@@ -117,16 +118,30 @@ public class ChallengeRequestController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
+        String imagePath = "ProfileImage.png";
 
         String receiverEmail = ChallengeUI.challengeUI.getRequestSenderEmail();
         String responseMessage = "Your Challenge has been accepted!";
 
-        ChallengeResponse challengeResponse = new ChallengeResponse(userInfo.getEmail(),receiverEmail,responseMessage);
+
 
         System.out.println("in Challenge Request sender "+ receiverEmail) ;
         try {
-            networkUtil.write(challengeResponse);
+
+            File imageFile = new File(imagePath);
+            byte[] imageBytes = new byte[(int) imageFile.length()];
+            try (FileInputStream fileInputStream = new FileInputStream(imageFile)) {
+                int bytesRead = fileInputStream.read(imageBytes);
+                if (bytesRead != -1) {
+                    ChallengeResponse challengeResponse = new ChallengeResponse(userInfo.getEmail(),receiverEmail,responseMessage,imageBytes);
+                    networkUtil.write(challengeResponse);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+
 
         } catch (Exception e){
             e.printStackTrace();

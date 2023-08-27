@@ -164,15 +164,6 @@ public class ChallengeCreatorController implements Initializable {
 
         try {
             String imagePath = "ProfileImage.png";
-//            File imageFile = new File(imagePath);
-//            byte[] imageBytes = new byte[(int) imageFile.length()];
-//            FileInputStream fileInputStream = new FileInputStream(imageFile);
-//            BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
-//            int bytesRead;
-//            while ((bytesRead = bufferedInputStream.read(imageBytes)) != -1) {
-//                networkUtil.writeChunk(imageBytes, bytesRead);
-//            }
-//            bufferedInputStream.close();
             String receiverEmail = email.getText();
             String challengeType = String.valueOf(getChallengeType().getValue());
             String challengeDescription = String.valueOf(getChallengeDescription().getText());
