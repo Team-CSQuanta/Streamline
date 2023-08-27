@@ -1,27 +1,24 @@
 package com.csquanta.streamline.Controllers;
 
 import animatefx.animation.FadeIn;
-import animatefx.animation.ZoomIn;
-import com.csquanta.streamline.App;
 import com.csquanta.streamline.Models.ChallengeUI;
-import com.csquanta.streamline.Models.UserInformation;
+import com.csquanta.streamline.Networking.ChallengeInfoWhenParticipated;
 import com.csquanta.streamline.Networking.ChallengeMessage;
-import javafx.animation.PauseTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.util.Duration;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -171,6 +168,8 @@ public class ChallengeCreatorController implements Initializable {
             String taskTag = String.valueOf(getChallengeTaskTag().getValue());
             String monstersName = getSelectMonster().getSelectionModel().getSelectedItem();
             String taskTitle = TaskTitle.getText();
+            ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.setMonsterNameForChallengeSender(selectMonster.getSelectionModel().getSelectedItem());
+            ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.setChallengeSenderStatus(true);
             if ("Build consistency".equals(challengeType)) {
 
                // ChallengeMessage challengeMessage = new ChallengeMessage(userInfo.getDisplayName(), challengeType,challengeDescription,userInfo.getEmail(), receiverEmail, pomodoroSession, taskTag, monstersName,taskTitle);
@@ -232,28 +231,4 @@ public class ChallengeCreatorController implements Initializable {
         TaskTitle.setVisible(false);
 
     }
-public void ChangeChallengePageUI(){
-
-//        try {
-//            FXMLScene  chatBox = FXMLScene.load("/Fxml/ChatBox.fxml");
-//            ChatBoxController chatBoxController = (ChatBoxController) chatBox.controller;
-//            controller.getBottomVbox().getChildren().setAll(chatBox.root);
-//            System.out.println("creatorControl " +chatBoxController);
-//
-//            ZoomIn zoomIn = new ZoomIn();
-//            zoomIn.setNode(chatBox.root);
-//            zoomIn.setSpeed(3);
-//            zoomIn.play();
-
-//            FXMLScene ChallengedMonster = FXMLScene.load("/Fxml/MonsterInChallenge.fxml");
-//            controller.getTopHbox().getChildren().setAll(ChallengedMonster.root);
-//            zoomIn.setNode(ChallengedMonster.root);
-//            zoomIn.setSpeed(3);
-//            zoomIn.play();
-
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-}
-
 }
