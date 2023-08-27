@@ -21,7 +21,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -69,7 +69,10 @@ public class ChallengeCreatorController implements Initializable {
 
      ChallengeController challengeController= new ChallengeController();
 
-//    ChallengeLogController chatBoxController = new ChallengeLogController();
+    public ChallengeCreatorController() throws FileNotFoundException {
+    }
+
+    //    ChallengeLogController chatBoxController = new ChallengeLogController();
     @FXML
     void challengeSelection(ActionEvent event) {
         if(challengeType.getSelectionModel().getSelectedItem().equals("Build consistency")){
@@ -153,12 +156,21 @@ public class ChallengeCreatorController implements Initializable {
 
 
 
-
     @FXML
     void onSendReqClicked(ActionEvent event) {
 
 
         try {
+            String imagePath = "ProfileImage.png";
+//            File imageFile = new File(imagePath);
+//            byte[] imageBytes = new byte[(int) imageFile.length()];
+//            FileInputStream fileInputStream = new FileInputStream(imageFile);
+//            BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
+//            int bytesRead;
+//            while ((bytesRead = bufferedInputStream.read(imageBytes)) != -1) {
+//                networkUtil.writeChunk(imageBytes, bytesRead);
+//            }
+//            bufferedInputStream.close();
             String receiverEmail = email.getText();
             String challengeType = String.valueOf(getChallengeType().getValue());
             String challengeDescription = String.valueOf(getChallengeDescription().getText());
@@ -169,13 +181,36 @@ public class ChallengeCreatorController implements Initializable {
 
 
             if ("Build consistency".equals(challengeType)) {
-                ChallengeMessage challengeMessage = new ChallengeMessage( challengeType,challengeDescription,userInfo.getEmail(), receiverEmail, pomodoroSession, taskTag, monstersName,taskTitle);
+                File imageFile = new File(imagePath);
+                byte[] imageBytes = new byte[(int) imageFile.length()];
+                try (FileInputStream fileInputStream = new FileInputStream(imageFile)) {
+                    int bytesRead = fileInputStream.read(imageBytes);
+                    if (bytesRead != -1) {
+                        ChallengeMessage challengeMessage = new ChallengeMessage( challengeType,challengeDescription,userInfo.getEmail(), receiverEmail, pomodoroSession, taskTag, monstersName,taskTitle,imageBytes);
 
-                networkUtil.write(challengeMessage);
+                        networkUtil.write(challengeMessage);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+
 
             } else {
-                ChallengeMessage challengeMessage= new ChallengeMessage( challengeType, challengeDescription,userInfo.getEmail(), receiverEmail,monstersName,taskTitle);
-                networkUtil.write(challengeMessage);
+
+                File imageFile = new File(imagePath);
+                byte[] imageBytes = new byte[(int) imageFile.length()];
+                try (FileInputStream fileInputStream = new FileInputStream(imageFile)) {
+                    int bytesRead = fileInputStream.read(imageBytes);
+                    if (bytesRead != -1) {
+                        ChallengeMessage challengeMessage= new ChallengeMessage( challengeType, challengeDescription,userInfo.getEmail(), receiverEmail,monstersName,taskTitle,imageBytes);
+                        networkUtil.write(challengeMessage);
+
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
 
             }
             ChallengeUI.challengeUI.setPendingStatus(true);

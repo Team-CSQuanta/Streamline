@@ -11,10 +11,11 @@ public class ChallengeMessage extends Message implements Serializable {
     private String to;
     private String monstersName;
     private  String taskTitle;
+    private byte[] imageData;
 
 
 
-    public ChallengeMessage( String challengeType, String challengeDescription, String from, String to, String monstersName, String taskTitle)
+    public ChallengeMessage( String challengeType, String challengeDescription, String from, String to, String monstersName, String taskTitle,byte[] imageData)
     {
         super(MessageType.CHALLENGE, from, to);
         this.challengeType = challengeType;
@@ -23,10 +24,11 @@ public class ChallengeMessage extends Message implements Serializable {
         this.to = to;
         this.monstersName = monstersName;
         this.taskTitle=taskTitle;
+        this.imageData = imageData;
 
     }
 
-    public ChallengeMessage( String challengeType, String challengeDescription, String from, String to,String challengeTaskPomodoroSession, String challengeTaskTag, String monstersName,String taskTitle) {
+    public ChallengeMessage( String challengeType, String challengeDescription, String from, String to,String challengeTaskPomodoroSession, String challengeTaskTag, String monstersName,String taskTitle,byte[] imageData) {
         super(MessageType.CHALLENGE, from, to);
         this.challengeType = challengeType;
         this.challengeDescription = challengeDescription;
@@ -36,6 +38,7 @@ public class ChallengeMessage extends Message implements Serializable {
         this.to = to;
         this.monstersName = monstersName;
         this.taskTitle = taskTitle;
+        this.imageData = imageData;
 
     }
 
@@ -103,6 +106,16 @@ public class ChallengeMessage extends Message implements Serializable {
 
     public void setTaskTitle(String taskTitle) {
         this.taskTitle = taskTitle;
+    }
+
+
+    public byte[] getImageData() {
+        return imageData;
+    }
+
+
+    public void setImageData(byte[] imageData) {
+        this.imageData = imageData;
     }
 
     public boolean isBuildConsistency() {
