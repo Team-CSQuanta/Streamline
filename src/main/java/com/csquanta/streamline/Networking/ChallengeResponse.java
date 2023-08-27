@@ -6,6 +6,7 @@ public class ChallengeResponse extends Message implements Serializable{
     private  String responseMessage;
     private boolean accepted;
     private byte[] imageData;
+    private String recipient_name;
 
 
     public ChallengeResponse(String from, String to,String responseMessage,byte[] imageData) {

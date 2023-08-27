@@ -13,16 +13,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
 import java.io.*;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static com.csquanta.streamline.Controllers.ChallengeController.networkUtil;
@@ -65,14 +63,9 @@ public class ChallengeCreatorController implements Initializable {
 
     @FXML
     private HBox dailyTaskNecessaryField;
-    ChallengeController controller;
 
-     ChallengeController challengeController= new ChallengeController();
 
-    public ChallengeCreatorController() throws FileNotFoundException {
-    }
 
-    //    ChallengeLogController chatBoxController = new ChallengeLogController();
     @FXML
     void challengeSelection(ActionEvent event) {
         if(challengeType.getSelectionModel().getSelectedItem().equals("Build consistency")){
@@ -161,10 +154,10 @@ public class ChallengeCreatorController implements Initializable {
     @FXML
     void onSendReqClicked(ActionEvent event) {
 
-
+        String receiverEmail = null;
         try {
             String imagePath = "ProfileImage.png";
-            String receiverEmail = email.getText();
+            receiverEmail = email.getText();
             String challengeType = String.valueOf(getChallengeType().getValue());
             String challengeDescription = String.valueOf(getChallengeDescription().getText());
             String pomodoroSession = String.valueOf(getChallengeTaskPomodoroSession().getValue());
@@ -172,8 +165,6 @@ public class ChallengeCreatorController implements Initializable {
             String monstersName = getSelectMonster().getSelectionModel().getSelectedItem();
             String taskTitle = TaskTitle.getText();
             if ("Build consistency".equals(challengeType)) {
-
-               // ChallengeMessage challengeMessage = new ChallengeMessage(userInfo.getDisplayName(), challengeType,challengeDescription,userInfo.getEmail(), receiverEmail, pomodoroSession, taskTag, monstersName,taskTitle);
 
                 File imageFile = new File(imagePath);
                 byte[] imageBytes = new byte[(int) imageFile.length()];
@@ -193,8 +184,6 @@ public class ChallengeCreatorController implements Initializable {
 
             } else {
 
-               // ChallengeMessage challengeMessage= new ChallengeMessage(userInfo.getDisplayName(), challengeType, challengeDescription,userInfo.getEmail(), receiverEmail,monstersName,taskTitle);
-               // networkUtil.write(challengeMessage);
 
 
                 File imageFile = new File(imagePath);
@@ -218,6 +207,16 @@ public class ChallengeCreatorController implements Initializable {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        if (Objects.equals(userInfo.getEmail(), receiverEmail)) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Invalid Email");
+            alert.setHeaderText(null);
+            alert.setContentText("Please Enter the correct email of the recipient.");
+            alert.showAndWait();
+            return;
+        }
+
+
         modalPaneForHeader.hide(true);
 
     }
@@ -232,28 +231,6 @@ public class ChallengeCreatorController implements Initializable {
         TaskTitle.setVisible(false);
 
     }
-public void ChangeChallengePageUI(){
 
-//        try {
-//            FXMLScene  chatBox = FXMLScene.load("/Fxml/ChatBox.fxml");
-//            ChatBoxController chatBoxController = (ChatBoxController) chatBox.controller;
-//            controller.getBottomVbox().getChildren().setAll(chatBox.root);
-//            System.out.println("creatorControl " +chatBoxController);
-//
-//            ZoomIn zoomIn = new ZoomIn();
-//            zoomIn.setNode(chatBox.root);
-//            zoomIn.setSpeed(3);
-//            zoomIn.play();
-
-//            FXMLScene ChallengedMonster = FXMLScene.load("/Fxml/MonsterInChallenge.fxml");
-//            controller.getTopHbox().getChildren().setAll(ChallengedMonster.root);
-//            zoomIn.setNode(ChallengedMonster.root);
-//            zoomIn.setSpeed(3);
-//            zoomIn.play();
-
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-}
 
 }

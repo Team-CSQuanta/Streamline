@@ -128,6 +128,15 @@ ChallengeCreatorController challengeCreatorController= new ChallengeCreatorContr
             timer.t.start();
         }
         else if(button.getText().equals("Finish")){
+            //user health should be updated
+            int userHealth = userInfo.getUserHealth();
+            if (userHealth!=100){
+                userHealth = userHealth+2;
+                ProfileViewController profileViewController = HeaderController.getController();
+                if (profileViewController != null) {
+                    profileViewController.updateHealthProgress(userHealth);
+                }
+            }
             button.setVisible(false);
             afterCompletingTaskReward();
             new FadeOut(button).play();
