@@ -6,6 +6,8 @@ import javafx.scene.image.Image;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 import static java.util.Objects.requireNonNull;
@@ -31,7 +33,7 @@ public class UserInformation implements Serializable {
     }
     // Task related field
 
-    private ArrayList<String> taskTag = new ArrayList<>();
+    private ArrayList<String> taskTag = new ArrayList<>(List.of("Default"));
 
 
     public ArrayList<String> getTaskTag() {
@@ -170,13 +172,14 @@ public class UserInformation implements Serializable {
         }
         deductionPercentage = deductionPercentage + randomFactor;
 
-        int deductionValue = (int) Math.round(userHealth * deductionPercentage / 100.0);
-        int healthAfterDeduction = userHealth - deductionValue;
+        int deductionValue = (int) Math.round(userInfo.userHealth * deductionPercentage / 100.0);
+        int healthAfterDeduction = userInfo.userHealth - deductionValue;
+        userInfo.userHealth = healthAfterDeduction;
 
-        ProfileViewController profileViewController = HeaderController.getController();
-        if (profileViewController != null) {
-            profileViewController.updateHealthProgress(healthAfterDeduction);
-        }
+//        ProfileViewController profileViewController = HeaderController.getController();
+//        if (profileViewController != null) {
+//            profileViewController.updateHealthProgress(healthAfterDeduction);
+//        }
 
         System.out.println("Deducted " + deductionValue + " health points due to incomplete tasks.");
         System.out.println("Health After Deduction: " + healthAfterDeduction);
@@ -292,7 +295,7 @@ public class UserInformation implements Serializable {
 
             StaticUserInformation.password = user.getPassword();
             userInfo.setPassword(user.getPassword());
-            // Tag related field
+            // Tag related field if problem (new ArrayList<>(List.of("Default"));
             userInfo.setTaskTag(user.getTaskTag());
 
             //time

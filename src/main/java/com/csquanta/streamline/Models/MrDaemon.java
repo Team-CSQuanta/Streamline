@@ -47,7 +47,7 @@ public class MrDaemon {
                 }
 
                 // Checking whether user's health is Zero or not
-                if (userInfo.getUserHealth()==0 && ChallengeUI.challengeUI.getChallengeMode()){
+                if (userInfo.getUserHealth()==0){
                     Platform.runLater(() ->{
 
                         ChallengeUI.challengeUI.monsterAcquisition();
