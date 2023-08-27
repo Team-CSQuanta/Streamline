@@ -20,7 +20,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 
 import javax.imageio.ImageIO;
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -111,6 +113,7 @@ public class ChallengeRequestController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
 
         String receiverEmail = ChallengeUI.challengeUI.getRequestSenderEmail();
         String responseMessage = "Your Challenge has been accepted!";

@@ -6,9 +6,11 @@ public class ChallengeResponse extends Message implements Serializable{
     private  String responseMessage;
     private boolean accepted;
 
-    public ChallengeResponse(String from, String to,String responseMessage ) {
+
+    public ChallengeResponse(String from, String to,String responseMessage) {
         super(MessageType.CHALLENGE_RESPONSE, from, to);
         this.responseMessage = responseMessage;
+
     }
 
     public boolean isAccepted() {
@@ -26,4 +28,6 @@ public class ChallengeResponse extends Message implements Serializable{
     public void setResponseMessage(String responseMessage) {
         this.responseMessage = responseMessage;
     }
+
+
 }

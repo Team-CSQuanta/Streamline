@@ -6,9 +6,11 @@ public class ChallengeUpdate extends Message implements Serializable {
 
     String title;
 
+
     public ChallengeUpdate( String from, String to, String title) {
         super(MessageType.CHALLENGE_UPDATE, from, to);
         this.title = title;
+
     }
 
     public String getTitle() {
@@ -18,4 +20,6 @@ public class ChallengeUpdate extends Message implements Serializable {
     public void setTitle(String title) {
         this.title = title;
     }
+
+
 }
