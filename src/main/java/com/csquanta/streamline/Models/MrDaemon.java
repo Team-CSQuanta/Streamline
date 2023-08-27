@@ -1,5 +1,7 @@
 package com.csquanta.streamline.Models;
 
+import javafx.application.Platform;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -46,7 +48,10 @@ public class MrDaemon {
 
                 // Checking whether user's health is Zero or not
                 if (userInfo.getUserHealth()==0 && ChallengeUI.challengeUI.getChallengeMode()){
-                    
+                    Platform.runLater(() ->{
+
+                        ChallengeUI.challengeUI.monsterAcquisition();
+                    });
                 }
 
 
