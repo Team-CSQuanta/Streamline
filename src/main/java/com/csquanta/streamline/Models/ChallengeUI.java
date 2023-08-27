@@ -13,10 +13,13 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 
+import javax.swing.*;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Random;
 
 import static com.csquanta.streamline.Models.UserInformation.userInfo;
 
@@ -259,6 +262,33 @@ public class ChallengeUI {
             monsterInChallengeController.setMonsterHealthRemaining(1.0  -deductibleHealth);
         });
 
+    }
+    public void monsterAcquisition(){
+        Random randomChoice = new Random();
+        Random randomItemPicker = new Random();
+        switch (randomChoice.nextInt(4)) {
+            case 0 -> {
+                int armorBoughtListSize = ShopController.shop.getBoughtArmorList().size();
+                ArrayList<Item> armorBoughtList = new ArrayList<>(ShopController.shop.getBoughtArmorList());
+                ShopController.shop.removeArmorFromBoughtList(armorBoughtList.get(randomItemPicker.nextInt(armorBoughtListSize)));
+            }
+            case 1 -> {
+                int headWearBoughtSize = ShopController.shop.getBoughtHeadWearList().size();
+                ArrayList<Item> headWearBoughtList = new ArrayList<>(ShopController.shop.getBoughtHeadWearList());
+                ShopController.shop.removeHeadWearFromBoughtList(headWearBoughtList.get(randomItemPicker.nextInt(headWearBoughtSize)));
+            }
+            case 2 -> {
+                int petListSize = ShopController.shop.getBoughtPetList().size();
+                ArrayList<Item> petBoughtList = new ArrayList<>(ShopController.shop.getBoughtPetList());
+                ShopController.shop.removePetFromBoughtList(petBoughtList.get(randomItemPicker.nextInt(petListSize)));
+            }
+            case 3 -> {
+                int bgListSize = ShopController.shop.getBoughtBackgroundList().size();
+                ArrayList<Item> bgBoughtList = new ArrayList<>(ShopController.shop.getBoughtBackgroundList());
+                ShopController.shop.removeBackgroundFrommBoughtList(bgBoughtList.get(randomItemPicker.nextInt(bgListSize)));
+            }
+            default -> System.out.println("In  default mode");
+        }
     }
 
 
