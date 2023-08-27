@@ -88,8 +88,12 @@ public class SettingsController implements Initializable , Serializable {
     String taskTags = taskTagCreator.getText();
         String[] newTags = taskTags.split(",");
         for (String item : newTags) {
-            if (!userInfo.getTaskTag().contains(item.trim())) {
+            if(userInfo.getTaskTag() == null){
                 userInfo.getTaskTag().add(item.trim());
+            }
+            else{
+                if((!userInfo.getTaskTag().contains(item.trim())) )
+                    userInfo.getTaskTag().add(item.trim());
             }
         }
 
