@@ -137,7 +137,7 @@ ChallengeCreatorController challengeCreatorController= new ChallengeCreatorContr
             // For Challenge log
             if(ChallengeUI.challengeUI.getChallengeMode()){
 
-                ChallengeUI.challengeUI.deductMonsterHealth(task);
+//                ChallengeUI.challengeUI.deductMonsterHealth(task);
                 ChallengeUpdate challengeUpdate = new ChallengeUpdate(userInfo.getEmail(), ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.getParticipantsEmail(),task.getTaskTitle());
 
 
