@@ -6,11 +6,13 @@ public class Message implements Serializable {
     private MessageType messageType;
     private String from;
     private String to;
+   // private byte[] imageData;
 
     public Message(MessageType messageType, String from, String to) {
         this.messageType = messageType;
         this.from = from;
         this.to = to;
+
     }
 
     public MessageType getMessageType() {
@@ -36,6 +38,8 @@ public class Message implements Serializable {
     public void setTo(String to) {
         this.to = to;
     }
+
+
 }
 
 

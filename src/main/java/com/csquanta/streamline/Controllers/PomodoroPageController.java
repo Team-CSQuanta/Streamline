@@ -24,7 +24,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -38,6 +38,9 @@ public class PomodoroPageController implements Initializable {
 
     @FXML
     private ImageView exitFromSession;
+
+    public PomodoroPageController() throws FileNotFoundException {
+    }
 
     @FXML
     void exitBtnClicked(MouseEvent event) {
@@ -133,9 +136,15 @@ ChallengeCreatorController challengeCreatorController= new ChallengeCreatorContr
 
             // For Challenge log
             if(ChallengeUI.challengeUI.getChallengeMode()){
+
                 ChallengeUI.challengeUI.deductMonsterHealth(task);
                 ChallengeUpdate challengeUpdate = new ChallengeUpdate(userInfo.getEmail(), ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.getParticipantsEmail(),task.getTaskTitle());
-                ChallengeTaskLog challengeTask = new ChallengeTaskLog(userInfo.getDisplayName(), userInfo.getEmail(), task.getTaskTitle());
+
+
+
+                ChallengeUpdate challengeUpdate = new ChallengeUpdate(userInfo.getEmail(), ChallengeParticipantsInfo.challengeParticipantsInfo.getParticipantsEmail(),task.getTaskTitle());
+
+                //ChallengeTaskLog challengeTask = new ChallengeTaskLog(userInfo.getDisplayName(), userInfo.getEmail(), task.getTaskTitle());
 
                 ChallengeTaskLog.taskLog.getChallengeTaskLogs().add(challengeTask);
                 networkUtil.write(challengeUpdate);

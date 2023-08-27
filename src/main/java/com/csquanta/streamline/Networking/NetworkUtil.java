@@ -30,6 +30,23 @@ public class NetworkUtil {
         oos.writeUnshared(o);
     }
 
+//    // Method to send image data in chunks
+//    public void writeChunk(byte[] data, int length) throws IOException {
+//        oos.writeInt(length);
+//        oos.write(data, 0, length);
+//        oos.flush();
+//    }
+//
+//    // Method to read image data chunks
+//    public int readChunk(byte[] buffer) throws IOException {
+//        int length = ois.readInt();
+//        if (length == -1) {
+//            return -1;
+//        }
+//        ois.readFully(buffer, 0, length);
+//        return length;
+//    }
+
 
     public void closeConnection() throws IOException {
         ois.close();

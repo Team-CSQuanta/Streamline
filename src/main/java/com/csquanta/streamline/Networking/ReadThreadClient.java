@@ -10,6 +10,7 @@ import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -36,7 +37,12 @@ public class ReadThreadClient extends Thread {
             while (true) {
                 Message receivedMessage = (Message) networkUtil.read();
                 String sender = receivedMessage.getFrom();  // Challenge sender email
+
                 ChallengeInfoWhenParticipated.challengeInfoWhenParticipated.setParticipantsEmail(sender);
+
+              //  ChallengeParticipantsInfo.challengeParticipantsInfo.setParticipantsEmail(sender);
+
+
                 if (receivedMessage.getMessageType() == MessageType.CHALLENGE) {
 
                     String pomodoroSession = ((ChallengeMessage) receivedMessage).getChallengeTaskPomodoroSession();
@@ -45,7 +51,12 @@ public class ReadThreadClient extends Thread {
                     String taskTag = ((ChallengeMessage) receivedMessage).getChallengeTaskTag();
                     String monsterName = ((ChallengeMessage) receivedMessage).getMonstersName();
                     String taskTitle = ((ChallengeMessage) receivedMessage).getTaskTitle();
-                    String challengeSenderName = ((ChallengeMessage) receivedMessage).getChallengeRequestSenderName();
+
+                   // String challengeSenderName = ((ChallengeMessage) receivedMessage).getChallengeRequestSenderName();
+
+                    byte[] imageData = ((ChallengeMessage) receivedMessage).getImageData();
+
+
                     ChallengeUI.challengeUI.setRequestSenderEmail(sender);
                     System.out.println("in read thread client "+ ChallengeUI.challengeUI.getRequestSenderEmail());
 
@@ -121,6 +132,14 @@ public class ReadThreadClient extends Thread {
                         }
 
                     });
+
+                    String imagePath = "received_profile_image" + ".png";
+                    try (FileOutputStream imageOutputStream = new FileOutputStream(imagePath)) {
+                        imageOutputStream.write(imageData);
+                        System.out.println("Image received and saved as " + imagePath);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }  else if (receivedMessage.getMessageType() == MessageType.CHALLENGE_RESPONSE ) {
                     ChallengeUI.challengeUI.setPendingStatus(false);
                     ChallengeUI.challengeUI.setChallengeMode(true);
