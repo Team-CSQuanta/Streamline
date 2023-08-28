@@ -1,13 +1,12 @@
 package com.csquanta.streamline.Models;
-import com.csquanta.streamline.Controllers.ChallengeController;
+
 import com.csquanta.streamline.Controllers.HeaderController;
 import com.csquanta.streamline.Controllers.ProfileViewController;
+import com.csquanta.streamline.Networking.ChallengeInfoWhenParticipated;
 import javafx.scene.image.Image;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
 
 import static java.util.Objects.requireNonNull;
@@ -17,10 +16,19 @@ public class UserInformation implements Serializable {
     private static final long serialVersionUID = -7282062709951824673L;
     public static UserInformation userInfo = new UserInformation();
 
-    // Challenge Related fields
+    //Consistency checker
+    private ArrayList<Integer> consistencyTracker;
+
+    public ArrayList<Integer> getConsistencyTracker() {
+        return consistencyTracker;
+    }
+
+    public void setConsistencyTracker(ArrayList<Integer> consistencyTracker) {
+        this.consistencyTracker = consistencyTracker;
+    }
 
 
-    // Take break related field
+// Take break related field
 
     private boolean restMode;
 
@@ -33,7 +41,7 @@ public class UserInformation implements Serializable {
     }
     // Task related field
 
-    private ArrayList<String> taskTag = new ArrayList<>(List.of("Default"));
+    private ArrayList<String> taskTag;
 
 
     public ArrayList<String> getTaskTag() {
@@ -158,37 +166,56 @@ public class UserInformation implements Serializable {
 
 
     public void deductHealthPointsBasedOnTasks(ArrayList<Task> incompleteTasks) {
+//        int maxDeductionPercentage = 40; // Maximum percentage of health points that can be deducted
+//
+//        int totalIncompleteTasks = incompleteTasks.size();
+//        Random random = new Random();
+//
+//        int deductionPercentage = Math.min(maxDeductionPercentage, totalIncompleteTasks * 10);
+//
+//        int randomFactor = 50;
+//
+//        if (totalIncompleteTasks > 0) {
+//            randomFactor = random.nextInt(100);
+//        }
+//        deductionPercentage = deductionPercentage + randomFactor;
+//
+//        int deductionValue = (int) Math.round(userInfo.userHealth * deductionPercentage / 100.0);
+//        int healthAfterDeduction = userInfo.userHealth - deductionValue;
+//        userInfo.userHealth = healthAfterDeduction;
         int maxDeductionPercentage = 40; // Maximum percentage of health points that can be deducted
 
         int totalIncompleteTasks = incompleteTasks.size();
-        Random random = new Random();
+
 
         int deductionPercentage = Math.min(maxDeductionPercentage, totalIncompleteTasks * 10);
 
-        int randomFactor = 0;
+//        int deductionValue = (int) Math.round(userInfo.userHealth  * deductionPercentage / 100.0);
 
-        if (totalIncompleteTasks > 0) {
-            randomFactor = random.nextInt(11);
-        }
-        deductionPercentage = deductionPercentage + randomFactor;
+        if((userInfo.userHealth - deductionPercentage) > 0)
+            userInfo.userHealth = userInfo.userHealth  - deductionPercentage;
+        else
+            userInfo.userHealth = 0;
+//        ProfileViewController profileViewController = HeaderController.getController();
+//        if (profileViewController != null) {
+//            profileViewController.updateHealthProgress(Health);
+//        }
 
-        int deductionValue = (int) Math.round(userInfo.userHealth * deductionPercentage / 100.0);
-        int healthAfterDeduction = userInfo.userHealth - deductionValue;
-        userInfo.userHealth = healthAfterDeduction;
 
+        System.out.println("Deducted " + deductionPercentage + " health points due to incomplete tasks.");
 //        ProfileViewController profileViewController = HeaderController.getController();
 //        if (profileViewController != null) {
 //            profileViewController.updateHealthProgress(healthAfterDeduction);
 //        }
 
-        System.out.println("Deducted " + deductionValue + " health points due to incomplete tasks.");
-        System.out.println("Health After Deduction: " + healthAfterDeduction);
+        System.out.println("Deducted " + deductionPercentage + " health points due to incomplete tasks.");
+        System.out.println("Health After Deduction: " + userInfo.userHealth);
     }
 
     public UserInformation() {
     }
 
-    public UserInformation(String avatarImageBg, String avatarImageHead, String avatarImageHair, String avatarImageHeadGear, String avatarImageBody, String avatarImageArmor, String avatarImagePet, Double totalGoldCoins, Integer userHealth, String userName, String displayName,String email, String password,String pomodoroSessionTime,String breakTime, ArrayList<String> tags,boolean mode) {
+    public UserInformation(String avatarImageBg, String avatarImageHead, String avatarImageHair, String avatarImageHeadGear, String avatarImageBody, String avatarImageArmor, String avatarImagePet, Double totalGoldCoins, Integer userHealth, String userName, String displayName,String email, String password,String pomodoroSessionTime,String breakTime, ArrayList<String> tags,boolean mode, ArrayList<Integer> consistencyTracker) {
         this.avatarImageBg = avatarImageBg;
         this.avatarImageHead = avatarImageHead;
         this.avatarImageHair = avatarImageHair;
@@ -206,6 +233,7 @@ public class UserInformation implements Serializable {
         this.BreakTime = breakTime;
         this.taskTag = tags;
         this.restMode = mode;
+        this.consistencyTracker = consistencyTracker;
     }
     // Avatar related getter & setter
     public String getAvatarImageBg() {
@@ -266,7 +294,7 @@ public class UserInformation implements Serializable {
 
     public static void serializeUserInfo(){
         try(ObjectOutputStream objOStream = new ObjectOutputStream(new FileOutputStream("User_Information_file"))){
-            UserInformation userInformation = new UserInformation(userInfo.getAvatarImageBg(), userInfo.getAvatarImageHead(), userInfo.getAvatarImageHair(), userInfo.getAvatarImageHeadGear(), userInfo.getAvatarImageBody(), userInfo.getAvatarImageArmor(), userInfo.getAvatarImagePet(), userInfo.totalGoldCoins, userInfo.getUserHealth(),userInfo.getUserName(), userInfo.getDisplayName(), userInfo.getEmail(), userInfo.getPassword(),userInfo.getPomodoroSessionTime(),userInfo.getBreakTime(), userInfo.taskTag, userInfo.restMode);
+            UserInformation userInformation = new UserInformation(userInfo.getAvatarImageBg(), userInfo.getAvatarImageHead(), userInfo.getAvatarImageHair(), userInfo.getAvatarImageHeadGear(), userInfo.getAvatarImageBody(), userInfo.getAvatarImageArmor(), userInfo.getAvatarImagePet(), userInfo.totalGoldCoins, userInfo.getUserHealth(),userInfo.getUserName(), userInfo.getDisplayName(), userInfo.getEmail(), userInfo.getPassword(),userInfo.getPomodoroSessionTime(),userInfo.getBreakTime(), userInfo.taskTag, userInfo.restMode, userInfo.consistencyTracker);
             objOStream.writeObject(userInformation);
         }catch (Exception e){
             System.out.println("Serialization failed");
@@ -277,7 +305,10 @@ public class UserInformation implements Serializable {
             UserInformation user = (UserInformation) objIStream.readObject();
             // User health point
             StaticUserInformation.userHealth = user.getUserHealth();
-            userInfo.setUserHealth(userInfo.getUserHealth());
+            userInfo.setUserHealth(user.getUserHealth());
+
+            // consistency tracker
+            userInfo.consistencyTracker = user.consistencyTracker;
 
             // Total points
             StaticUserInformation.totalGoldCoins = user.getTotalGoldCoins();
